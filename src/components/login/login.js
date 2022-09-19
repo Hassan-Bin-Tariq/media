@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom"
 
 const Login = ({ setLoginUser }) => {
 
+    const Teachers_emails = ["m.habib@nu.edu.pk", "usman.joyia@nu.edu.pk", "usman.ghous@nu.edu.pk"];
+
     const history = useHistory()
     //asd
     const [user, setUser] = useState({
@@ -24,13 +26,19 @@ const Login = ({ setLoginUser }) => {
             .then(res => {
                 alert(res.data.message)
                 setLoginUser(res.data.user)
-                history.push("/")
+                if(Teachers_emails.includes(res.data.user.email))
+                {
+                    history.push("/teacherPortal")
+                }
+                else{
+                    history.push("/studentPortal")
+                }
             })
     }
 
     return (
         <div className="login">
-            {console.log(user)}
+            {/* //{console.log(user)} */}
             <h1>Login</h1>
             <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="en your Email"></input>
             <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter your Password" ></input>
