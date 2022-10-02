@@ -7,7 +7,6 @@ import { useState } from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 
 const TeacherHomepage = (user) => {
-   
     // const history = useHistory()
     var teachName = user.setLoginUser.name
     var teachEmail = user.setLoginUser.email
