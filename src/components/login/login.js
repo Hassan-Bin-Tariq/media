@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom"
 const Login = ({ setLoginUser }) => {
 
     const Teachers_emails = ["m.habib@nu.edu.pk", "usman.joyia@nu.edu.pk", "usman.ghous@nu.edu.pk"];
+    const MentorEmail = "tahir@nu.edu.pk";
+
 
     const history = useHistory()
     //asd
@@ -29,6 +31,10 @@ const Login = ({ setLoginUser }) => {
                 if(Teachers_emails.includes(res.data.user.email))
                 {
                     history.push("/teacherPortal")
+                }
+                else if (res.data.user.email === MentorEmail)
+                {
+                    history.push("/mentorPortal")
                 }
                 else{
                     history.push("/studentPortal")

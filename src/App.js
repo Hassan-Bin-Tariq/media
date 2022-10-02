@@ -1,5 +1,6 @@
 import './App.css';
 import TeacherHomepage from "./components/homepage/Teacherhomepage"
+import MentorHomepage from "./components/homepage/Mentorhomepage"
 import Login from "./components/login/login"
 import Register from "./components/register/register"
 import StudentHomepage from "./components/homepage/Studenthomepage"
@@ -24,6 +25,13 @@ function App() {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
             }
           </Route>
+          
+          <Route exact path="/mentorPortal">  
+            {
+              user && user._id ? <MentorHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
+            }
+          </Route>
+
           <Route path="/login">
             <Login setLoginUser={setLoginUser}/>s
           </Route>
