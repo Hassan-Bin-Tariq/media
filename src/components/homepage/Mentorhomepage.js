@@ -17,7 +17,6 @@ const MentorHomepage = (user) => {
         })
     }
 
-
     return (
         <div className="Mentorhomepage">  
             <h1>Hello {Name}</h1>
