@@ -6,13 +6,11 @@ import Register from "./components/register/register"
 import StudentHomepage from "./components/homepage/Studenthomepage"
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import { useState } from 'react';
-//hssa'
-//asd
+//comment from tehreem
 function App() {
 
   const [ user, setLoginUser] = useState({})
 
-  ///hassan is good
   return (
     <div className="App">
       <Router>
