@@ -5,7 +5,10 @@ import { useHistory } from "react-router-dom"
 
 const Login = ({ setLoginUser }) => {
 
-    const Teachers_emails = ["m.habib@nu.edu.pk", "usman.joyia@nu.edu.pk", "usman.ghous@nu.edu.pk"];
+    const Teachers_emails = ["m.habib@nu.edu.pk", "usman.joyia@nu.edu.pk", "usman.ghous@nu.edu.pk",
+    "tehreemfatima71@gmail.com",
+    "hareemalimalik@gmail.com",
+    "hassan.ibnetariq06@gmail.com"];
     const MentorEmail = "tahir@nu.edu.pk";
 
 

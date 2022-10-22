@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./register.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+import emailjs from "emailjs-com";
 
 const Register = () => {
 
@@ -22,12 +23,23 @@ const Register = () => {
         })
     }
 
+    const sendEmail = (name,email) => {
+
+        emailjs.send("service_xsod6da","template_01r4u37",{
+            to_name: name,
+            message: "Hello From team mediaScape",
+            to_email: email,
+            reply_to: "mediascape0@gmail.com",
+            },"nv_Jq-1YJR57e3z-E");
+    }
+
     const register = () => {
         const { name, email, password, reEnterPassword } = user
         if( name && email && password && (password === reEnterPassword)){
             axios.post("http://localhost:9002/register", user)
             .then( 
                 res => alert(res.data.message),
+                sendEmail(name,email),
                 history.push("./login")
             )
         }else {
