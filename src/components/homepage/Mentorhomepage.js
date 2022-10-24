@@ -3,12 +3,18 @@ import "./Mentorhomepage.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import $ from "jquery";
 import emailjs from "emailjs-com";
+import Modal from 'react-bootstrap/Modal';
+import { useState } from "react";
+import {Button} from "react-bootstrap";
 
 const MentorHomepage = (user) => {
     const history = useHistory()
     var Name = user.setLoginUser.name
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [isOpen, setIsOpen] = useState(false);
     //console.log(Name)
 
     var i = 0;
@@ -27,17 +33,78 @@ const MentorHomepage = (user) => {
         var Teacheremail = eventts[str1].teacherEmail;
         var TeacherName = eventts[str1].teacherName;
         var EventTitle = eventts[str1].title;
-
+        var EventDate= eventts[str1].date;
         emailjs.send("service_xsod6da","template_x40k3wu",{
             to_name: TeacherName,
-            message: "accepted by mentor",
+            event_subject: "Request Status for event: " + EventTitle,
+            message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
+            " has been approved by Mentor!",
             reply_to: "mediascape0@gmail.com",
             to_email: Teacheremail,
-            event_name: EventTitle,
         },"nv_Jq-1YJR57e3z-E");
-        //alert("Sending mail!"+event.target.item)
+
+        alert("Acceptance e-mail sent to requesting party!" );
 
     }
+    //send mail to teacher in case of Rejected Event Request
+    function sendRejection(event)
+    {
+        console.log(event.target.id)
+        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        var Teacheremail = eventts[str1].teacherEmail;
+        var TeacherName = eventts[str1].teacherName;
+        var EventTitle = eventts[str1].title;
+        var EventDate= eventts[str1].date;
+
+        emailjs.send("service_xsod6da","template_x40k3wu",{
+          to_name: TeacherName,
+          event_subject: "Request Status for event: " + EventTitle,
+          message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
+          " has been rejected by Mentor.",
+          reply_to: "mediascape0@gmail.com",
+          to_email: Teacheremail,
+      },"nv_Jq-1YJR57e3z-E");
+       alert("Rejection e-mail sent to requesting party!" );
+    }
+    
+    // clickable MODAL for check details button
+    function checkDetails(event) {
+        console.log(event.target.id)
+        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        var Teacheremail = eventts[str1].teacherEmail;
+        var TeacherName = eventts[str1].teacherName;
+        var EventTitle = eventts[str1].title;
+        
+      }
+    /*function checkDetails(event)
+    {
+        console.log(event.target.id)
+        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        var Teacheremail = eventts[str1].teacherEmail;
+        var TeacherName = eventts[str1].teacherName;
+        var EventTitle = eventts[str1].title;
+        // the modal
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Event Details</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+    }*/
     // $(document).on('click', '.mybtn', function(){
     //     alert( $(this).attr('id') );
     //     // Will give the id value for the clicked button
@@ -71,20 +138,24 @@ const MentorHomepage = (user) => {
         let btn = document.createElement('a');
         btn.innerText = "check details";
         btn.className = 'btn btn-primary';
-        btn.href="https://www.google.com/"
+        btn.id = "id"+i;
+        btn.class = 'mybtn';
+        //btn.onClick={handleShow};
+        btn.addEventListener("click", checkDetails, false);
 
         let Acceptbtn = document.createElement('a');
         Acceptbtn.innerText = "Accept";
         Acceptbtn.className = 'btn btn-success';
         Acceptbtn.id = "id"+i;
         Acceptbtn.class = 'mybtn';
-        //Acceptbtn.onClick = {sendMail};
         Acceptbtn.addEventListener("click", sendMail, false);
 
         let Rejectbtn = document.createElement('a');
-        Rejectbtn.innerText = "Reject";
+        Rejectbtn.innerText = "Rejected";
         Rejectbtn.className = 'btn btn-danger';
-        Rejectbtn.href="https://www.google.com/"
+        Rejectbtn.id = "id"+i;
+        Rejectbtn.class = 'mybtn';
+        Rejectbtn.addEventListener("click", sendRejection, false);
 
 
         cardBody.appendChild(title);
