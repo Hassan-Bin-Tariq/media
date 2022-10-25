@@ -47,7 +47,7 @@ const TeacherHomepage = (user) => {
                 //history.push("./login")
             )
         }else {
-            alert("invlid input")
+            alert("invalid input")
         }
         alert("Submited")
     }

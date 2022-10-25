@@ -1,4 +1,5 @@
 import React from "react"
+//import CheckDetails from "./components/checkDetails"
 import "./Mentorhomepage.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
@@ -11,9 +12,7 @@ import {Button} from "react-bootstrap";
 const MentorHomepage = (user) => {
     const history = useHistory()
     var Name = user.setLoginUser.name
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    
     const [isOpen, setIsOpen] = useState(false);
     //console.log(Name)
 
@@ -66,16 +65,43 @@ const MentorHomepage = (user) => {
       },"nv_Jq-1YJR57e3z-E");
        alert("Rejection e-mail sent to requesting party!" );
     }
+    const CheckDetails = (event) => {
+    console.log(event.target.id)
+    var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+    var Teacheremail = eventts[str1].teacherEmail;
+    var TeacherName = eventts[str1].teacherName;
+    var EventTitle = eventts[str1].title;
+    var EventDescription = eventts[str1].description;
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    alert("Dw, im working :)");
+    return (
+        <>
+        <Button variant="primary" onClick={handleShow}>
+            Launch demo modal
+        </Button>
+
+        <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+            <Modal.Title>{EventTitle}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{EventDescription}</Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Reject
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+                Accept
+            </Button>
+            </Modal.Footer>
+        </Modal>
+        </>
+    );
+
+}
     
     // clickable MODAL for check details button
-    function checkDetails(event) {
-        console.log(event.target.id)
-        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
-        var Teacheremail = eventts[str1].teacherEmail;
-        var TeacherName = eventts[str1].teacherName;
-        var EventTitle = eventts[str1].title;
-        
-      }
     /*function checkDetails(event)
     {
         console.log(event.target.id)
@@ -83,27 +109,10 @@ const MentorHomepage = (user) => {
         var Teacheremail = eventts[str1].teacherEmail;
         var TeacherName = eventts[str1].teacherName;
         var EventTitle = eventts[str1].title;
+        
+        alert("Yes, Check Details is working just fine :(")
         // the modal
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Event Details</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <div class="modal-body">
-                    
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-
-                </div>
-            </div>
-        </div>
-
+       
     }*/
     // $(document).on('click', '.mybtn', function(){
     //     alert( $(this).attr('id') );
@@ -135,13 +144,13 @@ const MentorHomepage = (user) => {
         description.innerText = item.description;
         description.className = 'card-text';
 
-        let btn = document.createElement('a');
-        btn.innerText = "check details";
-        btn.className = 'btn btn-primary';
-        btn.id = "id"+i;
-        btn.class = 'mybtn';
-        //btn.onClick={handleShow};
-        btn.addEventListener("click", checkDetails, false);
+        let checkDetailsbtn = document.createElement('a');
+        checkDetailsbtn.innerText = "check details";
+        checkDetailsbtn.className = 'btn btn-primary';
+        checkDetailsbtn.id = "id"+i;
+        checkDetailsbtn.class = 'mybtn';
+        //checkDetailsbtn.onClick={path:'/CheckDetails'};
+        checkDetailsbtn.addEventListener("click", CheckDetails, false);
 
         let Acceptbtn = document.createElement('a');
         Acceptbtn.innerText = "Accept";
@@ -151,7 +160,7 @@ const MentorHomepage = (user) => {
         Acceptbtn.addEventListener("click", sendMail, false);
 
         let Rejectbtn = document.createElement('a');
-        Rejectbtn.innerText = "Rejected";
+        Rejectbtn.innerText = "Reject";
         Rejectbtn.className = 'btn btn-danger';
         Rejectbtn.id = "id"+i;
         Rejectbtn.class = 'mybtn';
@@ -161,7 +170,7 @@ const MentorHomepage = (user) => {
         cardBody.appendChild(title);
         cardBody.appendChild(description);
         cardBody.appendChild(date);
-        cardBody.appendChild(btn);
+        cardBody.appendChild(checkDetailsbtn);
         cardBody.appendChild(Acceptbtn);
         cardBody.appendChild(Rejectbtn);
 
