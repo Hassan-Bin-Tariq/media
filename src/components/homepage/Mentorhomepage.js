@@ -1,5 +1,4 @@
 import React from "react"
-//import CheckDetails from "./components/checkDetails"
 import "./Mentorhomepage.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
@@ -9,13 +8,16 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
 import {Button} from "react-bootstrap";
 
+var EventTitle;
+var EventDescription;
+
 const MentorHomepage = (user) => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const history = useHistory()
     var Name = user.setLoginUser.name
-    
-    const [isOpen, setIsOpen] = useState(false);
-    //console.log(Name)
-
     var i = 0;
     var eventts;
     axios.post("http://localhost:9002/GetEventRequest", )
@@ -24,7 +26,6 @@ const MentorHomepage = (user) => {
         eventts = res.data.event;
         console.log(eventts)
     })
-
     function sendMail(event)
     {
         console.log(event.target.id)
@@ -65,59 +66,16 @@ const MentorHomepage = (user) => {
       },"nv_Jq-1YJR57e3z-E");
        alert("Rejection e-mail sent to requesting party!" );
     }
-    const CheckDetails = (event) => {
-    console.log(event.target.id)
-    var str1 = event.target.id.replace ( /[^\d.]/g, '' );
-    var Teacheremail = eventts[str1].teacherEmail;
-    var TeacherName = eventts[str1].teacherName;
-    var EventTitle = eventts[str1].title;
-    var EventDescription = eventts[str1].description;
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    alert("Dw, im working :)");
-    return (
-        <>
-        <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
-        </Button>
+    function doNothing(){
 
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-            <Modal.Title>{EventTitle}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>{EventDescription}</Modal.Body>
-            <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Reject
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-                Accept
-            </Button>
-            </Modal.Footer>
-        </Modal>
-        </>
-    );
-
-}
-    
-    // clickable MODAL for check details button
-    /*function checkDetails(event)
-    {
+    }
+    function CheckDetails  (event) {
         console.log(event.target.id)
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
-        var Teacheremail = eventts[str1].teacherEmail;
-        var TeacherName = eventts[str1].teacherName;
-        var EventTitle = eventts[str1].title;
-        
-        alert("Yes, Check Details is working just fine :(")
-        // the modal
-       
-    }*/
-    // $(document).on('click', '.mybtn', function(){
-    //     alert( $(this).attr('id') );
-    //     // Will give the id value for the clicked button
-    // });
+        EventTitle = eventts[str1].title;
+        EventDescription = eventts[str1].description;       
+        handleShow();
+    }
     function myFunction(item) {
         console.log(item.teacherEmail)
 
@@ -181,8 +139,6 @@ const MentorHomepage = (user) => {
         
     }
 
-
-
     const GetEvents = () => {
         eventts.forEach(myFunction);
         var elem = document.getElementById('geteventbtn');
@@ -190,11 +146,6 @@ const MentorHomepage = (user) => {
 
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
-        //container.Acceptbtn.onClick(sendMail);
-    }
-
-    const removeElement = () => {
-        history.push("./login")
     }
 
     return (
@@ -202,10 +153,34 @@ const MentorHomepage = (user) => {
         <div className="Mentorhomepage" id="hassan">  
             <h1>Hello {Name}</h1>
             
-            <div className="button" onClick={removeElement}>Logout</div>
+            <div className="button" onClick={() => history.push("./login")}>Logout</div>
             <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
 
             <div id="card-container"></div>
+            
+            {
+                show && <div id="Modal-container2">
+                    <h1 className="greeting">
+                        <>
+                            <Modal show = {show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                <Modal.Title>{EventTitle}</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>{EventDescription}</Modal.Body>
+                                <Modal.Footer>
+                                <Button variant="secondary" onClick={doNothing}>
+                                    Reject
+                                </Button>
+                                <Button variant="primary" onClick={doNothing}>
+                                    Accept
+                                </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </>
+                    </h1>
+                </div>
+            }
+            
         </div> 
     )
 }
