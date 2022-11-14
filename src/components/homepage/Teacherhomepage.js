@@ -23,7 +23,8 @@ const TeacherHomepage = (user) => {
         description:"",
         date:"",
         time: "",
-        venue: ""
+        venue: "",
+        status: "Not Checked"
     })
 
     const handleChange = e => {
@@ -34,13 +35,10 @@ const TeacherHomepage = (user) => {
         })
     }
 
-
-
-
     const SubmitEvent = () => {
-        const { title,teacherName,teacherEmail,teacherID,description,date,time,venue } = event
+        const { title,teacherName,teacherEmail,teacherID,description,date,time,venue,status } = event
         // alert(teacherName)
-        if(title && teacherName && teacherEmail && teacherID && description && date && time && venue){
+        if(title && teacherName && teacherEmail && teacherID && description && date && time && venue && status){
             axios.post("http://localhost:9002/SendEventRequest", event)
             .then( 
                 res => alert(res.data.message),

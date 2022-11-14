@@ -28,6 +28,13 @@ const MentorHomepage = (user) => {
     })
     function sendMail(event)
     {
+        axios.post("http://localhost:9002/StatusAccept" ) //changing status to accepted in DB
+        .then(res => {
+            //alert(res.data.message)
+            eventts = res.data.event;
+            console.log(eventts)
+        })
+
         console.log(event.target.id)
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var Teacheremail = eventts[str1].teacherEmail;
@@ -47,8 +54,16 @@ const MentorHomepage = (user) => {
 
     }
     //send mail to teacher in case of Rejected Event Request
-    function sendRejection(event)
+    function sendRejection(event) 
     {
+        axios.post("http://localhost:9002/StatusReject" ) //changing status to accepted in DB
+        .then(res => {
+            //alert(res.data.message)
+            eventts = res.data.event;
+            console.log(eventts)
+        })
+
+        
         console.log(event.target.id)
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var Teacheremail = eventts[str1].teacherEmail;
@@ -57,14 +72,14 @@ const MentorHomepage = (user) => {
         var EventDate= eventts[str1].date;
 
         emailjs.send("service_xsod6da","template_x40k3wu",{
-          to_name: TeacherName,
-          event_subject: "Request Status for event: " + EventTitle,
-          message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
-          " has been rejected by Mentor.",
-          reply_to: "mediascape0@gmail.com",
-          to_email: Teacheremail,
-      },"nv_Jq-1YJR57e3z-E");
-       alert("Rejection e-mail sent to requesting party!" );
+            to_name: TeacherName,
+            event_subject: "Request Status for event: " + EventTitle,
+            message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
+            " has been rejected by Mentor.",
+            reply_to: "mediascape0@gmail.com",
+            to_email: Teacheremail,
+        },"nv_Jq-1YJR57e3z-E");
+        alert("Rejection e-mail sent to requesting party!" );
     }
     function doNothing(){
 

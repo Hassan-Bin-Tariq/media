@@ -6,7 +6,7 @@ import emailjs from "emailjs-com";
 
 const Register = () => {
 
-  const history = useHistory()
+const history = useHistory()
 
     const [ user, setUser] = useState({
         name: "",
@@ -47,8 +47,6 @@ const Register = () => {
         }
         
     }
-
-
     return (
         <div className= "register">
             {/* {console.log("User",user)}     */}
