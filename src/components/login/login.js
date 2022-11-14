@@ -5,13 +5,6 @@ import { useHistory } from "react-router-dom"
 
 const Login = ({ setLoginUser }) => {
 
-    const Teachers_emails = ["m.habib@nu.edu.pk", "usman.joyia@nu.edu.pk", "usman.ghous@nu.edu.pk",
-    "tehreemfatima71@gmail.com",
-    "hareemalimalik@gmail.com",
-    "hassan.ibnetariq06@gmail.com"];
-    const MentorEmail = "tahir@nu.edu.pk";
-
-
     const history = useHistory()
     //asd
     const [user, setUser] = useState({
@@ -31,11 +24,11 @@ const Login = ({ setLoginUser }) => {
             .then(res => {
                 alert(res.data.message)
                 setLoginUser(res.data.user)
-                if(Teachers_emails.includes(res.data.user.email))
+                if(res.data.message == "Teacher")
                 {
                     history.push("/teacherPortal")
                 }
-                else if (res.data.user.email === MentorEmail)
+                else if (res.data.message == "Mentor")
                 {
                     history.push("/mentorPortal")
                 }

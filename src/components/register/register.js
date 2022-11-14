@@ -39,7 +39,7 @@ const Register = () => {
             axios.post("http://localhost:9002/register", user)
             .then( 
                 res => alert(res.data.message),
-                sendEmail(name,email),
+                //sendEmail(name,email),
                 history.push("./login")
             )
         }else {
