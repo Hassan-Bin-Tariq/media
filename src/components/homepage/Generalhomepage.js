@@ -7,14 +7,62 @@ import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
+var Mondayslots = [];
+var Tuesdayslots = [];
+var Wednesdayslots = [];
+var Thursdayslots = [];
+var Fridayslots = [];
 
 const GeneralHomepage = (user) => {
+
     const history = useHistory()
     var Name = user.setLoginUser.name
     console.log(Name)
     console.log(user.setLoginUser.email);
-    const [value, setValue] = useState([0, 35]);
-    const handleChange = (val) => setValue(val);
+
+    const [Mondayvalue, setValueMonday] = useState();
+    const [Tuesdayvalue, setValueTuesday] = useState();
+    const [Wednesdayvalue, setValueWednesday] = useState();
+    const [Thursdayvalue, setValueThursday] = useState();
+    const [Fridayvalue, setValueFriday] = useState();
+
+    const MondayhandleChange = (val) => setValueMonday(
+        val,
+        Mondayslots.push(val)  //SETTING THE VALUE AND PUSHING IT IN LIST
+    );
+    const TuesdayhandleChange = (val) => setValueTuesday(
+        val,
+        Tuesdayslots.push(val)
+    );
+    const WednesdayhandleChange = (val) => setValueWednesday(
+        val,
+        Wednesdayslots.push(val)
+    );
+    const ThursdayhandleChange = (val) => setValueThursday(
+        val,
+        Thursdayslots.push(val)
+    );
+    const FridayhandleChange = (val) => setValueFriday(
+        val,
+        Fridayslots.push(val)
+    );
+
+    const SubmitForm = () => {
+        var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
+        console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
+        
+        var Tuesdaysize = (Object.keys(Tuesdayslots).length) - 1;
+        console.log(Tuesdayslots[Tuesdaysize]); 
+
+        var Wednesdaysize = (Object.keys(Wednesdayslots).length) - 1;
+        console.log(Wednesdayslots[Wednesdaysize]); 
+
+        var Thursdaysize = (Object.keys(Thursdayslots).length) - 1;
+        console.log(Thursdayslots[Thursdaysize]); 
+
+        var Fridaysize = (Object.keys(Fridayslots).length) - 1;
+        console.log(Fridayslots[Fridaysize]); 
+    }    
     return (
         /*<div className="Generalhomepage">  
             <h1>Hello {Name}</h1>
@@ -37,7 +85,7 @@ const GeneralHomepage = (user) => {
                                 <tr>
                                     <td>Monday</td>
                                     
-                                    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
+                                    <ToggleButtonGroup type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
                                         <ToggleButton variant="outline-success light" id="tbg-btn-1" value={1}>
                                             8:45 - 10:10
                                         </ToggleButton>
@@ -63,111 +111,116 @@ const GeneralHomepage = (user) => {
                                 </tr>
                                 <tr>
                                     <td>Tuesday</td>
-                                    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-8" value={8}>
+                                    <ToggleButtonGroup type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-8" value={1}>
                                             8:45 - 10:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-9" value={9}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-9" value={2}>
                                             10:15 - 11:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-10" value={10}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-10" value={3}>
                                             11:45 - 1:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-11" value={11}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-11" value={4}>
                                             1:15 - 1:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-12" value={12}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-12" value={5}>
                                             1:45 - 3:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-13" value={13}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-13" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-14" value={14}>
+                                        <ToggleButton variant="danger" id="tbg-btn-14" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
                                 </tr>
                                 <tr>
                                     <td>Wednesday</td>
-                                    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-15" value={15}>
+                                    <ToggleButtonGroup type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-15" value={1}>
                                             8:45 - 10:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-16" value={16}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-16" value={2}>
                                             10:15 - 11:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-17" value={17}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-17" value={3}>
                                             11:45 - 1:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-18" value={18}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-18" value={4}>
                                             1:15 - 1:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-19" value={19}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-19" value={5}>
                                             1:45 - 3:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-20" value={20}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-20" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-21" value={21}>
+                                        <ToggleButton variant="danger" id="tbg-btn-21" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
                                 </tr>
                                 <tr>
                                     <td>Thursday</td>
-                                    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-22" value={22}>
+                                    <ToggleButtonGroup type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-22" value={1}>
                                             8:45 - 10:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-23" value={23}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-23" value={2}>
                                             10:15 - 11:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-24" value={24}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-24" value={3}>
                                             11:45 - 1:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-25" value={25}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-25" value={4}>
                                             1:15 - 1:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-26" value={26}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-26" value={5}>
                                             1:45 - 3:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-27" value={27}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-27" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-28" value={28}>
+                                        <ToggleButton variant="danger" id="tbg-btn-28" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
                                 </tr>
                                 <tr>
                                     <td>Friday</td>
-                                    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-29" value={29}>
+                                    <ToggleButtonGroup type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-29" value={1}>
                                             8:45 - 10:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-30" value={30}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-30" value={2}>
                                             10:15 - 11:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-31" value={31}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-31" value={3}>
                                             11:45 - 1:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-32" value={32}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-32" value={4}>
                                             1:15 - 1:40
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-33" value={33}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-33" value={5}>
                                             1:45 - 3:10
                                         </ToggleButton>
-                                        <ToggleButton variant="outline-success light" id="tbg-btn-34" value={34}>
+                                        <ToggleButton variant="outline-success light" id="tbg-btn-34" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-35" value={35}>
+                                        <ToggleButton variant="danger" id="tbg-btn-35" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
+                                    
                                 </tr>
+                                
                             </tbody>
                     </Table>
             </Row>
+            <Button variant="success btn-block" onClick={SubmitForm}> 
+                                    Submit Form
+            </Button>
             <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
         </Container>
     </>
