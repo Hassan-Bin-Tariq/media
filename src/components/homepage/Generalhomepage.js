@@ -257,5 +257,4 @@ const GeneralHomepage = (user) => {
     </>
     );
 }
-
 export default GeneralHomepage
