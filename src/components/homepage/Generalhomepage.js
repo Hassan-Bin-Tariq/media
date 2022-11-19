@@ -6,19 +6,22 @@ import {Button, Container, Row} from "react-bootstrap"
 import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import axios from "axios"
 
 var Mondayslots = [];
 var Tuesdayslots = [];
 var Wednesdayslots = [];
 var Thursdayslots = [];
 var Fridayslots = [];
+var sub = false;
 
 const GeneralHomepage = (user) => {
 
+    const [zip, setZip] = useState();
     const history = useHistory()
     var Name = user.setLoginUser.name
-    console.log(Name)
-    console.log(user.setLoginUser.email);
+    //console.log(Name)
+    //console.log(user.setLoginUser.email);
 
     const [Mondayvalue, setValueMonday] = useState();
     const [Tuesdayvalue, setValueTuesday] = useState();
@@ -47,21 +50,49 @@ const GeneralHomepage = (user) => {
         Fridayslots.push(val)
     );
 
+    console.log(sub);
+    if (sub === true)
+    {
+        
+        axios.post("http://localhost:9002/addslots",{zip:zip,Email: user.setLoginUser.email}) //SENDING ALL SLOTS AND LOGGED IN USER EMAIL TO BACKEND TO UPDATE HIS SLOTS
+        .then(res => {
+            //alert(res.data.message)
+            // eventts = res.data.event;
+            // console.log(eventts)
+        })
+        sub = false;
+    }
+
     const SubmitForm = () => {
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
-        console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
+        //console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
         
         var Tuesdaysize = (Object.keys(Tuesdayslots).length) - 1;
-        console.log(Tuesdayslots[Tuesdaysize]); 
+        //console.log(Tuesdayslots[Tuesdaysize]); 
 
         var Wednesdaysize = (Object.keys(Wednesdayslots).length) - 1;
-        console.log(Wednesdayslots[Wednesdaysize]); 
+        //console.log(Wednesdayslots[Wednesdaysize]); 
 
         var Thursdaysize = (Object.keys(Thursdayslots).length) - 1;
-        console.log(Thursdayslots[Thursdaysize]); 
+        //console.log(Thursdayslots[Thursdaysize]); 
 
         var Fridaysize = (Object.keys(Fridayslots).length) - 1;
-        console.log(Fridayslots[Fridaysize]); 
+        //console.log(Fridayslots[Fridaysize]); 
+
+        var allSlots = [];
+        allSlots.push( Mondayslots[Mondaysize]);
+        allSlots.push( Tuesdayslots[Tuesdaysize]);
+        allSlots.push( Wednesdayslots[Wednesdaysize]);
+        allSlots.push( Thursdayslots[Thursdaysize]);
+        allSlots.push( Fridayslots[Fridaysize]);
+
+        //console.log(user.setLoginUser.email)
+        //console.log(allSlots)
+
+        //handleChange();
+        sub = true;
+    
+        setZip(allSlots);
     }    
     return (
         /*<div className="Generalhomepage">  
