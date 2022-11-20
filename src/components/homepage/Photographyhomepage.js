@@ -73,7 +73,6 @@ const PhotographyHomepage = (user) => {
         i+=1;
         let container = document.querySelector("#card-container");
         container.appendChild(card);
-       
     }
 
     const GetEvents = () => {

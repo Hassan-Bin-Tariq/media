@@ -22,7 +22,8 @@ const TeacherHomepage = (user) => {
         title: "",
         description:"",
         date:"",
-        time: "",
+        StartTime: "",
+        EndTime: "",
         venue: "",
         status: "Not Checked"
     })
@@ -36,9 +37,9 @@ const TeacherHomepage = (user) => {
     }
 
     const SubmitEvent = () => {
-        const { title,teacherName,teacherEmail,teacherID,description,date,time,venue,status } = event
+        const { title,teacherName,teacherEmail,teacherID,description,date,StartTime,EndTime,venue,status } = event
         // alert(teacherName)
-        if(title && teacherName && teacherEmail && teacherID && description && date && time && venue && status){
+        if(title && teacherName && teacherEmail && teacherID && description && date && StartTime && EndTime && venue && status){
             axios.post("http://localhost:9002/SendEventRequest", event)
             .then( 
                 res => alert(res.data.message),
@@ -72,8 +73,12 @@ const TeacherHomepage = (user) => {
                                 <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
                             </Form.Group>
                             <Form.Group controlId="formBasicTime">
-                                <Form.Label>Event Time</Form.Label>
-                                <Form.Control type="time" name="time" placeholder="Event Time" onChange={handleChange}/>
+                                <Form.Label>Event Start Time</Form.Label>
+                                <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
+                            </Form.Group>
+                            <Form.Group controlId="formBasicTime">
+                                <Form.Label>Event End Time</Form.Label>
+                                <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
                             </Form.Group>
                             <Form.Group controlId="formBasicVenue">
                                 <Form.Label>Event Venue</Form.Label>
