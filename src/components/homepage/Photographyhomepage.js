@@ -3,34 +3,205 @@ import "./Photographyhomepage.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 
-
-
 const PhotographyHomepage = (user) => {
     const history = useHistory()
     var Name = user.setLoginUser.name
     var i = 0;
-
-
     var showevents;
-    //var title;
+    var GeneralBodies;
+    var timeslost = [];
+    var emails = [];
+    var dict = {};
+    var requiredSlots = [];
+
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
-        alert(res.data.message)
+        //alert(res.data.message)
         showevents = res.data.event;
-        //console.log(showevents)
-        //console.log(showevents[0].title)
-        //title=showevents[0].title;
-        //alert(title);
-        //this.forceUpdate();
     })
+    
+    function changetimeformat (times)
+    {
+        //CONVERTING SLOT NUMBER TO ITS EQUVILENT TIME
+        requiredSlots = [];
+        var changedTimeFormat;
+        if(times === 1)
+        {
+            changedTimeFormat = "8:45 - 10:10";
+        }
+        else if(times === 2)
+        {
+            changedTimeFormat = "10:15 - 11:40";
+        }
+        else if(times === 3)
+        {
+            changedTimeFormat = "11:45 - 1:10";
+        }
+        else if(times === 4)
+        {
+            changedTimeFormat = "1:15 - 1:40";
+        }
+        else if(times === 5)
+        {
+            changedTimeFormat = "1:45 - 3:10";
+        }
+        else if(times === 6)
+        {
+            changedTimeFormat = "3:15 - 4:45";
+        }
 
+        return changedTimeFormat
+    }
+
+    function getRequiredSlots(start,end)
+    {
+        //GOTTA WRITE ALGO JO TEACHER K GIVEN TIME KO US K EQUVILANT REQUIRED SLOTS MA CONVERT KR DY 
+        var begin = parseInt(start[0]+start[1]);
+        var fin = parseInt(end[0]+end[1]);
+        if(begin === 3)
+        {
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 9 && fin === 10)
+        {
+            requiredSlots.push("8:45 - 10:10");
+        }
+        else if(begin === 9 && fin === 11)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+        }
+        else if(begin === 9 && fin === 12)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+        }
+        else if(begin === 9 && fin === 1)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+        }
+        else if(begin === 9 && fin === 2)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+        }
+        else if(begin === 9 && fin === 3)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+        }
+        else if(begin === 9 && fin === 4)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 9 && fin === 5)
+        {
+            requiredSlots.push("8:45 - 10:10");
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        //console.log(begin);
+        return requiredSlots;
+    }
+
+    function getDayfromDate(dateee){
+        //CONVERTING DATE INTO ITS EQUIVALENT DAY TO GET TIME SLOTS OF ONLY THAT DAY
+        var currentDate = new Date(dateee);
+        var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; 
+
+        if(daysOfWeek[currentDate.getDay()] === "Mon")
+        {
+            return 0;
+        }
+        else if(daysOfWeek[currentDate.getDay()] === "Tue")
+        {
+            return 1;
+        }
+        else if(daysOfWeek[currentDate.getDay()] === "Wed")
+        {
+            return 2;
+        }
+        else if(daysOfWeek[currentDate.getDay()] === "Thu")
+        {
+            return 3;
+        }
+        else if(daysOfWeek[currentDate.getDay()] === "Fri")
+        {
+            return 4;
+        }
+    }
+
+    function findFreeStudent(start,end,dateee)
+    {
+        var required = getRequiredSlots(start,end);
+        var day = getDayfromDate(dateee);
+        for (var key in dict){                                  // ITERATING OVER ALL GB MEMBERS FREE SLOTS
+            for(var k = 0; k < dict[key][day].length; k++){     // ITERATING OVER ALL FREE SLOTS OF THAT DAY
+
+                for(var m = 0; m < required.length; m++)        // ITERATING OVER ALL REQUIRED SLOTS TO COMPARE 
+                {
+                    if(required[m] === dict[key][day][k])
+                    {
+                        console.log(key,dict[key][day][k]);
+                    }
+                }
+            }    
+        }
+
+    }
+    function fetchslots (start,end,date)
+    {
+        emails = [];
+        axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK THIER AVAILABLE SLOTS TO ASSIGN DUTY
+        .then(res => {
+            //alert(res.data.message)
+        //FETCHED ALL gbMEMBERS AND MADE A DICTIONARY OF THEM WITH THEIR EMAILS AS KEYS AND SLOTS IN FRONT OF THEM    
+            GeneralBodies = res.data.generalBodies;
+            for (var i=0; i<GeneralBodies.length; i++)
+            {
+                timeslost = [];
+                emails.push(GeneralBodies[i].email);
+                
+                for(var j=0; j<5; j++)
+                {
+                    var days = [];
+                    for(var k =0; k<GeneralBodies[i].slots[j].length; k++)
+                    {
+                        var changed = changetimeformat(GeneralBodies[i].slots[j][k])
+                        days.push(changed);                                          
+                    }
+                    timeslost.push(days); 
+                }
+                dict[GeneralBodies[i].email] = timeslost;
+                
+            }
+        })
+        //console.log(dict);
+        findFreeStudent(start,end,date);
+    }
     function AssignDuties  (event) {
         //console.log(event.target.id)
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         //console.log(str1);
         var starttime = showevents[str1].StartTime;
         var endtime = showevents[str1].EndTime;
-        console.log(starttime,endtime);
+        var date = showevents[str1].date
+        fetchslots(starttime,endtime,date);
     }
 
     function showAccepted(event){
