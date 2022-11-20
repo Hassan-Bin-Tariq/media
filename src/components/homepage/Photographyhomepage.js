@@ -2,8 +2,7 @@ import React from "react"
 import "./Photographyhomepage.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { useState } from 'react';
-import { Button } from "react-bootstrap";
+
 
 
 const PhotographyHomepage = (user) => {
@@ -13,7 +12,7 @@ const PhotographyHomepage = (user) => {
 
 
     var showevents;
-    var title;
+    //var title;
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
         alert(res.data.message)
@@ -23,8 +22,17 @@ const PhotographyHomepage = (user) => {
         //title=showevents[0].title;
         //alert(title);
         //this.forceUpdate();
-       
     })
+
+    function AssignDuties  (event) {
+        //console.log(event.target.id)
+        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        //console.log(str1);
+        var starttime = showevents[str1].StartTime;
+        var endtime = showevents[str1].EndTime;
+        console.log(starttime,endtime);
+    }
+
     function showAccepted(event){
         console.log(event.title);
         console.log(event.description);
@@ -52,6 +60,14 @@ const PhotographyHomepage = (user) => {
         description.innerText = "Description: "+event.description;
         description.className = 'card-text';
 
+        let startTime = document.createElement('p');
+        startTime.innerText = "Start Time: "+event.StartTime;
+        startTime.className = 'card-text';
+
+        let endTime = document.createElement('p');
+        endTime.innerText = "End Time: "+event.EndTime;
+        endTime.className = 'card-text';
+
         let status = document.createElement('p');
         status.innerText = "Status: "+event.status;
         status.className = 'card-text';
@@ -63,12 +79,22 @@ const PhotographyHomepage = (user) => {
         email.innerText ="Email: "+event.teacherEmail;
         email.className = 'card-text';
 
+        let Assigndutiesbtn = document.createElement('a');
+        Assigndutiesbtn.innerText = "Assign duties";
+        Assigndutiesbtn.className = 'btn btn-primary';
+        Assigndutiesbtn.id = "id"+i;
+        Assigndutiesbtn.class = 'mybtn';
+        Assigndutiesbtn.addEventListener("click", AssignDuties, false);
+
         cardBody.appendChild(title);
         cardBody.appendChild(description);
         cardBody.appendChild(date);
+        cardBody.appendChild(startTime);
+        cardBody.appendChild(endTime);
         cardBody.appendChild(status);
         cardBody.appendChild(teacher);
         cardBody.appendChild(email);
+        cardBody.appendChild(Assigndutiesbtn);
         card.appendChild(cardBody);
         i+=1;
         let container = document.querySelector("#card-container");

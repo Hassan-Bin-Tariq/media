@@ -9,11 +9,11 @@ import {Button, Col, Container, Form, Row} from "react-bootstrap";
 const TeacherHomepage = (user) => {
     // const history = useHistory()
     var teachName = user.setLoginUser.name
-    var teachEmail = user.setLoginUser.email
-    var teachID = user.setLoginUser._id
+    //var teachEmail = user.setLoginUser.email
+    //var teachID = user.setLoginUser._id
 
-    console.log(teachName)
-    console.log(user.setLoginUser.email)
+    //console.log(teachName)
+    //console.log(user.setLoginUser.email)
 
     const [ event, setEvent] = useState({
         teacherName: teachName,
@@ -29,16 +29,32 @@ const TeacherHomepage = (user) => {
     })
 
     const handleChange = e => {
-        const { name, value } = e.target
+        var { name, value } = e.target
+        if(name === "StartTime" || name === "EndTime")
+        {
+            value = tConvert (value);
+        }
         setEvent({
             ...event,
             [name]: value
         })
     }
+    function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+    
+        if (time.length > 1) { // If time format correct
+          time = time.slice (1);  // Remove full string match value
+          time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+          time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+    }
 
     const SubmitEvent = () => {
+
         const { title,teacherName,teacherEmail,teacherID,description,date,StartTime,EndTime,venue,status } = event
-        // alert(teacherName)
+
         if(title && teacherName && teacherEmail && teacherID && description && date && StartTime && EndTime && venue && status){
             axios.post("http://localhost:9002/SendEventRequest", event)
             .then( 
@@ -48,7 +64,7 @@ const TeacherHomepage = (user) => {
         }else {
             alert("invalid input")
         }
-        alert("Submited")
+        //alert("Submited")
     }
 
     return (
