@@ -2,6 +2,7 @@ import React from "react"
 import "./Photographyhomepage.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+import { Modal } from "react-bootstrap"
 
 const PhotographyHomepage = (user) => {
     const history = useHistory()
@@ -13,6 +14,8 @@ const PhotographyHomepage = (user) => {
     var emails = [];
     var dict = {};
     var requiredSlots = [];
+    var assignSlots={};
+    var names=[];
 
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
@@ -294,6 +297,10 @@ const PhotographyHomepage = (user) => {
     }
     function findFreeStudent(start,end,dateee)
     {
+        var i=0;
+        var second=[];
+        var l=0;
+        var prev="";
         var required = getRequiredSlots(start,end);
         var day = getDayfromDate(dateee);
         for (var key in dict){                                  // ITERATING OVER ALL GB MEMBERS FREE SLOTS
@@ -303,10 +310,66 @@ const PhotographyHomepage = (user) => {
                 {
                     if(required[m] === dict[key][day][k])
                     {
-                        console.log(key,dict[key][day][k]);
+                        console.log(key,dict[key][day][k]); //key has email, dict has time slots
+                        second.push(names[l]);
+                        console.log(second[i]);
+                        /*if(key===prev)
+                        {
+                            console.log("name: "+names[i-1]);
+                        }
+                        else{
+                            console.log("name: "+names[i]);
+                        }*/
+                        
+                        prev=key;
+                        console.log("previous:"+ prev);
+                        //alert(dict[key][day][k]);
+                            let row = document.createElement('div');
+                            row.className = 'row'
+
+                            let card = document.createElement('div');
+                            card.className = 'card shadow cursor-pointer';
+                            
+
+                            let cardBody = document.createElement('div');
+                            cardBody.className = 'card-body';
+
+
+                            let student = document.createElement('h5');
+                            student.innerText ="Student: "+ second[i];
+                            student.className = 'card-title';
+
+                            let email = document.createElement('div');
+                            email.innerText = "Email: "+ key;
+                            email.className = 'card-text';
+
+                            let date = document.createElement('div');
+                            date.innerText = "Free Slot: "+ dict[key][day][k];
+                            date.className = 'card-color';
+
+
+                            let Assigndutiesbtn = document.createElement('a');
+                            Assigndutiesbtn.innerText = "Assign duty";
+                            Assigndutiesbtn.className = 'btn btn-primary';
+                            Assigndutiesbtn.id = "id"+i;
+                            Assigndutiesbtn.class = 'mybtn';
+                            Assigndutiesbtn.addEventListener("click", AssignDuties, false);
+
+                            cardBody.appendChild(student);
+                            cardBody.appendChild(email);
+                            cardBody.appendChild(date);
+                            cardBody.appendChild(Assigndutiesbtn);
+                            card.appendChild(cardBody);
+                            i+=1;
+                            let container = document.querySelector("#card-container2");
+                            container.appendChild(card);
+                        
+
+
                     }
                 }
             }    
+            l+=1;
         }
 
     }
@@ -322,6 +385,18 @@ const PhotographyHomepage = (user) => {
             {
                 timeslost = [];
                 emails.push(GeneralBodies[i].email);
+                //console.log(GeneralBodies[i].name);
+                /*if(emails[i]===emails[i+1])
+                {
+                    names.push(GeneralBodies[i].name)
+                    names.push(GeneralBodies[i].name)
+                }
+                else if(emails[i]!==emails[i+1])
+                {
+                    
+                }*/
+                names.push(GeneralBodies[i].name);
+                
                 
                 for(var j=0; j<5; j++)
                 {
@@ -430,6 +505,7 @@ const PhotographyHomepage = (user) => {
             <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
             <div className="button" onClick={() => history.push("/login")}>Logout</div>
             <div id="card-container"></div>
+            <div id="card-container2"></div>
         </div>
     );
 }
