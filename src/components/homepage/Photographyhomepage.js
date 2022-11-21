@@ -264,7 +264,7 @@ const PhotographyHomepage = (user) => {
         else if(begin === 2 && fin === 5)
         {
             requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("1:45 - 3:10");
+            //requiredSlots.push("1:45 - 3:10");
             requiredSlots.push("3:15 - 4:45");
         }
         return requiredSlots;
