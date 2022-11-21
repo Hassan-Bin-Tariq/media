@@ -52,7 +52,6 @@ const PhotographyHomepage = (user) => {
 
         return changedTimeFormat
     }
-
     function getRequiredSlots(start,end)
     {
         //GOTTA WRITE ALGO JO TEACHER K GIVEN TIME KO US K EQUVILANT REQUIRED SLOTS MA CONVERT KR DY 
@@ -115,10 +114,158 @@ const PhotographyHomepage = (user) => {
             requiredSlots.push("1:45 - 3:10");
             requiredSlots.push("3:15 - 4:45");
         }
-        //console.log(begin);
+        else if(begin === 10 && fin === 11)
+        {
+            requiredSlots.push("10:15 - 11:40");
+        }
+        else if(begin === 10 && fin === 12)
+        {
+            requiredSlots.push("10:15 - 11:40");
+        }
+        else if(begin === 10 && fin === 1)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+        }
+        else if(begin === 10 && fin === 2)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+        }
+        else if(begin === 10 && fin === 3)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+        }
+        else if(begin === 10 && fin === 4)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 10 && fin === 5)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 11 && fin === 12)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+        }
+        else if(begin === 11 && fin === 1)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+        }
+        else if(begin === 11 && fin === 2)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+        }
+        else if(begin === 11 && fin === 3)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+        }
+        else if(begin === 11 && fin === 4)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 11 && fin === 5)
+        {
+            requiredSlots.push("10:15 - 11:40");
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 12 && fin === 1)
+        {       
+            requiredSlots.push("11:45 - 1:10");
+        }
+        else if(begin === 12 && fin === 2)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+        }
+        else if(begin === 12 && fin === 3)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+        }
+        else if(begin === 12 && fin === 4)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 12 && fin === 5)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 1 && fin === 2)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+        }
+        else if(begin === 1 && fin === 3)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+        }
+        else if(begin === 1 && fin === 4)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 1 && fin === 5)
+        {
+            requiredSlots.push("11:45 - 1:10");
+            requiredSlots.push("1:15 - 1:40");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 2 && fin === 3)
+        {
+            requiredSlots.push("1:45 - 3:10");
+        }
+        else if(begin === 2 && fin === 4)
+        {
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
+        else if(begin === 2 && fin === 5)
+        {
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("1:45 - 3:10");
+            requiredSlots.push("3:15 - 4:45");
+        }
         return requiredSlots;
     }
-
     function getDayfromDate(dateee){
         //CONVERTING DATE INTO ITS EQUIVALENT DAY TO GET TIME SLOTS OF ONLY THAT DAY
         var currentDate = new Date(dateee);
@@ -145,7 +292,6 @@ const PhotographyHomepage = (user) => {
             return 4;
         }
     }
-
     function findFreeStudent(start,end,dateee)
     {
         var required = getRequiredSlots(start,end);
@@ -203,7 +349,6 @@ const PhotographyHomepage = (user) => {
         var date = showevents[str1].date
         fetchslots(starttime,endtime,date);
     }
-
     function showAccepted(event){
         console.log(event.title);
         console.log(event.description);
@@ -271,7 +416,6 @@ const PhotographyHomepage = (user) => {
         let container = document.querySelector("#card-container");
         container.appendChild(card);
     }
-
     const GetEvents = () => {
         showevents.forEach(showAccepted);
         var elem = document.getElementById('geteventbtn');
@@ -279,7 +423,6 @@ const PhotographyHomepage = (user) => {
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
-
     return (
         
         <div className="Photographyhomepage">  
