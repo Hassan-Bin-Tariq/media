@@ -16,6 +16,9 @@ const PhotographyHomepage = (user) => {
     var requiredSlots = [];
     var assignSlots={};
     var names=[];
+    var selectedDate;
+    var studentSlots = [];
+    var freestuEmails = [];
 
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
@@ -295,8 +298,25 @@ const PhotographyHomepage = (user) => {
             return 4;
         }
     }
+    function sendDuty(event){
+
+        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        var slot = studentSlots[str1];
+        var mail = freestuEmails[str1];
+        console.log(slot);
+        console.log(selectedDate);
+
+        axios.post("http://localhost:9002/sendDuty",{Date: selectedDate, Slot: slot,Email: mail}) 
+        .then(res => {
+            // alert(res.data.message)
+            // eventts = res.data.event;
+            // console.log(eventts)
+        })
+    }
     function findFreeStudent(start,end,dateee)
     {
+        studentSlots = [];
+        freestuEmails = []
         var i=0;
         var second=[];
         var l=0;
@@ -348,23 +368,23 @@ const PhotographyHomepage = (user) => {
                             date.className = 'card-color';
 
 
-                            let Assigndutiesbtn = document.createElement('a');
-                            Assigndutiesbtn.innerText = "Assign duty";
-                            Assigndutiesbtn.className = 'btn btn-primary';
-                            Assigndutiesbtn.id = "id"+i;
-                            Assigndutiesbtn.class = 'mybtn';
-                            Assigndutiesbtn.addEventListener("click", AssignDuties, false);
+                            let sendDutybtn = document.createElement('a');
+                            sendDutybtn.innerText = "Assign duty";
+                            sendDutybtn.className = 'btn btn-secondary';
+                            sendDutybtn.id = "id"+i;
+                            sendDutybtn.class = 'mybtn';
+                            sendDutybtn.addEventListener("click", sendDuty, false);
 
                             cardBody.appendChild(student);
                             cardBody.appendChild(email);
                             cardBody.appendChild(date);
-                            cardBody.appendChild(Assigndutiesbtn);
+                            cardBody.appendChild(sendDutybtn);
                             card.appendChild(cardBody);
                             i+=1;
                             let container = document.querySelector("#card-container2");
                             container.appendChild(card);
-                        
-
+                            studentSlots.push(dict[key][day][k]);
+                            freestuEmails.push(key);
 
                     }
                 }
@@ -422,6 +442,7 @@ const PhotographyHomepage = (user) => {
         var starttime = showevents[str1].StartTime;
         var endtime = showevents[str1].EndTime;
         var date = showevents[str1].date
+        selectedDate = date;
         fetchslots(starttime,endtime,date);
     }
     function showAccepted(event){

@@ -13,7 +13,9 @@ const history = useHistory()
         email:"",
         password:"",
         reEnterPassword: "",
-        slots: []
+        slots: [],
+        day: "None",
+        time: "None",
     })
 
     const handleChange = e => {
@@ -35,7 +37,7 @@ const history = useHistory()
     }
 
     const register = () => {
-        const { name, email, password, reEnterPassword, slots } = user
+        const { name, email, password, reEnterPassword, slots, day, time } = user
         if( name && email && password && (password === reEnterPassword)){
             axios.post("http://localhost:9002/register", user)
             .then( 
