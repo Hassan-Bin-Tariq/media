@@ -7,6 +7,8 @@ import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 
 var Mondayslots = [];
 var Tuesdayslots = [];
@@ -20,8 +22,18 @@ const GeneralHomepage = (user) => {
     const [zip, setZip] = useState();
     const history = useHistory()
     var Name = user.setLoginUser.name
-    //console.log(Name)
-    //console.log(user.setLoginUser.email);
+    var Date= user.setLoginUser.day
+    var Time= user.setLoginUser.time
+    console.log(Name)
+    console.log(user.setLoginUser.day);
+    console.log(user.setLoginUser.time);
+
+    //usestate handler for offcanvas to show assigned duties
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    //////
 
     const [Mondayvalue, setValueMonday] = useState();
     const [Tuesdayvalue, setValueTuesday] = useState();
@@ -101,7 +113,23 @@ const GeneralHomepage = (user) => {
         </div>*/
         <>
             <Container>                                
-                <Button variant="warning" onClick={() => history.push("/login")}>Logout</Button>
+                <Button variant="warning" onClick={() => history.push("/login")}>Logout</Button><br></br>
+                <Button variant="primary" onClick={handleShow} className="me-2">
+                    View Assigned Duty
+                </Button>
+                <Offcanvas show={show} onHide={handleClose}>
+                    <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Assigned Duties</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                        You are currently assigned coverage for: <br></br>
+                        Date: {Date} <br></br>
+                        Time Slot: {Time} <br></br>
+                        <Button variant="primary">
+                            Upload Event Data
+                        </Button>
+                    </Offcanvas.Body>
+                </Offcanvas>
                 <Row className="sm-3 text-center">                  
                     <h1 className="shadow-sm text-success mt-3 p-3 text-center rounded">Welcome {Name}</h1>
                     <h2>Available Slots of the Week</h2>
@@ -248,13 +276,13 @@ const GeneralHomepage = (user) => {
                                 
                             </tbody>
                     </Table>
-            </Row>
-            <Button variant="success btn-block" onClick={SubmitForm}> 
+                </Row>
+                <Button variant="success btn-block" onClick={SubmitForm}> 
                                     Submit Form
-            </Button>
-            <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
-        </Container>
-    </>
+                </Button>
+                <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+            </Container>
+       </>
     );
 }
 export default GeneralHomepage
