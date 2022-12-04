@@ -1,7 +1,7 @@
 
 .register {
     width: 400px;
-    background: #fff;
+    background:  #adddd0;
     border: 1px solid #dddfe2;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     border-radius: 8px;
@@ -10,25 +10,42 @@
     text-align: center;
 }
 
-.register > input {
-    border-radius: 8px;
-    border: 2px solid #dddfe2;
-    outline: none;
-    color: #1d2129;
-    margin: 0.5rem 0;
-    padding: 0.5rem 0.75rem;
-    width: 92%;
-    font-size: 1rem;
-}
+ input {
+    border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background: #adddd0;
+  
+  
 
-.register > .button {
-    background: #1877f2;
-    border: 1px solid #1877f2;
-    color: #fff;
-    font-size: 1.25rem;
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    border-radius: 8px;
-    outline: none;
-    cursor: pointer;
 }
+.no-outline:focus {
+    outline: none;
+  }
+  .register
+  {
+    color:#0077B6;
+   
+  }
+  .btn-btn-info
+  {
+    background-color: #0077B6;
+    border-radius: 5px;
+    border:none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    color:#adddd0;
+    font-weight: bold;
+    
+
+  }
+  .btn-btn-info:hover
+  {
+    background-color: #6f38c5
+  }
+  input::placeholder {
+    color: #0077B6;
+    opacity: 1;
+  }

@@ -1,13 +1,21 @@
 import React from "react"
 import "./Photographyhomepage.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { Modal } from "react-bootstrap"
+import Modal from 'react-bootstrap/Modal';
+import { useState } from "react";
+import {Button} from "react-bootstrap";
 
 const PhotographyHomepage = (user) => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const history = useHistory()
     var Name = user.setLoginUser.name
     var i = 0;
+    var EventTitle;
+    var EventDescription;
     var showevents;
     var GeneralBodies;
     var timeslost = [];
@@ -19,7 +27,8 @@ const PhotographyHomepage = (user) => {
     var selectedDate;
     var studentSlots = [];
     var freestuEmails = [];
-
+    var eventts;
+    //const handleShow = () => setShow(true);
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
         //alert(res.data.message)
@@ -298,6 +307,7 @@ const PhotographyHomepage = (user) => {
             return 4;
         }
     }
+
     function sendDuty(event){
 
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
@@ -445,6 +455,16 @@ const PhotographyHomepage = (user) => {
         selectedDate = date;
         fetchslots(starttime,endtime,date);
     }
+    function EventDetails(event)
+    {
+
+        console.log(event.target.id)
+        var str1 = event.target.id.replace( /[^\d.]/g, '' );
+        EventTitle = eventts[str1].title;
+        console.log(eventts);
+        EventDescription = eventts[str1].description;       
+        handleShow();
+    }
     function showAccepted(event){
         console.log(event.title);
         console.log(event.description);
@@ -465,7 +485,7 @@ const PhotographyHomepage = (user) => {
         title.className = 'card-title';
 
         let date = document.createElement('h7');
-        date.innerText = "Date: "+event.date+ "  Venue: "+event.venue;
+        date.innerText = "Date: "+event.date+ "  Venue: "+ event.venue;
         date.className = 'card-color';
 
         let description = document.createElement('p');
@@ -477,11 +497,11 @@ const PhotographyHomepage = (user) => {
         startTime.className = 'card-text';
 
         let endTime = document.createElement('p');
-        endTime.innerText = "End Time: "+event.EndTime;
+        endTime.innerText = "End Time: "+ event.EndTime;
         endTime.className = 'card-text';
 
         let status = document.createElement('p');
-        status.innerText = "Status: "+event.status;
+        status.innerText = "Status: "+ event.status;
         status.className = 'card-text';
 
         let teacher = document.createElement('p');
@@ -498,6 +518,32 @@ const PhotographyHomepage = (user) => {
         Assigndutiesbtn.class = 'mybtn';
         Assigndutiesbtn.addEventListener("click", AssignDuties, false);
 
+        ///shwoing event details to photography head
+        let row2 = document.createElement('div');
+        row2.className = 'row'
+
+        let card2 = document.createElement('div');
+        card2.className = 'card shadow cursor-pointer';
+        
+        let cardBody2 = document.createElement('div');
+        cardBody2.className = 'card-body';
+
+
+        let title2 = document.createElement('h5');
+        title2.innerText ="Event: "+ event.title2;
+        title2.className = 'card-title';
+        
+        let description2 = document.createElement('p');
+        description2.innerText = "Description: "+ event.description2;
+        description2.className = 'card-text';
+
+        let showEventDeets = document.createElement('a');
+        showEventDeets.innerText = "Event Details";
+        showEventDeets.className = 'btn btn-primary';
+        showEventDeets.id = "id"+i;
+        showEventDeets.class = 'mybtn';
+        showEventDeets.addEventListener("click", EventDetails , false);
+
         cardBody.appendChild(title);
         cardBody.appendChild(description);
         cardBody.appendChild(date);
@@ -507,11 +553,14 @@ const PhotographyHomepage = (user) => {
         cardBody.appendChild(teacher);
         cardBody.appendChild(email);
         cardBody.appendChild(Assigndutiesbtn);
+        cardBody.appendChild(showEventDeets);
         card.appendChild(cardBody);
+
         i+=1;
         let container = document.querySelector("#card-container");
         container.appendChild(card);
     }
+   
     const GetEvents = () => {
         showevents.forEach(showAccepted);
         var elem = document.getElementById('geteventbtn');
@@ -526,7 +575,24 @@ const PhotographyHomepage = (user) => {
             <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
             <div className="button" onClick={() => history.push("/login")}>Logout</div>
             <div id="card-container"></div>
-            <div id="card-container2"></div>
+            
+            {
+                show && <div id="Modal-container2">
+                    <h1 className="greeting">
+                        <>
+                            <Modal show = {show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                <Modal.Title>{EventTitle}</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>{EventDescription}</Modal.Body>
+                                <Modal.Footer>
+                                </Modal.Footer>
+                            </Modal>
+                        </>
+                    </h1>
+                    </div>
+            }
+            
         </div>
     );
 }

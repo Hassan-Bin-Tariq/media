@@ -48,13 +48,39 @@ const Login = ({ setLoginUser }) => {
 
     return (
         <div className="login">
-            {/* //{console.log(user)} */}
-            <h1>Login</h1>
-            <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="en your Email"></input>
-            <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter your Password" ></input>
-            <div className="button" onClick={login} >Login</div>
-            <div>or</div>
-            <div className="button" onClick={() => history.push("/register")}>Register</div>
+           <div className="RegisterationContent">
+
+<div className="RegistrationForm" color="#ADDDDD">
+    
+    <h2 className="titl"> LOGIN</h2>
+    <img src="https://www.facebook.com/photo/?fbid=2436584043162865&set=a.267167266771231"/>
+    <br></br>
+    <br></br>
+    <form className="rf">
+        <div className="form-group>">
+            <label htmlFor="email">
+                <i class="zmdi zmdi-email"></i>
+            </label>
+            <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange}></input>
+        </div>
+        <br></br>
+        <div className="form-group>">
+            <label htmlFor="password">
+                <i class="zmdi zmdi-lock-outline"></i>
+            </label>
+            <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={handleChange}></input>
+        </div>
+        <br></br>
+    </form>
+    
+    <br></br>
+    <div><button type="button" class="btn-btn-info" onClick={login}>Login</button></div>
+    <br></br>
+    <div><p><h6>Dont have an account?</h6></p></div>
+    <div><button type="button" class="btn-btn-info" onClick={() => history.push("/register")}>Register</button></div>
+</div>
+
+</div>
         </div>
     )
 }
