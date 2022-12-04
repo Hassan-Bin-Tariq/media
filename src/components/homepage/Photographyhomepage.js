@@ -575,7 +575,7 @@ const PhotographyHomepage = (user) => {
             <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
             <div className="button" onClick={() => history.push("/login")}>Logout</div>
             <div id="card-container"></div>
-            
+            <div id="card-container2"></div>
             {
                 show && <div id="Modal-container2">
                     <h1 className="greeting">

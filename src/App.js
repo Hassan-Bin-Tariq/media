@@ -8,6 +8,8 @@ import Register from "./components/register/register"
 import StudentHomepage from "./components/homepage/Studenthomepage"
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import { useState } from 'react';
+import Home from './components/Home/Home';
+import Header from './components/Header/Header';
 //comment from tehreem
 //comment from ibnet
 function App() {
@@ -17,8 +19,10 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
         <Switch>
-          <Route exact path="/">
+        <Route exact path="/" element={<Home />} />
+          <Route exact path="/login">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
             }
