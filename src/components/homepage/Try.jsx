@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect } from "react";
-import "./Home.css";
+import "./Try.css";
 import * as THREE from 'three';
 import { color } from '@mui/system';
-const Home = () => {
+const Try = () => {
     //useEffect so that page gets rendered only once
     useEffect(()=>{
         const scene=new THREE.Scene();
@@ -28,13 +28,13 @@ const Home = () => {
 
         
     },[]);
-  return (
-    <div className="home">
-    <canvas className="homeCanvas"></canvas>
-    
-    </div>
-    
-  )
+    return (
+        <div className="home">
+        <canvas className="homeCanvas"></canvas>
+        
+        </div>
+        
+      )
 }
 
-export default Home
+export default Try

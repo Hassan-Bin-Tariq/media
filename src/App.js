@@ -10,6 +10,7 @@ import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import { useState } from 'react';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
+import Try from './components/homepage/Try';
 //comment from tehreem
 //comment from ibnet
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Router>
         <Header/>
         <Switch>
-        <Route exact path="/" element={<Home />} />
+         {/* <Route exact path="/" element={<Home />} />  */}
           <Route exact path="/login">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
@@ -60,6 +61,11 @@ function App() {
           <Route path="/studentPortal">
           {
               user && user._id ? <StudentHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
+          }
+          </Route>
+          <Route path="/">
+          {
+               <Try />
           }
           </Route>
         </Switch>
