@@ -1,6 +1,6 @@
 import React from 'react'
 import {ReactNavbar} from "overlay-navbar"
-import logo from "../../media/Picture1.png";
+import logo from "../../assets/Picture1.png";
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {

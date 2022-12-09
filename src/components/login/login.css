@@ -8,43 +8,53 @@
     padding: 1rem;
     align-items: center;
     text-align: center;
+    margin: auto;
+    height: 700px;
+    padding: 10px;
 }
 
-input {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    background: #adddd0;
-    
-}
-.login
-  {
-    color:#0077B6;
-   
-  }
-  .btn-btn-info
-  {
-    background-color: #0077B6;
-    border-radius: 5px;
-    border:none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    color:#adddd0;
-    font-weight: bold;
-    
-
-  }
-  .btn-btn-info:hover
-  {
-    background-color: #6f38c5
-  }
-  input::placeholder {
-    color: #0077B6;
-    opacity: 1;
-  }
-input:focus
+input
 {
-    background: #adddd0;
+  height: 40px;
+  width: 250px;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 12px ;
+
+}
+label
+{
+  align-items: left;
+  margin-left: 2px;
+}
+img
+{
+  height: 200px;
+  width: 200px;
+}
+button
+{
+  
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 250px;
+  background-color: #872afb;
+  font-weight: bold;
+  
+
+}
+button:hover
+{
+  background-color: #af91d4;
+}
+h3
+{
+  font-family: 'Times New Roman', Times, serif;
 }

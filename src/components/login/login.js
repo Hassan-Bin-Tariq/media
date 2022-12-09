@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+//import Picture1 from './assets/Picture1.png'
+import logo from "../../assets/Picture1.png";
 
 const Login = ({ setLoginUser }) => {
 
@@ -48,39 +50,39 @@ const Login = ({ setLoginUser }) => {
 
     return (
         <div className="login">
-           <div className="RegisterationContent">
+        
+        <div>
+            <img src={logo}/>
+            <br></br>
+            <h3>Log in</h3>   
+            </div>
+           <br></br>
 
-<div className="RegistrationForm" color="#ADDDDD">
-    
-    <h2 className="titl"> LOGIN</h2>
-    <img src="https://www.facebook.com/photo/?fbid=2436584043162865&set=a.267167266771231"/>
-    <br></br>
-    <br></br>
-    <form className="rf">
-        <div className="form-group>">
-            <label htmlFor="email">
-                <i class="zmdi zmdi-email"></i>
-            </label>
-            <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange}></input>
-        </div>
-        <br></br>
-        <div className="form-group>">
-            <label htmlFor="password">
-                <i class="zmdi zmdi-lock-outline"></i>
-            </label>
-            <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={handleChange}></input>
-        </div>
-        <br></br>
-    </form>
-    
-    <br></br>
-    <div><button type="button" class="btn-btn-info" onClick={login}>Login</button></div>
-    <br></br>
-    <div><p><h6>Dont have an account?</h6></p></div>
-    <div><button type="button" class="btn-btn-info" onClick={() => history.push("/register")}>Register</button></div>
-</div>
 
-</div>
+            <div className="email">
+                    <label id="mail">Email</label>
+                    <br></br>
+                    <input className="emailtak"></input>
+                </div>
+<br></br>
+        
+                <div className="pass">
+                    <label >Password</label>
+                    <br></br>
+                    <input className="passcode"></input>
+                </div>    
+                <br></br>
+
+<div>
+                <button className="btnReg" onClick={login}>Login</button>
+                </div>
+            <div><h6>OR</h6></div>
+            <div><button className="btnlog" onClick={() => history.push("/register")}>Register</button></div>
+            <br></br>
+            <div>
+
+            <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+            </div>
         </div>
     )
 }

@@ -8,7 +8,9 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+//import Button from '@material-ui/core/Button';
+//import PhotoCamera from '@material-ui/icons/PhotoCamera';
+//import IconButton from '@material-ui/core/IconButton';
 
 var Mondayslots = [];
 var Tuesdayslots = [];
