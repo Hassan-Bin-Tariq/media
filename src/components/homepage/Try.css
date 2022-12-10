@@ -2,4 +2,58 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
+    background-color: white;
+    padding-top: 4vmax;
+    border-radius: 0 0 200px 200px;
+    border-bottom: 200px solid white;
+    position: relative;
+    z-index: 1;
 }
+.homeContainer{
+    
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-color: #ADDDD0;
+    padding-top: 4vmax;
+    border-radius: 0 0 200px 200px;
+    border-bottom: 200px solid #ADDDD0;
+    position: relative;
+    z-index: 1;
+    }
+    .container2{
+        transform: translateY(-200px);
+        background-color: #87A2FB;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        position: relative;
+        margin-bottom: -200px;
+        padding: 200px;
+        box-sizing: border-box;
+        perspective: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        }
+    .loginContainer{
+        background-color: #6F38C5;
+        padding-top: 4vmax;
+        transform: translateY(-200px);
+        border-radius: 20% 20% 0 0;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        position: relative;
+        margin-bottom: -200px;
+        box-sizing: border-box;
+        padding: 200px;
+        perspective: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow-x: hidden;
+    }

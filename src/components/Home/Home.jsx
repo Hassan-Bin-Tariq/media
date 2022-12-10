@@ -13,13 +13,13 @@ const Home = () => {
         const renderer=new THREE.WebGLRenderer({canvas});
 
         const geometry=new THREE.BoxGeometry(1,1,1);
-        const material=new THREE.MeshBasicMaterial({color: 0x00ff00});
+        const material=new THREE.MeshBasicMaterial({color: 0x00ffff});
         const mesh=new THREE.Mesh(geometry,material);
         scene.add(mesh);
         camera.position.z=5;
         const animate=()=>{
             requestAnimationFrame(animate);
-            mesh.rotation.y+=0.01;
+            mesh.rotation.y+=100;
             renderer.setSize(window.innerWidth,window.innerHeight);
             renderer.render(scene,camera);
 
@@ -30,8 +30,14 @@ const Home = () => {
     },[]);
   return (
     <div className="home">
-    <canvas className="homeCanvas"></canvas>
-    
+      <canvas className="homeCanvas"></canvas>
+      <div className="homeContainer">
+        <h3>THIS IS MY NEXT CANVAS</h3>
+        <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
+      </div> 
+    {/* <div className="container2"></div>
+    <div className="container3"></div> */}
+       <div className="loginContainer"></div>
     </div>
     
   )
