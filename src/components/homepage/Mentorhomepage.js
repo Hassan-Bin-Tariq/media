@@ -173,9 +173,9 @@ const MentorHomepage = (user) => {
     return (
         
         <div className="Mentorhomepage" id="hassan">  
-            <h1>Hello {Name}</h1>
-            
-            <div className="button" onClick={() => history.push("./login")}>Logout</div>
+            <h1>Hello, {Name} !</h1>
+            <br></br>
+            <div className="button" onClick={() => history.push("./login")}>Logout</div>    <br></br>
             <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
 
             <div id="card-container"></div>

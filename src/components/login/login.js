@@ -63,7 +63,7 @@ const Login = ({ setLoginUser }) => {
                     <label id="mail">Email</label>
                     <br></br>
                     {/* <input className="emailtak"></input> */}
-                    <input className="emailtak" type="text" name="email" value={user.email} placeholder="Enter Email" onChange={handleChange}></input>
+                    <input className="emailtak" type="text" name="email" value={user.email} onChange={handleChange}></input>
                 </div>
 <br></br>
         
@@ -71,7 +71,7 @@ const Login = ({ setLoginUser }) => {
                     <label >Password</label>
                     <br></br>
                     {/* <input className="passcode"></input> */}
-                    <input className="passcode" type="password" name="password" value={user.password} placeholder="Enter Password" onChange={handleChange}></input>
+                    <input className="passcode" type="password" name="password" value={user.password}  onChange={handleChange}></input>
                 </div>    
                 <br></br>
 

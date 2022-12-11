@@ -12,7 +12,7 @@
   align-items: center;
   text-align: center;
   margin: auto;
-  height: 600px;
+  height: 650px;
   padding: 10px;
   margin-top: 30px;
 }
@@ -48,14 +48,14 @@ button
   cursor: pointer;
   border-radius: 30px;
   width: 250px;
-  background-color: #872afb;
+  background-color: #389bd9;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
 
 }
 button:hover
 {
-  background-color: #af91d4;
+  background-color: #0ba6ff;
 }
 h3
 {

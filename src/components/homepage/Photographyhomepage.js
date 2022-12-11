@@ -513,7 +513,7 @@ const PhotographyHomepage = (user) => {
 
         let Assigndutiesbtn = document.createElement('a');
         Assigndutiesbtn.innerText = "Assign duties";
-        Assigndutiesbtn.className = 'btn btn-primary';
+        Assigndutiesbtn.className = 'btn';
         Assigndutiesbtn.id = "id"+i;
         Assigndutiesbtn.class = 'mybtn';
         Assigndutiesbtn.addEventListener("click", AssignDuties, false);
@@ -539,7 +539,7 @@ const PhotographyHomepage = (user) => {
 
         let showEventDeets = document.createElement('a');
         showEventDeets.innerText = "Event Details";
-        showEventDeets.className = 'btn btn-primary';
+        showEventDeets.className = 'btn';
         showEventDeets.id = "id"+i;
         showEventDeets.class = 'mybtn';
         showEventDeets.addEventListener("click", EventDetails , false);
@@ -571,9 +571,10 @@ const PhotographyHomepage = (user) => {
     return (
         
         <div className="Photographyhomepage">  
-            <h1>Hello {Name}</h1>
-            <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
-            <div className="button" onClick={() => history.push("/login")}>Logout</div>
+            <h1 className="Name">Hello, {Name} !</h1>
+            <br></br>
+            <div className="button1" id = "geteventbtn" onClick={GetEvents}>Show events</div><br></br>
+            <div className="button2" onClick={() => history.push("/login")}>Logout</div>
             <div id="card-container"></div>
             <div id="card-container2"></div>
             {

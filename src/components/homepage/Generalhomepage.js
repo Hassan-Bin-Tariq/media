@@ -140,7 +140,7 @@ const GeneralHomepage = (user) => {
                     </div>
                 </Offcanvas>
                 <Row className="sm-3 text-center">                  
-                    <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome {Name}</h1>
+                    <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
                     <h2>Available Slots of the Week</h2>
                         <Table striped bordered hover size="sm">
                             <thead>
@@ -286,9 +286,11 @@ const GeneralHomepage = (user) => {
                             </tbody>
                     </Table>
                 </Row>
+                <centre>
                 <button className="submit" variant="success btn-block" onClick={SubmitForm}> 
                                     Submit Form
                 </button>
+                </centre>
                 <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </Container>
        </>

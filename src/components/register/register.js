@@ -92,7 +92,10 @@ const history = useHistory()
             <button className="btnReg" onClick={register}>Register</button>
             <div><h6>OR</h6></div>
             <div><button className="btnlog" onClick={() => history.push("/login")}>Login</button></div>
+            <div>
 
+<h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+</div>
             </div>
       
             
