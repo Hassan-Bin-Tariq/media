@@ -1,21 +1,25 @@
-
+.bg
+{
+  background-image: url('https://www.facebook.com/photo/?fbid=505244734976857&set=a.505249101643087');
+}
 .register {
   width: 400px;
   background:  #adddd0;
   border: 1px solid #dddfe2;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  border-radius: 8px;
+  border-radius: 38px;
   padding: 1rem;
   align-items: center;
   text-align: center;
   margin: auto;
-  height: 655px;
+  height: 600px;
   padding: 10px;
+  margin-top: 30px;
 }
 input
 {
   height: 40px;
-  width: 250px;
+  width: 200px;
   margin: 0 auto;
   background: transparent;
   border-radius: 12px ;

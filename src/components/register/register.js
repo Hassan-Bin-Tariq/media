@@ -49,9 +49,11 @@ const history = useHistory()
         }else {
             alert("invlid input")
         }
-        
+    
     }
+    
     return (
+        
         <div className="register">
             <div>
             <img src={logo}/>
@@ -91,9 +93,8 @@ const history = useHistory()
             <div><h6>OR</h6></div>
             <div><button className="btnlog" onClick={() => history.push("/login")}>Login</button></div>
 
-<div><h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6></div>
             </div>
-
+      
             
     )
 }
