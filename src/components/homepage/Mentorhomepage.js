@@ -125,7 +125,7 @@ const MentorHomepage = (user) => {
         description.className = 'card-text';
 
         let checkDetailsbtn = document.createElement('a');
-        checkDetailsbtn.innerText = "check details";
+        checkDetailsbtn.innerText = "Check Details";
         checkDetailsbtn.className = 'btn btn-primary';
         checkDetailsbtn.id = "id"+i;
         checkDetailsbtn.class = 'mybtn';
@@ -175,8 +175,8 @@ const MentorHomepage = (user) => {
         <div className="Mentorhomepage" id="hassan">  
             <h1>Hello, {Name} !</h1>
             <br></br>
-            <div className="button" onClick={() => history.push("./login")}>Logout</div>    <br></br>
-            <div className="button" id = "geteventbtn" onClick={GetEvents}>Show events</div>
+            <div className="button1" onClick={() => history.push("./login")}>Logout</div>    <br></br>
+            <div className="button2" id = "geteventbtn" onClick={GetEvents}>Show events</div>
 
             <div id="card-container"></div>
             

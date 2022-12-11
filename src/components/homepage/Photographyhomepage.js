@@ -455,6 +455,7 @@ const PhotographyHomepage = (user) => {
         selectedDate = date;
         fetchslots(starttime,endtime,date);
     }
+  
     function EventDetails(event)
     {
 

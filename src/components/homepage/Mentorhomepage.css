@@ -33,3 +33,15 @@
 {
     background-color:  #0ba6ff;
 }
+h1
+{
+    color: black;
+}
+.btn-rej
+{
+    background-color: red;
+}
+.card-container
+{
+    background-color: aquamarine;
+}
