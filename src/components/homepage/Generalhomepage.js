@@ -119,18 +119,25 @@ const GeneralHomepage = (user) => {
                 <button variant="primary" onClick={handleShow} className="me-2">
                     View Assigned Duty
                 </button>
-                <Offcanvas show={show} onHide={handleClose}>
+                <Offcanvas className="slide" show={show} onHide={handleClose}>
+                <div className="canvas">
                     <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Assigned Duties</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
+                       
+                            <centre>
                         You are currently assigned coverage for: <br></br>
                         Date: {Date} <br></br>
                         Time Slot: {Time} <br></br>
-                        <Button variant="primary">
+                        
+                        <button variant="primary">
                             Upload Event Data
-                        </Button>
+                        </button>
+                        </centre>
+                       
                     </Offcanvas.Body>
+                    </div>
                 </Offcanvas>
                 <Row className="sm-3 text-center">                  
                     <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome {Name}</h1>
