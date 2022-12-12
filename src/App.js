@@ -16,7 +16,7 @@ import Try from './components/homepage/Try';
 function App() {
 
   const [ user, setLoginUser] = useState({})
-
+//bug fixed
   return (
     <div className="App">
       <Router>
@@ -28,6 +28,7 @@ function App() {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
             }
           </Route> */}
+          
           <Route exact path="/teacherPortal">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
@@ -65,7 +66,7 @@ function App() {
           </Route>
           <Route path="/">
           {
-               <Try />
+            <Try />
           }
           </Route>
         </Switch>
