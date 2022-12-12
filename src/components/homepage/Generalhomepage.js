@@ -125,7 +125,7 @@ const GeneralHomepage = (user) => {
                     <Offcanvas.Title>Assigned Duties</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
-                       
+
                             <centre>
                         You are currently assigned coverage for: <br></br>
                         Date: {Date} <br></br>

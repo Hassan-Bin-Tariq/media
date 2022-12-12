@@ -23,11 +23,11 @@ function App() {
         <Header/>
         <Switch>
          {/* <Route exact path="/" element={<Home />} />  */}
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
             }
-          </Route>
+          </Route> */}
           <Route exact path="/teacherPortal">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>

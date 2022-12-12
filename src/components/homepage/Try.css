@@ -1,4 +1,9 @@
 
+@media (min-width: 500px) and (max-width: 750px), (min-width: 992px) {
+    .w-lg-100 {
+    width: 100% !important; 
+    } 
+}
 .homeCanvas{
     width: 100vw;
     height: 100vh;
@@ -13,6 +18,7 @@
     justify-content: space-around;
     align-items:stretch;
 }
+
 .homeContainer{
     
     width: 100vw;
