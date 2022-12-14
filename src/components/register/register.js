@@ -49,9 +49,19 @@ const history = useHistory()
         }else {
             alert("invlid input")
         }
-    
     }
-    
+    const tester = () => {
+        console.log(document.getElementById("img").innerHTML)
+    }
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+        var output = document.getElementById('output');
+        output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        console.log(event.target.files[0])
+    };
     return (
         
         <div className="register">
@@ -59,35 +69,37 @@ const history = useHistory()
             <img src={logo}/>
             <br></br>
             <h3>Register</h3>
-           
-            </div>
+
+        </div>
             
-                <div className="name">
-                    <label >Name</label>
-                    <br></br>
-                    <input className="naam"></input>
-                </div>
+            <div className="name">
+                <label >Name</label>
+                <br></br>
+                <input className="naam"></input>
+            </div>
 
 
             <div className="email">
-                    <label id="mail">Email</label>
-                    <br></br>
-                    <input className="emailtak"></input>
-                </div>
-
-         
+                <label id="mail">Email</label>
+                <br></br>
+                <input className="emailtak"></input>
+            </div>
 
             <div className="pass">
-                    <label >Password</label>
-                    <br></br>
-                    <input className="passcode"></input>
-                </div>    
+                <label >Password</label>
+                <br></br>
+                <input className="passcode"></input>
+            </div>    
 
-                <div className="repass">
-                    <label >Re-enter Password</label>
-                    <br></br>
-                    <input className="repasscode"></input>
-                </div>      
+            <div className="repass">
+                <label >Re-enter Password</label>
+                <br></br>
+                <input className="repasscode"></input>
+            </div>
+            
+            <input type="file" accept="image/*" onChange = {loadFile} />
+            <img id="output"/>
+            
 <br></br>
             <button className="btnReg" onClick={register}>Register</button>
             <div><h6>OR</h6></div>
@@ -96,9 +108,7 @@ const history = useHistory()
 
 <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
 </div>
-            </div>
-      
-            
+            </div>            
     )
 }
 
