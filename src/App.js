@@ -14,9 +14,9 @@ import Try from './components/homepage/Try';
 //comment from tehreem
 //comment from ibnet
 function App() {
-
+//Bu fixed
   const [ user, setLoginUser] = useState({})
-//bug fixed
+
   return (
     <div className="App">
       <Router>
