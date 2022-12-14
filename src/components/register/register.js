@@ -6,7 +6,7 @@ import emailjs from "emailjs-com";
 //import n from "./media/Picture1.png"
 import logo from "../../assets/Picture1.png";
 const Register = () => {
-
+//Register testing
 const history = useHistory()
 
     const [ user, setUser] = useState({
