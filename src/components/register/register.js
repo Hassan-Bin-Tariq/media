@@ -7,7 +7,7 @@ import emailjs from "emailjs-com";
 import logo from "../../assets/Picture1.png";
 const Register = () => {
     //system testing
-    //error fixed
+    //Search Bar
     const history = useHistory()
 
     const [user, setUser] = useState({
