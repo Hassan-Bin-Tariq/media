@@ -14,7 +14,7 @@ import Try from './components/homepage/Try';
 //comment from tehreem
 //comment from ibnet
 function App() {
-
+//Bu fixed
   const [ user, setLoginUser] = useState({})
 
   return (
@@ -23,11 +23,12 @@ function App() {
         <Header/>
         <Switch>
          {/* <Route exact path="/" element={<Home />} />  */}
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
             }
-          </Route>
+          </Route> */}
+          
           <Route exact path="/teacherPortal">
             {
               user && user._id ? <TeacherHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
@@ -65,7 +66,7 @@ function App() {
           </Route>
           <Route path="/">
           {
-               <Try />
+            <Try />
           }
           </Route>
         </Switch>

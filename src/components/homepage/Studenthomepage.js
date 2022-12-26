@@ -8,7 +8,7 @@ const StudentHomepage = (user) => {
     console.log(Name)
     return (
         <div className="Studenthomepage">  
-            <h1>Hello {Name}</h1>
+            <h1>Hello, {Name} !</h1>
             <div className="button" onClick={() => history.push("/login")}>Logout</div>
         </div>
     )

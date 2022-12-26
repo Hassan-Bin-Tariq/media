@@ -56,7 +56,7 @@ const Login = ({ setLoginUser }) => {
             <br></br>
             <h3>Log in</h3>   
             </div>
-           <br></br>
+        <br></br>
 
 
             <div className="email">
