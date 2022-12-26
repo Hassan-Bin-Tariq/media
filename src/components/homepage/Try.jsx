@@ -9,6 +9,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import convo1 from "../../assets/convo1.png";
+import crop1 from "../../assets/crop1.png";
+import crop2 from "../../assets/crop2.png";
+import cover1 from "../../assets/cover1.png";
+import cover2 from "../../assets/cover2.png";
+import cover3 from "../../assets/cover3.png";
 import {
     MDBCarousel,
     MDBCarouselItem,
@@ -19,43 +25,40 @@ const Try = () => {
     return (
         <div className="home">
             
-                <MDBCarousel showControls fade>
-                    <MDBCarouselItem
-                        className='w-100 h-100 d-block'
-                        itemId={1}
-                        src='https://mdbootstrap.com/img/new/slides/041.jpg'
-                        alt='...'
+            <Carousel fade>
+                <Carousel.Item interval={3000}>
+                    <img
+                    className="d-block w-100 h-100"
+                    src={convo1}
+                    alt="First slide"
                     />
-                    <MDBCarouselItem
-                        className='w-100 h-100 d-block'
-                        itemId={2}
-                        src='https://mdbootstrap.com/img/new/slides/042.jpg'
-                        alt='...'
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                    <img
+                    className="d-block w-100 h-50"
+                    src={crop2}
+                    alt="Second slide"
                     />
-                    <MDBCarouselItem
-                        className='w-100 h-100 d-block'
-                        itemId={3}
-                        src='https://mdbootstrap.com/img/new/slides/043.jpg'
-                        alt='...'
+                </Carousel.Item >
+                <Carousel.Item interval={3000}>
+                    <img
+                    className="d-block w-100 h-50"
+                    src={crop1}
+                    alt="Third slide"
                     />
-                    </MDBCarousel>
-            <div className="homeContainer">
-            <h3>THIS IS MY NEXT CANVAS</h3>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
+                </Carousel.Item>
+                </Carousel>
+            <div className="container2">
+                <img src={cover3} className="d-block w-100 h-50"></img>
             </div> 
             <div className="container2">
-            <h3>THIS IS MY NEXT CANVAS</h3>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
-            <h3>THIS IS MY NEXT CANVAS</h3>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
-            <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
+                <img src={cover1} className="d-block w-100 h-50"></img>
             </div>
         {/* <div className="container2"></div>
         <div className="container3"></div> */}
-            <div className="loginContainer"></div>
+            <div className="container2">
+                <img src={convo1} className="d-block w-100 h-50"></img>
+            </div>
         </div>
         
     )
