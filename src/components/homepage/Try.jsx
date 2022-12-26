@@ -18,8 +18,8 @@ const Try = () => {
 
     return (
         <div className="home">
-            
-                <MDBCarousel showControls fade>
+            <div className="homeCanvas"> 
+            <MDBCarousel showControls fade>
                     <MDBCarouselItem
                         className='w-100 d-block'
                         itemId={1}
@@ -39,6 +39,8 @@ const Try = () => {
                         alt='...'
                     />
                     </MDBCarousel>
+            </div>
+                
             <div className="homeContainer">
             <h3>THIS IS MY NEXT CANVAS</h3>
             <p>lorem ipsum jaskakhjkjshdkajjjjjjjjjjjjdhaknsk</p>
