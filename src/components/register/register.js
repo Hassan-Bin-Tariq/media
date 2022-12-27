@@ -76,26 +76,26 @@ const Register = () => {
             <div className="name">
                 <label >Name</label>
                 <br></br>
-                <input className="naam"></input>
+                <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={handleChange}></input>
             </div>
 
 
             <div className="email">
                 <label id="mail">Email</label>
                 <br></br>
-                <input className="emailtak"></input>
+                <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={handleChange}></input>
             </div>
 
             <div className="pass">
                 <label >Password</label>
                 <br></br>
-                <input className="passcode"></input>
+                <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={handleChange}></input>
             </div>
 
             <div className="repass">
                 <label >Re-enter Password</label>
                 <br></br>
-                <input className="repasscode"></input>
+                <input type="password" STYLE='color=#FFFF00' name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Your Password" onChange={handleChange}></input>
             </div>
 
             <input type="file" accept="image/*" onChange={loadFile} />
