@@ -97,9 +97,11 @@ const Register = () => {
                 <br></br>
                 <input type="password" STYLE='color=#FFFF00' name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Your Password" onChange={handleChange}></input>
             </div>
-
+            
+            <label >Upload profile picture</label>
+            <br></br>
             <input type="file" accept="image/*" onChange={loadFile} />
-            <img id="output" />
+            
 
             <br></br>
             <button className="btnReg" onClick={register}>Register</button>
