@@ -32,8 +32,8 @@ const Header = () => {
               Separated link
           </NavDropdown.Item>
           </NavDropdown>
-          <Button variant="outline-info" size='sm' style={{height: '40px', width : '100px'}}>Login</Button>
-          <Button variant="secondary" size='sm' style={{height: '40px', width : '100px'}}>Sign Up</Button>
+          <Button variant="outline-info" size='sm' style={{height: '40px', width : '100px' }} href="./login">Login</Button>
+          <Button variant="secondary" size='sm' style={{height: '40px', width : '100px'}} href="./register">Sign Up</Button>
       </Nav>
       </Navbar.Collapse>
   </Container>
