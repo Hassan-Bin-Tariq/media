@@ -6,7 +6,8 @@ import { useHistory } from "react-router-dom"
 import emailjs from "emailjs-com";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
-import {Button} from "react-bootstrap";
+import {Button,Container} from "react-bootstrap";
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 var EventTitle;
 var EventDescription;
@@ -20,6 +21,7 @@ const MentorHomepage = (user) => {
     var Name = user.setLoginUser.name
     var i = 0;
     var eventts;
+  
     axios.post("http://localhost:9002/GetEventRequest", )
     .then(res => {
         //alert(res.data.message)
@@ -69,6 +71,7 @@ const MentorHomepage = (user) => {
             eventts = res.data.event;
             console.log(eventts)
         })
+        
 
         
         console.log(event.target.id)
@@ -88,6 +91,7 @@ const MentorHomepage = (user) => {
         // },"nv_Jq-1YJR57e3z-E");
         // alert("Rejection e-mail sent to requesting party!" );
     }
+    
     function doNothing(){
 
     }
@@ -162,6 +166,7 @@ const MentorHomepage = (user) => {
     }
 
     const GetEvents = () => {
+        const xhr = new XMLHttpRequest();
         eventts.forEach(myFunction);
         var elem = document.getElementById('geteventbtn');
         elem.parentNode.removeChild(elem);
@@ -169,15 +174,18 @@ const MentorHomepage = (user) => {
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
-
+ 
     return (
         
         <div className="Mentorhomepage" id="hassan">  
             <h1>Hello, {Name} !</h1>
             <br></br>
-            <div className="button1" onClick={() => history.push("./login")}>Logout</div>    <br></br>
+            
+            
             <div className="button2" id = "geteventbtn" onClick={GetEvents}>Show events</div>
-
+           
+                    
+                  
             <div id="card-container"></div>
             
             {
@@ -202,8 +210,11 @@ const MentorHomepage = (user) => {
                     </h1>
                 </div>
             }
-            
+        
+                
+            <div className="button1" onClick={() => history.push("./login")}>Logout</div>    <br></br>
         </div> 
+      
     )
 }
 

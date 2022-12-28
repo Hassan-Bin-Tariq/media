@@ -121,7 +121,7 @@ const GeneralHomepage = (user) => {
                 <Offcanvas className="slide" show={show} onHide={handleClose}>
                 <div className="canvas">
                     <Offcanvas.Header closeButton>
-                    <Offcanvas.Title className="card7">Assigned Duties</Offcanvas.Title>
+                    <Offcanvas.Title >Assigned Duties</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
 
