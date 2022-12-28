@@ -293,7 +293,7 @@ const GeneralHomepage = (user) => {
                 </centre>
                 <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </Container>
-       </>
+    </>
     );
 }
 export default GeneralHomepage

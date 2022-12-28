@@ -59,6 +59,7 @@ const Register = () => {
         reader.onload = function () {
             var output = document.getElementById('output');
             output.src = reader.result;
+            console.log(reader.result)
         };
         reader.readAsDataURL(event.target.files[0]);
         console.log(event.target.files[0])
@@ -101,6 +102,7 @@ const Register = () => {
             <label >Upload profile picture</label>
             <br></br>
             <input type="file" accept="image/*" onChange={loadFile} />
+            <img id = "output"/>
             
 
             <br></br>
