@@ -8,7 +8,6 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
 import Offcanvas from 'react-bootstrap/Offcanvas';
-//import Button from '@material-ui/core/Button';
 //import PhotoCamera from '@material-ui/icons/PhotoCamera';
 //import IconButton from '@material-ui/core/IconButton';
 
@@ -122,7 +121,7 @@ const GeneralHomepage = (user) => {
                 <Offcanvas className="slide" show={show} onHide={handleClose}>
                 <div className="canvas">
                     <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Assigned Duties</Offcanvas.Title>
+                    <Offcanvas.Title className="card7">Assigned Duties</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
 
@@ -131,8 +130,9 @@ const GeneralHomepage = (user) => {
                         Date: {Date} <br></br>
                         Time Slot: {Time} <br></br>
                         
-                        <button variant="primary">
+                        <button className="data-upload" variant="primary">
                             Upload Event Data
+                            <input type='file' accept='image/*'></input>
                         </button>
                         </centre>
                        
@@ -172,7 +172,7 @@ const GeneralHomepage = (user) => {
                                         <ToggleButton variant="outline-info light" id="tbg-btn-6" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-7" value={7}>
+                                        <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
@@ -198,7 +198,7 @@ const GeneralHomepage = (user) => {
                                         <ToggleButton variant="outline-info light" id="tbg-btn-13" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-14" value={7}>
+                                        <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
@@ -224,7 +224,7 @@ const GeneralHomepage = (user) => {
                                         <ToggleButton variant="outline-info light" id="tbg-btn-20" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-21" value={7}>
+                                        <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
@@ -250,7 +250,7 @@ const GeneralHomepage = (user) => {
                                         <ToggleButton variant="outline-info light" id="tbg-btn-27" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-28" value={7}>
+                                        <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>
@@ -276,7 +276,7 @@ const GeneralHomepage = (user) => {
                                         <ToggleButton variant="outline-info light" id="tbg-btn-34" value={6}>
                                             3:15 - 4:45
                                         </ToggleButton>
-                                        <ToggleButton variant="danger" id="tbg-btn-35" value={7}>
+                                        <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
                                             None
                                         </ToggleButton>
                                     </ToggleButtonGroup>

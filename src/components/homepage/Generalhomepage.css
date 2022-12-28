@@ -11,7 +11,10 @@
     position: relative
 }
 
-
+.none:hover
+{
+    background-color:  red;
+}
 
 h2{
     color:  #63bbf2; 
@@ -25,7 +28,7 @@ h1
     background-color:whitesmoke;
     border-radius: 5px;
     width: 320px;
-    height: 220px;
+    height: 250px;
     text-align: center;
     margin-top: 15px;
     margin-left: 35px;
@@ -35,8 +38,13 @@ h1
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     background-color: #addd;
+    
 }
 .submit
 {
     margin-left: 400px;
+}
+.data-upload
+{
+    height: fit-content;
 }
