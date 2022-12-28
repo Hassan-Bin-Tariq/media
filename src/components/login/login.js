@@ -65,7 +65,7 @@ const Login = ({ setLoginUser }) => {
                     {/* <input className="emailtak"></input> */}
                     <input className="emailtak" type="text" name="email" value={user.email} onChange={handleChange}></input>
                 </div>
-<br></br>
+        <br></br>
         
                 <div className="pass">
                     <label >Password</label>

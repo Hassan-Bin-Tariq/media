@@ -15,6 +15,11 @@ import crop2 from "../../assets/crop2.png";
 import cover1 from "../../assets/cover1.png";
 import cover2 from "../../assets/cover2.png";
 import cover3 from "../../assets/cover3.png";
+import cover4 from "../../assets/cover4.png";
+import vid from "../../assets/vid.mp4";
+import party from "../../assets/party.mp4";
+import cover5 from "../../assets/cover5.png";
+import cover6 from "../../assets/new.png";
 import {
     MDBCarousel,
     MDBCarouselItem,
@@ -49,15 +54,23 @@ const Try = () => {
                 </Carousel.Item>
                 </Carousel>
             <div className="container2">
-                <img src={cover3} className="d-block w-100 h-50"></img>
+                {/* <img src={cover3} className="d-block w-100 h-50"></img> */}
+                <video className="d-block w-100 h-50" loop="true" autoplay="autoplay" controls muted>
+                <source src={party} type="video/mp4" ></source>
+                </video> 
             </div> 
             <div className="container2">
-                <img src={cover1} className="d-block w-100 h-50"></img>
+                {/* <img src={cover4} className="d-block w-100 h-50"></img> */}
+                <video className="d-block w-100 h-50" loop="true" autoplay="autoplay" controls muted>
+                <source src={vid} type="video/mp4" ></source>
+                </video>
+
             </div>
         {/* <div className="container2"></div>
         <div className="container3"></div> */}
             <div className="container2">
-                <img src={convo1} className="d-block w-100 h-50"></img>
+                <img src={cover6} className="d-block w-100 h-50"></img>
+                <button>check</button>
             </div>
         </div>
         
