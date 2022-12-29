@@ -95,13 +95,13 @@ const Try = ({ setLoginUser }) => {
                 </Carousel>
             <div className="container2">
                 {/* <img src={cover3} className="d-block w-100 h-50"></img> */}
-                <video className="d-block w-100 h-50" loop="true" autoplay="autoplay" controls muted>
+                <video className="d-block w-100 h-50" loop="true" autoplay="autoplay" muted>
                 <source src={party} type="video/mp4" ></source>
                 </video> 
             </div> 
             <div className="container2">
                 {/* <img src={cover4} className="d-block w-100 h-50"></img> */}
-                <video className="d-block w-100 h-50" loop="true" autoplay="autoplay" controls muted>
+                <video className="d-block w-100 h-50" loop="true" autoplay="autoplay" muted>
                 <source src={vid} type="video/mp4" ></source>
                 </video>
 
