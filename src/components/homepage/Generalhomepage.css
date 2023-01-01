@@ -65,3 +65,61 @@ h1
 {
     height: fit-content;
 }
+.navbar {
+    width: 140px;
+    height: 100vh;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #A6BB8D;
+    transition: 0.4s;
+}
+
+.nav-link {
+    font-size: 1.25em;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+}
+
+.dropdown-menu {
+    background-color: #7952b3;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #ffffff26;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+
+/* for navbar */
+
+.active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+.active-cont {
+    margin-left: 250px;
+}
+
+.click
+{
+    margin-left:150px ;
+    background-color: #A6BB8D;
+    border: none;
+    margin-top: 25px;
+}
+.click:hover
+{
+    background-color: #CCD6A6;
+}
