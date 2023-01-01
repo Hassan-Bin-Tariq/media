@@ -59,9 +59,9 @@ const Header = () => {
           <ul className="social-media-desktop">
             <li>
               <a
-                href="https://www.instagram.com/thapatechnical/"
+                href="/login"
                 target="_thapa">
-                <FaUserAlt className="instagram" />
+                <FaUserAlt className="user" />
               </a>
             </li>
             <li>
