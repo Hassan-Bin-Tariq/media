@@ -9,7 +9,8 @@
     border-radius: 20px;
     box-shadow: 0 0 15px 5px grey;
     background: white;
-    position: relative
+    position: relative;
+    font-family: 'Roboto';
 }
 .togo
 {
@@ -47,7 +48,7 @@ h1
 }
 .slide
 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto';
     font-weight: bold;
     background-color: #A6BB8D;
     
@@ -56,6 +57,7 @@ h1
 {
     margin-left: 400px;
     background-color: #AA8B56;
+    font-family: 'Roboto';
 }
 .submit:hover
 {
@@ -105,8 +107,15 @@ h1
     background-color: transparent;
     border: none;
     margin-top: 25px;
+    font-family: 'Roboto';
 }
 .click:hover
 {
     background-color: transparent;
+}
+h6
+{
+    margin-bottom: 5px;
+    margin-left: 400px;
+    margin-top: 150px;
 }
