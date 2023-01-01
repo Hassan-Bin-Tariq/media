@@ -1,3 +1,4 @@
+
 .Generalhomepage {
     display: flex;
     flex-direction: column;
@@ -10,7 +11,23 @@
     background: white;
     position: relative
 }
-
+.brand-name
+{
+    text-decoration: solid;
+}
+.img-b
+{
+   border-radius: 100;
+   margin-right: 5px;
+}
+.search
+{
+    border-radius: 20px;
+}
+.btn3
+{
+    margin-left: 300px;
+}
 .none:hover
 {
     background-color:  red;

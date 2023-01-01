@@ -29,8 +29,10 @@ const Header = () => {
           </NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Add a complain</NavDropdown.Item>
           </NavDropdown>
+          
           <Button variant="outline-info" size='sm' style={{height: '40px', width : '100px' }} href="./login">Login</Button>
           <Button variant="secondary" size='sm' style={{height: '40px', width : '100px'}} href="./register">Sign Up</Button>
+          <Navbar.Brand><img  className="try" src="img_avatar.png" alt="Avatar"/></Navbar.Brand>
       </Nav>
       </Navbar.Collapse>
   </Container>
