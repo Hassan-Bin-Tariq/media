@@ -2,14 +2,15 @@ import React from "react"
 import "./Generalhomepage.css"
 import { useHistory } from "react-router-dom"
 import Table from 'react-bootstrap/Table'
-import {Button, Container, Row} from "react-bootstrap"
-import { useState } from 'react';
+import {Button, Container, Nav, Row} from "react-bootstrap"
+import { useState, useNavigate } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
-
+//import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
+//import SideNav, {Toggle, NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
+import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 //import PhotoCamera from '@material-ui/icons/PhotoCamera';
 //import IconButton from '@material-ui/core/IconButton';
 
@@ -31,6 +32,7 @@ const GeneralHomepage = (user) => {
     console.log(user.setLoginUser.day);
     console.log(user.setLoginUser.time);
 
+    
     //usestate handler for offcanvas to show assigned duties
     const [show, setShow] = useState(false);
 
@@ -38,12 +40,15 @@ const GeneralHomepage = (user) => {
     const handleShow = () => setShow(true);
     //////
 
+    //navigation hook for sidebar
+    
     const [Mondayvalue, setValueMonday] = useState();
     const [Tuesdayvalue, setValueTuesday] = useState();
     const [Wednesdayvalue, setValueWednesday] = useState();
     const [Thursdayvalue, setValueThursday] = useState();
     const [Fridayvalue, setValueFriday] = useState();
 
+    
     const MondayhandleChange = (val) => setValueMonday(
         val,
         Mondayslots.push(val)  //SETTING THE VALUE AND PUSHING IT IN LIST
@@ -78,6 +83,21 @@ const GeneralHomepage = (user) => {
         sub = false;
     }
 
+    //var menu_btn = document.querySelector("#menu-btn");
+    //var sidebar = document.querySelector("#sidebar");
+    //var container = document.querySelector(".my-container");
+
+  const myfub = () =>
+  {
+    var menu_btn = document.querySelector("#menu-btn");
+    var sidebar = document.querySelector("#sidebar");
+    var container = document.querySelector(".my-container");
+    sidebar.classList.toggle("active-nav")
+        container.classList.toggle("active-cont")
+
+  }
+   
+
     const SubmitForm = () => {
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
         //console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
@@ -110,6 +130,7 @@ const GeneralHomepage = (user) => {
         setZip(allSlots);
     }   
  
+      
     return (
         /*<div className="Generalhomepage">  
             <h1>Hello {Name}</h1>
@@ -117,17 +138,34 @@ const GeneralHomepage = (user) => {
         </div>*/
         
         <>
-            
-            <div class="bar">
-            
-  
-            
-</div>
-   <Container>
-                <button className="logout" variant="warning" onClick={() => history.push("/login")}>Logout</button><br></br>
-                <button variant="primary" onClick={handleShow} className="me-2">
+          <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        <a href="#" class="navbar-brand text-light mt-5">
+            <div class="display-5 font-weight-bold"></div>
+        </a>
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+            <li class="nav-item w-100">
+            <button  onClick={handleShow} className="btn bg-transparent">
+                    Edit Profile
+                </button>
+            </li>
+            <li class="nav-item w-100">
+               <button  onClick={handleShow} className="btn bg-transparent">
                     View Assigned Duty
                 </button>
+            </li>
+            <li class="nav-item w-100">
+            <button className="btn bg-transparent" id ="sleek" onClick={() => history.push("/login")}>Logout</button>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link text-light pl-4"></a>
+            </li>
+           
+            
+        </ul>
+    </nav>
+    <button className="click" onClick={myfub} >UserImage</button>
+   <Container>
+                
                 <Offcanvas className="slide" show={show} onHide={handleClose}>
                     <div className="canvas">
                         <Offcanvas.Header closeButton>
