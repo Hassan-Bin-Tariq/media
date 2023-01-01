@@ -7,20 +7,29 @@ import Login from "./components/login/login"
 import Register from "./components/register/register"
 import StudentHomepage from "./components/homepage/Studenthomepage"
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import Try from './components/homepage/Try';
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 //comment from tehreem
 //comment from ibnet
 function App() {
 //Bu fixed
   const [ user, setLoginUser] = useState({})
+  // const [loading,setLoading]=useState(true);
+  // const spinner=document.getElementById("spinner");
+  // if(spinner){
+  //   setTimeout(()=>{
+  //     spinner.style.display="none";
+  //     setLoading(false);
+  //   },5000)
+  // }
 
   return (
     <div className="App">
-      <Router>
+        <Router>
         <Header/>
         <Switch>
          {/* <Route exact path="/" element={<Home />} />  */}
@@ -72,6 +81,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      
+      
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import {ReactNavbar} from "overlay-navbar"
 import logoNav from "../../assets/logo-copy.png";
-import { FaUserAlt } from "react-icons/fa";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,35 +8,94 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import { useState } from "react";
+import navlogo from "../../assets/Picture1.png";
+import user from "../../assets/user.png";
+import "./Header.css";
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaYoutubeSquare,
+  FaUserAlt,
+} from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
+  const [showMediaIcons, setShowMediaIcons] = useState(false);
   return (
-    <Navbar collapseOnSelect expand="sm" variant="light" className="navbar">
-        <Container className="color-nav">
-      <Navbar.Brand href="/try"><img src={logoNav}></img></Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="me-auto">
-          
-      </Nav>
-      <Nav >
-      <Nav.Link href="/try">Home</Nav.Link>
-          <Nav.Link href="/login">About Us</Nav.Link>
-          <NavDropdown title="More Options" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Take a Tour</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">
-              Contact
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Add a complain</NavDropdown.Item>
-          </NavDropdown>
-          
-          <Button variant="outline-info" size='sm' style={{height: '40px', width : '100px' }} href="./login">Login</Button>
-          <Button variant="secondary" size='sm' style={{height: '40px', width : '100px'}} href="./register">Sign Up</Button>
-          <Navbar.Brand><img  className="try" src="img_avatar.png" alt="Avatar"/></Navbar.Brand>
-      </Nav>
-      </Navbar.Collapse>
-  </Container>
-</Navbar>)
-  
-}
+    <>
+      <nav className="main-nav">
+        {/* 1st logo part  */}
+        <div className="logo">
+           <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
+        </div>
+        
+
+        {/* 2nd menu part  */}
+        <div
+          className={
+            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
+          }>
+          <ul>
+            <li>
+              <NavLink to="/try">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">about</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Get Started</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">contact</NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* 3rd social media links */}
+        <div className="social-media">
+          <ul className="social-media-desktop">
+            <li>
+              <a
+                href="https://www.instagram.com/thapatechnical/"
+                target="_thapa">
+                <FaUserAlt className="instagram" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/thapatechnical/"
+                target="_thapa">
+                <FaInstagramSquare className="instagram" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
+                target="_thapa">
+                <FaYoutubeSquare className="youtube" />
+              </a>
+            </li>
+          </ul>
+
+          {/* hamburget menu start  */}
+          <div className="hamburger-menu">
+            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+              <GiHamburgerMenu />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* hero section  */}
+      {/* <section className="hero-section">
+        <p>Welcome to </p>
+        <h1>Thapa Technical</h1>
+      </section> */}
+    </>
+  );
+};
 
 export default Header
