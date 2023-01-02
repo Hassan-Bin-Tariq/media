@@ -12,6 +12,11 @@
     position: relative;
     font-family: 'Roboto';
 }
+
+.hidden
+{
+    display: none;
+}
 .togo
 {
     background-color: #A6BB8D;
