@@ -8,9 +8,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
 import { GiHamburgerMenu } from "react-icons/gi";
-
 import { NavLink } from "react-router-dom";
-
 import logoNav from "../../assets/logo-copy.png";
 //import Container from 'react-bootstrap/Container';
 //import Nav from 'react-bootstrap/Nav';
@@ -35,6 +33,8 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 //import PhotoCamera from '@material-ui/icons/PhotoCamera';
 //import IconButton from '@material-ui/core/IconButton';
 import $ from "jquery"
+
+
 
 var Mondayslots = [];
 var Tuesdayslots = [];
@@ -86,19 +86,16 @@ const GeneralHomepage = (user) => {
     //fetching slots from db
     const getallSlots = () =>
     {
-
-        axios.post("http://localhost:9002/GetFreeSlots", )
+        console.log(user.setLoginUser.email)
+        axios.post("http://localhost:9002/GetFreeSlots",{zip:zip,Email: user.setLoginUser.email})
         .then((res) => {
             const data = res.data;
-            console.log('Data has been recieved');
+            console.log(data.generalBodies[0].slots);
         }).catch(() => {
             alert('errrdjd');
         })
         
     }
-
-
-
 
     const MondayhandleChange = (val) => setValueMonday(
         val,
@@ -138,16 +135,14 @@ const GeneralHomepage = (user) => {
     //var sidebar = document.querySelector("#sidebar");
     //var container = document.querySelector(".my-container");
 
-  const myfub = () =>
-  {
-   
+const myfub = () =>
+{
     var sidebar = document.querySelector("#sidebar");
     var container = document.querySelector(".my-container");
     sidebar.classList.toggle("active-nav")
         container.classList.toggle("active-cont")
+}
 
-  }
-   
 
     const SubmitForm = () => {
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
@@ -180,9 +175,6 @@ const GeneralHomepage = (user) => {
     
         setZip(allSlots);
     }   
-
-
-
 const showTable = () => {
     $(function () {
         $('#mydiv').show();
@@ -195,7 +187,6 @@ const hideTable = () => {
 }
 
     return (
-      
         
         <>
         <div className="bg">
@@ -313,6 +304,7 @@ const hideTable = () => {
                     </div>
                 </Offcanvas>
                 <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
+                <button  onClick={getallSlots}>Show previous given slots</button>
 
 <div id="mydiv" class="hidden">
     <div className='xmark'>
