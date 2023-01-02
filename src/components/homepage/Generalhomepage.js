@@ -7,13 +7,28 @@ import { useState, useNavigate } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
+import { GiHamburgerMenu } from "react-icons/gi";
+
+import { NavLink } from "react-router-dom";
+
+import logoNav from "../../assets/logo-copy.png";
+//import Container from 'react-bootstrap/Container';
+//import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import {
     FaFacebookSquare,
     FaInstagramSquare,
     FaYoutubeSquare,
     FaUserAlt,
+    FaWindowClose,
+    FaUserEdit,
+    FaBookOpen
+  
   } from "react-icons/fa";
+  import {AiOutlineLogout, AiOutlineFundView} from "react-icons/ai";
 //import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
 //import SideNav, {Toggle, NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
@@ -27,11 +42,23 @@ var Wednesdayslots = [];
 var Thursdayslots = [];
 var Fridayslots = [];
 var sub = false;
+    var emails = [];
+    var dict = {};
+    var requiredSlots = [];
+    var assignSlots={};
+    var names=[];
+    var selectedDate;
+    var studentSlots = [];
+    var freestuEmails = [];
+    var GeneralBodies;
+    var timeslost = [];
+    var showevents;
 
 const GeneralHomepage = (user) => {
 
     const [zip, setZip] = useState();
     const history = useHistory()
+    const [showMediaIcons, setShowMediaIcons] = useState(false);
     var Name = user.setLoginUser.name
     var Date= user.setLoginUser.day
     var Time= user.setLoginUser.time
@@ -49,13 +76,30 @@ const GeneralHomepage = (user) => {
 
     //navigation hook for sidebar
     
+    
     const [Mondayvalue, setValueMonday] = useState();
     const [Tuesdayvalue, setValueTuesday] = useState();
     const [Wednesdayvalue, setValueWednesday] = useState();
     const [Thursdayvalue, setValueThursday] = useState();
     const [Fridayvalue, setValueFriday] = useState();
 
-    
+    //fetching slots from db
+    const getallSlots = () =>
+    {
+
+        axios.post("http://localhost:9002/GetFreeSlots", )
+        .then((res) => {
+            const data = res.data;
+            console.log('Data has been recieved');
+        }).catch(() => {
+            alert('errrdjd');
+        })
+        
+    }
+
+
+
+
     const MondayhandleChange = (val) => setValueMonday(
         val,
         Mondayslots.push(val)  //SETTING THE VALUE AND PUSHING IT IN LIST
@@ -96,7 +140,7 @@ const GeneralHomepage = (user) => {
 
   const myfub = () =>
   {
-    var menu_btn = document.querySelector("#menu-btn");
+   
     var sidebar = document.querySelector("#sidebar");
     var container = document.querySelector(".my-container");
     sidebar.classList.toggle("active-nav")
@@ -137,159 +181,7 @@ const GeneralHomepage = (user) => {
         setZip(allSlots);
     }   
 
-// const extratest = () =>{
-//     <Row className="sm-3 text-center">
-//     <h2>Available Slots of the Week</h2>
-//     <Table striped bordered hover size="sm">
-//         <thead>
-//             <tr>
-//                 <th>Weekday</th>
-//                 <th>Free Slots</th>
-//             </tr>
-//         </thead>
-//         <tbody>
-//             <tr>
-//                 <td>Monday</td>
 
-//                 <ToggleButtonGroup type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
-//                     <ToggleButton className="togo" id="tbg-btn-1" value={1} color="purple">
-//                         8:45 - 10:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-2" value={2}>
-//                         10:15 - 11:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-3" value={3}>
-//                         11:45 - 1:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-4" value={4}>
-//                         1:15 - 1:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-5" value={5}>
-//                         1:45 - 3:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-6" value={6}>
-//                         3:15 - 4:45
-//                     </ToggleButton>
-//                     <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
-//                         None
-//                     </ToggleButton>
-//                 </ToggleButtonGroup>
-//             </tr>
-//             <tr>
-//                 <td>Tuesday</td>
-//                 <ToggleButtonGroup type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
-//                     <ToggleButton className="togo" id="tbg-btn-8" value={1}>
-//                         8:45 - 10:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-9" value={2}>
-//                         10:15 - 11:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-10" value={3}>
-//                         11:45 - 1:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-11" value={4}>
-//                         1:15 - 1:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-12" value={5}>
-//                         1:45 - 3:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-13" value={6}>
-//                         3:15 - 4:45
-//                     </ToggleButton>
-//                     <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
-//                         None
-//                     </ToggleButton>
-//                 </ToggleButtonGroup>
-//             </tr>
-//             <tr>
-//                 <td>Wednesday</td>
-//                 <ToggleButtonGroup type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
-//                     <ToggleButton className="togo" id="tbg-btn-15" value={1}>
-//                         8:45 - 10:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-16" value={2}>
-//                         10:15 - 11:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-17" value={3}>
-//                         11:45 - 1:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-18" value={4}>
-//                         1:15 - 1:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-19" value={5}>
-//                         1:45 - 3:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-20" value={6}>
-//                         3:15 - 4:45
-//                     </ToggleButton>
-//                     <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
-//                         None
-//                     </ToggleButton>
-//                 </ToggleButtonGroup>
-//             </tr>
-//             <tr>
-//                 <td>Thursday</td>
-//                 <ToggleButtonGroup type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
-//                     <ToggleButton className="togo" id="tbg-btn-22" value={1}>
-//                         8:45 - 10:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-23" value={2}>
-//                         10:15 - 11:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-24" value={3}>
-//                         11:45 - 1:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-25" value={4}>
-//                         1:15 - 1:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-26" value={5}>
-//                         1:45 - 3:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-27" value={6}>
-//                         3:15 - 4:45
-//                     </ToggleButton>
-//                     <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
-//                         None
-//                     </ToggleButton>
-//                 </ToggleButtonGroup>
-//             </tr>
-//             <tr>
-//                 <td>Friday</td>
-//                 <ToggleButtonGroup type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
-//                     <ToggleButton variant="outline-info light"className="togo" id="tbg-btn-29" value={1}>
-//                         8:45 - 10:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-30" value={2}>
-//                         10:15 - 11:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-31" value={3}>
-//                         11:45 - 1:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-32" value={4}>
-//                         1:15 - 1:40
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-33" value={5}>
-//                         1:45 - 3:10
-//                     </ToggleButton>
-//                     <ToggleButton className="togo" id="tbg-btn-34" value={6}>
-//                         3:15 - 4:45
-//                     </ToggleButton>
-//                     <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
-//                         None
-//                     </ToggleButton>
-//                 </ToggleButtonGroup>
-
-//             </tr>
-
-//         </tbody>
-//     </Table>
-// </Row>
-// <centre>
-//     <button className="submit" variant="success btn-block" onClick={SubmitForm}>
-//         Submit Form
-//     </button>
-// </centre>
-// }
 
 const showTable = () => {
     $(function () {
@@ -303,37 +195,99 @@ const hideTable = () => {
 }
 
     return (
-        /*<div className="Generalhomepage">  
-            <h1>Hello {Name}</h1>
-            <div className="button" onClick={() => history.push("/login")}>Logout</div>
-        </div>*/
+      
         
         <>
-        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-        <a href="#" class="navbar-brand text-light mt-5">
-            <div class="display-5 font-weight-bold"></div>
-        </a>
-        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-            <li class="nav-item w-100">
-            <button  onClick={handleShow} className="btn bg-transparent">
-                    Edit Profile
-                </button>
+        <div className="bg">
+        <nav className="main-nav">
+        {/* 1st logo part  */}
+        <div className="logo">
+           <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
+        </div>
+        
+
+        {/* 2nd menu part  */}
+        <div
+          className={
+            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
+          }>
+          <ul>
+            <li>
+              <NavLink to="/try">Home</NavLink>
             </li>
-            <li class="nav-item w-100">
-            <button  onClick={handleShow} className="btn bg-transparent">
-                    View Assigned Duty
-                </button>
+            <li>
+              <NavLink to="/about">about</NavLink>
             </li>
-            <li class="nav-item w-100">
-            <button className="btn bg-transparent" id ="sleek" onClick={() => history.push("/login")}>Logout</button>
+            <li>
+              <NavLink to="/login">Get Started</NavLink>
             </li>
-            <li class="nav-item w-100">
-                <a href="#" class="nav-link text-light pl-4"></a>
+            <li>
+              <NavLink to="/contact">contact</NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* 3rd social media links */}
+        <div className="social-media">
+          <ul className="social-media-desktop">
+            <li>
+              
+            </li>
+            <li>
+            </li>
+            <li>
+            <button  onClick={myfub} className="btclose">
+                <FaUserAlt className="user" />
+              </button>
             </li>
             
+          </ul>
+
+          {/* hamburget menu start  */}
+          <div className="hamburger-menu">
+            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+              <GiHamburgerMenu />
+            </a>
+          </div>
+        </div>
+      </nav>
+        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+        <div className="closebtn">
+        <li class="nav-item w-100">
+            
+            <button  onClick={myfub} className="btclose">
+            <FaWindowClose className="close"></FaWindowClose>
+                </button>
+                
+            </li>
+            </div>
+            <div className="sidebardiv">
+            <li class="nav-item w-100">
+            <button  onClick={handleShow} className="btn-bg-transparent">
+            <FaUserEdit />       Edit Profile
+                </button>
+            </li>
+
+            <li class="nav-item w-100">
+            <button  onClick={handleShow} className="btn-bg-transparent">
+                    <AiOutlineFundView/>  View Assigned Duty
+                </button>
+            </li>
+            
+            <li class="nav-item w-100">
+            <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
+                       <FaBookOpen/> Show Table
+                    </button>
+                    </li>
+                    <li class="nav-item w-100">
+            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
+            </li>
+                    </div>
         </ul>
     </nav>
-    <button className="click" onClick={myfub} ><FaUserAlt className="user" /></button>
+   
 <Container>
                 
                 <Offcanvas className="slide" show={show} onHide={handleClose}>
@@ -360,29 +314,20 @@ const hideTable = () => {
                 </Offcanvas>
                 <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
 
-                <centre>
-                    <button className="show" variant="success btn-block" onClick={showTable}>
-                        Show Table
-                    </button>
-                </centre>
-                <centre>
-                    <button className="hide" variant="success btn-block" onClick={hideTable}>
-                        Hide Table
-                    </button>
-                </centre>
-
 <div id="mydiv" class="hidden">
+    <div className='xmark'>
+<button className="hide"  onClick={hideTable}>
+<FaWindowClose className="userhide" />
+                    </button>
+                    </div>
                 <Row className="sm-3 text-center">
     <h2>Available Slots of the Week</h2>
-    <Table striped bordered hover size="sm">
-        <thead>
-            <tr>
-                <th>Weekday</th>
-                <th>Free Slots</th>
-            </tr>
-        </thead>
+    <Table >
+        
         <tbody>
+        <div className="tab">
             <tr>
+                
                 <td>Monday</td>
 
                 <ToggleButtonGroup type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
@@ -512,9 +457,9 @@ const hideTable = () => {
                         None
                     </ToggleButton>
                 </ToggleButtonGroup>
-
+                
             </tr>
-
+            </div>
         </tbody>
     </Table>
 </Row>
@@ -527,7 +472,8 @@ const hideTable = () => {
 </div>
 
                 <h6 >Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
-            </Container></>
+            </Container>
+            </div></>
     );
 }
 export default GeneralHomepage
