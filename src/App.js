@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
         <Router>
-        <Header/>
+        
         <Switch>
          {/* <Route exact path="/" element={<Home />} />  */}
           {/* <Route exact path="/login">
@@ -76,7 +76,9 @@ function App() {
           </Route>
           <Route path="/">
           {
-            <Try />
+            <Home/>
+              
+            
           }
           </Route>
         </Switch>

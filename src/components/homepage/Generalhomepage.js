@@ -8,6 +8,12 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import axios from "axios"
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import {
+    FaFacebookSquare,
+    FaInstagramSquare,
+    FaYoutubeSquare,
+    FaUserAlt,
+  } from "react-icons/fa";
 //import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
 //import SideNav, {Toggle, NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
@@ -163,7 +169,7 @@ const GeneralHomepage = (user) => {
             
         </ul>
     </nav>
-    <button className="click" onClick={myfub} >UserImage</button>
+    <button className="click" onClick={myfub} ><FaUserAlt className="user" /></button>
    <Container>
                 
                 <Offcanvas className="slide" show={show} onHide={handleClose}>
@@ -177,11 +183,12 @@ const GeneralHomepage = (user) => {
                                 You are currently assigned coverage for: <br></br>
                                 Date: {Date} <br></br>
                                 Time Slot: {Time} <br></br>
+                                <br></br>
 
-                                <button className="data-upload" variant="primary">
+                                <label className="data-upload" variant="primary">
                                     Upload Event Data
                                     <input type='file' accept='image/*'></input>
-                                </button>
+                                </label>
                             </centre>
 
                         </Offcanvas.Body>
@@ -202,22 +209,22 @@ const GeneralHomepage = (user) => {
                                 <td>Monday</td>
 
                                 <ToggleButtonGroup type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-1" value={1} color="purple">
+                                    <ToggleButton className="togo" id="tbg-btn-1" value={1} color="purple">
                                         8:45 - 10:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-2" value={2}>
+                                    <ToggleButton className="togo" id="tbg-btn-2" value={2}>
                                         10:15 - 11:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-3" value={3}>
+                                    <ToggleButton className="togo" id="tbg-btn-3" value={3}>
                                         11:45 - 1:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-4" value={4}>
+                                    <ToggleButton className="togo" id="tbg-btn-4" value={4}>
                                         1:15 - 1:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-5" value={5}>
+                                    <ToggleButton className="togo" id="tbg-btn-5" value={5}>
                                         1:45 - 3:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-6" value={6}>
+                                    <ToggleButton className="togo" id="tbg-btn-6" value={6}>
                                         3:15 - 4:45
                                     </ToggleButton>
                                     <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
@@ -228,22 +235,22 @@ const GeneralHomepage = (user) => {
                             <tr>
                                 <td>Tuesday</td>
                                 <ToggleButtonGroup type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-8" value={1}>
+                                    <ToggleButton className="togo" id="tbg-btn-8" value={1}>
                                         8:45 - 10:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-9" value={2}>
+                                    <ToggleButton className="togo" id="tbg-btn-9" value={2}>
                                         10:15 - 11:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-10" value={3}>
+                                    <ToggleButton className="togo" id="tbg-btn-10" value={3}>
                                         11:45 - 1:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-11" value={4}>
+                                    <ToggleButton className="togo" id="tbg-btn-11" value={4}>
                                         1:15 - 1:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-12" value={5}>
+                                    <ToggleButton className="togo" id="tbg-btn-12" value={5}>
                                         1:45 - 3:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-13" value={6}>
+                                    <ToggleButton className="togo" id="tbg-btn-13" value={6}>
                                         3:15 - 4:45
                                     </ToggleButton>
                                     <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
@@ -254,22 +261,22 @@ const GeneralHomepage = (user) => {
                             <tr>
                                 <td>Wednesday</td>
                                 <ToggleButtonGroup type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-15" value={1}>
+                                    <ToggleButton className="togo" id="tbg-btn-15" value={1}>
                                         8:45 - 10:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-16" value={2}>
+                                    <ToggleButton className="togo" id="tbg-btn-16" value={2}>
                                         10:15 - 11:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-17" value={3}>
+                                    <ToggleButton className="togo" id="tbg-btn-17" value={3}>
                                         11:45 - 1:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-18" value={4}>
+                                    <ToggleButton className="togo" id="tbg-btn-18" value={4}>
                                         1:15 - 1:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-19" value={5}>
+                                    <ToggleButton className="togo" id="tbg-btn-19" value={5}>
                                         1:45 - 3:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-20" value={6}>
+                                    <ToggleButton className="togo" id="tbg-btn-20" value={6}>
                                         3:15 - 4:45
                                     </ToggleButton>
                                     <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
@@ -280,22 +287,22 @@ const GeneralHomepage = (user) => {
                             <tr>
                                 <td>Thursday</td>
                                 <ToggleButtonGroup type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-22" value={1}>
+                                    <ToggleButton className="togo" id="tbg-btn-22" value={1}>
                                         8:45 - 10:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-23" value={2}>
+                                    <ToggleButton className="togo" id="tbg-btn-23" value={2}>
                                         10:15 - 11:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-24" value={3}>
+                                    <ToggleButton className="togo" id="tbg-btn-24" value={3}>
                                         11:45 - 1:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-25" value={4}>
+                                    <ToggleButton className="togo" id="tbg-btn-25" value={4}>
                                         1:15 - 1:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-26" value={5}>
+                                    <ToggleButton className="togo" id="tbg-btn-26" value={5}>
                                         1:45 - 3:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-27" value={6}>
+                                    <ToggleButton className="togo" id="tbg-btn-27" value={6}>
                                         3:15 - 4:45
                                     </ToggleButton>
                                     <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
@@ -306,22 +313,22 @@ const GeneralHomepage = (user) => {
                             <tr>
                                 <td>Friday</td>
                                 <ToggleButtonGroup type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-29" value={1}>
+                                    <ToggleButton variant="outline-info light"className="togo" id="tbg-btn-29" value={1}>
                                         8:45 - 10:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-30" value={2}>
+                                    <ToggleButton className="togo" id="tbg-btn-30" value={2}>
                                         10:15 - 11:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-31" value={3}>
+                                    <ToggleButton className="togo" id="tbg-btn-31" value={3}>
                                         11:45 - 1:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-32" value={4}>
+                                    <ToggleButton className="togo" id="tbg-btn-32" value={4}>
                                         1:15 - 1:40
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-33" value={5}>
+                                    <ToggleButton className="togo" id="tbg-btn-33" value={5}>
                                         1:45 - 3:10
                                     </ToggleButton>
-                                    <ToggleButton variant="outline-info light" id="tbg-btn-34" value={6}>
+                                    <ToggleButton className="togo" id="tbg-btn-34" value={6}>
                                         3:15 - 4:45
                                     </ToggleButton>
                                     <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
@@ -339,7 +346,7 @@ const GeneralHomepage = (user) => {
                         Submit Form
                     </button>
                 </centre>
-                <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                <h6 >Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </Container></>
   
     );

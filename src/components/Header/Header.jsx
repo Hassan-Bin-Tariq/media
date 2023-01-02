@@ -11,6 +11,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import { useState } from "react";
 import navlogo from "../../assets/Picture1.png";
 import user from "../../assets/user.png";
+import Dropdown from 'react-bootstrap/Dropdown';
 import "./Header.css";
 import {
   FaFacebookSquare,
@@ -58,26 +59,18 @@ const Header = () => {
         <div className="social-media">
           <ul className="social-media-desktop">
             <li>
-              <a
-                href="https://www.instagram.com/thapatechnical/"
-                target="_thapa">
-                <FaUserAlt className="instagram" />
-              </a>
+              
+            </li>
+            <li>
             </li>
             <li>
               <a
-                href="https://www.instagram.com/thapatechnical/"
+                href="/login"
                 target="_thapa">
-                <FaInstagramSquare className="instagram" />
+                <FaUserAlt className="user" />
               </a>
             </li>
-            <li>
-              <a
-                href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
-                target="_thapa">
-                <FaYoutubeSquare className="youtube" />
-              </a>
-            </li>
+            
           </ul>
 
           {/* hamburget menu start  */}

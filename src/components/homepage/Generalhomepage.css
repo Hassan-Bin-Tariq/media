@@ -9,32 +9,28 @@
     border-radius: 20px;
     box-shadow: 0 0 15px 5px grey;
     background: white;
-    position: relative
+    position: relative;
+    font-family: 'Roboto';
 }
-.brand-name
+.togo
 {
-    text-decoration: solid;
+    background-color: #A6BB8D;
 }
-.img-b
+.togo:hover
 {
-   border-radius: 100;
-   margin-right: 5px;
+    background-color: #557153;
 }
-.search
+.none
 {
-    border-radius: 20px;
-}
-.btn3
-{
-    margin-left: 300px;
+    background-color: #A6BB8D;
 }
 .none:hover
 {
-    background-color:  red;
+    background-color:  #CF0A0A;
 }
 
 h2{
-    color:  #63bbf2; 
+    color:  #82CD47; 
 }
 h1
 {
@@ -45,21 +41,27 @@ h1
     background-color:whitesmoke;
     border-radius: 5px;
     width: 320px;
-    height: 250px;
+    height: 200px;
     text-align: center;
     margin-top: 15px;
     margin-left: 35px;
 }
 .slide
 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto';
     font-weight: bold;
-    background-color: #addd;
+    background-color: #A6BB8D;
     
 }
 .submit
 {
     margin-left: 400px;
+    background-color: #AA8B56;
+    font-family: 'Roboto';
+}
+.submit:hover
+{
+    background-color: #D6CDA4;
 }
 .data-upload
 {
@@ -78,21 +80,8 @@ h1
     font-size: 1.25em;
 }
 
-.nav-link:active,
-.nav-link:focus,
-.nav-link:hover {
-    background-color: #ffffff26;
-}
 
-.dropdown-menu {
-    background-color: #7952b3;
-}
 
-.dropdown-item:active,
-.dropdown-item:focus,
-.dropdown-item:hover {
-    background-color: #ffffff26;
-}
 
 .my-container {
     transition: 0.4s;
@@ -114,12 +103,19 @@ h1
 
 .click
 {
-    margin-left:150px ;
-    background-color: #A6BB8D;
+    margin-left:1050px ;
+    background-color: transparent;
     border: none;
     margin-top: 25px;
+    font-family: 'Roboto';
 }
 .click:hover
 {
-    background-color: #CCD6A6;
+    background-color: transparent;
+}
+h6
+{
+    margin-bottom: 5px;
+    margin-left: 400px;
+    margin-top: 150px;
 }
