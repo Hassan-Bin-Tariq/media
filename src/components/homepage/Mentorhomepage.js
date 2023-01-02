@@ -2,12 +2,20 @@ import React from "react"
 import "./Mentorhomepage.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
+import Navbar from 'react-bootstrap/Navbar';
 import { useHistory } from "react-router-dom"
 import emailjs from "emailjs-com";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
 import {Button,Container} from "react-bootstrap";
+import navlogo from "../../assets/Picture1.png";
+import {
+    FaUserAlt,
+} from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 import Offcanvas from 'react-bootstrap/Offcanvas';
+
 
 var EventTitle;
 var EventDescription;
@@ -17,6 +25,7 @@ const MentorHomepage = (user) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [showMediaIcons, setShowMediaIcons] = useState(false);
     const history = useHistory()
     var Name = user.setLoginUser.name
     var i = 0;
@@ -174,18 +183,57 @@ const MentorHomepage = (user) => {
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
- 
     return (
         
+    <div>
+        <nav className="main-nav">
+            {/* 1st logo part  */}
+            <div className="logo">
+                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
+            </div>
+
+            {/* 2nd menu part  */}
+            <div
+                className={
+                    showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
+                }>
+                    <p>You can write something here</p>
+            </div>
+
+            {/* 3rd social media links */}
+            <div className="social-media">
+                <ul className="social-media-desktop">
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    <a
+                        href="/login"
+                        target="_thapa">
+                        <FaUserAlt className="user" />
+                    </a>
+                    </li>
+    
+                </ul>
+
+                {/* hamburget menu start  */}
+                <div className="hamburger-menu">
+                    <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+                    <GiHamburgerMenu />
+                    </a>
+                </div>
+            </div>
+        </nav>        
+
+
+
         <div className="Mentorhomepage" id="hassan">  
+
             <h1>Hello, {Name} !</h1>
             <br></br>
-            
-            
+
             <div className="button2" id = "geteventbtn" onClick={GetEvents}>Show events</div>
-           
-                    
-                  
             <div id="card-container"></div>
             
             {
@@ -214,7 +262,7 @@ const MentorHomepage = (user) => {
                 
             <div className="button1" onClick={() => history.push("./login")}>Logout</div>    <br></br>
         </div> 
-      
+</div>
     )
 }
 
