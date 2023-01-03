@@ -7,14 +7,16 @@ import { useHistory } from "react-router-dom"
 import emailjs from "emailjs-com";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
-import {Button,Container} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import navlogo from "../../assets/Picture1.png";
+import camera from "../../assets/camera1.jpg";
 import {
     FaUserAlt,
+    FaWindowClose,
+    FaUserEdit,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import {AiOutlineLogout} from "react-icons/ai";
 
 
 var EventTitle;
@@ -112,30 +114,23 @@ const MentorHomepage = (user) => {
         handleShow();
     }
     function myFunction(item) {
+
+        
         console.log(item.teacherEmail)
 
         let row = document.createElement('div');
         row.className = 'row'
 
-        let card = document.createElement('div');
-        card.className = 'card shadow cursor-pointer';
-        
-
         let cardBody = document.createElement('div');
-        cardBody.className = 'card-body';
-
+        cardBody.class = 'card'
 
         let title = document.createElement('h5');
         title.innerText = item.title;
-        title.className = 'card-title';
-
-        let date = document.createElement('div');
-        date.innerText = item.date;
-        date.className = 'card-color';
+        title.class = 'titleee';
 
         let description = document.createElement('p');
         description.innerText = item.description;
-        description.className = 'card-text';
+        description.class = 'des';
 
         let checkDetailsbtn = document.createElement('a');
         checkDetailsbtn.innerText = "Check Details";
@@ -145,46 +140,34 @@ const MentorHomepage = (user) => {
         //checkDetailsbtn.onClick={path:'/CheckDetails'};
         checkDetailsbtn.addEventListener("click", CheckDetails, false);
 
-        let Acceptbtn = document.createElement('a');
-        Acceptbtn.innerText = "Accept";
-        Acceptbtn.className = 'btn btn-success';
-        Acceptbtn.id = "id"+i;
-        Acceptbtn.class = 'mybtn';
-        Acceptbtn.addEventListener("click", sendMail, false);
-
-        let Rejectbtn = document.createElement('a');
-        Rejectbtn.innerText = "Reject";
-        Rejectbtn.className = 'btn btn-danger';
-        Rejectbtn.id = "id"+i;
-        Rejectbtn.class = 'mybtn';
-        Rejectbtn.addEventListener("click", sendRejection, false);
-
-
         cardBody.appendChild(title);
         cardBody.appendChild(description);
-        cardBody.appendChild(date);
         cardBody.appendChild(checkDetailsbtn);
-        cardBody.appendChild(Acceptbtn);
-        cardBody.appendChild(Rejectbtn);
 
-        card.appendChild(cardBody);
         i+=1;
         let container = document.querySelector("#card-container");
-        container.appendChild(card);
+        container.appendChild(cardBody);
         
     }
 
     const GetEvents = () => {
         const xhr = new XMLHttpRequest();
         eventts.forEach(myFunction);
-        var elem = document.getElementById('geteventbtn');
-        elem.parentNode.removeChild(elem);
 
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
+
+    const SideBarActivator = () =>
+    {
+        var sidebar = document.querySelector("#sidebar");
+        var container = document.querySelector(".my-container");
+        sidebar.classList.toggle("active-nav")
+        container.classList.toggle("active-cont")
+    }
+
     return (
-        
+
     <div>
         <nav className="main-nav">
             {/* 1st logo part  */}
@@ -208,11 +191,9 @@ const MentorHomepage = (user) => {
                     <li>
                     </li>
                     <li>
-                    <a
-                        href="/login"
-                        target="_thapa">
+                    <button  onClick={SideBarActivator} className="btclose">
                         <FaUserAlt className="user" />
-                    </a>
+                    </button>
                     </li>
     
                 </ul>
@@ -230,11 +211,40 @@ const MentorHomepage = (user) => {
 
         <div className="Mentorhomepage" id="hassan">  
 
+            {/* SIDE BAR  */}   
+            <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+                <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+                    <div className="closebtn">
+                        <li class="nav-item w-100">
+                            
+                            <button  onClick={SideBarActivator} className="btclose">
+                                <FaWindowClose className="close"></FaWindowClose>
+                            </button>
+                                
+                        </li>
+                    </div>
+                    <div className="sidebardiv">
+                        <li class="nav-item w-100">
+                            <button  onClick={GetEvents} className="btn-bg-transparent">
+                                <FaUserEdit />       Show Events
+                            </button>
+                        </li>
+                        <li class="nav-item w-100">
+                            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>        Logout
+                            </button>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        {/*////////////// */} 
+
             <h1>Hello, {Name} !</h1>
+            <h2>Welcome to your portal</h2>
             <br></br>
 
-            <div className="button2" id = "geteventbtn" onClick={GetEvents}>Show events</div>
-            <div id="card-container"></div>
+            
+            
+            <div class = "asdtest" id="card-container"></div>
             
             {
                 show && <div id="Modal-container2">
@@ -258,9 +268,6 @@ const MentorHomepage = (user) => {
                     </h1>
                 </div>
             }
-        
-                
-            <div className="button1" onClick={() => history.push("./login")}>Logout</div>    <br></br>
         </div> 
 </div>
     )
