@@ -105,16 +105,16 @@ const Login = ({ setLoginUser }) => {
                     <h2 class="title">Sign In</h2>
 
                     <div class="inputBox">
-                        <i class='bx bxs-user'></i>
-                        <input type="text" placeholder="Username" />
-                    </div>
+                                <i class='bx bxs-user'></i>
+                                <input  className="emailtak" type="text" placeholder="Email" name="email" value={user.email} onChange={handleChange} />
+                            </div>
 
                     <div class="inputBox">
-                        <i class='bx bxs-user'></i>
-                        <input type="password" placeholder="Password" />
+                                <i class='bx bxs-user'></i>
+                                <input className="passcode" type="password" placeholder="Password" name="password" value={user.password}  onChange={handleChange}/>
                     </div>
 
-                    <input type="submit" value="Login" class="btn" />
+                    <btn  type="submit" value="Login" class="newbtn2" onClick={login}>Loggggin</btn>
                     <p class="social_text">Or Sign in with social platforms</p>
 
                     <div class="social_media">
