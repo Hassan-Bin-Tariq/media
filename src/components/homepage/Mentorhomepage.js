@@ -18,7 +18,6 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import {AiOutlineLogout} from "react-icons/ai";
 
-
 var EventTitle;
 var EventDescription;
 
@@ -32,7 +31,7 @@ const MentorHomepage = (user) => {
     var Name = user.setLoginUser.name
     var i = 0;
     var eventts;
-  
+
     axios.post("http://localhost:9002/GetEventRequest", )
     .then(res => {
         //alert(res.data.message)
@@ -114,40 +113,68 @@ const MentorHomepage = (user) => {
         handleShow();
     }
     function myFunction(item) {
+        let mycard = document.createElement('div');
+        mycard.className = 'mycard'
 
-        
-        console.log(item.teacherEmail)
+        let imgBx = document.createElement('div');
+        imgBx.className = 'imgBx'
 
-        let row = document.createElement('div');
-        row.className = 'row'
+        let image = document.createElement('img');
+        image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
 
-        let cardBody = document.createElement('div');
-        cardBody.class = 'card'
+        //DETAILS STARTING
 
-        let title = document.createElement('h5');
-        title.innerText = item.title;
-        title.class = 'titleee';
+        let details = document.createElement('div');
+        details.className = 'details'
+
+        let Title = document.createElement('h3')
+        Title.innerText = item.title;
+
+        let descriptionWritten = document.createElement('h4');
+        descriptionWritten.innerText = 'Description'
 
         let description = document.createElement('p');
         description.innerText = item.description;
-        description.class = 'des';
 
-        let checkDetailsbtn = document.createElement('a');
-        checkDetailsbtn.innerText = "Check Details";
-        checkDetailsbtn.className = 'btn btn-primary';
-        checkDetailsbtn.id = "id"+i;
-        checkDetailsbtn.class = 'mybtn';
-        //checkDetailsbtn.onClick={path:'/CheckDetails'};
-        checkDetailsbtn.addEventListener("click", CheckDetails, false);
+        let timewritten = document.createElement('h4');
+        timewritten.innerText = 'TIME'
 
-        cardBody.appendChild(title);
-        cardBody.appendChild(description);
-        cardBody.appendChild(checkDetailsbtn);
+        let timeul = document.createElement('ul');
+        timeul.className = 'size'
 
-        i+=1;
-        let container = document.querySelector("#card-container");
-        container.appendChild(cardBody);
+        let time = document.createElement('li');
+        time.innerText = item.StartTime
+
+        let divgroup = document.createElement('div');
+        divgroup.className = 'group'
+
+        let divpricewritten = document.createElement('h2');
+        divpricewritten.innerText = '5:00PM'
+
+        let detailsbtn = document.createElement('button');
+        detailsbtn.innerText = 'Check details'
+
+
+        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        details.appendChild(Title);
+        details.appendChild(descriptionWritten);
+        details.appendChild(description);
+        details.appendChild(timewritten);
+
+        timeul.appendChild(time);
+        details.appendChild(timeul);
+
+        divgroup.appendChild(divpricewritten);
+        divgroup.appendChild(detailsbtn);
+        details.appendChild(divgroup);
+
+        imgBx.appendChild(image);
+        mycard.appendChild(details);
+        mycard.appendChild(imgBx);
         
+        // cardbody.appendChild(mycard);
+        let container = document.querySelector("#card-container");
+        container.appendChild(mycard);        
     }
 
     const GetEvents = () => {
@@ -157,7 +184,6 @@ const MentorHomepage = (user) => {
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
-
     const SideBarActivator = () =>
     {
         var sidebar = document.querySelector("#sidebar");
@@ -169,6 +195,7 @@ const MentorHomepage = (user) => {
     return (
 
     <div>
+
         <nav className="main-nav">
             {/* 1st logo part  */}
             <div className="logo">
@@ -207,8 +234,6 @@ const MentorHomepage = (user) => {
             </div>
         </nav>        
 
-
-
         <div className="Mentorhomepage" id="hassan">  
 
             {/* SIDE BAR  */}   
@@ -236,16 +261,18 @@ const MentorHomepage = (user) => {
                     </div>
                 </ul>
             </nav>
-        {/*////////////// */} 
+            {/*////////////// */} 
 
             <h1>Hello, {Name} !</h1>
             <h2>Welcome to your portal</h2>
             <br></br>
+            
+            {/* Div with card */}
+            <div class = "cardBody" id="card-container"></div>
+            {/* Div with card end */}
 
             
-            
-            <div class = "asdtest" id="card-container"></div>
-            
+            {/* CHECK DETAILS START */}
             {
                 show && <div id="Modal-container2">
                     <h1 className="greeting">
@@ -268,6 +295,7 @@ const MentorHomepage = (user) => {
                     </h1>
                 </div>
             }
+            {/* CHECK DETAILS END */}
         </div> 
 </div>
     )
