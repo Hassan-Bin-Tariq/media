@@ -235,10 +235,9 @@ const MentorHomepage = (user) => {
         </nav>        
 
         <div className="Mentorhomepage" id="hassan">  
-
             {/* SIDE BAR  */}   
             <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-                <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+                <ul class="navbar-nav d-flex flex-column mt-5 w-200">
                     <div className="closebtn">
                         <li class="nav-item w-100">
                             
