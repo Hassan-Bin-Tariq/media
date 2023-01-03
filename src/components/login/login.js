@@ -83,104 +83,118 @@ const Login = ({ setLoginUser }) => {
     //     });
     // };
     
+    const sign_upchanger=()=>{
+
+        const container = document.querySelector(".container");
+        container.classList.add("sign_up_mode");
+    };
+
+    const sign_inchanger=()=>{
+
+        const container = document.querySelector(".container");
+        container.classList.remove("sign_up_mode");
+    };
+
 
     return (
                 
-        <div className="login">
-            <div class="logcontainer">
-                <div class="form_container">
-                    <div class="signin_signup">
-                        <form action="#" class="sign_in_form">
-                            <h2 class="title">Sign In</h2>
+        <div class="container">
+        <div class="form_container">
+            <div class="signin_signup">
+                <form action="#" class="sign_in_form">
+                    <h2 class="title">Sign In</h2>
 
-                            <div class="inputBox">
-                                <i class='bx bxs-user'></i>
-                                <input  className="emailtak" type="text" placeholder="Email" name="email" value={user.email} onChange={handleChange} />
-                            </div>
-
-                            <div class="inputBox">
-                                <i class='bx bxs-user'></i>
-                                <input className="passcode" type="password" placeholder="Password" name="password" value={user.password}  onChange={handleChange}/>
-                            </div>
-
-                            <btn  type="submit" value="Login" class="newbtn2" onClick={login}>Login</btn>
-                            <p class="social_text">Or Sign in with social platforms</p>
-
-                            <div class="social_media">
-                                <a href="#" class="social_icon" ><FaFacebook className="user" /><i class='bx bxl-facebook'></i></a>
-
-                                <a href="#" class="social_icon"><FaGoogle className="user" /><i class='bx bxl-google'></i></a>
-
-                                <a href="#" class="social_icon"><FaTwitter className="user" /><i class='bx bxl-twitter'></i></a>
-
-                                <a href="#" class="social_icon"><FaLinkedin className="user" /><i class='bx bxl-linkedin'></i></a>
-
-
-                            </div>
-                        </form>
-                        <form action="#" class="sign_up_form">
-                            <h2 class="title">Sign Up</h2>
-
-                            <div class="inputBox">
-                                <i class='bx bxs-user'></i>
-                                <input type="text" placeholder="Username" />
-                            </div>
-
-                            <div class="inputBox">
-                                <i class='bx bxs-user'></i>
-                                <input type="email" placeholder="Email" />
-                            </div>
-
-                            <div class="inputBox">
-                                <i class='bx bxs-user'></i>
-                                <input type="password" placeholder="Password" />
-                            </div>
-
-                            <input type="submit" value="Sign up" class="newbtn" />
-                            <p class="social_text">Or Sign up with social platforms</p>
-
-                            <div class="social_media">
-                                <a href="#" class="social_icon"><i class='bx bxl-facebook'></i></a>
-
-                                <a href="#" class="social_icon"><i class='bx bxl-google'></i></a>
-
-                                <a href="#" class="social_icon"><i class='bx bxl-twitter'></i></a>
-
-                                <a href="#" class="social_icon"><i class='bx bxl-linkedin'></i></a>
-
-
-                            </div>
-                        </form>
+                    <div class="inputBox">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" placeholder="Username" />
                     </div>
-                </div>
-                <div class="panel_container">
-                    <div class="panel left_panel">
-                        <div class="content">
-                            <h3>New here ?</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequatur earum quod
-                            </p>
-                            <button  class="newbtn transparent" id="sign_up_btn">
-                                Sign up
-                                {/* {changeFunction()} */}
-                            </button>
-                        </div>
-                        <img src={registerpic} class="image" alt="" />
+
+                    <div class="inputBox">
+                        <i class='bx bxs-user'></i>
+                        <input type="password" placeholder="Password" />
                     </div>
-                    <div class="panel right_panel">
-                        <div class="content">
-                            <h3>One of us ?</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequatur earum quod
-                            </p>
-                            <button  class="newbtn transparent" id="sign_in_btn">
-                                Sign in
-                            </button>
-                        </div>
-                        <img src={loginpic} class="image" alt="" />
+
+                    <input type="submit" value="Login" class="btn" />
+                    <p class="social_text">Or Sign in with social platforms</p>
+
+                    <div class="social_media">
+                        <a href="#" class="social_icon"><i class='bx bxl-facebook'></i></a>
+
+                        <a href="#" class="social_icon"><i class='bx bxl-google'></i></a>
+
+                        <a href="#" class="social_icon"><i class='bx bxl-twitter'></i></a>
+
+                        <a href="#" class="social_icon"><i class='bx bxl-linkedin'></i></a>
+
+
                     </div>
-                </div>
+                </form>
+                <form action="#" class="sign_up_form">
+                    <h2 class="title">Sign Up</h2>
+
+                    <div class="inputBox">
+                        <i class='bx bxs-user'></i>
+                        <input type="text" placeholder="Username" />
+                    </div>
+
+                    <div class="inputBox">
+                        <i class='bx bxs-user'></i>
+                        <input type="email" placeholder="Email" />
+                    </div>
+
+                    <div class="inputBox">
+                        <i class='bx bxs-user'></i>
+                        <input type="password" placeholder="Password" />
+                    </div>
+
+                    <input type="submit" value="Sign up" class="btn" />
+                    <p class="social_text">Or Sign up with social platforms</p>
+
+                    <div class="social_media">
+                        <a href="#" class="social_icon"><i class='bx bxl-facebook'></i></a>
+
+                        <a href="#" class="social_icon"><i class='bx bxl-google'></i></a>
+
+                        <a href="#" class="social_icon"><i class='bx bxl-twitter'></i></a>
+
+                        <a href="#" class="social_icon"><i class='bx bxl-linkedin'></i></a>
+
+
+                    </div>
+                </form>
             </div>
+        </div>
+        <div class="panel_container">
+            <div class="panel left_panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequatur earum quod
+                    </p>
+                    <button onClick={sign_upchanger} class="btn" id="sign_up_btn">
+                        Sign up
+                    </button>
+                </div>
+                <img src={registerpic} class="image" alt="" />
+            </div>
+            <div class="panel right_panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequatur earum quod
+                    </p>
+                    <button onClick={sign_inchanger} class="btn transparent" id="sign_in_btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src={loginpic} class="image" alt="" />
+            </div>
+        </div>
+    </div>
+    )
+}
+
+export default Login
             {/* ORIGINAL LOGIN */}
             {/* <div>
                 <img src={logo}/>
@@ -216,8 +230,4 @@ const Login = ({ setLoginUser }) => {
 
                 <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                 </div> */}
-        </div>
-    )
-}
-
-export default Login
+       
