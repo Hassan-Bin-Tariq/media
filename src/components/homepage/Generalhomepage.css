@@ -180,3 +180,75 @@ h6
     background-color: #557153;
     width: 20px;
 }
+.name
+{
+    width: 30%;
+    margin-left: 34%;
+    font-family: 'Roboto';
+    
+}
+h1
+{
+    font-size: 30px;
+    font-family: 'Roboto';
+}
+.freeslots
+{
+    font-family: 'Roboto';
+    font-size: 15px;
+    
+    border-radius: 5px;
+    width: 220px;
+    height: 80px;
+    text-align: center;
+  
+    margin-left: 1000px;
+    color: black;
+}
+.zx
+{
+    margin-top: 15px;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+.notif
+{
+    margin-left: 1100px;
+    width: fit-content;
+    background-color: #A6BB8D;
+    border-radius: none;
+    border: 2px solid #A6BB8D;
+  margin-right: 0px;
+    font-family: 'Roboto';
+    font-size: 13px;
+
+}
+.notif:hover
+{
+
+    background-color: silver;
+}
+.notifclose
+{
+    margin-left: 1080px;
+    width: 7%;
+    background-color: #A6BB8D;
+    border-radius: 0;
+    border: 2px solid;
+    margin-right: 0px;
+    font-family: 'Roboto';
+    border: 2px solid #A6BB8D;
+    font-size: 13px;
+
+}
+.notifclose:hover
+{
+   
+    background-color: silver;
+    
+
+
+}
+.notif:hover{
+    background-color: transparent;
+}

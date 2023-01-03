@@ -26,7 +26,11 @@ import {
     FaBookOpen
   
   } from "react-icons/fa";
-  import {AiOutlineLogout, AiOutlineFundView} from "react-icons/ai";
+  import {AiOutlineLogout, AiOutlineFundView, AiFillNotification} from "react-icons/ai";
+  import
+  {
+    IoMdNotificationsOutline
+  } from "react-icons/io";
 //import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
 //import SideNav, {Toggle, NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
@@ -42,17 +46,8 @@ var Wednesdayslots = [];
 var Thursdayslots = [];
 var Fridayslots = [];
 var sub = false;
-    var emails = [];
-    var dict = {};
-    var requiredSlots = [];
-    var assignSlots={};
-    var names=[];
-    var selectedDate;
-    var studentSlots = [];
-    var freestuEmails = [];
-    var GeneralBodies;
-    var timeslost = [];
-    var showevents;
+   
+var i = 0;
 
 const GeneralHomepage = (user) => {
 
@@ -83,19 +78,49 @@ const GeneralHomepage = (user) => {
     const [Thursdayvalue, setValueThursday] = useState();
     const [Fridayvalue, setValueFriday] = useState();
 
+    var studentSlots = [];
+    var as;
     //fetching slots from db
     const getallSlots = () =>
     {
+        studentSlots = [];
         console.log(user.setLoginUser.email)
         axios.post("http://localhost:9002/GetFreeSlots",{zip:zip,Email: user.setLoginUser.email})
         .then((res) => {
             const data = res.data;
-            console.log(data.generalBodies[0].slots);
+            as=data.generalBodies[0].slots;
         }).catch(() => {
             alert('errrdjd');
         })
+        let row = document.createElement('div');
+        row.className = 'row'
+
+        let card = document.createElement('div');
+        card.className = 'card shadow cursor-pointer';
         
+
+        let cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+
+        let student = document.createElement('h5');
+        student.innerText ="Student: " + Name;
+        student.className = 'card-title';
+
+        let email = document.createElement('div');
+        email.innerText = "Free Slots"+as;
+        email.className = 'card-text';
+
+        cardBody.appendChild(student);
+        cardBody.appendChild(email);
+        card.appendChild(cardBody);
+        i+=1;
+        let container = document.querySelector("#card-container2");
+        container.appendChild(card);
+        studentSlots.push(as);
+
     }
+    
 
     const MondayhandleChange = (val) => setValueMonday(
         val,
@@ -135,14 +160,28 @@ const GeneralHomepage = (user) => {
     //var sidebar = document.querySelector("#sidebar");
     //var container = document.querySelector(".my-container");
 
-const myfub = () =>
-{
+    const myfub = () =>
+    {
     var sidebar = document.querySelector("#sidebar");
     var container = document.querySelector(".my-container");
     sidebar.classList.toggle("active-nav")
-        container.classList.toggle("active-cont")
-}
+    container.classList.toggle("active-cont")
+    }
 
+
+    const mynb = () =>
+    {
+    var sidebar = document.querySelector("#duty");
+    var container = document.querySelector(".my-container");
+    sidebar.classList.toggle("active-nav")
+    container.classList.toggle("active-cont")
+    }
+
+    function displaySlots()
+    {
+
+
+    }
 
     const SubmitForm = () => {
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
@@ -183,6 +222,17 @@ const showTable = () => {
 const hideTable = () => {
     $(function () {
         $('#mydiv').hide();
+    });
+}
+
+const showDuty = () => {
+    $(function () {
+        $('#duty').show();
+    });
+}
+const hideDuty = () => {
+    $(function () {
+        $('#duty').hide();
     });
 }
 
@@ -261,15 +311,11 @@ const hideTable = () => {
                 </button>
             </li>
 
-            <li class="nav-item w-100">
-            <button  onClick={handleShow} className="btn-bg-transparent">
-                    <AiOutlineFundView/>  View Assigned Duty
-                </button>
-            </li>
+           
             
             <li class="nav-item w-100">
             <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
-                       <FaBookOpen/> Show Table
+                       <FaBookOpen/> Update Slots
                     </button>
                     </li>
                     <li class="nav-item w-100">
@@ -280,45 +326,48 @@ const hideTable = () => {
     </nav>
    
 <Container>
-                
-                <Offcanvas className="slide" show={show} onHide={handleClose}>
-                    <div className="canvas">
-                        <Offcanvas.Header closeButton>
-                            <Offcanvas.Title>Assigned Duties</Offcanvas.Title>
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
+                <centre>
+                <div className="name">
 
-                            <centre>
-                                You are currently assigned coverage for: <br></br>
-                                Date: {Date} <br></br>
-                                Time Slot: {Time} <br></br>
-                                <br></br>
-
-                                <label className="data-upload" variant="primary">
-                                    Upload Event Data
-                                    <input type='file' accept='image/*'></input>
-                                </label>
-                            </centre>
-
-                        </Offcanvas.Body>
-                    </div>
-                </Offcanvas>
                 <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
-                <button  onClick={getallSlots}>Show previous given slots</button>
+               
+                </div>
+               
+                </centre>
+                <button  className="notif" variant="success btn-block" onClick={showDuty} data-toggle="tooltip" data-placement="bottom" title="Notifications">
+                       <IoMdNotificationsOutline/> 
+                    </button>
+                <h3 className="zx">Following are your previously selected free slots.</h3>
+                
+                <div id="duty">
+                <h3 className="freeslots">You are currently assigned coverage for: <br></br>
+                                Date: {Date} <br></br>
+                                Time Slot: {Time} 
+                                </h3>
+                                <br/>
+                                <button  className="notifclose" variant="success btn-block" onClick={hideDuty}>
+                      OK
+                    </button>
+                                </div>
+                
+                
+                
 
-<div id="mydiv" class="hidden">
-    <div className='xmark'>
-<button className="hide"  onClick={hideTable}>
-<FaWindowClose className="userhide" />
+               
+
+        <div id="mydiv" class="hidden">
+           <div className='xmark'>
+              <button className="hide"  onClick={hideTable}>
+                <FaWindowClose className="userhide" />
                     </button>
                     </div>
                 <Row className="sm-3 text-center">
-    <h2>Available Slots of the Week</h2>
-    <Table >
+                  <h2>Available Slots of the Week</h2>
+             <Table >
         
-        <tbody>
-        <div className="tab">
-            <tr>
+                <tbody>
+                     <div className="tab">
+                   <tr>
                 
                 <td>Monday</td>
 
@@ -463,7 +512,7 @@ const hideTable = () => {
 
 </div>
 
-                <h6 >Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+               
             </Container>
             </div></>
     );
