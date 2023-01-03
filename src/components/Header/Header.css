@@ -5,7 +5,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Jost", sans-serif;
+  position: sticky;
+  background-color: transparent;
 }
+
 .logo{
     padding-left: 30px;
 }
