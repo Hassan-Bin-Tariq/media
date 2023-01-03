@@ -6,12 +6,31 @@ import { useHistory } from "react-router-dom"
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
 import {Button} from "react-bootstrap";
-
+import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import logoNav from "../../assets/logo-copy.png";
+//import Container from 'react-bootstrap/Container';
+//import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import navlogo from "../../assets/Picture1.png";
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import {
+    FaFacebookSquare,
+    FaInstagramSquare,
+    FaYoutubeSquare,
+    FaUserAlt,
+    FaWindowClose,
+    FaUserEdit,
+    FaBookOpen
+  
+  } from "react-icons/fa";
 const PhotographyHomepage = (user) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const history = useHistory()
+    const [showMediaIcons, setShowMediaIcons] = useState(false);
     var Name = user.setLoginUser.name
     var i = 0;
     var EventTitle;
@@ -569,22 +588,80 @@ const PhotographyHomepage = (user) => {
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
+
+    const myfub = () =>
+    {
+    var sidebar = document.querySelector("#sidebar");
+    var container = document.querySelector(".my-container");
+    sidebar.classList.toggle("active-nav")
+    container.classList.toggle("active-cont")
+    }
+
     return (
         
-        <div className="Photographyhomepage">  
-            <h1 className="Name">Hello, {Name} !</h1>
-            <br></br>
-            <div className="button1" id = "geteventbtn" onClick={GetEvents}>Show events</div><br></br>
-            <div className="button2" onClick={() => history.push("/login")}>Logout</div>
-            <div id="card-container"></div>
-            <div id="card-container2"></div>
-            {
-                show && <div id="Modal-container2">
+       
+        <><nav className="main-nav">
+            {/* 1st logo part  */}
+            <div className="logo">
+                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
+            </div>
+
+
+            {/* 2nd menu part  */}
+            <div
+                className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
+                <ul>
+                    <li>
+                        <NavLink to="/try">Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about">about</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/login">Get Started</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact">contact</NavLink>
+                    </li>
+                </ul>
+            </div>
+
+            {/* 3rd social media links */}
+            <div className="social-media">
+                <ul className="social-media-desktop">
+                    <li>
+
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                        <button onClick={myfub} className="btclose">
+                            <FaUserAlt className="user" />
+                        </button>
+                    </li>
+
+                </ul>
+
+                {/* hamburget menu start  */}
+                <div className="hamburger-menu">
+                    <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+                        <GiHamburgerMenu />
+                    </a>
+                </div>
+            </div>
+        </nav><div className="Photographyhomepage">
+                <h1 className="Name">Hello, {Name} !</h1>
+                <br></br>
+                <div className="button1" id="geteventbtn" onClick={GetEvents}>Show events</div><br></br>
+                <div className="button2" onClick={() => history.push("/login")}>Logout</div>
+                <div id="card-container"></div>
+                <div id="card-container2"></div>
+                {show && <div id="Modal-container2">
                     <h1 className="greeting">
                         <>
-                            <Modal show = {show} onHide={handleClose}>
+                            <Modal show={show} onHide={handleClose}>
                                 <Modal.Header closeButton>
-                                <Modal.Title>{EventTitle}</Modal.Title>
+                                    <Modal.Title>{EventTitle}</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>{EventDescription}</Modal.Body>
                                 <Modal.Footer>
@@ -592,10 +669,9 @@ const PhotographyHomepage = (user) => {
                             </Modal>
                         </>
                     </h1>
-                    </div>
-            }
-            
-        </div>
+                </div>}
+
+            </div></>
     );
 }
 
