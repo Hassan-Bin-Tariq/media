@@ -169,14 +169,7 @@ const GeneralHomepage = (user) => {
     }
 
 
-    const mynb = () =>
-    {
-    var sidebar = document.querySelector("#duty");
-    var container = document.querySelector(".my-container");
-    sidebar.classList.toggle("active-nav")
-    container.classList.toggle("active-cont")
-    }
-
+   
     function displaySlots()
     {
 

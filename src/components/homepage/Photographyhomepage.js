@@ -25,6 +25,7 @@ import {
     FaBookOpen
   
   } from "react-icons/fa";
+  import {AiOutlineLogout} from "react-icons/ai";
 const PhotographyHomepage = (user) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -649,7 +650,32 @@ const PhotographyHomepage = (user) => {
                     </a>
                 </div>
             </div>
-        </nav><div className="Photographyhomepage">
+        </nav>
+        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+        <div className="closebtn">
+        <li class="nav-item w-100">
+            
+            <button  onClick={myfub} className="btclose">
+            <FaWindowClose className="close"></FaWindowClose>
+                </button>
+                
+            </li>
+            </div>
+            <div className="sidebardiv">
+            <li class="nav-item w-100">
+            <button  onClick={handleShow} className="btn-bg-transparent">
+            <FaUserEdit />       Edit Profile
+                </button>
+            </li>
+                    <li class="nav-item w-100">
+            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
+            </li>
+                    </div>
+        </ul>
+    </nav>
+        <div className="Photographyhomepage">
                 <h1 className="Name">Hello, {Name} !</h1>
                 <br></br>
                 <div className="button1" id="geteventbtn" onClick={GetEvents}>Show events</div><br></br>
