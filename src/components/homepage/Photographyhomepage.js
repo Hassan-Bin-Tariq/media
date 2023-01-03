@@ -633,8 +633,7 @@ const PhotographyHomepage = (user) => {
                     <li>
 
                     </li>
-                    <li>
-                    </li>
+                    
                     <li>
                         <button onClick={myfub} className="btclose">
                             <FaUserAlt className="user" />
@@ -669,20 +668,27 @@ const PhotographyHomepage = (user) => {
             <FaUserEdit />       Edit Profile
                 </button>
             </li>
+            <li class="nav-item w-100">
+            <button className="btn-bg-transparent" id="geteventbtn" onClick={GetEvents}>Show events</button>
+            </li>
+            <li class="nav-item w-100">
+            </li>
                     <li class="nav-item w-100">
             <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
             </li>
                     </div>
         </ul>
     </nav>
-        <div className="Photographyhomepage">
-                <h1 className="Name">Hello, {Name} !</h1>
-                <br></br>
-                <div className="button1" id="geteventbtn" onClick={GetEvents}>Show events</div><br></br>
-                <div className="button2" onClick={() => history.push("/login")}>Logout</div>
-                <div id="card-container"></div>
+    <div className="name">
+
+      <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
+
+        </div>
+        
+        <div id="card-container"></div>
                 <div id="card-container2"></div>
                 {show && <div id="Modal-container2">
+                    <button>Close</button>
                     <h1 className="greeting">
                         <>
                             <Modal show={show} onHide={handleClose}>
@@ -697,7 +703,7 @@ const PhotographyHomepage = (user) => {
                     </h1>
                 </div>}
 
-            </div></>
+            </>
     );
 }
 
