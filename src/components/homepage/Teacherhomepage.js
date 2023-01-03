@@ -5,6 +5,27 @@ import axios from "axios"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import logoNav from "../../assets/logo-copy.png";
+//import Container from 'react-bootstrap/Container';
+//import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import navlogo from "../../assets/Picture1.png";
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useHistory } from "react-router-dom"
+import {
+    FaFacebookSquare,
+    FaInstagramSquare,
+    FaYoutubeSquare,
+    FaUserAlt,
+    FaWindowClose,
+    FaUserEdit,
+    FaBookOpen
+  
+  } from "react-icons/fa";
+  import {AiOutlineLogout} from "react-icons/ai";
 
 const TeacherHomepage = (user) => {
     // const history = useHistory()
@@ -15,6 +36,11 @@ const TeacherHomepage = (user) => {
     //console.log(teachName)
     //console.log(user.setLoginUser.email)
 
+    const [showMediaIcons, setShowMediaIcons] = useState(false);
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const history = useHistory();
     const [ event, setEvent] = useState({
         teacherName: teachName,
         teacherEmail: user.setLoginUser.email,
@@ -28,6 +54,13 @@ const TeacherHomepage = (user) => {
         status: "Not Checked"
     })
 
+    const myfub = () =>
+    {
+    var sidebar = document.querySelector("#sidebar");
+    var container = document.querySelector(".my-container");
+    sidebar.classList.toggle("active-nav")
+    container.classList.toggle("active-cont")
+    }
     const handleChange = e => {
         var { name, value } = e.target
         if(name === "StartTime" || name === "EndTime")
@@ -68,10 +101,90 @@ const TeacherHomepage = (user) => {
     }
 
     return (
+
         <>
+        <nav className="main-nav">
+            {/* 1st logo part  */}
+            <div className="logo">
+                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
+            </div>
+
+
+            {/* 2nd menu part  */}
+            <div
+                className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
+                <ul>
+                    <li>
+                        <NavLink to="/try">Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about">about</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/login">Get Started</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact">contact</NavLink>
+                    </li>
+                </ul>
+            </div>
+
+            {/* 3rd social media links */}
+            <div className="social-media">
+                <ul className="social-media-desktop">
+                    <li>
+
+                    </li>
+                    
+                    <li>
+                        <button onClick={myfub} className="btclose">
+                            <FaUserAlt className="user" />
+                        </button>
+                    </li>
+
+                </ul>
+
+                {/* hamburget menu start  */}
+                <div className="hamburger-menu">
+                    <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+                        <GiHamburgerMenu />
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+        <div className="closebtn">
+        <li class="nav-item w-100">
+            
+            <button  onClick={myfub} className="btclose">
+            <FaWindowClose className="close"></FaWindowClose>
+                </button>
+                
+            </li>
+            </div>
+            <div className="sidebardiv">
+            <li class="nav-item w-100">
+            <button  onClick={handleShow} className="btn-bg-transparent">
+            <FaUserEdit />       Edit Profile
+                </button>
+            </li>
+            <li class="nav-item w-100">
+            </li>
+                    <li class="nav-item w-100">
+            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
+            </li>
+                    </div>
+        </ul>
+    </nav>
             {console.log("Event",event)}    
             <Container>
-                <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Welcome {teachName}</h1>
+            <div className="name">
+
+                <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {teachName} !</h1>
+
+             </div>
                 <Row className="mt-2 text-center">
                     <h2>Generate Event Request</h2>
                     <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
@@ -102,9 +215,9 @@ const TeacherHomepage = (user) => {
                             </Form.Group>
                             <Row className="mt-2">
                             {/* Removed type="submit" from here */}
-                                <Button variant="success btn-block" onClick={SubmitEvent}> 
+                                <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
                                     Submit Request
-                                </Button>
+                                </button>
                             </Row>
                         </Form>
                     </Col>
