@@ -85,20 +85,20 @@ const Login = ({ setLoginUser }) => {
     
     const sign_upchanger=()=>{
 
-        const container = document.querySelector(".container");
+        const container = document.querySelector(".login-container");
         container.classList.add("sign_up_mode");
     };
 
     const sign_inchanger=()=>{
 
-        const container = document.querySelector(".container");
+        const container = document.querySelector(".login-container");
         container.classList.remove("sign_up_mode");
     };
 
 
     return (
                 
-        <div class="container">
+        <div class="login-container">
         <div class="form_container">
             <div class="signin_signup">
                 <form action="#" class="sign_in_form">
@@ -114,7 +114,7 @@ const Login = ({ setLoginUser }) => {
                                 <input className="passcode" type="password" placeholder="Password" name="password" value={user.password}  onChange={handleChange}/>
                     </div>
 
-                    <btn  type="submit" value="Login" class="newbtn2" onClick={login}>Loggggin</btn>
+                    <btn  type="submit" value="Login" class="newbtn2" onClick={login}>Login</btn>
                     <p class="social_text">Or Sign in with social platforms</p>
 
                     <div class="social_media">

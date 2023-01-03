@@ -70,7 +70,7 @@ h3
     box-sizing: border-box;
   }
   
-  .container {
+  .login-container {
     position: relative;
     width: 100%;
     background-color: #fff;
@@ -78,7 +78,7 @@ h3
     overflow: hidden;
   }
 
-  .container:before {
+  .login-container:before {
     content: "";
     position: absolute;
     height: 2000px;
@@ -313,45 +313,45 @@ h3
 
   /* ANIMATION */
 
-.container.sign_up_mode:before {
+.login-container.sign_up_mode:before {
     transform: translate(100%, -50%);
     right: 52%;
   }
   
-  .container.sign_up_mode .left_panel .image,
-  .container.sign_up_mode .left_panel .content {
+  .login-container.sign_up_mode .left_panel .image,
+  .login-container.sign_up_mode .left_panel .content {
     transform: translateX(-800px);
   }
   
-  .container.sign_up_mode .signin_signup {
+  .login-container.sign_up_mode .signin_signup {
     left: 25%;
   }
   
-  .container.sign_up_mode form.sign_up_form {
+  .login-container.sign_up_mode form.sign_up_form {
     opacity: 1;
     z-index: 2;
   }
   
-  .container.sign_up_mode form.sign_in_form {
+  .login-container.sign_up_mode form.sign_in_form {
     opacity: 0;
     z-index: 1;
   }
   
-  .container.sign_up_mode .right_panel .image,
-  .container.sign_up_mode .right_panel .content {
+  .login-container.sign_up_mode .right_panel .image,
+  .login-container.sign_up_mode .right_panel .content {
     transform: translateX(0%);
   }
   
-  .container.sign_up_mode .left_panel {
+  .login-container.sign_up_mode .left_panel {
     pointer-events: none;
   }
   
-  .container.sign_up_mode .right_panel {
+  .login-container.sign_up_mode .right_panel {
     pointer-events: all;
   }
 
   @media (max-width: 870px) {
-    .container {
+    .login-container {
       min-height: 800px;
       height: 100vh;
     }
@@ -363,7 +363,7 @@ h3
     }
   
     .signin_signup,
-    .container.sign_up_mode .signin_signup {
+    .login-container.sign_up_mode .signin_signup {
       left: 50%;
     }
   
@@ -415,7 +415,7 @@ h3
       font-size: 0.7rem;
     }
   
-    .container:before {
+    .login-container:before {
       width: 1500px;
       height: 1500px;
       transform: translateX(-50%);
@@ -426,19 +426,19 @@ h3
       transition: 2s ease-in-out;
     }
   
-    .container.sign_up_mode:before {
+    .login-container.sign_up_mode:before {
       transform: translate(-50%, 100%);
       bottom: 32%;
       right: initial;
     }
   
-    .container.sign_up_mode .left_panel .image,
-    .container.sign_up_mode .left_panel .content {
+    .login-container.sign_up_mode .left_panel .image,
+    .login-container.sign_up_mode .left_panel .content {
       transform: translateY(-300px);
     }
   
-    .container.sign_up_mode .right_panel .image,
-    .container.sign_up_mode .right_panel .content {
+    .login-container.sign_up_mode .right_panel .image,
+    .login-container.sign_up_mode .right_panel .content {
       transform: translateY(0px);
     }
   
@@ -447,7 +447,7 @@ h3
       transform: translateY(300px);
     }
   
-    .container.sign_up_mode .signin_signup {
+    .login-container.sign_up_mode .signin_signup {
       top: 5%;
       transform: translate(-50%, 0);
     }
@@ -464,16 +464,16 @@ h3
     .panel .content {
       padding: 0.5rem 1rem;
     }
-    .container {
+    .login-container {
       padding: 1.5rem;
     }
   
-    .container:before {
+    .login-container:before {
       bottom: 72%;
       left: 50%;
     }
   
-    .container.sign_up_mode:before {
+    .login-container.sign_up_mode:before {
       bottom: 28%;
       left: 50%;
     }
