@@ -1,9 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
 
-
-.bg
+.gbbg
 {
     background-color:#f8f7f2;
     height: 100%;
+}
+.popheader{
+    font-size:18px;
+    font-family: "Montserrat";
+    font-weight: bold;
+}
+.gbpopover{
+    font-size: 15px;
+    width: 200px;
+    height: 150px;
+    font-family: "Montserrat";
+    background-color: #A6BB8D;
+    /* border-radius: 50px; */
+}
+.gbpopover strong{
+    color: black;
+}
+.welcome h2{
+    padding-top: 30px;
+    margin-left: 20px;
+    font-size: 35px;
+    font-family: "Montserrat";
+    color: #676b57;
 }
 .hidden
 {
@@ -48,7 +71,7 @@ h1
 }
 .slide
 {
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     font-weight: bold;
     background-color: #A6BB8D;
     
@@ -57,7 +80,7 @@ h1
 {
     margin-left: 455px;
     background-color: #AA8B56;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
    
     width: fit-content;
     border-radius: 0;
@@ -73,11 +96,11 @@ h1
     height: fit-content;
 }
 .navbar {
-    width: 170px;
+    width: 270px;
     height: 100vh;
     position: fixed;
     margin-left: -300px;
-    background-color: #A6BB8D;
+    background-color: rgb(26, 25, 25);
     transition: 0.4s;
 }
 
@@ -129,7 +152,7 @@ background: transparent;
     background-color: transparent;
     border: none;
     margin-top: 25px;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
 }
 .click:hover
 {
@@ -146,30 +169,47 @@ h6
   
     background-color: transparent;
     border-radius: none;
-    border: 2px solid #A6BB8D;
-   width: 150px;
-    font-family: 'Roboto';
-    font-size: 13px;
+    /* border: 2px solid #A6BB8D; */
+    width: 270px;
+    padding-bottom: 30px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    transition: ease-out;
 }
 .btn-bg-transparent:hover
 {
     border-radius: 0;
-    background: silver;
+    background: #949b79;
    
 }
 .sidebardiv
 {
-    margin-top: 100px;
+    margin-top: 30px;
    
 }
-
+.btnnotif{
+    background-color: black;
+    width: 60px;
+    height: 50px;
+}
+.btnnotif:hover{
+    background-color: #949b79;
+}
+.btnuser{
+    background-color: transparent;
+    width: 60px;
+    height: 50px;
+}
+.btnuser:hover{
+    background-color: #949b79;
+}
 .btclose
 {
     background-color: transparent;
-    margin-top: 0;
+    width: 200px;
+    margin-top: -50px;
     border-radius: 0;
-  
-    margin-right:0 ;
+    margin-left:150px;
 }
 .btclose:hover
 {
@@ -180,21 +220,14 @@ h6
     background-color: #557153;
     width: 20px;
 }
-.name
-{
-    width: 30%;
-    margin-left: 34%;
-    font-family: 'Roboto';
-    
-}
 h1
 {
     font-size: 30px;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
 }
 .freeslots
 {
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     font-size: 15px;
     
     border-radius: 5px;
@@ -208,8 +241,9 @@ h1
 .zx
 {
     margin-top: 15px;
-    font-family: 'Roboto';
-    font-size: 15px;
+    margin-left: 200px;
+    font-family: 'Montserrat';
+    font-size: 25px;
 }
 .notif
 {
@@ -219,7 +253,7 @@ h1
     border-radius: none;
     border: 2px solid #A6BB8D;
   margin-right: 0px;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     font-size: 13px;
 
 }
@@ -236,7 +270,7 @@ h1
     border-radius: 0;
     border: 2px solid;
     margin-right: 0px;
-    font-family: 'Roboto';
+    font-family: 'Montserrat';
     border: 2px solid #A6BB8D;
     font-size: 13px;
 
