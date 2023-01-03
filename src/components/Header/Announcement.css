@@ -1,0 +1,18 @@
+*{
+    background-color: transparent;
+}
+.announcment{
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-size: 12px;
+  
+  }
+  .announcment span{
+    align-items: center;
+    margin-right: 2rem;
+    padding-right: 50px;
+  }
