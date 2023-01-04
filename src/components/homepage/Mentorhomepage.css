@@ -1,11 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Jost", sans-serif;
   }
+  .mentor-welcome h2{
+    padding-top: 30px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-family: "Montserrat";
+    color: #676b57;
+}
   .logo{
       padding-left: 30px;
   }
@@ -25,14 +32,15 @@
    
   /* navbar style start  */
   
-  .main-nav {
+  .mentor-main-nav {
+    /* width: 1345px; */
     width: 100%;
     height: 11rem;
     display: grid;
     background-color: rgba(0, 0, 0, 0);
     grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
   }
   
   
@@ -113,7 +121,7 @@
 
   /* responsive css style  */
 @media (max-width: 1080px) {
-    .main-nav {
+    .mentor-main-nav {
         height: 8rem;
         grid-template-columns: 2rem 3fr 3fr 1fr 2rem;
     }
@@ -127,7 +135,7 @@
 
   /* responsive css style  */
 @media (max-width: 998px) {
-    .main-nav {
+    .mentor-main-nav {
         height: 7rem;
         grid-template-columns: 2rem 2fr 3fr 2rem 2rem;
     }
@@ -199,7 +207,7 @@
 }
 
     @media (max-width: 798px) {
-    .main-nav {
+    .mentor-main-nav {
         height: 6rem;
         grid-template-columns: 1rem 2fr 1fr 1fr 1rem;
     }
@@ -223,7 +231,7 @@
 }
 
 @media (max-width: 520px) {
-    .main-nav {
+    .mentor-main-nav {
         height: 6rem;
         grid-template-columns: 1rem 4fr 1fr 1fr 1rem;
     }
@@ -269,7 +277,7 @@ h1
 h2
 {
     color: black;
-    text-align: center
+    text-align: center;
 }
 .btn-rej
 {
@@ -294,7 +302,7 @@ h2
   position: relative;
   width: 200px;
   height: 250px;
-  background: white;
+  background: #f8f7f2;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.220);
   display: flex;
   overflow: hidden;
@@ -312,7 +320,7 @@ h2
   position: relative;
   min-width: 200px;
   height: 250px;
-  background: #fff;
+  background: #f8f7f2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -324,6 +332,8 @@ h2
 .mycard .imgBx h2 {
   margin-top: 10px;
   margin-bottom: 10px;
+  font-weight: bold;
+  font-style: italic;
   /* max-width: 200px;
   transition: 0.5s ease-in-out; */
 }
@@ -336,13 +346,19 @@ h2
   margin-bottom: 10px;
   /* transform: rotate(-35deg) translate(-20px); */
 }
+.mycard .imgBx img {
+  /* margin-bottom: 10px; */
+  border-radius: 60px;
+  max-width: 200px;
+  transition: 0.5s ease-in-out;
+}
 
 .mycard .details {
   position: absolute;
   left: 0;
   min-width: 200px;
   height: 250px;
-  background: #54585e;
+  background: rgb(26, 25, 25);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -365,7 +381,7 @@ h2
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 10px solid #fff;
+  border-left: 10px solid #f8f7f2;
 }
 
 .mycard .details h3 {
@@ -458,10 +474,15 @@ h2
 .mycard .details .group button {
   display: inline-flex;
   padding: 10px 25px;
+  padding-right: 15px;
   background: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: 500;
+  font-size: 12px;
+  margin-top: -10px;
+  width: 130px;
+  height: 35px;
+  font-family: "Montserrat";
   border-radius: 8px;
   color: #003355;
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.288);
@@ -469,7 +490,7 @@ h2
 }
 
 .mycard .details .group button:hover {
-  background: #095ea3;
+  background: #A6BB8D;
   color: #fff;
 }
 
