@@ -104,7 +104,7 @@ const Login = ({ setLoginUser }) => {
                 .then(
                     res => alert(res.data.message),
                     //sendEmail(name,email),
-                    history.push("./login")
+                    // history.push("./login")
                 )
         } else {
             alert("Invalid Input! Try Again.")
@@ -130,7 +130,7 @@ const Login = ({ setLoginUser }) => {
         <div class="login-container">
         <div class="form_container">
             <div class="signin_signup">
-                <form action="#" class="sign_in_form">
+                <div action="#" class="sign_in_form">
                     <h2 class="title">Sign In</h2>
 
                     <div class="inputBox">
@@ -157,8 +157,8 @@ const Login = ({ setLoginUser }) => {
 
 
                     </div>
-                </form>
-                <form action="#" class="sign_up_form">
+                </div>
+                <div action="#" class="sign_up_form">
                     <h2 class="title">Sign Up</h2>
 
                     <div class="inputBox">
@@ -200,7 +200,7 @@ const Login = ({ setLoginUser }) => {
 
 
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <div class="panel_container">

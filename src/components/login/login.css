@@ -112,7 +112,19 @@ h3
     z-index: 5;
   }
 
-  form{
+  div.sign_in_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0rem 5rem;
+    transition: all 0.2s 0.7s;
+    overflow: hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  div.sign_up_form{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,12 +137,12 @@ h3
   }
 
 
-  form.sign_up_form{
+  div.sign_up_form{
     opacity: 0;
     z-index: 1;
   }
 
-  form.sign_in_form{
+  div.sign_in_form{
     z-index: 2;
   }
   
@@ -327,16 +339,16 @@ h3
     left: 25%;
   }
   
-  .login-container.sign_up_mode form.sign_up_form {
+  .login-container.sign_up_mode div.sign_up_form {
     opacity: 1;
     z-index: 2;
   }
   
-  .login-container.sign_up_mode form.sign_in_form {
+  .login-container.sign_up_mode div.sign_in_form {
     opacity: 0;
     z-index: 1;
   }
-  
+
   .login-container.sign_up_mode .right_panel .image,
   .login-container.sign_up_mode .right_panel .content {
     transform: translateX(0%);
