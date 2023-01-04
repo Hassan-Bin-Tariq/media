@@ -22,6 +22,7 @@ import Popover from 'react-bootstrap/Popover';
 import {
     FaUserAlt,
     FaWindowClose,
+    FaTimes,
     FaUserEdit,
     FaBookOpen
   
@@ -327,7 +328,7 @@ return (
             <div className="closebtn">
                 <li class="nav-item w-100">
                     <button  onClick={myfub} className="btclose">
-                    <FaWindowClose className="close"></FaWindowClose>
+                    <FaTimes className="close"></FaTimes>
                     </button>
                 </li>
             </div>
@@ -380,7 +381,7 @@ return (
             <div id="mydiv" class="hidden">
                 <div className='xmark'>
                     <button className="hide"  onClick={hideTable}>
-                        <FaWindowClose className="userhide" />
+                        <FaTimes className="userhide" />
                     </button>
                 </div>
                     <Row className="sm-3 text-center">
