@@ -14,6 +14,8 @@ import ghous from "../../assets/ghous.jpg";
 import {
     FaUserAlt,
     FaWindowClose,
+    FaImage,
+    FaGripHorizontal,
     FaTimes,
     FaUserEdit,
 } from "react-icons/fa";
@@ -292,7 +294,12 @@ const MentorHomepage = (user) => {
                     <div className="sidebardiv">
                         <li class="nav-item w-100">
                             <button  onClick={GetEvents} className="btn-bg-transparent">
-                                <FaUserEdit />       Show Events
+                                <FaImage /> My Albums
+                            </button>
+                        </li>
+                        <li class="nav-item w-100">
+                            <button  onClick={GetEvents} className="btn-bg-transparent">
+                                <FaUserEdit /> Event Requests
                             </button>
                         </li>
                         <li class="nav-item w-100">

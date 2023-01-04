@@ -22,6 +22,8 @@ import Popover from 'react-bootstrap/Popover';
 import {
     FaUserAlt,
     FaWindowClose,
+    FaImage,
+    FaGripHorizontal,
     FaTimes,
     FaUserEdit,
     FaBookOpen
@@ -334,10 +336,11 @@ return (
             </div>
             <div className="sidebardiv">
                 <li class="nav-item w-100">
-                <button  onClick={handleShow} className="btn-bg-transparent">
-                    <FaUserEdit />       Edit Profile
-                </button>
+                    <button  onClick="/" className="btn-bg-transparent">
+                        <FaImage /> My Albums
+                    </button>
                 </li>
+                
                 <li class="nav-item w-100">
                 <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
                         <FaBookOpen/> Current Slots
@@ -345,10 +348,14 @@ return (
                 </li>
                 <li class="nav-item w-100">
                 <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
-                        <FaBookOpen/> Update Slots
+                        <FaGripHorizontal/> Update Slots
                 </button>
                 </li>
-                
+                <li class="nav-item w-100">
+                <button  onClick={handleShow} className="btn-bg-transparent">
+                    <FaUserEdit />       Edit Profile
+                </button>
+                </li>
                 <li class="nav-item w-100">
                 <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
                 </li>
@@ -380,13 +387,13 @@ return (
 
             <div id="mydiv" class="hidden">
                 <div className='xmark'>
-                    <button className="hide"  onClick={hideTable}>
+                    {/* <button className="hide"  onClick={hideTable}>
                         <FaTimes className="userhide" />
-                    </button>
+                    </button> */}
                 </div>
                     <Row className="sm-3 text-center">
-                            <h2>Available Slots of the Week</h2>
-                            <Table >
+                            <h2 className='slots-h2'>Available Slots of the Week</h2>
+                            <Table className='duty-table'>
                         
                                 <tbody>
                                     <div className="tab">
@@ -394,7 +401,7 @@ return (
                                 
                                 <td>Monday</td>
 
-                                <ToggleButtonGroup type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
+                                <ToggleButtonGroup className="togo-group" type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
                                     <ToggleButton className="togo" id="tbg-btn-1" value={1} color="purple">
                                         8:45 - 10:10
                                     </ToggleButton>
@@ -528,7 +535,7 @@ return (
                     </Table>
                     </Row>
                 <centre>
-                    <button className="submit" variant="success btn-block" onClick={SubmitForm}>
+                    <button className="submit-form" variant="success btn-block" onClick={SubmitForm}>
                         Submit Form
                     </button>
                 </centre>
