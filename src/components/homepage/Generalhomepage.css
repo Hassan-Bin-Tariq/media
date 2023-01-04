@@ -332,4 +332,20 @@ h1
       float: none;
     }
   }
-  
+  #editProfile
+{
+    margin-left: 580px;
+    display: none;
+}
+
+.editpass
+  {
+   
+    margin-left: 30px;
+      background-color: #AA8B56;
+      font-family: 'Roboto';
+     
+      width: fit-content;
+      border-radius: 0;
+      font-size: 15px;
+  } 
