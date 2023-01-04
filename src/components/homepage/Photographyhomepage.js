@@ -48,6 +48,7 @@ const PhotographyHomepage = (user) => {
     var studentSlots = [];
     var freestuEmails = [];
     var eventts;
+
     //const handleShow = () => setShow(true);
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
@@ -598,6 +599,29 @@ const PhotographyHomepage = (user) => {
     container.classList.toggle("active-cont")
     }
 
+    const Passeditor = () =>
+    {
+        let OldPass = document.getElementById("oldpass").value;
+        let newPass = document.getElementById("newpass").value;
+        let rePass = document.getElementById("reNewPass").value;
+        let useremail = user.setLoginUser.email;
+
+        if(newPass === rePass)
+        {
+            console.log(OldPass,newPass,rePass,useremail)
+
+            axios.post("http://localhost:9002/ChangePass",{Email: useremail,OldPassword: OldPass,newPassword: newPass}) 
+            .then(res => {
+                // alert(res.data.message)
+                // eventts = res.data.event;
+                // console.log(eventts)
+            })
+        }
+        else{
+            alert("Password not matched")
+        }
+    }
+
     return (
         
        
@@ -681,10 +705,30 @@ const PhotographyHomepage = (user) => {
     </nav>
     <div className="name">
 
-      <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
-
+    <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
         </div>
         
+            <div className="oldpass">
+                <label >Old Password</label>
+                <br></br>
+                <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
+            </div>
+
+            <div className="pass">
+                <label >Password</label>
+                <br></br>
+                <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
+            </div>
+
+            <div className="repass">
+                <label >Re-enter Password</label>
+                <br></br>
+                <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+        </div>
+
+        <button onClick={Passeditor}>Edit Password</button>
+
+
         <div id="card-container"></div>
                 <div id="card-container2"></div>
                 {show && <div id="Modal-container2">
