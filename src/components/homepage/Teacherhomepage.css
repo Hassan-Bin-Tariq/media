@@ -300,42 +300,42 @@ font-size: 13px;
 }
 
 
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }
+.btn-bg-transparent
+{
+  
+    background-color: transparent;
+    border-radius: none;
+    /* border: 2px solid #A6BB8D; */
+    width: 300px;
+    padding-bottom: 30px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    transition: ease-out;
+}
+.btn-bg-transparent:hover
+{
+    border-radius: 0;
+    background: #949b79;
+   
+}
 h6
 {
     margin-left: 20px;
 }
-.sidebardiv
+#editProfile
 {
-  
-   
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-   /* Set the width of the sidebar */
-    position: relative; /* Fixed Sidebar (stay in place on scroll) */
-   /* Stay on top */
-   
-    /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
+    margin-left: 580px;
+    display: none;
 }
 
-@media screen and (max-width: 700px) {
-    .sidebardiv {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-}
-@media screen and (max-width: 400px) {
-    .sidebardiv a {
-      text-align: center;
-      float: none;
-    }
-  }
-  
+.editpass
+  {
+   
+    margin-left: 30px;
+      background-color: #AA8B56;
+      font-family: 'Roboto';
+     
+      width: fit-content;
+      border-radius: 0;
+      font-size: 15px;
+  } 
