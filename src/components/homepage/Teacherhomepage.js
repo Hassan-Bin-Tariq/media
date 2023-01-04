@@ -105,10 +105,9 @@ const TeacherHomepage = (user) => {
         <>
         <nav className="main-nav">
             {/* 1st logo part  */}
-            <div className="logo">
-                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
-            </div>
-
+            <div className="welcome">
+           <Navbar.Brand href="#"><h2>Welcome, {teachName}</h2></Navbar.Brand>
+        </div>
 
             {/* 2nd menu part  */}
             <div
@@ -172,9 +171,9 @@ const TeacherHomepage = (user) => {
             </li>
             <li class="nav-item w-100">
             </li>
-                    <li class="nav-item w-100">
-            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
-            </li>
+            <li class="nav-item w-100">
+                <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
+                </li>
                     </div>
         </ul>
     </nav>
@@ -182,7 +181,7 @@ const TeacherHomepage = (user) => {
             <Container>
             <div className="name">
 
-                <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {teachName} !</h1>
+              
 
              </div>
                 <Row className="mt-2 text-center">

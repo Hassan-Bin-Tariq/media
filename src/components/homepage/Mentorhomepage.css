@@ -265,7 +265,34 @@
 }
 
 
+.sidebardiv
+{
+  
+   
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+   /* Set the width of the sidebar */
+    position: relative; /* Fixed Sidebar (stay in place on scroll) */
+   /* Stay on top */
+   
+    /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
 
+@media screen and (max-width: 700px) {
+    .sidebardiv {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+}
+@media screen and (max-width: 400px) {
+    .sidebardiv a {
+      text-align: center;
+      float: none;
+    }
+  }
+  
 
 
 
