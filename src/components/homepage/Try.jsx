@@ -155,7 +155,7 @@ const Try = ({ setLoginUser }) => {
                     </div>
                     <div className='right' data-aos="slide-up" data-aos-duration='2000'>
                         <div class="content-landing">
-                            <h1>A New Chapter of Innovation</h1>
+                            <h1 className='tryheading'>A New Chapter of Innovation</h1>
                             <p>Mediascape focuses on delivering a consolidated solution for the ever-existing problem of creating a single platform, catering to the problems including communication, integration, publication, and innovation, when it comes to media deliverance and production, of Fast Photography Society.</p>
                             <a href="#" class="btn">Learn More</a>
                         </div>
@@ -207,7 +207,7 @@ const Try = ({ setLoginUser }) => {
                     <div className='right-opp' data-aos="slide-up" data-aos-duration='3000'>
                         <div class="content-landing">
                             <h5>INTRODUCING</h5>
-                            <h1>HIGH QUALITY  </h1>
+                            <h1 className='tryheading'>HIGH QUALITY  </h1>
                             <p>Only the Highest quality images sorted and grouped for you,
                                 so that all your favourite moments are just a click away!</p>
                             <a href="#" class="btn">View Collection</a>
@@ -226,7 +226,7 @@ const Try = ({ setLoginUser }) => {
                     <div className='right2' data-aos="slide-left" data-aos-duration='2000'>
                         <div class="content-landing">
                             <h3>A MARK OF</h3>
-                            <h1>EXCELLENCE</h1>
+                            <h1 className='tryheading'>EXCELLENCE</h1>
                             <p> Mediascape is optimized to provide only the finest and brilliant 
                                 performance. Our team believes in versatility and skillul 
                                 execution. Results, only the best moments captured and delivered
@@ -248,7 +248,7 @@ const Try = ({ setLoginUser }) => {
                         <div class="content-landing">
                             
                             <h3>Meet the</h3>
-                            <h1>FPS Family</h1>
+                            <h1 className='tryheading'>FPS Family</h1>
                             <p>Fast Photography Society has been actively working as a photography 
                                 & videography society for FAST-NU CFD Campus, since yeyar 2012.
                                 FPS aims to provide coverage for university events, allowing
