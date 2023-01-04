@@ -119,31 +119,48 @@ const MentorHomepage = (user) => {
         let imgBx = document.createElement('div');
         imgBx.className = 'imgBx'
 
-        let image = document.createElement('img');
-        image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+        let imgTitleText = document.createElement('h2');
+        imgTitleText.innerText = "Event:";
+
+        let imgTitle = document.createElement('h3');
+        imgTitle.innerText = item.title;
+
+        let imgTeacherText = document.createElement('h2');
+        imgTeacherText.innerText = "Requesting Teacher:";
+
+        let imgTeacher = document.createElement('h3');
+        imgTeacher.innerText = item.teacherName;
+
+        // let image = document.createElement('img');
+        // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
 
         //DETAILS STARTING
 
         let details = document.createElement('div');
         details.className = 'details'
 
-        let Title = document.createElement('h3')
-        Title.innerText = item.title;
-
         let descriptionWritten = document.createElement('h4');
-        descriptionWritten.innerText = 'Description'
+        descriptionWritten.innerText = 'Description:'
 
-        let description = document.createElement('p');
+        let description = document.createElement('h5');
         description.innerText = item.description;
 
+        let Venue = document.createElement('h4')
+        Venue.innerText = "Venue: "+item.venue;
+
+        let Date = document.createElement('h4')
+        Date.innerText = "Date: "+item.date;
+
         let timewritten = document.createElement('h4');
-        timewritten.innerText = 'TIME'
+        timewritten.innerText = 'EVENT TIME'
 
         let timeul = document.createElement('ul');
         timeul.className = 'size'
 
-        let time = document.createElement('li');
-        time.innerText = item.StartTime
+        let starttime = document.createElement('li');
+        starttime.innerText = "Start: "+item.StartTime
+        let endtime = document.createElement('li');
+        endtime.innerText = "End: "+item.EndTime
 
         let divgroup = document.createElement('div');
         divgroup.className = 'group'
@@ -156,19 +173,25 @@ const MentorHomepage = (user) => {
 
 
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
-        details.appendChild(Title);
+        
         details.appendChild(descriptionWritten);
         details.appendChild(description);
+        details.appendChild(Venue);
+        details.appendChild(Date);
         details.appendChild(timewritten);
 
-        timeul.appendChild(time);
+        timeul.appendChild(starttime);
+        timeul.appendChild(endtime);
         details.appendChild(timeul);
 
-        divgroup.appendChild(divpricewritten);
+        // divgroup.appendChild(divpricewritten);
         divgroup.appendChild(detailsbtn);
         details.appendChild(divgroup);
 
-        imgBx.appendChild(image);
+        imgBx.appendChild(imgTitleText);
+        imgBx.appendChild(imgTitle);
+        imgBx.appendChild(imgTeacherText);
+        imgBx.appendChild(imgTeacher);
         mycard.appendChild(details);
         mycard.appendChild(imgBx);
         
@@ -207,7 +230,7 @@ const MentorHomepage = (user) => {
                 className={
                     showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
                 }>
-                    <p>You can write something here</p>
+                    <p>Welcome back, {Name}!</p>
             </div>
 
             {/* 3rd social media links */}
@@ -262,12 +285,14 @@ const MentorHomepage = (user) => {
             </nav>
             {/*////////////// */} 
 
-            <h1>Hello, {Name} !</h1>
+            {/* <h1>Hello, {Name} !</h1>
             <h2>Welcome to your portal</h2>
-            <br></br>
+            <br></br> */}
             
             {/* Div with card */}
-            <div class = "cardBody" id="card-container"></div>
+            <div class = "cardBody" id="card-container">
+                {/* <div className="card-flex"></div> */}
+            </div>
             {/* Div with card end */}
 
             
