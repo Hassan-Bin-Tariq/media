@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import "./Generalhomepage.css"
 import { useHistory } from "react-router-dom"
 import Table from 'react-bootstrap/Table'
@@ -77,6 +77,17 @@ const GeneralHomepage = (user) => {
     const handleShow = () => setShow(true);
     //////
 
+    //closing stuff on mouse click
+    useEffect(()=>
+    {
+        let handler=()=>
+        {
+
+            setShowOverlay(false);
+
+        };
+        document.addEventListener("mousedown", handler);
+    })
     //navigation hook for sidebar
     
     
