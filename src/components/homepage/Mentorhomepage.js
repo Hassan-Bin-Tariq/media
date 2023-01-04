@@ -8,11 +8,15 @@ import emailjs from "emailjs-com";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
 import {Button} from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import navlogo from "../../assets/Picture1.png";
-import camera from "../../assets/camera1.jpg";
+import ghous from "../../assets/ghous.jpg";
 import {
     FaUserAlt,
     FaWindowClose,
+    FaImage,
+    FaGripHorizontal,
+    FaTimes,
     FaUserEdit,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -131,8 +135,10 @@ const MentorHomepage = (user) => {
         let imgTeacher = document.createElement('h3');
         imgTeacher.innerText = item.teacherName;
 
-        // let image = document.createElement('img');
+        let image = document.createElement('img');
         // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+        // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
+        image.src=ghous
 
         //DETAILS STARTING
 
@@ -165,12 +171,13 @@ const MentorHomepage = (user) => {
         let divgroup = document.createElement('div');
         divgroup.className = 'group'
 
-        let divpricewritten = document.createElement('h2');
-        divpricewritten.innerText = '5:00PM'
+        let acceptbtn = document.createElement('button');
+        acceptbtn.innerText = 'Accept'
+        acceptbtn.addEventListener("click",doNothing,false);
 
-        let detailsbtn = document.createElement('button');
-        detailsbtn.innerText = 'Check details'
-
+        let rejectbtn = document.createElement('button');
+        rejectbtn.innerText = 'Reject'
+        rejectbtn.addEventListener("click",doNothing,false);
 
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
         
@@ -185,9 +192,11 @@ const MentorHomepage = (user) => {
         details.appendChild(timeul);
 
         // divgroup.appendChild(divpricewritten);
-        divgroup.appendChild(detailsbtn);
+        divgroup.appendChild(acceptbtn);
+        divgroup.appendChild(rejectbtn);
         details.appendChild(divgroup);
 
+        imgBx.appendChild(image);
         imgBx.appendChild(imgTitleText);
         imgBx.appendChild(imgTitle);
         imgBx.appendChild(imgTeacherText);
@@ -219,23 +228,35 @@ const MentorHomepage = (user) => {
 
     <div>
 
-        <nav className="main-nav">
+        <nav className="mentor-main-nav">
             {/* 1st logo part  */}
-            <div className="logo">
-                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
+            <div className="mentor-welcome">
+                <Navbar.Brand href="#"><h2>Welcome back, {Name}</h2></Navbar.Brand>
             </div>
 
             {/* 2nd menu part  */}
-            <div
-                className={
-                    showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
-                }>
-                    <p>Welcome back, {Name}!</p>
+            <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
+                <ul>
+                    <li>
+                    <NavLink to="/try">Home</NavLink>
+                    </li>
+                    <li>
+                    <NavLink to="/about">about</NavLink>
+                    </li>
+                    <li>
+                    <NavLink to="/login">Get Started</NavLink>
+                    </li>
+                    <li>
+                    <NavLink to="/contact">contact</NavLink>
+                    </li>
+                </ul>
             </div>
 
             {/* 3rd social media links */}
             <div className="social-media">
                 <ul className="social-media-desktop">
+                    <li>
+                    </li>
                     <li>
                     </li>
                     <li>
@@ -265,7 +286,7 @@ const MentorHomepage = (user) => {
                         <li class="nav-item w-100">
                             
                             <button  onClick={SideBarActivator} className="btclose">
-                                <FaWindowClose className="close"></FaWindowClose>
+                                <FaTimes className="close"></FaTimes>
                             </button>
                                 
                         </li>
@@ -273,7 +294,12 @@ const MentorHomepage = (user) => {
                     <div className="sidebardiv">
                         <li class="nav-item w-100">
                             <button  onClick={GetEvents} className="btn-bg-transparent">
-                                <FaUserEdit />       Show Events
+                                <FaImage /> My Albums
+                            </button>
+                        </li>
+                        <li class="nav-item w-100">
+                            <button  onClick={GetEvents} className="btn-bg-transparent">
+                                <FaUserEdit /> Event Requests
                             </button>
                         </li>
                         <li class="nav-item w-100">

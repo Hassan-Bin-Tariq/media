@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: "Jost", sans-serif;
   }
+  
 .sub
 {
 border-radius: 0;
@@ -299,14 +300,42 @@ font-size: 13px;
 }
 
 
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }
+.btn-bg-transparent
+{
+  
+    background-color: transparent;
+    border-radius: none;
+    /* border: 2px solid #A6BB8D; */
+    width: 300px;
+    padding-bottom: 30px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    transition: ease-out;
+}
+.btn-bg-transparent:hover
+{
+    border-radius: 0;
+    background: #949b79;
+   
+}
 h6
 {
     margin-left: 20px;
 }
+#editProfile
+{
+    margin-left: 580px;
+    display: none;
+}
+
+.editpass
+  {
+   
+    margin-left: 30px;
+      background-color: #AA8B56;
+      font-family: 'Roboto';
+     
+      width: fit-content;
+      border-radius: 0;
+      font-size: 15px;
+  } 

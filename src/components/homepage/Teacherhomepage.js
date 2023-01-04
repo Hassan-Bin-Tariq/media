@@ -26,7 +26,7 @@ import {
   
   } from "react-icons/fa";
   import {AiOutlineLogout} from "react-icons/ai";
-
+  import $ from "jquery"
 const TeacherHomepage = (user) => {
     // const history = useHistory()
     var teachName = user.setLoginUser.name
@@ -99,16 +99,68 @@ const TeacherHomepage = (user) => {
         }
         //alert("Submited")
     }
+    const Passeditor = () =>
+    {
+        let OldPass = document.getElementById("oldpass").value;
+        let newPass = document.getElementById("newpass").value;
+        let rePass = document.getElementById("reNewPass").value;
+        let useremail = user.setLoginUser.email;
+
+        if(newPass === rePass)
+        {
+            console.log(OldPass,newPass,rePass,useremail)
+
+            axios.post("http://localhost:9002/ChangePass",{Email: useremail,OldPassword: OldPass,newPassword: newPass}) 
+            .then(res => {
+                // alert(res.data.message)
+                // eventts = res.data.event;
+                // console.log(eventts)
+            })
+        }
+        else{
+            alert("Password not matched")
+        }
+    }
+
+    const showPass = () => {
+        const targetDiv = document.getElementById("editProfile");
+        if (targetDiv.style.display !== "none") {
+            targetDiv.style.display = "none";
+          } else {
+            targetDiv.style.display = "block";
+          }
+          //hideDuty();
+         hideForm();
+    }
+
+    const hidePass = () => {
+        $(function () {
+            $('#editProfile').hide();
+        });
+       
+    }
+
+    const showForm = () => {
+        $(function () {
+            $('#form').show();
+        });
+    }
+    const hideForm= () => {
+    $(function () {
+        $('#form').hide();
+    });
+    
+     }
+
 
     return (
 
         <>
         <nav className="main-nav">
             {/* 1st logo part  */}
-            <div className="logo">
-                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
-            </div>
-
+            <div className="welcome">
+           <Navbar.Brand href="#"><h2>Welcome, {teachName}</h2></Navbar.Brand>
+        </div>
 
             {/* 2nd menu part  */}
             <div
@@ -166,15 +218,15 @@ const TeacherHomepage = (user) => {
             </div>
             <div className="sidebardiv">
             <li class="nav-item w-100">
-            <button  onClick={handleShow} className="btn-bg-transparent">
+            <button  onClick={showPass} className="btn-bg-transparent">
             <FaUserEdit />       Edit Profile
                 </button>
             </li>
             <li class="nav-item w-100">
             </li>
-                    <li class="nav-item w-100">
-            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
-            </li>
+            <li class="nav-item w-100">
+                <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
+                </li>
                     </div>
         </ul>
     </nav>
@@ -182,9 +234,38 @@ const TeacherHomepage = (user) => {
             <Container>
             <div className="name">
 
-                <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {teachName} !</h1>
+              
 
              </div>
+             <div id="editProfile">
+                
+                <button className="hide"  onClick={hidePass}>
+                    <FaWindowClose className="userhide" />
+                </button>
+        
+        <div className="oldpass">
+            <label >Old Password</label>
+            <br></br>
+            <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
+        </div>
+
+        <div className="pass">
+            <label >Password</label>
+            <br></br>
+            <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
+        </div>
+
+        <div className="repass">
+            <label >Re-enter Password</label>
+            <br></br>
+            <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+            
+    </div>
+    <button className="editpass" onClick={Passeditor}>Edit Password</button>
+    
+
+    </div>
+    <div id="form">
                 <Row className="mt-2 text-center">
                     <h2>Generate Event Request</h2>
                     <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
@@ -222,6 +303,7 @@ const TeacherHomepage = (user) => {
                         </Form>
                     </Col>
                 </Row>
+                </div>
                 <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </Container>
         </>

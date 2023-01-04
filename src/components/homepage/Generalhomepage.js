@@ -22,6 +22,9 @@ import Popover from 'react-bootstrap/Popover';
 import {
     FaUserAlt,
     FaWindowClose,
+    FaImage,
+    FaGripHorizontal,
+    FaTimes,
     FaUserEdit,
     FaBookOpen
   
@@ -229,7 +232,9 @@ const GeneralHomepage = (user) => {
     const showTable = () => {
         $(function () {
             $('#mydiv').show();
+            
         });
+        hideSlots();
     }
     const hideTable = () => {
         $(function () {
@@ -247,6 +252,58 @@ const GeneralHomepage = (user) => {
         $('#duty').hide();
     });
     }
+    const Passeditor = () =>
+    {
+        let OldPass = document.getElementById("oldpass").value;
+        let newPass = document.getElementById("newpass").value;
+        let rePass = document.getElementById("reNewPass").value;
+        let useremail = user.setLoginUser.email;
+
+        if(newPass === rePass)
+        {
+            console.log(OldPass,newPass,rePass,useremail)
+
+            axios.post("http://localhost:9002/ChangePass",{Email: useremail,OldPassword: OldPass,newPassword: newPass}) 
+            .then(res => {
+                // alert(res.data.message)
+                // eventts = res.data.event;
+                // console.log(eventts)
+            })
+        }
+        else{
+            alert("Password not matched")
+        }
+    }
+
+    const showPass = () => {
+        const targetDiv = document.getElementById("editProfile");
+        if (targetDiv.style.display !== "none") {
+            targetDiv.style.display = "none";
+          } else {
+            targetDiv.style.display = "block";
+          }
+          //hideDuty();
+          hideSlots();
+          hideTable();
+    }
+
+    const hidePass = () => {
+        $(function () {
+            $('#editProfile').hide();
+        });
+        showSlots();
+    }
+    const showSlots = () => {
+        $(function () {
+            $('#name').show();
+        });
+    }
+    const hideSlots= () => {
+    $(function () {
+        $('#name').hide();
+    });
+    
+     }
 
 return (
         
@@ -327,16 +384,17 @@ return (
             <div className="closebtn">
                 <li class="nav-item w-100">
                     <button  onClick={myfub} className="btclose">
-                    <FaWindowClose className="close"></FaWindowClose>
+                    <FaTimes className="close"></FaTimes>
                     </button>
                 </li>
             </div>
             <div className="sidebardiv">
                 <li class="nav-item w-100">
-                <button  onClick={handleShow} className="btn-bg-transparent">
-                    <FaUserEdit />       Edit Profile
-                </button>
+                    <button  onClick="/" className="btn-bg-transparent">
+                        <FaImage /> My Albums
+                    </button>
                 </li>
+                
                 <li class="nav-item w-100">
                 <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
                         <FaBookOpen/> Current Slots
@@ -344,19 +402,51 @@ return (
                 </li>
                 <li class="nav-item w-100">
                 <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
-                        <FaBookOpen/> Update Slots
+                        <FaGripHorizontal/> Update Slots
                 </button>
                 </li>
-                
+                <li class="nav-item w-100">
+                <button  onClick={showPass} className="btn-bg-transparent">
+                    <FaUserEdit />       Edit Profile
+                </button>
+                </li>
                 <li class="nav-item w-100">
                 <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
                 </li>
             </div>
         </ul>
         </nav>
+        <div id="editProfile">
+                
+                <button className="hide"  onClick={hidePass}>
+                    <FaWindowClose className="userhide" />
+                </button>
+        
+        <div className="oldpass">
+            <label >Old Password</label>
+            <br></br>
+            <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
+        </div>
+
+        <div className="pass">
+            <label >Password</label>
+            <br></br>
+            <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
+        </div>
+
+        <div className="repass">
+            <label >Re-enter Password</label>
+            <br></br>
+            <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+            
+    </div>
+    <button className="editpass" onClick={Passeditor}>Edit Password</button>
+    
+
+    </div>
    
         <Container>
-                <div className="name">
+                <div id="name">
                     <h3 className="zx">Your current selected Free Slots </h3>
                 </div>
                 
@@ -379,13 +469,13 @@ return (
 
             <div id="mydiv" class="hidden">
                 <div className='xmark'>
-                    <button className="hide"  onClick={hideTable}>
-                        <FaWindowClose className="userhide" />
-                    </button>
+                    {/* <button className="hide"  onClick={hideTable}>
+                        <FaTimes className="userhide" />
+                    </button> */}
                 </div>
                     <Row className="sm-3 text-center">
-                            <h2>Available Slots of the Week</h2>
-                            <Table >
+                            <h2 className='slots-h2'>Available Slots of the Week</h2>
+                            <Table className='duty-table'>
                         
                                 <tbody>
                                     <div className="tab">
@@ -393,7 +483,7 @@ return (
                                 
                                 <td>Monday</td>
 
-                                <ToggleButtonGroup type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
+                                <ToggleButtonGroup className="togo-group" type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
                                     <ToggleButton className="togo" id="tbg-btn-1" value={1} color="purple">
                                         8:45 - 10:10
                                     </ToggleButton>
@@ -527,7 +617,7 @@ return (
                     </Table>
                     </Row>
                 <centre>
-                    <button className="submit" variant="success btn-block" onClick={SubmitForm}>
+                    <button className="submit-form" variant="success btn-block" onClick={SubmitForm}>
                         Submit Form
                     </button>
                 </centre>

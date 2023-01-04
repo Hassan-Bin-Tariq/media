@@ -167,35 +167,35 @@ const Try = ({ setLoginUser }) => {
                 <div className="container">
                     <div className='left-opp'>
                     <Carousel fade className="d-block w-100 h-100">
-                        <Carousel.Item className="d-block w-100 h-100" interval={2000}>
+                        <Carousel.Item className="d-block w-100 h-100" interval={1000}>
                             <img
                             className="d-block w-100 h-100"
                             src={icit}
                             alt="First slide"
                             />
                         </Carousel.Item>
-                        <Carousel.Item interval={2000}>
+                        <Carousel.Item interval={1000}>
                             <img
                             className="d-block w-100 h-100"
                             src={cc}
                             alt="Second slide"
                             />
                         </Carousel.Item>
-                        <Carousel.Item interval={2000}>
+                        <Carousel.Item interval={1000}>
                             <img
                             className="d-block w-100 h-100"
                             src={ccc}
                             alt="Third slide"
                             />
                         </Carousel.Item>
-                        <Carousel.Item interval={2000}>
+                        <Carousel.Item interval={1000}>
                             <img
                             className="d-block w-100 h-100"
                             src={cccc}
                             alt="Third slide"
                             />
                         </Carousel.Item>
-                        <Carousel.Item interval={2000}>
+                        <Carousel.Item interval={1000}>
                             <img
                             className="d-block w-100 h-100"
                             src={c}

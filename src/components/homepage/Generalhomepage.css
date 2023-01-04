@@ -32,24 +32,38 @@
 {
     display: none;
 }
+.togo-group{
+    border-color: black;
+    border-width: 1px;
+}
 .togo
 {
     background-color: #A6BB8D;
     border-radius: 0;
-   width: 20%;
+    font-family: "Montserrat";
+    height: 50px;
+    font-size: 13px;
+   width: 120px;
 }
 .togo:hover
 {
     background-color: #557153;
 }
+.slots-h2{
+    font-size: 30px;
+    padding-left: 200px;
+    font-family: "Montserrat";
+}
 .none
 {
     background-color: #A6BB8D;
+    font-family: "Montserrat";
     border-radius:0 ;
+    font-size: 13px;
 }
 .none:hover
 {
-    background-color:  #CF0A0A;
+    background-color:  #c00e0e;
 }
 
 h2{
@@ -59,9 +73,16 @@ h1
 {
     color:  #1183ca;
 }
+.duty-table td{
+    height: 7px;
+    width: 20px;
+    font-size: 15px;
+    border-color: black;
+    border-width: 1px;
+}
 .canvas
 {
-    background-color:whitesmoke;
+    background-color:#f8f7f2;
     border-radius: 5px;
     width: 320px;
     height: 200px;
@@ -76,17 +97,16 @@ h1
     background-color: #A6BB8D;
     
 }
-.submit
+.submit-form
 {
-    margin-left: 455px;
+    margin-left: 585px;
     background-color: #AA8B56;
-    font-family: 'Montserrat';
-   
+    font-family: 'Roboto';
     width: fit-content;
     border-radius: 0;
     font-size: 15px;
 }
-.submit:hover
+.submit-form:hover
 {
     background-color: #D6CDA4;
     color: black;
@@ -130,6 +150,7 @@ background: transparent;
 }
 .xmark
 {
+    margin-top: 50px;
     margin-left: 700px;
 }
 
@@ -170,7 +191,7 @@ h6
     background-color: transparent;
     border-radius: none;
     /* border: 2px solid #A6BB8D; */
-    width: 270px;
+    width: 300px;
     padding-bottom: 30px;
     font-family: 'Montserrat';
     font-size: 15px;
@@ -182,11 +203,7 @@ h6
     background: #949b79;
    
 }
-.sidebardiv
-{
-    margin-top: 30px;
-   
-}
+
 .btnnotif{
     background-color: black;
     width: 60px;
@@ -286,3 +303,21 @@ h1
 .notif:hover{
     background-color: transparent;
 }
+
+  #editProfile
+{
+    margin-left: 580px;
+    display: none;
+}
+
+.editpass
+  {
+   
+    margin-left: 30px;
+      background-color: #AA8B56;
+      font-family: 'Roboto';
+     
+      width: fit-content;
+      border-radius: 0;
+      font-size: 15px;
+  } 
