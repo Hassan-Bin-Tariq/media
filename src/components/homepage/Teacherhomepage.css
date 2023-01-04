@@ -6,25 +6,7 @@
     box-sizing: border-box;
     font-family: "Jost", sans-serif;
   }
-  .btn-bg-transparent
-{
   
-    background-color: transparent;
-    border-radius: none;
-    /* border: 2px solid #A6BB8D; */
-    width: 270px;
-    padding-bottom: 30px;
-    font-family: 'Montserrat';
-    font-size: 15px;
-    transition: ease-out;
-}
-.btn-bg-transparent:hover
-{
-    border-radius: 0;
-    background: #949b79;
-   
-}
-
 .sub
 {
 border-radius: 0;

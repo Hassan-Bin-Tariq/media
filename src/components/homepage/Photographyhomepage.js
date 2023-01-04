@@ -25,6 +25,8 @@ import {
     FaBookOpen
   
   } from "react-icons/fa";
+  import $ from "jquery"
+
   import {AiOutlineLogout} from "react-icons/ai";
 const PhotographyHomepage = (user) => {
     const [show, setShow] = useState(false);
@@ -622,6 +624,19 @@ const PhotographyHomepage = (user) => {
         }
     }
 
+    const showPass = () => {
+        const targetDiv = document.getElementById("editProfile");
+        if (targetDiv.style.display !== "none") {
+            targetDiv.style.display = "none";
+          } else {
+            targetDiv.style.display = "block";
+          }
+    }
+    const hidePass = () => {
+        $(function () {
+            $('#editProfile').hide();
+        });
+    }
     return (
         
        
@@ -688,7 +703,7 @@ const PhotographyHomepage = (user) => {
             </div>
             <div className="sidebardiv">
             <li class="nav-item w-100">
-            <button  onClick={handleShow} className="btn-bg-transparent">
+            <button  onClick={showPass} className="btn-bg-transparent">
             <FaUserEdit />       Edit Profile
                 </button>
             </li>
@@ -707,7 +722,16 @@ const PhotographyHomepage = (user) => {
 
     <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
         </div>
-        
+       
+        <div id="card-container"></div>
+
+                <div id="card-container2"></div>
+                <div id="editProfile">
+                
+                    <button className="hide"  onClick={hidePass}>
+                        <FaWindowClose className="userhide" />
+                    </button>
+            
             <div className="oldpass">
                 <label >Old Password</label>
                 <br></br>
@@ -724,13 +748,12 @@ const PhotographyHomepage = (user) => {
                 <label >Re-enter Password</label>
                 <br></br>
                 <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                
         </div>
+        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+        
 
-        <button onClick={Passeditor}>Edit Password</button>
-
-
-        <div id="card-container"></div>
-                <div id="card-container2"></div>
+        </div>
                 {show && <div id="Modal-container2">
                     <button>Close</button>
                     <h1 className="greeting">
