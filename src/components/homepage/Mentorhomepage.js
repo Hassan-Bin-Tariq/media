@@ -14,6 +14,7 @@ import ghous from "../../assets/ghous.jpg";
 import {
     FaUserAlt,
     FaWindowClose,
+    FaTimes,
     FaUserEdit,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -133,9 +134,9 @@ const MentorHomepage = (user) => {
         imgTeacher.innerText = item.teacherName;
 
         let image = document.createElement('img');
-        image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+        // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
         // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
-        // image.src={ghous}
+        image.src=ghous
 
         //DETAILS STARTING
 
@@ -283,7 +284,7 @@ const MentorHomepage = (user) => {
                         <li class="nav-item w-100">
                             
                             <button  onClick={SideBarActivator} className="btclose">
-                                <FaWindowClose className="close"></FaWindowClose>
+                                <FaTimes className="close"></FaTimes>
                             </button>
                                 
                         </li>
