@@ -235,6 +235,7 @@ const GeneralHomepage = (user) => {
             
         });
         hideSlots();
+        hidePass();
     }
     const hideTable = () => {
         $(function () {
@@ -277,11 +278,11 @@ const GeneralHomepage = (user) => {
 
     const showPass = () => {
         const targetDiv = document.getElementById("editProfile");
-        if (targetDiv.style.display !== "none") {
-            targetDiv.style.display = "none";
-          } else {
+        // if (targetDiv.style.display !== "none") {
+        //     targetDiv.style.display = "none";
+        //   } else {
             targetDiv.style.display = "block";
-          }
+          //}
           //hideDuty();
           hideSlots();
           hideTable();
@@ -418,20 +419,22 @@ return (
         </nav>
         <div id="editProfile">
                 
-                <button className="hide"  onClick={hidePass}>
+                {/* <button className="hide"  onClick={hidePass}>
                     <FaWindowClose className="userhide" />
-                </button>
-        
+                </button> */}
+        <div>
+            <h2>Edit Profile Settings</h2>
+        </div>
         <div className="oldpass">
-            <label >Old Password</label>
+            <label >Current Password</label>
             <br></br>
-            <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
+            <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
         </div>
 
         <div className="pass">
-            <label >Password</label>
+            <label >New Password</label>
             <br></br>
-            <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
+            <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
         </div>
 
         <div className="repass">
@@ -443,7 +446,7 @@ return (
     <button className="editpass" onClick={Passeditor}>Edit Password</button>
     
 
-    </div>
+        </div>
    
         <Container>
                 <div id="name">
@@ -612,8 +615,8 @@ return (
                                 </ToggleButtonGroup>
                                 
                             </tr>
-                            </div>
-                        </tbody>
+                                    </div>
+                                </tbody>
                     </Table>
                     </Row>
                 <centre>

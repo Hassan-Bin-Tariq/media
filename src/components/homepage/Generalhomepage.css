@@ -15,7 +15,7 @@
     width: 200px;
     height: 150px;
     font-family: "Montserrat";
-    background-color: #A6BB8D;
+    background-color: #979c90;
     /* border-radius: 50px; */
 }
 .gbpopover strong{
@@ -99,17 +99,17 @@ h1
 }
 .submit-form
 {
+      background-color: rgb(32, 32, 32);
+      font-family: 'Roboto';
+     
+      width: fit-content;
+      border-radius: 20px;
+      font-size: 15px;
     margin-left: 585px;
-    background-color: #AA8B56;
-    font-family: 'Roboto';
-    width: fit-content;
-    border-radius: 0;
-    font-size: 15px;
 }
 .submit-form:hover
 {
-    background-color: #D6CDA4;
-    color: black;
+    background-color: #67705c;
 }
 .data-upload
 {
@@ -307,17 +307,40 @@ h1
   #editProfile
 {
     margin-left: 580px;
+    margin-top: 50px;
     display: none;
+}
+#editProfile h2{
+    margin-left: -500px;
+    margin-bottom: 40px;
 }
 
 .editpass
   {
    
-    margin-left: 30px;
-      background-color: #AA8B56;
+      margin-left: 70px;
+      background-color: rgb(32, 32, 32);
       font-family: 'Roboto';
      
       width: fit-content;
-      border-radius: 0;
+      border-radius: 20px;
       font-size: 15px;
   } 
+  .editpass:hover{
+    background-color: #A6BB8D;
+  }
+.oldpass{
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+.pass{
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+.repass{
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
