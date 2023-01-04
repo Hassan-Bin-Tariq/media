@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+import emailjs from "emailjs-com";
 //import Picture1 from './assets/Picture1.png'
 import logo from "../../assets/Picture1.png";
 import loginpic from "../../assets/login.svg";
@@ -54,34 +55,6 @@ const Login = ({ setLoginUser }) => {
                 }
             })
     }
-    // const changeFunction=()=>{
-    //     // buttons for changing login-sign up
-    //     const sign_in_btn = document.querySelector("#sign_in_btn");
-    //     const sign_up_btn = document.querySelector("#sign_up_btn");
-    //     const container = document.querySelector(".container");
-
-    //     sign_up_btn.addEventListener("click", () => {
-    //     container.classList.add("sign_up_mode");
-    //     });
-
-    //     sign_in_btn.addEventListener("click", () => {
-    //     container.classList.remove("sign_up_mode");
-    //     });
-    // };
-    // const changeReg=()=>{
-    //     // buttons for changing login-sign up
-    //     const sign_in_btn = document.querySelector("#sign_in_btn");
-    //     const sign_up_btn = document.querySelector("#sign_up_btn");
-    //     const container = document.querySelector(".container");
-
-    //     sign_up_btn.addEventListener("click", () => {
-    //     container.classList.add("sign_up_mode");
-    //     });
-
-    //     sign_in_btn.addEventListener("click", () => {
-    //     container.classList.remove("sign_up_mode");
-    //     });
-    // };
     
     const sign_upchanger=()=>{
 
@@ -93,6 +66,62 @@ const Login = ({ setLoginUser }) => {
 
         const container = document.querySelector(".login-container");
         container.classList.remove("sign_up_mode");
+    };
+    //REGISTER DECLARATIONS//
+
+    const [userReg, setUserReg] = useState({
+        name: "",
+        email: "",
+        password: "",
+        reEnterPassword: "",
+        slots: [],
+        day: "None",
+        time: "None",
+    })
+
+    const handleRegChange = e => {
+        const { name, value } = e.target
+        setUserReg({
+            ...userReg,
+            [name]: value
+        })
+    }
+
+    const sendEmail = (name, email) => {
+
+        emailjs.send("service_xsod6da", "template_01r4u37", {
+            to_name: name,
+            message: "Hello From team mediaScape",
+            to_email: email,
+            reply_to: "mediascape0@gmail.com",
+        }, "nv_Jq-1YJR57e3z-E");
+    }
+
+    const register = () => {
+        const { name, email, password, reEnterPassword, slots, day, time } = userReg
+        if (name && email && password && (password === reEnterPassword)) {
+            axios.post("http://localhost:9002/register", userReg)
+                .then(
+                    res => alert(res.data.message),
+                    //sendEmail(name,email),
+                    history.push("./login")
+                )
+        } else {
+            alert("Invalid Input! Try Again.")
+        }
+    }
+    const tester = () => {
+        console.log(document.getElementById("img").innerHTML)
+    }
+    var loadFile = function (event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('output');
+            output.src = reader.result;
+            console.log(reader.result)
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        console.log(event.target.files[0])
     };
 
 
@@ -118,13 +147,13 @@ const Login = ({ setLoginUser }) => {
                     <p class="social_text">Or Sign in with social platforms</p>
 
                     <div class="social_media">
-                        <a href="#" class="social_icon"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="social_icon" ><FaFacebook className="user" /><i class='bx bxl-facebook'></i></a>
 
-                        <a href="#" class="social_icon"><i class='bx bxl-google'></i></a>
+                        <a href="#" class="social_icon"><FaGoogle className="user" /><i class='bx bxl-google'></i></a>
 
-                        <a href="#" class="social_icon"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social_icon"><FaTwitter className="user" /><i class='bx bxl-twitter'></i></a>
 
-                        <a href="#" class="social_icon"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="social_icon"><FaLinkedin className="user" /><i class='bx bxl-linkedin'></i></a>
 
 
                     </div>
@@ -134,30 +163,40 @@ const Login = ({ setLoginUser }) => {
 
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" name="name" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
                     </div>
 
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
                     </div>
 
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name="password" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
+                    </div>
+                    <div class="inputBox">
+                        <i class='bx bxs-user'></i>
+                        <input type="password" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
+                    </div>
+                    <div class="inputBox">
+                        <label >Upload profile picture</label>
+                        <br></br>
+                        <input type="file" accept="image/*" onChange={loadFile} />
+                        <img id = "output"/>
                     </div>
 
-                    <input type="submit" value="Sign up" class="btn" />
+                    <input type="submit" value="Sign up" class="newbtn" onClick={register} />
                     <p class="social_text">Or Sign up with social platforms</p>
 
                     <div class="social_media">
-                        <a href="#" class="social_icon"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social_icon" ><FaFacebook className="user" /><i class='bx bxl-facebook'></i></a>
 
-                        <a href="#" class="social_icon"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="social_icon"><FaGoogle className="user" /><i class='bx bxl-google'></i></a>
 
-                        <a href="#" class="social_icon"><i class='bx bxl-twitter'></i></a>
+                    <a href="#" class="social_icon"><FaTwitter className="user" /><i class='bx bxl-twitter'></i></a>
 
-                        <a href="#" class="social_icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#" class="social_icon"><FaLinkedin className="user" /><i class='bx bxl-linkedin'></i></a>
 
 
                     </div>
@@ -167,11 +206,12 @@ const Login = ({ setLoginUser }) => {
         <div class="panel_container">
             <div class="panel left_panel">
                 <div class="content">
-                    <h3>New here ?</h3>
+                    <h3>New Here?</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequatur earum quod
+                        Join our community Today and enjoy high quality content, 
+                        with just a click!
                     </p>
-                    <button onClick={sign_upchanger} class="btn" id="sign_up_btn">
+                    <button onClick={sign_upchanger} class="newbtn" id="sign_up_btn">
                         Sign up
                     </button>
                 </div>
@@ -181,9 +221,9 @@ const Login = ({ setLoginUser }) => {
                 <div class="content">
                     <h3>One of us ?</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequatur earum quod
+                        Log In to check the latest updates!
                     </p>
-                    <button onClick={sign_inchanger} class="btn transparent" id="sign_in_btn">
+                    <button onClick={sign_inchanger} class="newbtn" id="sign_in_btn">
                         Sign in
                     </button>
                 </div>

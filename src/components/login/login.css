@@ -1,6 +1,6 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
 .login {
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat";
     /* width: 400px;
     background:  #adddd0;
     border: 1px solid #dddfe2;
@@ -216,7 +216,7 @@ h3
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
-    
+    font-family: "Montserrat";
     margin: 10px 0;
     cursor: pointer;
     transition: 0.5s;
