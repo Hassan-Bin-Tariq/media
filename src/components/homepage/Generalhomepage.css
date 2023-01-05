@@ -99,7 +99,7 @@
 }
 .togo
 {
-    background-color: #A6BB8D;
+    background-color: rgba(56, 54, 54, 0.651);
     border-radius: 0;
     font-family: "Montserrat";
     height: 50px;
@@ -159,7 +159,7 @@
       width: fit-content;
       border-radius: 20px;
       font-size: 15px;
-    margin-left: 585px;
+    margin-left: 355px;
 }
 .submit-form:hover
 {
@@ -309,13 +309,7 @@ h1
     margin-left: 1000px;
     color: black;
 }
-.zx
-{
-    margin-top: 15px;
-    margin-left: 200px;
-    font-family: 'Montserrat';
-    font-size: 25px;
-}
+
 .notif
 {
     margin-left: 1100px;
@@ -360,12 +354,12 @@ h1
 
   #editProfile
 {
-    margin-left: 580px;
+    margin-left: 180px;
     margin-top: 50px;
     display: none;
 }
 #editProfile h2{
-    margin-left: -500px;
+    margin-left: -520px;
     margin-bottom: 40px;
 }
 
@@ -398,3 +392,27 @@ h1
     font-family: 'Roboto';
     font-size: 15px;
 }
+/* AVAILABLE SLOTS TABLE START */
+.slots-h2{
+    margin-left: -300px;
+    margin-top: 60px;
+}
+.duty-table{
+    margin-left: -220px;
+    margin-top: 20px;
+}
+/* AVAILABLE SLOTS TABLE END */
+/* CURRENT SLOTS TABLE START */
+.currentslotdiv{
+    margin-left: -380px;
+    margin-top: 20px;
+}
+.zx
+{
+    margin-top: 15px;
+    margin-left: 400px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+/* CURRENT SLOTS TABLE END */

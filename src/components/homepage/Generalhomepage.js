@@ -20,6 +20,14 @@ import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 import {
+    CDBSidebar,
+    CDBSidebarContent,
+    CDBSidebarFooter,
+    CDBSidebarHeader,
+    CDBSidebarMenu,
+    CDBSidebarMenuItem,
+  } from 'cdbreact';
+import {
     FaUserAlt,
     FaWindowClose,
     FaImage,
@@ -507,6 +515,7 @@ const GeneralHomepage = (user) => {
         });
         hideSlots();
         hidePass();
+        hideCurrent();
     }
     const hideTable = () => {
         $(function () {
@@ -555,6 +564,7 @@ const GeneralHomepage = (user) => {
           //hideDuty();
           hideSlots();
           hideTable();
+          hideCurrent();
     }
     const hidePass = () => {
         $(function () {
@@ -571,341 +581,285 @@ const GeneralHomepage = (user) => {
     $(function () {
         $('#name').hide();
     });
-    
+    }
+    const showCurrent = () => {
+        $(function () {
+            $('#currentdiv').show();
+        });
+        hideSlots();
+        hidePass();
+        hideTable();
+    }
+    const hideCurrent= () => {
+    $(function () {
+        $('#currentdiv').hide();
+    });
     }
 
 return (
         
     <>
-    <div className="gbbg">
-        <nav className="main-nav">
-        {/* 1st logo part  */}
-        <div className="welcome">
-           <Navbar.Brand href="#"><h2>Welcome back, {Name}</h2></Navbar.Brand>
-        </div>
-        
+    <div className="Mentorhomepage">
+        {/* SIDE BAR  */}         
+        <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+                <CDBSidebar textColor="#fff" backgroundColor="#333">
+                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+                    <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
+                    Welcome, {Name}
+                    </a>
+                </CDBSidebarHeader>
 
-        {/* 2nd menu part  */}
-        <div
-          className={
-            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
-          }>
-          <ul>
-            <li>
-              <NavLink to="/try">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">about</NavLink>
-            </li>
-            <li>
-              <NavLink to="/login">Get Started</NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact">contact</NavLink>
-            </li>
-          </ul>
-        </div>
-
-        {/* 3rd social media links */}
-        <div className="social-media">
-          <ul className="social-media-desktop">
-            <li>
-            <button  onClick={myfub} className="btnuser">
-                <FaUserAlt className="user" />
-              </button>
-            </li>
-            <li>
-                <button  ref={ref} className="btnnotif" variant="success btn" onClick={handleClick} data-toggle="tooltip" data-placement="bottom" title="Notifications">
-                    <IoMdNotificationsOutline/> 
-                </button>
-            </li>
-            
-          </ul>
-          <Overlay
-            show={showOverlay}
-            target={target}
-            placement="bottom"
-            container={ref}
-            containerPadding={20}
-            >
-                <Popover id="popover-contained" className='gbpopover'>
-                <Popover.Header as="h1" className='popheader'>Assigned Duty</Popover.Header>
-                <Popover.Body>
-                    <strong> 
-                    Date: {Date} <br></br>
-                    Time Slot: {Time} 
-                    </strong>
-                </Popover.Body>
-                </Popover>
-            </Overlay>
-
-          {/* hamburget menu start  */}
-          <div className="hamburger-menu">
-            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-              <GiHamburgerMenu />
-            </a>
-          </div>
-        </div>
-        </nav>
-        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-        
-        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-            <div className="closebtn">
-                <li class="nav-item w-100">
-                    <button  onClick={myfub} className="btclose">
-                    <FaTimes className="close"></FaTimes>
+                <CDBSidebarContent className="sidebar-content">
+                    <CDBSidebarMenu>
+                    <button  onClick="/" className="sidebarbtn">
+                        <FaImage className="sidebaricon"/> My Albums
                     </button>
-                </li>
-            </div>
-            <div className="sidebardiv">
-                <li class="nav-item w-100">
-                    <button  onClick="/" className="btn-bg-transparent">
-                        <FaImage /> My Albums
+                    <button  className="sidebarbtn" onClick={showCurrent}>
+                        <FaBookOpen className="sidebaricon"/> Current Slots
                     </button>
-                </li>
+                    
+                    <button  className="sidebarbtn" onClick={showTable}>
+                            <FaGripHorizontal className="sidebaricon"/> Update Slots
+                    </button>
+                    <button  onClick={showPass} className="sidebarbtn">
+                        <FaUserEdit className="sidebaricon"/>       Edit Profile
+                    </button>
+                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/>   Logout</button>
+                   
                 
-                <li class="nav-item w-100">
-                <button  className="btn-bg-transparent" variant="success btn-block" onClick={getallSlots}>
-                        <FaBookOpen/> Current Slots
+                    </CDBSidebarMenu>
+                </CDBSidebarContent>
+
+                <CDBSidebarFooter style={{ textAlign: 'center' }}>
+                    <div
+                    style={{
+                        padding: '20px 5px',
+                    }}
+                    >
+                    Mediascape
+                    </div>
+                </CDBSidebarFooter>
+                </CDBSidebar>
+        </div>
+            {/*////////////// */}
+            <div className="mentor-flex2">
+                
+                    
+                <button  className="flex2user">
+                            <FaUserAlt />
                 </button>
-                </li>
-                <li class="nav-item w-100">
-                <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
-                        <FaGripHorizontal/> Update Slots
-                </button>
-                </li>
-                <li class="nav-item w-100">
-                <button  onClick={showPass} className="btn-bg-transparent">
-                    <FaUserEdit />       Edit Profile
-                </button>
-                </li>
-                <li class="nav-item w-100">
-                <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
-                </li>
-            </div>
-        </ul>
-        </nav>
-        <div id="editProfile">
-                
-                {/* <button className="hide"  onClick={hidePass}>
-                    <FaWindowClose className="userhide" />
-                </button> */}
-        <div>
-            <h2>Edit Profile Settings</h2>
-        </div>
-        <div className="oldpass">
-            <label >Current Password</label>
-            <br></br>
-            <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
-        </div>
-
-        <div className="pass">
-            <label >New Password</label>
-            <br></br>
-            <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
-        </div>
-
-        <div className="repass">
-            <label >Re-enter Password</label>
-            <br></br>
-            <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
-            
-    </div>
-    <button className="editpass" onClick={Passeditor}>Edit Password</button>
-    
-
-        </div>
-        
-
-
-        <Container>
-                <div id="name">
-                    <h3 className="zx">Your current selected Free Slots </h3>
-                </div>
-                
-                
-        {/* Holders for current slots */}
-        <div class = "dayDiv" id='mondayHolder'></div>
-        <div class = "dayDiv" id='tuesdayHolder'></div>
-        <div class = "dayDiv" id='wednesdayHolder'></div>
-        <div class = "dayDiv" id='thursdayHolder'></div>
-        <div class = "dayDiv" id='fridayHolder'></div>
-        {/* end of holders */}
-                
-                    {/* <div id="duty">
-                            <h3 className="freeslots">You are currently assigned coverage for: <br></br>
-                                                
-                            </h3>
-                            <br/>
-                            <button  className="notifclose" variant="success btn-block" onClick={hideDuty}>
-                                OK
-                            </button>
-                    </div> */}
-                
-                
-                
-
-               
-
-            <div id="mydiv" class="hidden">
-                <div className='xmark'>
-                    {/* <button className="hide"  onClick={hideTable}>
-                        <FaTimes className="userhide" />
-                    </button> */}
-                </div>
-                    <Row className="sm-3 text-center">
-                            <h2 className='slots-h2'>Available Slots of the Week</h2>
-                            <Table className='duty-table'>
+                <Container className='cardBody'>
                         
-                                <tbody>
-                                    <div className="tab">
-                                <tr>
-                                
-                                <td>Monday</td>
+                        
+                    <div className="currentslotdiv" id="currentdiv">
+                        <div id="name">
+                            <h3 className="zx">Here's your current available time slots </h3>
+                        </div>
+                        {/* Holders for current slots */}
+                        <div class = "dayDiv" id='mondayHolder'></div>
+                        <div class = "dayDiv" id='tuesdayHolder'></div>
+                        <div class = "dayDiv" id='wednesdayHolder'></div>
+                        <div class = "dayDiv" id='thursdayHolder'></div>
+                        <div class = "dayDiv" id='fridayHolder'></div>
+                        {/* end of holders */}
+                    </div>
+                    <div id="mydiv" class="hidden">
+                                <Row className="sm-3 text-center">
+                                        <h2 className='slots-h2'>Select desired available slots of the Week</h2>
+                                        <Table className='duty-table'>
+                                    
+                                            <tbody>
+                                                <div className="tab">
+                                            <tr>
+                                            
+                                            <td>Monday</td>
 
-                                <ToggleButtonGroup className="togo-group" type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
-                                    <ToggleButton className="togo" id="tbg-btn-1" value={1} color="purple">
-                                        8:45 - 10:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-2" value={2}>
-                                        10:15 - 11:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-3" value={3}>
-                                        11:45 - 1:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-4" value={4}>
-                                        1:15 - 1:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-5" value={5}>
-                                        1:45 - 3:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-6" value={6}>
-                                        3:15 - 4:45
-                                    </ToggleButton>
-                                    <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
-                                        None
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                            </tr>
-                            <tr>
-                                <td>Tuesday</td>
-                                <ToggleButtonGroup type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
-                                    <ToggleButton className="togo" id="tbg-btn-8" value={1}>
-                                        8:45 - 10:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-9" value={2}>
-                                        10:15 - 11:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-10" value={3}>
-                                        11:45 - 1:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-11" value={4}>
-                                        1:15 - 1:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-12" value={5}>
-                                        1:45 - 3:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-13" value={6}>
-                                        3:15 - 4:45
-                                    </ToggleButton>
-                                    <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
-                                        None
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                            </tr>
-                            <tr>
-                                <td>Wednesday</td>
-                                <ToggleButtonGroup type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
-                                    <ToggleButton className="togo" id="tbg-btn-15" value={1}>
-                                        8:45 - 10:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-16" value={2}>
-                                        10:15 - 11:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-17" value={3}>
-                                        11:45 - 1:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-18" value={4}>
-                                        1:15 - 1:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-19" value={5}>
-                                        1:45 - 3:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-20" value={6}>
-                                        3:15 - 4:45
-                                    </ToggleButton>
-                                    <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
-                                        None
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                            </tr>
-                            <tr>
-                                <td>Thursday</td>
-                                <ToggleButtonGroup type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
-                                    <ToggleButton className="togo" id="tbg-btn-22" value={1}>
-                                        8:45 - 10:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-23" value={2}>
-                                        10:15 - 11:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-24" value={3}>
-                                        11:45 - 1:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-25" value={4}>
-                                        1:15 - 1:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-26" value={5}>
-                                        1:45 - 3:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-27" value={6}>
-                                        3:15 - 4:45
-                                    </ToggleButton>
-                                    <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
-                                        None
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <ToggleButtonGroup type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
-                                    <ToggleButton variant="outline-info light"className="togo" id="tbg-btn-29" value={1}>
-                                        8:45 - 10:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-30" value={2}>
-                                        10:15 - 11:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-31" value={3}>
-                                        11:45 - 1:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-32" value={4}>
-                                        1:15 - 1:40
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-33" value={5}>
-                                        1:45 - 3:10
-                                    </ToggleButton>
-                                    <ToggleButton className="togo" id="tbg-btn-34" value={6}>
-                                        3:15 - 4:45
-                                    </ToggleButton>
-                                    <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
-                                        None
-                                    </ToggleButton>
-                                </ToggleButtonGroup>
-                                
-                            </tr>
-                                    </div>
-                                </tbody>
-                    </Table>
-                    </Row>
-                <centre>
-                    <button className="submit-form" variant="success btn-block" onClick={SubmitForm}>
-                        Submit Form
-                    </button>
-                </centre>
+                                            <ToggleButtonGroup className="togo-group" type="checkbox" value={Mondayvalue} onChange={MondayhandleChange}>
+                                                <ToggleButton className="togo" id="tbg-btn-1" value={1} color="purple">
+                                                    8:45 - 10:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-2" value={2}>
+                                                    10:15 - 11:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-3" value={3}>
+                                                    11:45 - 1:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-4" value={4}>
+                                                    1:15 - 1:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-5" value={5}>
+                                                    1:45 - 3:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-6" value={6}>
+                                                    3:15 - 4:45
+                                                </ToggleButton>
+                                                <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
+                                                    None
+                                                </ToggleButton>
+                                            </ToggleButtonGroup>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuesday</td>
+                                            <ToggleButtonGroup type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
+                                                <ToggleButton className="togo" id="tbg-btn-8" value={1}>
+                                                    8:45 - 10:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-9" value={2}>
+                                                    10:15 - 11:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-10" value={3}>
+                                                    11:45 - 1:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-11" value={4}>
+                                                    1:15 - 1:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-12" value={5}>
+                                                    1:45 - 3:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-13" value={6}>
+                                                    3:15 - 4:45
+                                                </ToggleButton>
+                                                <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
+                                                    None
+                                                </ToggleButton>
+                                            </ToggleButtonGroup>
+                                        </tr>
+                                        <tr>
+                                            <td>Wednesday</td>
+                                            <ToggleButtonGroup type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
+                                                <ToggleButton className="togo" id="tbg-btn-15" value={1}>
+                                                    8:45 - 10:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-16" value={2}>
+                                                    10:15 - 11:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-17" value={3}>
+                                                    11:45 - 1:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-18" value={4}>
+                                                    1:15 - 1:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-19" value={5}>
+                                                    1:45 - 3:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-20" value={6}>
+                                                    3:15 - 4:45
+                                                </ToggleButton>
+                                                <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
+                                                    None
+                                                </ToggleButton>
+                                            </ToggleButtonGroup>
+                                        </tr>
+                                        <tr>
+                                            <td>Thursday</td>
+                                            <ToggleButtonGroup type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
+                                                <ToggleButton className="togo" id="tbg-btn-22" value={1}>
+                                                    8:45 - 10:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-23" value={2}>
+                                                    10:15 - 11:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-24" value={3}>
+                                                    11:45 - 1:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-25" value={4}>
+                                                    1:15 - 1:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-26" value={5}>
+                                                    1:45 - 3:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-27" value={6}>
+                                                    3:15 - 4:45
+                                                </ToggleButton>
+                                                <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
+                                                    None
+                                                </ToggleButton>
+                                            </ToggleButtonGroup>
+                                        </tr>
+                                        <tr>
+                                            <td>Friday</td>
+                                            <ToggleButtonGroup type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
+                                                <ToggleButton variant="outline-info light"className="togo" id="tbg-btn-29" value={1}>
+                                                    8:45 - 10:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-30" value={2}>
+                                                    10:15 - 11:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-31" value={3}>
+                                                    11:45 - 1:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-32" value={4}>
+                                                    1:15 - 1:40
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-33" value={5}>
+                                                    1:45 - 3:10
+                                                </ToggleButton>
+                                                <ToggleButton className="togo" id="tbg-btn-34" value={6}>
+                                                    3:15 - 4:45
+                                                </ToggleButton>
+                                                <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
+                                                    None
+                                                </ToggleButton>
+                                            </ToggleButtonGroup>
+                                            
+                                        </tr>
+                                                </div>
+                                            </tbody>
+                                </Table>
+                                </Row>
+                            <centre>
+                                <button className="submit-form" variant="success btn-block" onClick={SubmitForm}>
+                                    Submit Form
+                                </button>
+                            </centre>
 
+                    </div>
+                    <div id="editProfile">
+                        <div>
+                            <h2>Edit Profile Settings</h2>
+                        </div>
+                        <div className="oldpass">
+                            <label >Current Password</label>
+                            <br></br>
+                            <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
+                        </div>
+
+                        <div className="pass">
+                            <label >New Password</label>
+                            <br></br>
+                            <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
+                        </div>
+
+                        <div className="repass">
+                            <label >Re-enter Password</label>
+                            <br></br>
+                            <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                            
+                    </div>
+                    <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                    
+
+                    </div>
+                
+                        
+                            {/* <div id="duty">
+                                    <h3 className="freeslots">You are currently assigned coverage for: <br></br>
+                                                        
+                                    </h3>
+                                    <br/>
+                                    <button  className="notifclose" variant="success btn-block" onClick={hideDuty}>
+                                        OK
+                                    </button>
+                            </div> */}
+                        
+                </Container>
             </div>
+        
+        
 
-               
-        </Container>
+
+        
     </div></>
 );
 }
