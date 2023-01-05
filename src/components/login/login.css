@@ -157,6 +157,7 @@ h3
     width: 100%;
     background-color: #f0f0f0;
     margin: 10px 0;
+    margin-left: 20px;
     height: 55px;
     border-radius: 55px;
     display: grid;
@@ -220,12 +221,12 @@ h3
 
   .newbtn {
     width: 150px;
-    background-color: rgb(49, 48, 48);
+    background-color: #f8f7f2;
     border: none;
     outline: none;
     height: 49px;
     border-radius: 49px;
-    color: #fff;
+    color: black;
     text-transform: uppercase;
     font-weight: 600;
     font-family: "Montserrat";
@@ -251,7 +252,21 @@ h3
     transition: 0.5s;
     font-family: "Poppins", sans-serif;
   }
-
+  .signupbtn{
+    width: 150px;
+    background-color: rgb(49, 48, 48);
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: "Montserrat";
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+  }
   .newbtn:hover {
     background-color: #949b72;
   }
@@ -489,4 +504,22 @@ h3
       bottom: 28%;
       left: 50%;
     }
+  }
+  .inputImage{
+    margin-left: 0px;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  /* .inputImage input{
+    margin-right: 50px;
+  } */
+  .startdiv{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    height: 50px;
+  }
+  .startdiv h2{
+    margin-right: 300px;
+    font-display: row;
   }
