@@ -22,8 +22,10 @@ import {
     FaUserAlt,
     FaWindowClose,
     FaUserEdit,
-    FaBookOpen
-  
+    FaBookOpen,
+    FaImage,
+    FaTimes,
+    FaGripHorizontal,
   } from "react-icons/fa";
   import {AiOutlineLogout} from "react-icons/ai";
   import $ from "jquery"
