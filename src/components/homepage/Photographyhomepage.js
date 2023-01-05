@@ -15,6 +15,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import ghous from "../../assets/ghous.jpg";
 import {
     FaFacebookSquare,
     FaInstagramSquare,
@@ -28,7 +29,6 @@ import {
   import $ from "jquery"
   import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
-import ghous from "../../assets/ghous.jpg";
   import {AiOutlineLogout} from "react-icons/ai";
 const PhotographyHomepage = (user) => {
     const [show, setShow] = useState(false);
@@ -606,24 +606,26 @@ const PhotographyHomepage = (user) => {
         EventDescription = eventts[str1].description;       
         handleShow();
     }
-    function myFunction(item) {
+    function myFunction(event) {
+        // let cardbody = document.createElement('div');
+        // cardbody.className = 'photo-cardbody'
         let mycard = document.createElement('div');
-        mycard.className = 'mycard'
+        mycard.className = 'photo-mycard'
 
         let imgBx = document.createElement('div');
-        imgBx.className = 'imgBx'
+        imgBx.className = 'photo-imgBx'
 
         let imgTitleText = document.createElement('h2');
         imgTitleText.innerText = "Event:";
 
         let imgTitle = document.createElement('h3');
-        imgTitle.innerText = item.title;
+        imgTitle.innerText = event.title;
 
         let imgTeacherText = document.createElement('h2');
         imgTeacherText.innerText = "Requesting Teacher:";
 
         let imgTeacher = document.createElement('h3');
-        imgTeacher.innerText = item.teacherName;
+        imgTeacher.innerText = event.description;
 
         let image = document.createElement('img');
         // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
@@ -633,57 +635,57 @@ const PhotographyHomepage = (user) => {
         //DETAILS STARTING
 
         let details = document.createElement('div');
-        details.className = 'details'
+        details.className = 'photo-details'
 
         let descriptionWritten = document.createElement('h4');
         descriptionWritten.innerText = 'Description:'
 
-        let description = document.createElement('h5');
-        description.innerText = item.description;
+        // let description = document.createElement('h5');
+        // description.innerText = item.description;
 
         let Venue = document.createElement('h4')
-        Venue.innerText = "Venue: "+item.venue;
+        Venue.innerText = "Venue: "+event.venue;
 
-        let Date = document.createElement('h4')
-        Date.innerText = "Date: "+item.date;
+        // let Date = document.createElement('h4')
+        // Date.innerText = "Date: "+item.date;
 
         let timewritten = document.createElement('h4');
         timewritten.innerText = 'EVENT TIME'
 
         let timeul = document.createElement('ul');
-        timeul.className = 'size'
+        timeul.className = 'photo-size'
 
-        let starttime = document.createElement('li');
-        starttime.innerText = "Start: "+item.StartTime
-        let endtime = document.createElement('li');
-        endtime.innerText = "End: "+item.EndTime
+        // let starttime = document.createElement('li');
+        // starttime.innerText = "Start: "+item.StartTime
+        // let endtime = document.createElement('li');
+        // endtime.innerText = "End: "+item.EndTime
 
         let divgroup = document.createElement('div');
-        divgroup.className = 'group'
+        divgroup.className = 'photo-group'
 
-        let acceptbtn = document.createElement('button');
-        acceptbtn.innerText = 'Accept'
-        acceptbtn.addEventListener("click",doNothing,false);
+        // let acceptbtn = document.createElement('button');
+        // acceptbtn.innerText = 'Accept'
+        // acceptbtn.addEventListener("click",doNothing,false);
 
-        let rejectbtn = document.createElement('button');
-        rejectbtn.innerText = 'Reject'
-        rejectbtn.addEventListener("click",doNothing,false);
+        // let rejectbtn = document.createElement('button');
+        // rejectbtn.innerText = 'Reject'
+        // rejectbtn.addEventListener("click",doNothing,false);
 
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
         
         details.appendChild(descriptionWritten);
-        details.appendChild(description);
+        // details.appendChild(description);
         details.appendChild(Venue);
-        details.appendChild(Date);
+        // details.appendChild(Date);
         details.appendChild(timewritten);
 
-        timeul.appendChild(starttime);
-        timeul.appendChild(endtime);
+        // timeul.appendChild(starttime);
+        // timeul.appendChild(endtime);
         details.appendChild(timeul);
 
         // divgroup.appendChild(divpricewritten);
-        divgroup.appendChild(acceptbtn);
-        divgroup.appendChild(rejectbtn);
+        // divgroup.appendChild(acceptbtn);
+        // divgroup.appendChild(rejectbtn);
         details.appendChild(divgroup);
 
         imgBx.appendChild(image);
@@ -695,14 +697,14 @@ const PhotographyHomepage = (user) => {
         mycard.appendChild(imgBx);
         
         // cardbody.appendChild(mycard);
-        let container = document.querySelector("#card-container");
+        let container = document.querySelector("#photo-card-container");
         container.appendChild(mycard);        
     }
     const GetEvents = () => {
         const xhr = new XMLHttpRequest();
         eventts.forEach(myFunction);
 
-        let container = document.querySelector("#card-container");
+        let container = document.querySelector("#photo-card-container");
         console.log(container.childNodes);
     }
 
@@ -753,7 +755,8 @@ const PhotographyHomepage = (user) => {
     return (
         
        
-        <><nav className="main-nav">
+        <>
+        <nav className="main-nav">
             {/* 1st logo part  */}
             <div className="welcome">
            <Navbar.Brand href="#"><h5>Welcome back, {Name}</h5></Navbar.Brand>
@@ -834,68 +837,92 @@ const PhotographyHomepage = (user) => {
                     
         </ul>
     </nav>
-    </div>
- 
-        <div id="card-container"></div>
-
-                <div id="card-container2"></div>
-                <div id="editProfile">
-                
-                    <button className="hide"  onClick={hidePass}>
-                        <FaWindowClose className="userhide" />
-                    </button>
-            
-            <div className="oldpass">
-                <label >Old Password</label>
-                <br></br>
-                <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
-            </div>
-
-            <div className="pass">
-                <label >Password</label>
-                <br></br>
-                <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
-            </div>
-
-            <div className="repass">
-                <label >Re-enter Password</label>
-                <br></br>
-                <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
-                
         </div>
-        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+ 
+        {/* <div id="card-container"></div> */}
+
+                {/* <div id="card-container2"></div> */}
+                <div id="editProfile">
+            
+                    <div className="oldpass">
+                        <label >Old Password</label>
+                        <br></br>
+                        <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
+                    </div>
+
+                    <div className="pass">
+                        <label >Password</label>
+                        <br></br>
+                        <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
+                    </div>
+
+                    <div className="repass">
+                        <label >Re-enter Password</label>
+                        <br></br>
+                        <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                        
+                    </div>
+                    <button className="editpass" onClick={Passeditor}>Edit Password</button>
         
 
-        </div>
+                </div>
          {/* Div with card */}
-         <div class = "cardBody" id="card-container">
-                {/* <div className="card-flex"></div> */}
+            <div className= "mycard" id="photo-card-container">
+                    {/* <div className="card-flex"></div> */}
             </div>
             {/* Div with card end */}
 
        
               {/* CHECK DETAILS START */}
             {
-                show && <div id="Modal-container2">
-                    <h1 className="greeting">
-                        <>
-                            <Modal show = {show} onHide={handleClose}>
-                                <Modal.Header closeButton>
-                                <Modal.Title>{EventTitle}</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>{EventDescription}</Modal.Body>
-                                <Modal.Footer>
-                                <Button variant="secondary" onClick={doNothing}>
-                                    Reject
-                                </Button>
-                                <Button variant="primary" onClick={doNothing}>
-                                    Accept
-                                </Button>
-                                </Modal.Footer>
-                            </Modal>
-                        </>
-                    </h1>
-                </div>
+                // <div id="photo-cardBody">
+                //     <h1 className="greeting">
+                //         <>
+                //             <Modal show = {show} onHide={handleClose}>
+                //                 <Modal.Header closeButton>
+                //                 <Modal.Title>{EventTitle}</Modal.Title>
+                //                 </Modal.Header>
+                //                 <Modal.Body>{EventDescription}</Modal.Body>
+                //                 <Modal.Footer>
+                //                 <Button variant="secondary" onClick={doNothing}>
+                //                     Reject
+                //                 </Button>
+                //                 <Button variant="primary" onClick={doNothing}>
+                //                     Accept
+                //                 </Button>
+                //                 </Modal.Footer>
+                //             </Modal>
+                //         </>
+                //     </h1>
+                //     <div class="photo-mycard">
+                //         <div class="photo-imgBx">
+                //             <img
+                //             src="https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+                //             alt=""
+                //             />
+                //         </div>
+                //         <div class="photo-details">
+                //             <h3>Nike Air Max<br /><span>Men's Shoe</span></h3>
+                //             <h4>Products Details</h4>
+                //             <p>
+                //             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                //             atque.
+                //             </p>
+                //             <h4>Size</h4>
+                //             <ul class="photo-size">
+                //             <li>36</li>
+                //             <li>38</li>
+                //             <li>40</li>
+                //             <li>42</li>
+                //             <li>44</li>
+                //             </ul>
+                //             <div class="photo-group">
+                //             <h2>$199<small>.99</small></h2>
+                //             <a href="#">Buy Now</a>
+                //             </div>
+                //         </div>
+                //         </div>
+                // </div>
             }
 
             </>
