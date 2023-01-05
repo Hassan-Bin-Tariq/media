@@ -63,11 +63,8 @@ const PhotographyHomepage = (user) => {
         setTarget(event.target);
     };
     //const handleShow = () => setShow(true);
-    axios.post("http://localhost:9002/GetAcceptEvent", )
-    .then(res => {
-        //alert(res.data.message)
-        showevents = res.data.event;
-    })
+
+    console.log(showevents);
     
     function changetimeformat (times)
     {
@@ -606,7 +603,7 @@ const PhotographyHomepage = (user) => {
         EventDescription = eventts[str1].description;       
         handleShow();
     }
-    function myFunction(event) {
+    function myFunction(item) {
         // let cardbody = document.createElement('div');
         // cardbody.className = 'photo-cardbody'
         let mycard = document.createElement('div');
@@ -619,13 +616,13 @@ const PhotographyHomepage = (user) => {
         imgTitleText.innerText = "Event:";
 
         let imgTitle = document.createElement('h3');
-        imgTitle.innerText = event.title;
+        imgTitle.innerText = item.title;
 
         let imgTeacherText = document.createElement('h2');
         imgTeacherText.innerText = "Requesting Teacher:";
 
         let imgTeacher = document.createElement('h3');
-        imgTeacher.innerText = event.description;
+        imgTeacher.innerText = item.description;
 
         let image = document.createElement('img');
         // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
@@ -640,14 +637,14 @@ const PhotographyHomepage = (user) => {
         let descriptionWritten = document.createElement('h4');
         descriptionWritten.innerText = 'Description:'
 
-        // let description = document.createElement('h5');
-        // description.innerText = item.description;
+        let description = document.createElement('h5');
+        description.innerText = item.description;
 
         let Venue = document.createElement('h4')
-        Venue.innerText = "Venue: "+event.venue;
+        Venue.innerText = "Venue: "+item.venue;
 
-        // let Date = document.createElement('h4')
-        // Date.innerText = "Date: "+item.date;
+        let Date = document.createElement('h4')
+        Date.innerText = "Date: "+item.date;
 
         let timewritten = document.createElement('h4');
         timewritten.innerText = 'EVENT TIME'
@@ -655,37 +652,37 @@ const PhotographyHomepage = (user) => {
         let timeul = document.createElement('ul');
         timeul.className = 'photo-size'
 
-        // let starttime = document.createElement('li');
-        // starttime.innerText = "Start: "+item.StartTime
-        // let endtime = document.createElement('li');
-        // endtime.innerText = "End: "+item.EndTime
+        let starttime = document.createElement('li');
+        starttime.innerText = "Start: "+item.StartTime
+        let endtime = document.createElement('li');
+        endtime.innerText = "End: "+item.EndTime
 
         let divgroup = document.createElement('div');
         divgroup.className = 'photo-group'
 
-        // let acceptbtn = document.createElement('button');
-        // acceptbtn.innerText = 'Accept'
-        // acceptbtn.addEventListener("click",doNothing,false);
+        let acceptbtn = document.createElement('button');
+        acceptbtn.innerText = 'Accept'
+        acceptbtn.addEventListener("click",doNothing,false);
 
-        // let rejectbtn = document.createElement('button');
-        // rejectbtn.innerText = 'Reject'
-        // rejectbtn.addEventListener("click",doNothing,false);
+        let rejectbtn = document.createElement('button');
+        rejectbtn.innerText = 'Reject'
+        rejectbtn.addEventListener("click",doNothing,false);
 
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
         
         details.appendChild(descriptionWritten);
-        // details.appendChild(description);
+        details.appendChild(description);
         details.appendChild(Venue);
-        // details.appendChild(Date);
+        details.appendChild(Date);
         details.appendChild(timewritten);
 
-        // timeul.appendChild(starttime);
-        // timeul.appendChild(endtime);
+        timeul.appendChild(starttime);
+        timeul.appendChild(endtime);
         details.appendChild(timeul);
 
         // divgroup.appendChild(divpricewritten);
-        // divgroup.appendChild(acceptbtn);
-        // divgroup.appendChild(rejectbtn);
+        divgroup.appendChild(acceptbtn);
+        divgroup.appendChild(rejectbtn);
         details.appendChild(divgroup);
 
         imgBx.appendChild(image);
@@ -702,7 +699,12 @@ const PhotographyHomepage = (user) => {
     }
     const GetEvents = () => {
         const xhr = new XMLHttpRequest();
-        eventts.forEach(myFunction);
+        axios.post("http://localhost:9002/GetAcceptEvent", )
+        .then(res => {
+            showevents = res.data.event;
+            showevents.forEach(myFunction);
+        })
+        //eventts.forEach(myFunction);
 
         let container = document.querySelector("#photo-card-container");
         console.log(container.childNodes);
@@ -867,7 +869,7 @@ const PhotographyHomepage = (user) => {
 
                 </div>
          {/* Div with card */}
-            <div className= "mycard" id="photo-card-container">
+            <div className= "mycards" id="photo-card-container">
                     {/* <div className="card-flex"></div> */}
             </div>
             {/* Div with card end */}

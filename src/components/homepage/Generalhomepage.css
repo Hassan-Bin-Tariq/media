@@ -15,10 +15,21 @@
     align-items: center;
     font-size: 25px;
     width: 400px;
-    height: 200px;
+    height: 180px;
     font-family: "Montserrat";
     background-color: #979c90;
+   
+    
+    box-shadow: 5px 5px 10px #e1e1e1;
+    background: linear-gradient(to left, #979c90 50%, #f8f7f2 50%);
+    background-size: 200%;
+    background-position: right;
+    transition: background-position 0.5s ease-out;
+    
 }
+.dayDiv:hover {
+    background-position: left;
+  }
 .gbpopover{
     font-size: 15px;
     width: 200px;
@@ -27,6 +38,47 @@
     background-color: #979c90;
     /* border-radius: 50px; */
 }
+#mondayHolder
+{
+    padding-top: 15px;
+    padding-left: 30px;
+    margin-top: 10px;
+    color: black;
+    font-size: 100px;
+}
+#tuesdayHolder
+{
+    padding-top: 15px;
+    margin-top: 15px;
+    color: black;
+    font-size: 100px;
+    padding-left: 30px;
+}
+#wednesdayHolder
+{
+    padding-top: 15px;
+    margin-top: 15px;
+    color: black;
+    font-size: 100px;
+    padding-left: 30px;
+}
+#thursdayHolder
+{
+    padding-top: 15px;
+    margin-top: 15px;
+    color: black;
+    font-size: 100px;
+    padding-left: 30px;
+}
+#fridayHolder
+{
+    padding-top: 15px;
+    margin-top: 15px;
+    color: black;
+    font-size: 100px;
+    padding-left: 30px;
+}
+
 .gbpopover strong{
     color: black;
 }
@@ -58,10 +110,9 @@
 {
     background-color: #557153;
 }
-.slots-h2{
-    font-size: 30px;
-    padding-left: 200px;
-    font-family: "Montserrat";
+.h2
+{
+    font-size: large;
 }
 .none
 {
@@ -75,13 +126,7 @@
     background-color:  #c00e0e;
 }
 
-h2{
-    color:  #82CD47; 
-}
-h1
-{
-    color:  #1183ca;
-}
+
 .duty-table td{
     height: 7px;
     width: 20px;

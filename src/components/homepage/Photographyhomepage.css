@@ -331,7 +331,7 @@ background: transparent;
 
 /* CARD */
 
-.photo-cardbody {
+.mycards {
   display: flex;
   margin-top: 10px;
   margin-left: 350px;
@@ -353,7 +353,6 @@ background: transparent;
   transition: 0.5s ease-in-out;
   border-radius: 10px;
   margin-top: 20px;
-  margin-left: 480px;
   /* margin-bottom: 15px; */
 }
 

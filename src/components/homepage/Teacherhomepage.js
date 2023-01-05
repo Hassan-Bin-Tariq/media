@@ -123,13 +123,10 @@ const TeacherHomepage = (user) => {
     }
 
     const showPass = () => {
-        const targetDiv = document.getElementById("editProfile");
-        if (targetDiv.style.display !== "none") {
-            targetDiv.style.display = "none";
-          } else {
-            targetDiv.style.display = "block";
-          }
-          //hideDuty();
+        $(function () {
+            $('#editProfile').show();
+        });
+       
          hideForm();
     }
 
@@ -207,29 +204,36 @@ const TeacherHomepage = (user) => {
         <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
         
         <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-        <div className="closebtn">
-        <li class="nav-item w-100">
-            
-            <button  onClick={myfub} className="btclose">
-            <FaWindowClose className="close"></FaWindowClose>
-                </button>
-                
-            </li>
+            <div className="closebtn">
+                <li class="nav-item w-100">
+                    <button  onClick={myfub} className="btclose">
+                    <FaTimes className="close"></FaTimes>
+                    </button>
+                </li>
             </div>
             <div className="sidebardiv">
-            <li class="nav-item w-100">
-            <button  onClick={showPass} className="btn-bg-transparent">
-            <FaUserEdit />       Edit Profile
+                <li class="nav-item w-100">
+                    <button  onClick="/" className="btn-bg-transparent">
+                        <FaImage /> My Albums
+                    </button>
+                </li>
+                
+                <li class="nav-item w-100">
+                <button  className="btn-bg-transparent" variant="success btn-block" onClick={showForm}>
+                        <FaGripHorizontal/> Generate Event Request
                 </button>
-            </li>
-            <li class="nav-item w-100">
-            </li>
-            <li class="nav-item w-100">
+                </li>
+                <li class="nav-item w-100">
+                <button  onClick={showPass} className="btn-bg-transparent">
+                    <FaUserEdit />       Edit Profile
+                </button>
+                </li>
+                <li class="nav-item w-100">
                 <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
                 </li>
-                    </div>
+            </div>
         </ul>
-    </nav>
+        </nav>
             {console.log("Event",event)}    
             <Container>
             <div className="name">

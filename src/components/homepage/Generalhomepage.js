@@ -144,16 +144,10 @@ const GeneralHomepage = (user) => {
                 }
             }
 
-            let monday = document.querySelector("#mondayHolder");
-            monday.appendChild(MondayWritten);
+            let mon1= document.querySelector("#mondayHolder");
+            mon1.appendChild(MondayWritten);
             
-            monday.appendChild(firstSlot);
-            monday.appendChild(secondslot);
-            monday.appendChild(thirdlot);
-            monday.appendChild(forthslot);
-            monday.appendChild(fifthslot);
-            monday.appendChild(sixslot);
-            monday.appendChild(nonslot);
+            
         }
 
         else if(i === 1)
@@ -203,13 +197,13 @@ const GeneralHomepage = (user) => {
             let tuesday = document.querySelector("#tuesdayHolder");
             tuesday.appendChild(TuesdayWritten);
             
-            tuesday.appendChild(firstSlot);
+           /* tuesday.appendChild(firstSlot);
             tuesday.appendChild(secondslot);
             tuesday.appendChild(thirdlot);
             tuesday.appendChild(forthslot);
             tuesday.appendChild(fifthslot);
             tuesday.appendChild(sixslot);
-            tuesday.appendChild(nonslot);
+            tuesday.appendChild(nonslot);*/
         }
 
         else if(i === 2)
@@ -325,7 +319,7 @@ const GeneralHomepage = (user) => {
         else if(i === 4)
         {
             let FridayWritten = document.createElement('h4')
-            FridayWritten.innerText = "Friday";
+            //FridayWritten.innerText = "Friday";
 
             let firstSlot = document.createElement('h2');
             let secondslot = document.createElement('h2');
@@ -350,7 +344,7 @@ const GeneralHomepage = (user) => {
                 }
                 if(slot[j] === 4)
                 {
-                    forthslot.innerText = "1:15 - 1:40";
+                    //forthslot.innerText = "1:15 - 1:40";
                 }
                 if(slot[j] === 5)
                 {
@@ -367,8 +361,8 @@ const GeneralHomepage = (user) => {
             }
 
             let friday = document.querySelector("#fridayHolder");
-            friday.appendChild(FridayWritten);
-            friday.appendChild(firstSlot);
+           // friday.appendChild(FridayWritten);
+            //friday.appendChild(firstSlot);
             friday.appendChild(secondslot);
             friday.appendChild(thirdlot);
             friday.appendChild(forthslot);
@@ -723,13 +717,6 @@ return (
         </div>
         
 
-        {/* Holders for current slots */}
-        <div class = "dayDiv" id='mondayHolder'></div>
-        <div class = "dayDiv" id='tuesdayHolder'></div>
-        <div class = "dayDiv" id='wednesdayHolder'></div>
-        <div class = "dayDiv" id='thursdayHolder'></div>
-        <div class = "dayDiv" id='fridayHolder'></div>
-        {/* end of holders */}
 
         <Container>
                 <div id="name">
@@ -737,6 +724,13 @@ return (
                 </div>
                 
                 
+        {/* Holders for current slots */}
+        <div class = "dayDiv" id='mondayHolder'></div>
+        <div class = "dayDiv" id='tuesdayHolder'></div>
+        <div class = "dayDiv" id='wednesdayHolder'></div>
+        <div class = "dayDiv" id='thursdayHolder'></div>
+        <div class = "dayDiv" id='fridayHolder'></div>
+        {/* end of holders */}
                 
                     {/* <div id="duty">
                             <h3 className="freeslots">You are currently assigned coverage for: <br></br>
