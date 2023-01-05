@@ -229,7 +229,7 @@ const MentorHomepage = (user) => {
     <div>
 
         <nav className="mentor-main-nav">
-            {/* 1st logo part  */}
+            {/* 1st logo part  */} 
             <div className="mentor-welcome">
                 <Navbar.Brand href="#"><h2>Welcome back, {Name}</h2></Navbar.Brand>
             </div>
