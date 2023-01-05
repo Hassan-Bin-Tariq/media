@@ -147,19 +147,29 @@ const Login = ({ setLoginUser }) => {
                     <p class="social_text">Or Sign in with social platforms</p>
 
                     <div class="social_media">
-                        <a href="#" class="social_icon" ><FaFacebook className="user" /><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="social_icon" ><FaFacebook  /><i class='bx bxl-facebook'></i></a>
 
-                        <a href="#" class="social_icon"><FaGoogle className="user" /><i class='bx bxl-google'></i></a>
+                        <a href="#" class="social_icon"><FaGoogle /><i class='bx bxl-google'></i></a>
 
-                        <a href="#" class="social_icon"><FaTwitter className="user" /><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social_icon"><FaTwitter /><i class='bx bxl-twitter'></i></a>
 
-                        <a href="#" class="social_icon"><FaLinkedin className="user" /><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="social_icon"><FaLinkedin  /><i class='bx bxl-linkedin'></i></a>
 
 
                     </div>
                 </div>
                 <div action="#" class="sign_up_form">
+                    <div className="startdiv">
+                    
+                    <div class="inputImage">
+                        <label >Upload Picture</label>
+                        <br></br>
+                        <input type="file" accept="image/*" onChange={loadFile} />
+                        <img id = "output"/>
+                    </div>
                     <h2 class="title">Sign Up</h2>
+                    </div>
+                    
 
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
@@ -179,24 +189,19 @@ const Login = ({ setLoginUser }) => {
                         <i class='bx bxs-user'></i>
                         <input type="password" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
                     </div>
-                    <div class="inputBox">
-                        <label >Upload profile picture</label>
-                        <br></br>
-                        <input type="file" accept="image/*" onChange={loadFile} />
-                        <img id = "output"/>
-                    </div>
+                    
 
-                    <input type="submit" value="Sign up" class="newbtn" onClick={register} />
+                    <input type="submit" value="Sign up" class="signupbtn" onClick={register} />
                     <p class="social_text">Or Sign up with social platforms</p>
 
                     <div class="social_media">
-                    <a href="#" class="social_icon" ><FaFacebook className="user" /><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social_icon" ><FaFacebook /><i class='bx bxl-facebook'></i></a>
 
-                    <a href="#" class="social_icon"><FaGoogle className="user" /><i class='bx bxl-google'></i></a>
+                    <a href="#" class="social_icon"><FaGoogle  /><i class='bx bxl-google'></i></a>
 
-                    <a href="#" class="social_icon"><FaTwitter className="user" /><i class='bx bxl-twitter'></i></a>
+                    <a href="#" class="social_icon"><FaTwitter /><i class='bx bxl-twitter'></i></a>
 
-                    <a href="#" class="social_icon"><FaLinkedin className="user" /><i class='bx bxl-linkedin'></i></a>
+                    <a href="#" class="social_icon"><FaLinkedin /><i class='bx bxl-linkedin'></i></a>
 
 
                     </div>
