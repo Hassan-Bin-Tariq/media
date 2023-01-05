@@ -41,8 +41,6 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 //import IconButton from '@material-ui/core/IconButton';
 import $ from "jquery"
 
-
-
 var Mondayslots = [];
 var Tuesdayslots = [];
 var Wednesdayslots = [];
@@ -93,53 +91,336 @@ const GeneralHomepage = (user) => {
     })
     //navigation hook for sidebar
     
-    
     const [Mondayvalue, setValueMonday] = useState();
     const [Tuesdayvalue, setValueTuesday] = useState();
     const [Wednesdayvalue, setValueWednesday] = useState();
     const [Thursdayvalue, setValueThursday] = useState();
     const [Fridayvalue, setValueFriday] = useState();
 
+    let i = 0;
+    function slotsPrinter(slot) {
+
+        if(i === 0)
+        {
+            let MondayWritten = document.createElement('h4')
+            MondayWritten.innerText = "Monday";
+
+            let firstSlot = document.createElement('h2');
+            let secondslot = document.createElement('h2');
+            let thirdlot = document.createElement('h2');
+            let forthslot = document.createElement('h2');
+            let fifthslot = document.createElement('h2');
+            let sixslot = document.createElement('h2');
+            let nonslot = document.createElement('h2');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let monday = document.querySelector("#mondayHolder");
+            monday.appendChild(MondayWritten);
+            
+            monday.appendChild(firstSlot);
+            monday.appendChild(secondslot);
+            monday.appendChild(thirdlot);
+            monday.appendChild(forthslot);
+            monday.appendChild(fifthslot);
+            monday.appendChild(sixslot);
+            monday.appendChild(nonslot);
+        }
+
+        else if(i === 1)
+        {
+            let TuesdayWritten = document.createElement('h4')
+            TuesdayWritten.innerText = "Tuesday";
+
+            let firstSlot = document.createElement('h2');
+            let secondslot = document.createElement('h2');
+            let thirdlot = document.createElement('h2');
+            let forthslot = document.createElement('h2');
+            let fifthslot = document.createElement('h2');
+            let sixslot = document.createElement('h2');
+            let nonslot = document.createElement('h2');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let tuesday = document.querySelector("#tuesdayHolder");
+            tuesday.appendChild(TuesdayWritten);
+            
+            tuesday.appendChild(firstSlot);
+            tuesday.appendChild(secondslot);
+            tuesday.appendChild(thirdlot);
+            tuesday.appendChild(forthslot);
+            tuesday.appendChild(fifthslot);
+            tuesday.appendChild(sixslot);
+            tuesday.appendChild(nonslot);
+        }
+
+        else if(i === 2)
+        {
+            let WednesdayWritten = document.createElement('h4')
+            WednesdayWritten.innerText = "Wednesday";
+
+            let firstSlot = document.createElement('h2');
+            let secondslot = document.createElement('h2');
+            let thirdlot = document.createElement('h2');
+            let forthslot = document.createElement('h2');
+            let fifthslot = document.createElement('h2');
+            let sixslot = document.createElement('h2');
+            let nonslot = document.createElement('h2');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let wednesday = document.querySelector("#wednesdayHolder");
+            wednesday.appendChild(WednesdayWritten);
+            wednesday.appendChild(firstSlot);
+            wednesday.appendChild(secondslot);
+            wednesday.appendChild(thirdlot);
+            wednesday.appendChild(forthslot);
+            wednesday.appendChild(fifthslot);
+            wednesday.appendChild(sixslot);
+            wednesday.appendChild(nonslot);
+        }
+
+        else if(i === 3)
+        {
+            let ThursdayWritten = document.createElement('h4')
+            ThursdayWritten.innerText = "Thursday";
+
+            let firstSlot = document.createElement('h2');
+            let secondslot = document.createElement('h2');
+            let thirdlot = document.createElement('h2');
+            let forthslot = document.createElement('h2');
+            let fifthslot = document.createElement('h2');
+            let sixslot = document.createElement('h2');
+            let nonslot = document.createElement('h2');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let thursday = document.querySelector("#thursdayHolder");
+            thursday.appendChild(ThursdayWritten);
+            thursday.appendChild(firstSlot);
+            thursday.appendChild(secondslot);
+            thursday.appendChild(thirdlot);
+            thursday.appendChild(forthslot);
+            thursday.appendChild(fifthslot);
+            thursday.appendChild(sixslot);
+            thursday.appendChild(nonslot);
+        }
+
+        else if(i === 4)
+        {
+            let FridayWritten = document.createElement('h4')
+            FridayWritten.innerText = "Friday";
+
+            let firstSlot = document.createElement('h2');
+            let secondslot = document.createElement('h2');
+            let thirdlot = document.createElement('h2');
+            let forthslot = document.createElement('h2');
+            let fifthslot = document.createElement('h2');
+            let sixslot = document.createElement('h2');
+            let nonslot = document.createElement('h2');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let friday = document.querySelector("#fridayHolder");
+            friday.appendChild(FridayWritten);
+            friday.appendChild(firstSlot);
+            friday.appendChild(secondslot);
+            friday.appendChild(thirdlot);
+            friday.appendChild(forthslot);
+            friday.appendChild(fifthslot);
+            friday.appendChild(sixslot);
+            friday.appendChild(nonslot);
+        }
+
+        i+=1;
+    }
+
     var studentSlots = [];
-    var as;
+    var givenslots;
     //fetching slots from db
     const getallSlots = () =>
     {
         studentSlots = [];
-        console.log(user.setLoginUser.email)
         axios.post("http://localhost:9002/GetFreeSlots",{zip:zip,Email: user.setLoginUser.email})
         .then((res) => {
             const data = res.data;
-            as=data.generalBodies[0].slots;
+            givenslots=data.generalBodies[0].slots;
+            givenslots.forEach(slotsPrinter);
         }).catch(() => {
             alert('errrdjd');
         })
-        let row = document.createElement('div');
-        row.className = 'row'
 
-        let card = document.createElement('div');
-        card.className = 'card shadow cursor-pointer';
+        // let row = document.createElement('div');
+        // row.className = 'row'
+
+        // let card = document.createElement('div');
+        // card.className = 'card shadow cursor-pointer';
         
 
-        let cardBody = document.createElement('div');
-        cardBody.className = 'card-body';
+        // let cardBody = document.createElement('div');
+        // cardBody.className = 'card-body';
 
 
-        let student = document.createElement('h5');
-        student.innerText ="Student: " + Name;
-        student.className = 'card-title';
+        // let student = document.createElement('h5');
+        // student.innerText ="Student: " + Name;
+        // student.className = 'card-title';
 
-        let email = document.createElement('div');
-        email.innerText = "Free Slots"+as;
-        email.className = 'card-text';
+        // let email = document.createElement('div');
+        // email.innerText = "Free Slots"+as;
+        // email.className = 'card-text';
 
-        cardBody.appendChild(student);
-        cardBody.appendChild(email);
-        card.appendChild(cardBody);
-        i+=1;
-        let container = document.querySelector("#card-container2");
-        container.appendChild(card);
-        studentSlots.push(as);
+        // cardBody.appendChild(student);
+        // cardBody.appendChild(email);
+        // card.appendChild(cardBody);
+        // i+=1;
+        // let container = document.querySelector("#card-container2");
+        // container.appendChild(card);
+        // studentSlots.push(as);
 
     }
     
@@ -189,15 +470,11 @@ const GeneralHomepage = (user) => {
     sidebar.classList.toggle("active-nav")
     container.classList.toggle("active-cont")
     }
-
-
-   
     function displaySlots()
     {
 
 
     }
-
     const SubmitForm = () => {
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
         //console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
@@ -242,7 +519,6 @@ const GeneralHomepage = (user) => {
             $('#mydiv').hide();
         });
     }
-
     const showDuty = () => {
         $(function () {
             $('#duty').show();
@@ -275,7 +551,6 @@ const GeneralHomepage = (user) => {
             alert("Password not matched")
         }
     }
-
     const showPass = () => {
         const targetDiv = document.getElementById("editProfile");
         // if (targetDiv.style.display !== "none") {
@@ -287,7 +562,6 @@ const GeneralHomepage = (user) => {
           hideSlots();
           hideTable();
     }
-
     const hidePass = () => {
         $(function () {
             $('#editProfile').hide();
@@ -304,7 +578,7 @@ const GeneralHomepage = (user) => {
         $('#name').hide();
     });
     
-     }
+    }
 
 return (
         
@@ -397,7 +671,7 @@ return (
                 </li>
                 
                 <li class="nav-item w-100">
-                <button  className="btn-bg-transparent" variant="success btn-block" onClick={showTable}>
+                <button  className="btn-bg-transparent" variant="success btn-block" onClick={getallSlots}>
                         <FaBookOpen/> Current Slots
                 </button>
                 </li>
@@ -447,7 +721,16 @@ return (
     
 
         </div>
-   
+        
+
+        {/* Holders for current slots */}
+        <div class = "dayDiv" id='mondayHolder'></div>
+        <div class = "dayDiv" id='tuesdayHolder'></div>
+        <div class = "dayDiv" id='wednesdayHolder'></div>
+        <div class = "dayDiv" id='thursdayHolder'></div>
+        <div class = "dayDiv" id='fridayHolder'></div>
+        {/* end of holders */}
+
         <Container>
                 <div id="name">
                     <h3 className="zx">Your current selected Free Slots </h3>
@@ -461,7 +744,7 @@ return (
                             </h3>
                             <br/>
                             <button  className="notifclose" variant="success btn-block" onClick={hideDuty}>
-                                  OK
+                                OK
                             </button>
                     </div> */}
                 
