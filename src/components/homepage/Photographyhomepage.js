@@ -49,7 +49,7 @@ const PhotographyHomepage = (user) => {
     var i = 0;
     var EventTitle;
     var EventDescription;
-    var showevents;
+    
     var GeneralBodies;
     var timeslost = [];
     var emails = [];
@@ -66,6 +66,14 @@ const PhotographyHomepage = (user) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
     const ref = useRef(null);
+    let showevents
+    axios.post("http://localhost:9002/GetAcceptEvent", )
+    .then(res => {
+        showevents = res.data.event;
+        //console.log(showevents);
+
+    })
+    // console.log(showevents);
 
     const handleClick = (event) => {
         setShowOverlay(!show);
@@ -73,7 +81,6 @@ const PhotographyHomepage = (user) => {
     };
     //const handleShow = () => setShow(true);
 
-    console.log(showevents);
     
     function changetimeformat (times)
     {
@@ -365,6 +372,7 @@ const PhotographyHomepage = (user) => {
     }
     function findFreeStudent(start,end,dateee)
     {
+        // console.log("inside find free")
         studentSlots = [];
         freestuEmails = []
         var i=0;
@@ -373,11 +381,15 @@ const PhotographyHomepage = (user) => {
         var prev="";
         var required = getRequiredSlots(start,end);
         var day = getDayfromDate(dateee);
+        // console.log(required,day);
+        // console.log(dict);
         for (var key in dict){                                  // ITERATING OVER ALL GB MEMBERS FREE SLOTS
+            //console.log("hassan")                               
             for(var k = 0; k < dict[key][day].length; k++){     // ITERATING OVER ALL FREE SLOTS OF THAT DAY
-
+                
                 for(var m = 0; m < required.length; m++)        // ITERATING OVER ALL REQUIRED SLOTS TO COMPARE 
                 {
+                    
                     if(required[m] === dict[key][day][k])
                     {
                         console.log(key,dict[key][day][k]); //key has email, dict has time slots
@@ -435,7 +447,6 @@ const PhotographyHomepage = (user) => {
                             container.appendChild(card);
                             studentSlots.push(dict[key][day][k]);
                             freestuEmails.push(key);
-
                     }
                 }
             }    
@@ -493,6 +504,7 @@ const PhotographyHomepage = (user) => {
         var endtime = showevents[str1].EndTime;
         var date = showevents[str1].date
         selectedDate = date;
+        //console.log(starttime,endtime,date);
         fetchslots(starttime,endtime,date);
     }
   
@@ -670,12 +682,9 @@ const PhotographyHomepage = (user) => {
         divgroup.className = 'photo-group'
 
         let acceptbtn = document.createElement('button');
-        acceptbtn.innerText = 'Accept'
-        acceptbtn.addEventListener("click",doNothing,false);
-
-        let rejectbtn = document.createElement('button');
-        rejectbtn.innerText = 'Reject'
-        rejectbtn.addEventListener("click",doNothing,false);
+        acceptbtn.innerText = 'Assign Duties'
+        acceptbtn.id = "id"+i;
+        acceptbtn.addEventListener("click",AssignDuties,false);
 
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
         
@@ -691,7 +700,7 @@ const PhotographyHomepage = (user) => {
 
         // divgroup.appendChild(divpricewritten);
         divgroup.appendChild(acceptbtn);
-        divgroup.appendChild(rejectbtn);
+
         details.appendChild(divgroup);
 
         imgBx.appendChild(image);
@@ -814,7 +823,7 @@ const PhotographyHomepage = (user) => {
                                 <FaUserAlt />
                     </button>
                     {/* Div with card */}
-                     
+                    
                     <Container className="cardBody">
                         <div className= "mycards" id="photo-card-container">
                         {/* <div className="card-flex"></div> */}
@@ -849,6 +858,8 @@ const PhotographyHomepage = (user) => {
                     </Container>
                     {/* Div with card end */}
             </div>
+
+            <div id="card-container2"></div>
         </div>
  
        
