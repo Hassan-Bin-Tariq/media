@@ -15,12 +15,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useHistory } from "react-router-dom"
-import {
-    FaFacebookSquare,
-    FaInstagramSquare,
-    FaYoutubeSquare,
+  import {
     FaUserAlt,
     FaWindowClose,
+    FaImage,
+    FaGripHorizontal,
+    FaTimes,
     FaUserEdit,
     FaBookOpen,
     FaImage,
