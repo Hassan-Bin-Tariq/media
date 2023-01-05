@@ -12,6 +12,14 @@ import { NavLink } from "react-router-dom";
 import navlogo from "../../assets/Picture1.png";
 import ghous from "../../assets/ghous.jpg";
 import {
+    CDBSidebar,
+    CDBSidebarContent,
+    CDBSidebarFooter,
+    CDBSidebarHeader,
+    CDBSidebarMenu,
+    CDBSidebarMenuItem,
+  } from 'cdbreact';
+import {
     FaUserAlt,
     FaWindowClose,
     FaImage,
@@ -21,6 +29,7 @@ import {
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {AiOutlineLogout} from "react-icons/ai";
+import Sidebar from "../Header/Sidebar";
 
 var EventTitle;
 var EventDescription;
@@ -227,99 +236,68 @@ const MentorHomepage = (user) => {
     return (
 
     <div>
-
-        <nav className="mentor-main-nav">
-            {/* 1st logo part  */} 
-            <div className="mentor-welcome">
-                <Navbar.Brand href="#"><h2>Welcome back, {Name}</h2></Navbar.Brand>
-            </div>
-
-            {/* 2nd menu part  */}
-            <div className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
-                <ul>
-                    <li>
-                    <NavLink to="/try">Home</NavLink>
-                    </li>
-                    <li>
-                    <NavLink to="/about">about</NavLink>
-                    </li>
-                    <li>
-                    <NavLink to="/login">Get Started</NavLink>
-                    </li>
-                    <li>
-                    <NavLink to="/contact">contact</NavLink>
-                    </li>
-                </ul>
-            </div>
-
-            {/* 3rd social media links */}
-            <div className="social-media">
-                <ul className="social-media-desktop">
-                    <li>
-                    </li>
-                    <li>
-                    </li>
-                    <li>
-                    </li>
-                    <li>
-                    <button  onClick={SideBarActivator} className="btclose">
-                        <FaUserAlt className="user" />
-                    </button>
-                    </li>
-    
-                </ul>
-
-                {/* hamburget menu start  */}
-                <div className="hamburger-menu">
-                    <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-                    <GiHamburgerMenu />
-                    </a>
-                </div>
-            </div>
-        </nav>        
-
+        
         <div className="Mentorhomepage" id="hassan">  
-            {/* SIDE BAR  */}   
-            <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-                <ul class="navbar-nav d-flex flex-column mt-5 w-200">
-                    <div className="closebtn">
-                        <li class="nav-item w-100">
-                            
-                            <button  onClick={SideBarActivator} className="btclose">
-                                <FaTimes className="close"></FaTimes>
-                            </button>
-                                
-                        </li>
-                    </div>
-                    <div className="sidebardiv">
-                        <li class="nav-item w-100">
-                            <button  onClick={GetEvents} className="btn-bg-transparent">
-                                <FaImage /> My Albums
-                            </button>
-                        </li>
-                        <li class="nav-item w-100">
-                            <button  onClick={GetEvents} className="btn-bg-transparent">
-                                <FaUserEdit /> Event Requests
-                            </button>
-                        </li>
-                        <li class="nav-item w-100">
-                            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>        Logout
-                            </button>
-                        </li>
-                    </div>
-                </ul>
-            </nav>
-            {/*////////////// */} 
+            {/* SIDE BAR  */}         
+            <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+                <CDBSidebar textColor="#fff" backgroundColor="#333">
+                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+                    <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
+                    Welcome, {Name}
+                    </a>
+                </CDBSidebarHeader>
 
+                <CDBSidebarContent className="sidebar-content">
+                    <CDBSidebarMenu>
+                    <button onClick={GetEvents} className="sidebarbtn" >
+                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                    </button>
+                    <button  onClick={GetEvents} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Event Requests
+                    </button>
+                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/> Logout
+                    </button>
+                
+                    </CDBSidebarMenu>
+                </CDBSidebarContent>
+
+                <CDBSidebarFooter style={{ textAlign: 'center' }}>
+                    <div
+                    style={{
+                        padding: '20px 5px',
+                    }}
+                    >
+                    Mediascape
+                    </div>
+                </CDBSidebarFooter>
+                </CDBSidebar>
+            </div>
+            {/*////////////// */} 
+            <div className="mentor-flex2">
+                
+                    
+                    <button  onClick={SideBarActivator} className="flex2user">
+                                <FaUserAlt />
+                    </button>
+                
+                    
+                            
+                    {/* Div with card */}
+                    <div class = "cardBody" id="card-container">
+                        <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
+                        Looks like you have some pending Event Requests</h2>
+                        {/* <div className="card-flex"></div> */}
+                    </div>
+                    {/* Div with card end */}
+            </div>
+                    
+              
             {/* <h1>Hello, {Name} !</h1>
             <h2>Welcome to your portal</h2>
             <br></br> */}
             
-            {/* Div with card */}
-            <div class = "cardBody" id="card-container">
-                {/* <div className="card-flex"></div> */}
-            </div>
-            {/* Div with card end */}
+            
 
             
             {/* CHECK DETAILS START */}
