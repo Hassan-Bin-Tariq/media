@@ -9,7 +9,7 @@ import {Button} from "react-bootstrap";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import logoNav from "../../assets/logo-copy.png";
-//import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -17,13 +17,22 @@ import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import ghous from "../../assets/ghous.jpg";
 import {
+    CDBSidebar,
+    CDBSidebarContent,
+    CDBSidebarFooter,
+    CDBSidebarHeader,
+    CDBSidebarMenu,
+    CDBSidebarMenuItem,
+  } from 'cdbreact';
+import {
     FaFacebookSquare,
     FaInstagramSquare,
     FaYoutubeSquare,
     FaUserAlt,
     FaWindowClose,
     FaUserEdit,
-    FaBookOpen
+    FaBookOpen,
+    FaGripHorizontal,
   
   } from "react-icons/fa";
   import $ from "jquery"
@@ -758,120 +767,93 @@ const PhotographyHomepage = (user) => {
         
        
         <>
-        <nav className="main-nav">
-            {/* 1st logo part  */}
-            <div className="welcome">
-           <Navbar.Brand href="#"><h5>Welcome back, {Name}</h5></Navbar.Brand>
-        </div>
-        
-
-            {/* 2nd menu part  */}
-            <div
-                className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
-                <ul>
-                    <li>
-                        <NavLink to="/try">Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about">about</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/login">Get Started</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contact">contact</NavLink>
-                    </li>
-                </ul>
-            </div>
-
-            {/* 3rd social media links */}
-            <div className="social-media">
-                <ul className="social-media-desktop">
-                    <li>
-
-                    </li>
-                    
-                    <li>
-                        <button   onClick={myfub} className="btclose">
-                            <FaUserAlt className="user" />
-                        </button>
-                    </li>
-
-                </ul>
-
-                {/* hamburget menu start  */}
-                <div className="hamburger-menu">
-                    <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-                        <GiHamburgerMenu />
+        <div className="Mentorhomepage" >
+            {/* SIDE BAR  */}         
+            <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+                <CDBSidebar textColor="#fff" backgroundColor="#333">
+                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+                    <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
+                    Welcome!
                     </a>
-                </div>
-            </div>
-        </nav>
-        <div className="sidebar">
-        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-        
-        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-        <div className="closebtn">
-        <li class="nav-item w-100">
-            
-            <button  onClick={myfub} className="btclose">
-            <FaWindowClose className="close"></FaWindowClose>
-                </button>
+                </CDBSidebarHeader>
+
+                <CDBSidebarContent className="sidebar-content">
+                    <CDBSidebarMenu>
+                    <button  onClick="/" className="sidebarbtn" >
+                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                    </button>
+                    <button  onClick={GetEvents} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Assign Duties
+                    </button>
+                    <button  onClick={showPass} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/> Logout
+                    </button>
                 
-            </li>
+                    </CDBSidebarMenu>
+                </CDBSidebarContent>
+
+                <CDBSidebarFooter style={{ textAlign: 'center' }}>
+                    <div
+                    style={{
+                        padding: '20px 5px',
+                    }}
+                    >
+                    Mediascape
+                    </div>
+                </CDBSidebarFooter>
+                </CDBSidebar>
             </div>
-            
-            <li class="nav-item w-100">
-            <button  onClick={showPass} className="btn-bg-transparent">
-            <FaUserEdit />       Edit Profile
-                </button>
-            </li>
-            <li class="nav-item w-100">
-                            <button  onClick={GetEvents} className="btn-bg-transparent">
-                                <FaUserEdit /> Event Requests
-                            </button>
-                        </li>
-            <li class="nav-item w-100">
-            </li>
-                    <li class="nav-item w-100">
-            <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
-            </li>
+            {/*////////////// */} 
+            <div className="mentor-flex2">
+                
                     
-        </ul>
-    </nav>
+                    <button  className="flex2user">
+                                <FaUserAlt />
+                    </button>
+                    {/* Div with card */}
+                     
+                    <Container className="cardBody">
+                        <div className= "mycards" id="photo-card-container">
+                        {/* <div className="card-flex"></div> */}
+                        </div> 
+                        <div id="editProfile">
+                            <div>
+                                <h2>Edit Profile Settings</h2>
+                            </div>
+                            <div className="oldpass">
+                                <label >Current Password</label>
+                                <br></br>
+                                <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
+                            </div>
+
+                            <div className="pass">
+                                <label >New Password</label>
+                                <br></br>
+                                <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
+                            </div>
+
+                            <div className="repass">
+                                <label >Re-enter Password</label>
+                                <br></br>
+                                <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                                
+                        </div>
+                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        
+
+                        </div>
+                        <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                    </Container>
+                    {/* Div with card end */}
+            </div>
         </div>
  
-        {/* <div id="card-container"></div> */}
-
-                {/* <div id="card-container2"></div> */}
-                <div id="editProfile">
-            
-                    <div className="oldpass">
-                        <label >Old Password</label>
-                        <br></br>
-                        <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
-                    </div>
-
-                    <div className="pass">
-                        <label >Password</label>
-                        <br></br>
-                        <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
-                    </div>
-
-                    <div className="repass">
-                        <label >Re-enter Password</label>
-                        <br></br>
-                        <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
-                        
-                    </div>
-                    <button className="editpass" onClick={Passeditor}>Edit Password</button>
-        
-
-                </div>
+       
          {/* Div with card */}
-            <div className= "mycards" id="photo-card-container">
-                    {/* <div className="card-flex"></div> */}
-            </div>
+            
             {/* Div with card end */}
 
        
