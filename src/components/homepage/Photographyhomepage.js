@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 import Modal from 'react-bootstrap/Modal';
-import { useState } from "react";
+import { useState , useRef} from "react";
 import {Button} from "react-bootstrap";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
@@ -26,7 +26,9 @@ import {
   
   } from "react-icons/fa";
   import $ from "jquery"
-
+  import Overlay from 'react-bootstrap/Overlay';
+import Popover from 'react-bootstrap/Popover';
+import ghous from "../../assets/ghous.jpg";
   import {AiOutlineLogout} from "react-icons/ai";
 const PhotographyHomepage = (user) => {
     const [show, setShow] = useState(false);
@@ -51,6 +53,15 @@ const PhotographyHomepage = (user) => {
     var freestuEmails = [];
     var eventts;
 
+    //overlay
+    const [showOverlay, setShowOverlay] = useState(false);
+    const [target, setTarget] = useState(null);
+    const ref = useRef(null);
+
+    const handleClick = (event) => {
+        setShowOverlay(!show);
+        setTarget(event.target);
+    };
     //const handleShow = () => setShow(true);
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
@@ -585,10 +596,112 @@ const PhotographyHomepage = (user) => {
         container.appendChild(card);
     }
    
+    function doNothing(){
+
+    }
+    function CheckDetails  (event) {
+        console.log(event.target.id)
+        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        EventTitle = eventts[str1].title;
+        EventDescription = eventts[str1].description;       
+        handleShow();
+    }
+    function myFunction(item) {
+        let mycard = document.createElement('div');
+        mycard.className = 'mycard'
+
+        let imgBx = document.createElement('div');
+        imgBx.className = 'imgBx'
+
+        let imgTitleText = document.createElement('h2');
+        imgTitleText.innerText = "Event:";
+
+        let imgTitle = document.createElement('h3');
+        imgTitle.innerText = item.title;
+
+        let imgTeacherText = document.createElement('h2');
+        imgTeacherText.innerText = "Requesting Teacher:";
+
+        let imgTeacher = document.createElement('h3');
+        imgTeacher.innerText = item.teacherName;
+
+        let image = document.createElement('img');
+        // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+        // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
+        image.src=ghous
+
+        //DETAILS STARTING
+
+        let details = document.createElement('div');
+        details.className = 'details'
+
+        let descriptionWritten = document.createElement('h4');
+        descriptionWritten.innerText = 'Description:'
+
+        let description = document.createElement('h5');
+        description.innerText = item.description;
+
+        let Venue = document.createElement('h4')
+        Venue.innerText = "Venue: "+item.venue;
+
+        let Date = document.createElement('h4')
+        Date.innerText = "Date: "+item.date;
+
+        let timewritten = document.createElement('h4');
+        timewritten.innerText = 'EVENT TIME'
+
+        let timeul = document.createElement('ul');
+        timeul.className = 'size'
+
+        let starttime = document.createElement('li');
+        starttime.innerText = "Start: "+item.StartTime
+        let endtime = document.createElement('li');
+        endtime.innerText = "End: "+item.EndTime
+
+        let divgroup = document.createElement('div');
+        divgroup.className = 'group'
+
+        let acceptbtn = document.createElement('button');
+        acceptbtn.innerText = 'Accept'
+        acceptbtn.addEventListener("click",doNothing,false);
+
+        let rejectbtn = document.createElement('button');
+        rejectbtn.innerText = 'Reject'
+        rejectbtn.addEventListener("click",doNothing,false);
+
+        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        
+        details.appendChild(descriptionWritten);
+        details.appendChild(description);
+        details.appendChild(Venue);
+        details.appendChild(Date);
+        details.appendChild(timewritten);
+
+        timeul.appendChild(starttime);
+        timeul.appendChild(endtime);
+        details.appendChild(timeul);
+
+        // divgroup.appendChild(divpricewritten);
+        divgroup.appendChild(acceptbtn);
+        divgroup.appendChild(rejectbtn);
+        details.appendChild(divgroup);
+
+        imgBx.appendChild(image);
+        imgBx.appendChild(imgTitleText);
+        imgBx.appendChild(imgTitle);
+        imgBx.appendChild(imgTeacherText);
+        imgBx.appendChild(imgTeacher);
+        mycard.appendChild(details);
+        mycard.appendChild(imgBx);
+        
+        // cardbody.appendChild(mycard);
+        let container = document.querySelector("#card-container");
+        container.appendChild(mycard);        
+    }
     const GetEvents = () => {
-        showevents.forEach(showAccepted);
-        var elem = document.getElementById('geteventbtn');
-        elem.parentNode.removeChild(elem);
+        const xhr = new XMLHttpRequest();
+        eventts.forEach(myFunction);
+
         let container = document.querySelector("#card-container");
         console.log(container.childNodes);
     }
@@ -642,10 +755,10 @@ const PhotographyHomepage = (user) => {
        
         <><nav className="main-nav">
             {/* 1st logo part  */}
-            <div className="logo">
-                <Navbar.Brand href="/try"><img src={navlogo}></img></Navbar.Brand>
-            </div>
-
+            <div className="welcome">
+           <Navbar.Brand href="#"><h5>Welcome back, {Name}</h5></Navbar.Brand>
+        </div>
+        
 
             {/* 2nd menu part  */}
             <div
@@ -674,7 +787,7 @@ const PhotographyHomepage = (user) => {
                     </li>
                     
                     <li>
-                        <button onClick={myfub} className="btclose">
+                        <button   onClick={myfub} className="btclose">
                             <FaUserAlt className="user" />
                         </button>
                     </li>
@@ -689,6 +802,7 @@ const PhotographyHomepage = (user) => {
                 </div>
             </div>
         </nav>
+        <div className="sidebar">
         <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
         
         <ul class="navbar-nav d-flex flex-column mt-5 w-100">
@@ -701,28 +815,27 @@ const PhotographyHomepage = (user) => {
                 
             </li>
             </div>
-            <div className="sidebardiv">
+            
             <li class="nav-item w-100">
             <button  onClick={showPass} className="btn-bg-transparent">
             <FaUserEdit />       Edit Profile
                 </button>
             </li>
             <li class="nav-item w-100">
-            <button className="btn-bg-transparent" id="geteventbtn" onClick={GetEvents}>Show events</button>
-            </li>
+                            <button  onClick={GetEvents} className="btn-bg-transparent">
+                                <FaUserEdit /> Event Requests
+                            </button>
+                        </li>
             <li class="nav-item w-100">
             </li>
                     <li class="nav-item w-100">
             <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
             </li>
-                    </div>
+                    
         </ul>
     </nav>
-    <div className="name">
-
-    <h1 className="shadow-sm mt-3 p-3 text-center rounded">Welcome, {Name} !</h1>
-        </div>
-       
+    </div>
+ 
         <div id="card-container"></div>
 
                 <div id="card-container2"></div>
@@ -754,21 +867,36 @@ const PhotographyHomepage = (user) => {
         
 
         </div>
-                {show && <div id="Modal-container2">
-                    <button>Close</button>
+         {/* Div with card */}
+         <div class = "cardBody" id="card-container">
+                {/* <div className="card-flex"></div> */}
+            </div>
+            {/* Div with card end */}
+
+       
+              {/* CHECK DETAILS START */}
+            {
+                show && <div id="Modal-container2">
                     <h1 className="greeting">
                         <>
-                            <Modal show={show} onHide={handleClose}>
+                            <Modal show = {show} onHide={handleClose}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>{EventTitle}</Modal.Title>
+                                <Modal.Title>{EventTitle}</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>{EventDescription}</Modal.Body>
                                 <Modal.Footer>
+                                <Button variant="secondary" onClick={doNothing}>
+                                    Reject
+                                </Button>
+                                <Button variant="primary" onClick={doNothing}>
+                                    Accept
+                                </Button>
                                 </Modal.Footer>
                             </Modal>
                         </>
                     </h1>
-                </div>}
+                </div>
+            }
 
             </>
     );
