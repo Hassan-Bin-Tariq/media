@@ -325,9 +325,12 @@ h6
 #editProfile
 {
     margin-left: 580px;
+    
+}
+.form
+{
     display: none;
 }
-
 .editpass
   {
    
