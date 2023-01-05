@@ -723,13 +723,6 @@ return (
         </div>
         
 
-        {/* Holders for current slots */}
-        <div class = "dayDiv" id='mondayHolder'></div>
-        <div class = "dayDiv" id='tuesdayHolder'></div>
-        <div class = "dayDiv" id='wednesdayHolder'></div>
-        <div class = "dayDiv" id='thursdayHolder'></div>
-        <div class = "dayDiv" id='fridayHolder'></div>
-        {/* end of holders */}
 
         <Container>
                 <div id="name">
@@ -737,6 +730,13 @@ return (
                 </div>
                 
                 
+        {/* Holders for current slots */}
+        <div class = "dayDiv" id='mondayHolder'></div>
+        <div class = "dayDiv" id='tuesdayHolder'></div>
+        <div class = "dayDiv" id='wednesdayHolder'></div>
+        <div class = "dayDiv" id='thursdayHolder'></div>
+        <div class = "dayDiv" id='fridayHolder'></div>
+        {/* end of holders */}
                 
                     {/* <div id="duty">
                             <h3 className="freeslots">You are currently assigned coverage for: <br></br>
