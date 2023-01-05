@@ -15,17 +15,22 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useHistory } from "react-router-dom"
+import {
+    CDBSidebar,
+    CDBSidebarContent,
+    CDBSidebarFooter,
+    CDBSidebarHeader,
+    CDBSidebarMenu,
+    CDBSidebarMenuItem,
+  } from 'cdbreact';
   import {
     FaUserAlt,
     FaWindowClose,
-    FaImage,
     FaGripHorizontal,
     FaTimes,
     FaUserEdit,
     FaBookOpen,
     FaImage,
-    FaTimes,
-    FaGripHorizontal,
   } from "react-icons/fa";
   import {AiOutlineLogout} from "react-icons/ai";
   import $ from "jquery"
@@ -155,163 +160,125 @@ const TeacherHomepage = (user) => {
     return (
 
         <>
-        <nav className="main-nav">
-            {/* 1st logo part  */}
-            <div className="welcome">
-           <Navbar.Brand href="#"><h2>Welcome, {teachName}</h2></Navbar.Brand>
-        </div>
-
-            {/* 2nd menu part  */}
-            <div
-                className={showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
-                <ul>
-                    <li>
-                        <NavLink to="/try">Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about">about</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/login">Get Started</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contact">contact</NavLink>
-                    </li>
-                </ul>
-            </div>
-
-            {/* 3rd social media links */}
-            <div className="social-media">
-                <ul className="social-media-desktop">
-                    <li>
-
-                    </li>
-                    
-                    <li>
-                        <button onClick={myfub} className="btclose">
-                            <FaUserAlt className="user" />
-                        </button>
-                    </li>
-
-                </ul>
-
-                {/* hamburget menu start  */}
-                <div className="hamburger-menu">
-                    <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-                        <GiHamburgerMenu />
+        <div className="Mentorhomepage" >
+            {/* SIDE BAR  */}         
+            <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+                <CDBSidebar textColor="#fff" backgroundColor="#333">
+                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+                    <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
+                    Welcome!
                     </a>
-                </div>
-            </div>
-        </nav>
-        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-        
-        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-            <div className="closebtn">
-                <li class="nav-item w-100">
-                    <button  onClick={myfub} className="btclose">
-                    <FaTimes className="close"></FaTimes>
+                </CDBSidebarHeader>
+
+                <CDBSidebarContent className="sidebar-content">
+                    <CDBSidebarMenu>
+                    <button  onClick="/" className="sidebarbtn" >
+                                <FaGripHorizontal className="sidebaricon"/> My Albums
                     </button>
-                </li>
-            </div>
-            <div className="sidebardiv">
-                <li class="nav-item w-100">
-                    <button  onClick="/" className="btn-bg-transparent">
-                        <FaImage /> My Albums
+                    <button  onClick={showForm} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Request for Event
                     </button>
-                </li>
+                    <button  onClick={showPass} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/> Logout
+                    </button>
                 
-                <li class="nav-item w-100">
-                <button  className="btn-bg-transparent" variant="success btn-block" onClick={showForm}>
-                        <FaGripHorizontal/> Generate Event Request
-                </button>
-                </li>
-                <li class="nav-item w-100">
-                <button  onClick={showPass} className="btn-bg-transparent">
-                    <FaUserEdit />       Edit Profile
-                </button>
-                </li>
-                <li class="nav-item w-100">
-                <button className="btn-bg-transparent" id ="sleek" onClick={() => history.push("/login")}><AiOutlineLogout/>   Logout</button>
-                </li>
+                    </CDBSidebarMenu>
+                </CDBSidebarContent>
+
+                <CDBSidebarFooter style={{ textAlign: 'center' }}>
+                    <div
+                    style={{
+                        padding: '20px 5px',
+                    }}
+                    >
+                    Mediascape
+                    </div>
+                </CDBSidebarFooter>
+                </CDBSidebar>
             </div>
-        </ul>
-        </nav>
-            {console.log("Event",event)}    
-            <Container>
-            <div className="name">
-
-              
-
-             </div>
-             <div id="editProfile">
+            {/*////////////// */} 
+            <div className="mentor-flex2">
                 
-                <button className="hide"  onClick={hidePass}>
-                    <FaWindowClose className="userhide" />
-                </button>
-        
-        <div className="oldpass">
-            <label >Old Password</label>
-            <br></br>
-            <input id = "oldpass" type="password" name="oldpassword" placeholder="Your old Password"></input>
+                    
+                    <button  className="flex2user">
+                                <FaUserAlt />
+                    </button>
+                    {/* Div with card */}
+                    {console.log("Event",event)}    
+                    <Container className="cardBody">
+                        <div id="form">
+                        <Row className="mt-2 text-center">
+                            <h2>Generate Event Request</h2>
+                            <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
+                                <Form>
+                                    <Form.Group controlId="formBasicTitle">
+                                        <Form.Label>Event Title</Form.Label>
+                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicDescription">
+                                        <Form.Label>Event Description</Form.Label>
+                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicDate">
+                                        <Form.Label>Event Date</Form.Label>
+                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicTime">
+                                        <Form.Label>Event Start Time</Form.Label>
+                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicTime">
+                                        <Form.Label>Event End Time</Form.Label>
+                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicVenue">
+                                        <Form.Label>Event Venue</Form.Label>
+                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
+                                    </Form.Group>
+                                    <Row className="mt-2">
+                                    {/* Removed type="submit" from here */}
+                                        <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
+                                            Submit Request
+                                        </button>
+                                    </Row>
+                                </Form>
+                            </Col>
+                        </Row>
+                        </div>
+                        <div id="editProfile">
+                            <div>
+                                <h2>Edit Profile Settings</h2>
+                            </div>
+                            <div className="oldpass">
+                                <label >Current Password</label>
+                                <br></br>
+                                <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
+                            </div>
+
+                            <div className="pass">
+                                <label >New Password</label>
+                                <br></br>
+                                <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
+                            </div>
+
+                            <div className="repass">
+                                <label >Re-enter Password</label>
+                                <br></br>
+                                <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                                
+                        </div>
+                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        
+
+                        </div>
+                        <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                    </Container>
+                    {/* Div with card end */}
+            </div>
         </div>
-
-        <div className="pass">
-            <label >Password</label>
-            <br></br>
-            <input id = "newpass" type="password" name="newpassword" placeholder="Your Password"></input>
-        </div>
-
-        <div className="repass">
-            <label >Re-enter Password</label>
-            <br></br>
-            <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
-            
-    </div>
-    <button className="editpass" onClick={Passeditor}>Edit Password</button>
-    
-
-    </div>
-    <div id="form">
-                <Row className="mt-2 text-center">
-                    <h2>Generate Event Request</h2>
-                    <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
-                        <Form>
-                            <Form.Group controlId="formBasicTitle">
-                                <Form.Label>Event Title</Form.Label>
-                                <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
-                            </Form.Group>
-                            <Form.Group controlId="formBasicDescription">
-                                <Form.Label>Event Description</Form.Label>
-                                <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
-                            </Form.Group>
-                            <Form.Group controlId="formBasicDate">
-                                <Form.Label>Event Date</Form.Label>
-                                <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicTime">
-                                <Form.Label>Event Start Time</Form.Label>
-                                <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
-                            </Form.Group>
-                            <Form.Group controlId="formBasicTime">
-                                <Form.Label>Event End Time</Form.Label>
-                                <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
-                            </Form.Group>
-                            <Form.Group controlId="formBasicVenue">
-                                <Form.Label>Event Venue</Form.Label>
-                                <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
-                            </Form.Group>
-                            <Row className="mt-2">
-                            {/* Removed type="submit" from here */}
-                                <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
-                                    Submit Request
-                                </button>
-                            </Row>
-                        </Form>
-                    </Col>
-                </Row>
-                </div>
-                <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
-            </Container>
         </>
     );
 }

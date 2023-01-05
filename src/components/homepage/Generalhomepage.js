@@ -840,7 +840,7 @@ return (
                     <button className="editpass" onClick={Passeditor}>Edit Password</button>
                     
 
-                        </div>
+                    </div>
                 
                         
                             {/* <div id="duty">
