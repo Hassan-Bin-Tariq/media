@@ -49,6 +49,7 @@ const MentorHomepage = (user) => {
     .then(res => {
         //alert(res.data.message)
         eventts = res.data.event;
+        eventts.forEach(myFunction);
         console.log(eventts)
     })
     function sendMail(event)
@@ -60,6 +61,7 @@ const MentorHomepage = (user) => {
         .then(res => {
             //alert(res.data.message)
             eventts = res.data.event;
+            
             console.log(eventts)
         })
 
