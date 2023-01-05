@@ -331,7 +331,7 @@ background: transparent;
 
 /* CARD */
 
-.cardBody {
+.photo-cardbody {
   display: flex;
   margin-top: 10px;
   margin-left: 350px;
@@ -342,7 +342,7 @@ background: transparent;
   
 }
 
-.mycard {
+.photo-mycard {
   position: relative;
   width: 250px;
   height: 250px;
@@ -353,14 +353,15 @@ background: transparent;
   transition: 0.5s ease-in-out;
   border-radius: 10px;
   margin-top: 20px;
+  margin-left: 480px;
   /* margin-bottom: 15px; */
 }
 
-.mycard:hover {
+.photo-mycard:hover {
   width: 600px;
 }
 
-.mycard .imgBx {
+.photo-mycard .photo-imgBx {
   position: relative;
   min-width: 250px;
   height: 250px;
@@ -373,7 +374,7 @@ background: transparent;
   z-index: 2;
 }
 
-.mycard .imgBx h2 {
+.photo-mycard .photo-imgBx h2 {
   margin-top: 5px;
   /* margin-bottom: 10px; */
   font-weight: bold;
@@ -381,23 +382,23 @@ background: transparent;
   /* max-width: 200px;
   transition: 0.5s ease-in-out; */
 }
-.mycard .imgBx h3 {
+.photo-mycard .photo-imgBx h3 {
   margin-bottom: 5px;
   /* max-width: 200px;
   transition: 0.5s ease-in-out; */
 }
-.mycard:hover .imgBx h3 {
+.photo-mycard:hover .photo-imgBx h3 {
   margin-bottom: 10px;
   /* transform: rotate(-35deg) translate(-20px); */
 }
-.mycard .imgBx img {
+.photo-mycard .photo-imgBx img {
   /* margin-bottom: 10px; */
   border-radius: 60px;
   max-width: 150px;
   transition: 0.5s ease-in-out;
 }
 
-.mycard .details {
+.photo-mycard .photo-details {
   position: absolute;
   left: 0;
   min-width: 200px;
@@ -413,11 +414,11 @@ background: transparent;
   transition: 0.5s ease-in-out;
 }
 
-.mycard:hover .details {
+.photo-mycard:hover .photo-details {
   left: 300px;
 }
 
-.mycard .details::before {
+.photo-mycard .photo-details::before {
   content: '';
   position: absolute;
   left: 0;
@@ -428,7 +429,7 @@ background: transparent;
   border-left: 10px solid #f8f7f2;
 }
 
-.mycard .details h3 {
+.photo-mycard .photo-details h3 {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -436,18 +437,18 @@ background: transparent;
   line-height: 1em;
 }
 
-.mycard .details h3 span {
+.photo-mycard .photo-details h3 span {
   font-size: 0.65em;
   font-weight: 300;
   text-transform: none;
   opacity: 0.85;
 }
-.mycard .details h5 {
+.photo-mycard .photo-details h5 {
   color: #fff;
   font-size: 14px;
   line-height: 1em;
 }
-.mycard .details h4 {
+.photo-mycard .photo-details h4 {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -457,20 +458,20 @@ background: transparent;
   line-height: 1em;
 } 
 
-.mycard .details p {
+.photo-mycard .photo-details p {
   color: #fff;
   opacity: 0.35;
   font-size: 2.8em;
 }
 
-.mycard .details .size {
+.photo-mycard .photo-details .photo-size {
   margin-top: 10px;
   display: flex;
   gap: 10px;
   margin-left: -15px;
 }
 
-.mycard .details .size li {
+.photo-mycard .photo-details .photo-size li {
   list-style: none;
   color: #fff;
   font-size: 0.9em;
@@ -487,13 +488,13 @@ background: transparent;
   transition: 0.1s;
 }
 
-.mycard .details .size li:hover {
+.photo-mycard .photo-details .photo-size li:hover {
   color: #003355;
   background: #fff;
   opacity: 1;
 }
 
-.mycard .details .group {
+.photo-mycard .photo-details .photo-group {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -501,21 +502,21 @@ background: transparent;
   margin-top: 20px;
 }
 
-.mycard .details .group h2 {
+.photo-mycard .photo-details .photo-group h2 {
   color: #fff;
   font-weight: 600;
   font-size: 2em;
 }
 
-.mycard .details .group h2 sup {
+.photo-mycard .photo-details .photo-group h2 sup {
   font-weight: 300;
 }
 
-.mycard .details .group h2 small {
+.photo-mycard .photo-details .photo-group h2 small {
   font-size: 0.75em;
 }
 
-.mycard .details .group button {
+.photo-mycard .photo-details .photo-group button {
   display: inline-flex;
   padding: 10px 25px;
   padding-right: 15px;
@@ -533,7 +534,7 @@ background: transparent;
   transition: 0.3s;
 }
 
-.mycard .details .group button:hover {
+.photo-mycard .photo-details .photo-group button:hover {
   background: #A6BB8D;
   color: #fff;
 }
