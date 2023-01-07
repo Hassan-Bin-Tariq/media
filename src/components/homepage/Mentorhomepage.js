@@ -61,11 +61,10 @@ const MentorHomepage = (user) => {
         .then(res => {
             //alert(res.data.message)
             eventts = res.data.event;
-            
             console.log(eventts)
         })
 
-        console.log(event.target.id)
+        //console.log(event.target.id)
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         
         var Teacheremail = eventts[str1].teacherEmail;
@@ -128,96 +127,101 @@ const MentorHomepage = (user) => {
         handleShow();
     }
     function myFunction(item) {
-        let mycard = document.createElement('div');
-        mycard.className = 'mycard'
+        if(item.status === "Not Checked"){
+            let mycard = document.createElement('div');
+            mycard.className = 'mycard'
 
-        let imgBx = document.createElement('div');
-        imgBx.className = 'imgBx'
+            let imgBx = document.createElement('div');
+            imgBx.className = 'imgBx'
 
-        let imgTitleText = document.createElement('h2');
-        imgTitleText.innerText = "Event:";
+            let imgTitleText = document.createElement('h2');
+            imgTitleText.innerText = "Event:";
 
-        let imgTitle = document.createElement('h3');
-        imgTitle.innerText = item.title;
+            let imgTitle = document.createElement('h3');
+            imgTitle.innerText = item.title;
 
-        let imgTeacherText = document.createElement('h2');
-        imgTeacherText.innerText = "Requesting Teacher:";
+            let imgTeacherText = document.createElement('h2');
+            imgTeacherText.innerText = "Requesting Teacher:";
 
-        let imgTeacher = document.createElement('h3');
-        imgTeacher.innerText = item.teacherName;
+            let imgTeacher = document.createElement('h3');
+            imgTeacher.innerText = item.teacherName;
 
-        let image = document.createElement('img');
-        // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
-        // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
-        image.src=ghous
+            let image = document.createElement('img');
+            // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+            // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
+            image.src=ghous
 
-        //DETAILS STARTING
+            //DETAILS STARTING
 
-        let details = document.createElement('div');
-        details.className = 'details'
+            let details = document.createElement('div');
+            details.className = 'details'
 
-        let descriptionWritten = document.createElement('h4');
-        descriptionWritten.innerText = 'Description:'
+            let descriptionWritten = document.createElement('h4');
+            descriptionWritten.innerText = 'Description:'
 
-        let description = document.createElement('h5');
-        description.innerText = item.description;
+            let description = document.createElement('h5');
+            description.innerText = item.description;
 
-        let Venue = document.createElement('h4')
-        Venue.innerText = "Venue: "+item.venue;
+            let Venue = document.createElement('h4')
+            Venue.innerText = "Venue: "+item.venue;
 
-        let Date = document.createElement('h4')
-        Date.innerText = "Date: "+item.date;
+            let Date = document.createElement('h4')
+            Date.innerText = "Date: "+item.date;
 
-        let timewritten = document.createElement('h4');
-        timewritten.innerText = 'EVENT TIME'
+            let timewritten = document.createElement('h4');
+            timewritten.innerText = 'EVENT TIME'
 
-        let timeul = document.createElement('ul');
-        timeul.className = 'size'
+            let timeul = document.createElement('ul');
+            timeul.className = 'size'
 
-        let starttime = document.createElement('li');
-        starttime.innerText = "Start: "+item.StartTime
-        let endtime = document.createElement('li');
-        endtime.innerText = "End: "+item.EndTime
+            let starttime = document.createElement('li');
+            starttime.innerText = "Start: "+item.StartTime
+            let endtime = document.createElement('li');
+            endtime.innerText = "End: "+item.EndTime
 
-        let divgroup = document.createElement('div');
-        divgroup.className = 'group'
+            let divgroup = document.createElement('div');
+            divgroup.className = 'group'
 
-        let acceptbtn = document.createElement('button');
-        acceptbtn.innerText = 'Accept'
-        acceptbtn.addEventListener("click",doNothing,false);
+            let acceptbtn = document.createElement('button');
+            acceptbtn.innerText = 'Accept'
+            acceptbtn.id = i
+            acceptbtn.addEventListener("click",sendMail,false);
 
-        let rejectbtn = document.createElement('button');
-        rejectbtn.innerText = 'Reject'
-        rejectbtn.addEventListener("click",doNothing,false);
+            let rejectbtn = document.createElement('button');
+            rejectbtn.innerText = 'Reject'
+            rejectbtn.id = i
+            rejectbtn.addEventListener("click",sendRejection,false);
 
-        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
-        
-        details.appendChild(descriptionWritten);
-        details.appendChild(description);
-        details.appendChild(Venue);
-        details.appendChild(Date);
-        details.appendChild(timewritten);
+            //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+            
+            details.appendChild(descriptionWritten);
+            details.appendChild(description);
+            details.appendChild(Venue);
+            details.appendChild(Date);
+            details.appendChild(timewritten);
 
-        timeul.appendChild(starttime);
-        timeul.appendChild(endtime);
-        details.appendChild(timeul);
+            timeul.appendChild(starttime);
+            timeul.appendChild(endtime);
+            details.appendChild(timeul);
 
-        // divgroup.appendChild(divpricewritten);
-        divgroup.appendChild(acceptbtn);
-        divgroup.appendChild(rejectbtn);
-        details.appendChild(divgroup);
+            // divgroup.appendChild(divpricewritten);
+            divgroup.appendChild(acceptbtn);
+            divgroup.appendChild(rejectbtn);
+            details.appendChild(divgroup);
 
-        imgBx.appendChild(image);
-        imgBx.appendChild(imgTitleText);
-        imgBx.appendChild(imgTitle);
-        imgBx.appendChild(imgTeacherText);
-        imgBx.appendChild(imgTeacher);
-        mycard.appendChild(details);
-        mycard.appendChild(imgBx);
-        
-        // cardbody.appendChild(mycard);
-        let container = document.querySelector("#card-container");
-        container.appendChild(mycard);        
+            imgBx.appendChild(image);
+            imgBx.appendChild(imgTitleText);
+            imgBx.appendChild(imgTitle);
+            imgBx.appendChild(imgTeacherText);
+            imgBx.appendChild(imgTeacher);
+            mycard.appendChild(details);
+            mycard.appendChild(imgBx);
+            
+            // cardbody.appendChild(mycard);
+            let container = document.querySelector("#card-container");
+            container.appendChild(mycard);    
+        }
+        i+=1;   
     }
 
     const GetEvents = () => {
