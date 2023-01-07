@@ -220,8 +220,8 @@ const MentorHomepage = (user) => {
             // cardbody.appendChild(mycard);
             let container = document.querySelector("#card-container");
             container.appendChild(mycard);    
-            i+=1;    
         }
+        i+=1;   
     }
 
     const GetEvents = () => {
