@@ -6,7 +6,7 @@ import { color } from '@mui/system';
 import {motion} from "framer-motion";
 import covervid from "../../assets/cover-vid.mp4";
 import story from "../../assets/green_media.mp4";
-// import homecoming from "../../assets/landscapeHomecoming.mp4";
+//import homecoming from "../../assets/landscapeHomecoming.mp4";
 import  { useState,useRef,useEffect } from "react"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
@@ -149,7 +149,7 @@ const Try = ({ setLoginUser }) => {
             <section>
                 <div className="container">
                     <div className='left'>
-                        <video muted autoPlay="autoplay" className="d-block w-100 h-100" loop="true" onclick="this.pause()">
+                        <video muted autoPlay="autoplay" className="d-block w-100 h-100" loop="true">
                             <source src={story} type="video/mp4"></source>
                         </video>
                     </div>
