@@ -62,6 +62,12 @@ const PhotographyHomepage = (user) => {
     var freestuEmails = [];
     var eventts;
 
+
+    //VARIABLES FOR MODAL
+    var StudentName ;
+    var StudentEmail;
+    var StudentSlot;
+
     //overlay
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
@@ -420,6 +426,7 @@ const PhotographyHomepage = (user) => {
                             let student = document.createElement('h3');
                             student.innerText ="Student: "+ second[i];
                             student.className = 'assign-card-title';
+                            StudentName = second[i]
 
                             let email = document.createElement('h5');
                             email.innerText = "Email: "+ key;
@@ -445,6 +452,10 @@ const PhotographyHomepage = (user) => {
                             i+=1;
                             let container = document.querySelector("#card-container2");
                             container.appendChild(card);
+
+                            let modelerr = document.getElementById("Name");
+                            modelerr.appendChild(card);
+
                             studentSlots.push(dict[key][day][k]);
                             freestuEmails.push(key);
                     }
@@ -452,6 +463,7 @@ const PhotographyHomepage = (user) => {
             }    
             l+=1;
         }
+        //handleShow()
 
     }
     function fetchslots (start,end,date)
@@ -497,6 +509,8 @@ const PhotographyHomepage = (user) => {
         findFreeStudent(start,end,date);
     }
     function AssignDuties  (event) {
+        //console.log("ASS")
+        //mod.showAlert({title: "Hi", body: "Please press ok, if you like or dislike cookies."})
         //console.log(event.target.id)
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         //console.log(str1);
@@ -504,10 +518,11 @@ const PhotographyHomepage = (user) => {
         var endtime = showevents[str1].EndTime;
         var date = showevents[str1].date
         selectedDate = date;
+        handleShow();
         //console.log(starttime,endtime,date);
         fetchslots(starttime,endtime,date);
     }
-  
+
     function EventDetails(event)
     {
 
@@ -516,7 +531,7 @@ const PhotographyHomepage = (user) => {
         EventTitle = eventts[str1].title;
         console.log(eventts);
         EventDescription = eventts[str1].description;       
-        handleShow();
+        //handleShow();
     }
     function showAccepted(event){
         console.log(event.title);
@@ -613,7 +628,7 @@ const PhotographyHomepage = (user) => {
         let container = document.querySelector("#card-container");
         container.appendChild(card);
     }
-   
+
     function doNothing(){
 
     }
@@ -764,9 +779,9 @@ const PhotographyHomepage = (user) => {
         const targetDiv = document.getElementById("editProfile");
         if (targetDiv.style.display !== "none") {
             targetDiv.style.display = "none";
-          } else {
+        } else {
             targetDiv.style.display = "block";
-          }
+        }
     }
     const hidePass = () => {
         $(function () {
@@ -775,7 +790,6 @@ const PhotographyHomepage = (user) => {
     }
     return (
         
-       
         <>
         <div className="Mentorhomepage" >
             {/* SIDE BAR  */}         
@@ -832,7 +846,7 @@ const PhotographyHomepage = (user) => {
                             </div>
                             <div className="dutycontainer" id="card-container2"></div>
                         </div>
-                         
+                        
                         <div  id="editProfile">
                             <div>
                                 <h2>Edit Profile Settings</h2>
@@ -866,7 +880,29 @@ const PhotographyHomepage = (user) => {
 
             
         </div>
- 
+
+            {/* MODAL START */}
+            {
+                show && <div id="Modal-container2">
+                    <h1 className="greeting">
+                        <>
+                            <Modal show = {show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                <Modal.Title>Available students</Modal.Title>
+                                </Modal.Header>
+
+                                <Modal.Body>
+                                    <div id="Name"></div>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                
+                                </Modal.Footer>
+                            </Modal>
+                        </>
+                    </h1>
+                </div>
+            }
+            {/* MODAL END */}
        
          {/* Div with card */}
             
