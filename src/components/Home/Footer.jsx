@@ -56,19 +56,19 @@ const Footer = () => {
 					
                     <a class="fa fa-facebook"
                         href="/login">
-                        <FaFacebook className="user" />
+                        <FaFacebook className="footericon" />
                     </a>
                     <a class="fa fa-instagram"
                         href="/login">
-                        <FaInstagram className="user" />
+                        <FaInstagram className="footericon" />
                     </a>
                     <a class="fa fa-github"
                         href="/login">
-                        <FaGithub className="user" />
+                        <FaGithub className="footericon" />
                     </a>
                     <a class="fa fa-twitter"
                         href="/login">
-                        <FaTwitter className="user" />
+                        <FaTwitter className="footericon" />
                     </a>
 
 				</div>

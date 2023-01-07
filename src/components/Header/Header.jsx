@@ -30,15 +30,15 @@ const Header = () => {
           className={
             showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
           }>
-          <ul>
+          <ul className='navbarul'>
             <li>
               <NavLink to="/try">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about">about</NavLink>
+              <NavLink to="/about">About</NavLink>
             </li>
             <li>
-              <NavLink to="/login">Get Started</NavLink>
+              <NavLink to="/login">Login</NavLink>
             </li>
             <li>
               <NavLink to="/contact">contact</NavLink>
@@ -49,15 +49,14 @@ const Header = () => {
         {/* 3rd social media links */}
         <div className="social-media">
           <ul className="social-media-desktop">
-            <li>
+            {/* <li>
               
             </li>
             <li>
-            </li>
+            </li> */}
             <li>
               <a
-                href="/login"
-                target="_thapa">
+                href="/login">
                 <FaUserAlt className="user" />
               </a>
             </li>

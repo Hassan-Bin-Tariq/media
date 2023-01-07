@@ -76,7 +76,7 @@
 .footer-distributed .footer-center i{
 	background-color:  #33383b;
 	color: #ffffff;
-	font-size: 25px;
+	font-size: 15px;
 	width: 38px;
 	height: 38px;
 	border-radius: 50%;
@@ -84,6 +84,11 @@
 	line-height: 42px;
 	margin: 10px 15px;
 	vertical-align: middle;
+}
+.footericon{
+	color: #ffffff;
+	margin-bottom: 10px;
+	box-sizing: 100px;
 }
 
 .footer-distributed .footer-center i.fa-envelope{
@@ -94,7 +99,7 @@
 .footer-distributed .footer-center p{
 	display: inline-block;
 	color: #ffffff;
-    font-size: 25px;
+    font-size: 18px;
   /* font-weight:400; */
 	vertical-align: middle;
 	margin:0;
@@ -143,7 +148,7 @@
 .footer-distributed .footer-company-about span{
 	display: block;
 	color:  #ffffff;
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: bold;
 	margin-bottom: 20px;
 }
@@ -155,9 +160,9 @@
 .footer-distributed .footer-icons a{
 	display: inline-block;
 	width: 35px;
-	height: 35px;
+	height: 5px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color:  transparent;
 	border-radius: 2px;
 
 	font-size: 20px;
@@ -166,7 +171,7 @@
 	line-height: 35px;
 
 	margin-right: 3px;
-	margin-bottom: 5px;
+	margin-bottom: -15px;
 }
 
 
