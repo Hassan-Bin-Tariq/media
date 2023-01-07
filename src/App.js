@@ -63,13 +63,13 @@ function App() {
             }
           </Route>
 
-          <Route path="/login">
-            <Login setLoginUser={setLoginUser}/>s
+          <Route exact path="/login">
+            <Login setLoginUser={setLoginUser}/>
           </Route>
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/studentPortal">
+          <Route exact path="/studentPortal">
           {
               user && user._id ? <StudentHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
           }

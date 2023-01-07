@@ -13,7 +13,7 @@ import {
     FaFacebook,
     FaTwitter,
     FaHome,
-  } from "react-icons/fa";
+} from "react-icons/fa";
 const Login = ({ setLoginUser }) => {
 
     const history = useHistory()
@@ -31,6 +31,7 @@ const Login = ({ setLoginUser }) => {
         })
     }
     const login = () => {
+        setLoginUser(null);
         axios.post("http://localhost:9002/login", user)
             .then(res => {
                 //alert(res.data.message)
@@ -51,7 +52,7 @@ const Login = ({ setLoginUser }) => {
                 {
                     history.push("/GeneralPortal")
                 }
-                else{
+                else if(res.data.message === "Student"){
                     history.push("/studentPortal")
                 }
             })

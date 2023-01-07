@@ -235,6 +235,10 @@ const MentorHomepage = (user) => {
         container.classList.toggle("active-cont")
     }
 
+    function logOuter(){
+        history.push("./login");
+
+    }
     return (
 
     <div>
@@ -257,7 +261,7 @@ const MentorHomepage = (user) => {
                     <button  onClick={GetEvents} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Event Requests
                     </button>
-                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
+                    <button className="sidebarbtn" id ="sleek" onClick={logOuter}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
                     </button>
                 
