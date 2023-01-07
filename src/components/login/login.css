@@ -113,8 +113,10 @@ h3
   }
 
   div.sign_in_form{
+    background-color: transparent;
     display: flex;
     align-items: center;
+    margin-bottom: 100px;
     justify-content: center;
     flex-direction: column;
     padding: 0rem 5rem;
@@ -198,7 +200,27 @@ h3
     display: flex;
     justify-content: center;
   }
-
+  .home_icon_signup{
+    height: 46px;
+    width: 46px;
+    margin-top: -50px;
+    margin-left: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.45rem;
+    color: white;
+    background-color: #333;
+    border-radius: 50%;
+    border: 1px solid white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+  }
+  .home_icon_signup:hover {
+    color: black;
+    background-color: #aaa;
+  }
   .social_icon {
     height: 46px;
     width: 46px;
@@ -518,6 +540,16 @@ h3
     flex-direction: row;
     background-color: transparent;
     height: 50px;
+    align-self: flex-start;
+    margin-bottom: 50px;
+  }
+  .loginhomediv{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    height: 50px;
+    align-self: flex-end;
+    margin-bottom: 100px;
   }
   .startdiv h2{
     margin-right: 300px;

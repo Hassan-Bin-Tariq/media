@@ -12,6 +12,7 @@ import {
     FaGoogle,
     FaFacebook,
     FaTwitter,
+    FaHome,
   } from "react-icons/fa";
 const Login = ({ setLoginUser }) => {
 
@@ -131,6 +132,18 @@ const Login = ({ setLoginUser }) => {
         <div class="form_container">
             <div class="signin_signup">
                 <div action="#" class="sign_in_form">
+                    <div className="loginhomediv">
+                        <a href="/try" class="home_icon_signup"><FaHome />
+                        <i class='bx bxl-linkedin'></i>
+                        </a>
+                    {/* <div class="inputImage">
+                        <label >Upload Picture</label>
+                        <br></br>
+                        <input type="file" accept="image/*" onChange={loadFile} />
+                        <img id = "output"/>
+                    </div>*/}
+                    
+                    </div> 
                     <h2 class="title">Sign In</h2>
 
                     <div class="inputBox">
@@ -157,20 +170,24 @@ const Login = ({ setLoginUser }) => {
 
 
                     </div>
+
                 </div>
                 <div action="#" class="sign_up_form">
+                    {/* UPLOAD IMAGE DIV COMMENTED FOR NOW */}
                     <div className="startdiv">
-                    
-                    <div class="inputImage">
+                        <a href="/try" class="home_icon_signup"><FaHome />
+                        <i class='bx bxl-linkedin'></i>
+                        </a>
+                    {/* <div class="inputImage">
                         <label >Upload Picture</label>
                         <br></br>
                         <input type="file" accept="image/*" onChange={loadFile} />
                         <img id = "output"/>
-                    </div>
-                    <h2 class="title">Sign Up</h2>
-                    </div>
+                    </div>*/}
                     
-
+                    </div> 
+                    
+                    <h2 class="title">Sign Up</h2>
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
                         <input type="text" name="name" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
