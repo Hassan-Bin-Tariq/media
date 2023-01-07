@@ -211,10 +211,22 @@ background: transparent;
     outline: none;
     cursor: pointer;
 }
-#card-container2{
-    display:grid;
-    margin-left: 60%;
+#dutycontainer{
+    /* display:flex;
+    flex-direction: row; */
+    background-color: aqua;
+    /* margin-left: 60%; */
     
+}
+.dutycontainer{
+  /* align-items: center;
+  justify-content: center; */
+  margin-top: 30px;
+  background-color: #f8f7f2;
+  /* display:flex; */
+  /* flex-direction: row;
+  justify-items: flex-end; */
+  width: 300px;
 }
 .Name{
     color:  #0ba6ff;
@@ -334,12 +346,22 @@ background: transparent;
 .mycards {
   display: flex;
   margin-top: 10px;
-  margin-left: 350px;
+  margin-left: 0px;
   flex-direction: column;
   justify-content: center;
   position: relative;
   align-items:flex-start;
-  
+  background-color: rebeccapurple;
+}
+.photo-flexcard{
+  display: flex;
+  margin-top: 10px;
+  margin-left: -80px;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  align-items:flex-start;
+  background-color: red;
 }
 
 .photo-mycard {
@@ -353,7 +375,7 @@ background: transparent;
   transition: 0.5s ease-in-out;
   border-radius: 10px;
   margin-top: 20px;
-  /* margin-bottom: 15px; */
+  margin-left: 15px;
 }
 
 .photo-mycard:hover {
@@ -570,3 +592,27 @@ background: transparent;
   flex-direction: row;
   width: 800px;
 }
+/* ASSIGN DUTY CARD */
+.card-body-duty{
+  background-color: rosybrown;
+}
+.assign-card-title{
+  font-size: 20px;
+}
+.assign-card-text{
+  font-size: 15px;
+}
+.assign-card-btn{
+  background-color: rgb(39, 37, 37);
+  color: white;
+  margin-left: 50px;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  font-size: 15px;
+}
+.assign-card-btn:hover{
+  background-color: rgb(78, 74, 74);
+  color: white;
+}
+

@@ -410,29 +410,29 @@ const PhotographyHomepage = (user) => {
                             row.className = 'row'
 
                             let card = document.createElement('div');
-                            card.className = 'card shadow cursor-pointer';
+                            card.className = 'cardDuty';
                             
 
                             let cardBody = document.createElement('div');
                             cardBody.className = 'card-body';
 
 
-                            let student = document.createElement('h5');
+                            let student = document.createElement('h3');
                             student.innerText ="Student: "+ second[i];
-                            student.className = 'card-title';
+                            student.className = 'assign-card-title';
 
-                            let email = document.createElement('div');
+                            let email = document.createElement('h5');
                             email.innerText = "Email: "+ key;
-                            email.className = 'card-text';
+                            email.className = 'assign-card-text';
 
                             let date = document.createElement('div');
                             date.innerText = "Free Slot: "+ dict[key][day][k];
-                            date.className = 'card-color';
+                            date.className = 'assign-card-text';
 
 
-                            let sendDutybtn = document.createElement('a');
+                            let sendDutybtn = document.createElement('button');
                             sendDutybtn.innerText = "Assign duty";
-                            sendDutybtn.className = 'btn btn-secondary';
+                            sendDutybtn.className = 'assign-card-btn';
                             sendDutybtn.id = "id"+i;
                             sendDutybtn.class = 'mybtn';
                             sendDutybtn.addEventListener("click", sendDuty, false);
@@ -825,10 +825,14 @@ const PhotographyHomepage = (user) => {
                     {/* Div with card */}
                     
                     <Container className="cardBody">
-                        <div className= "mycards" id="photo-card-container">
-                        {/* <div className="card-flex"></div> */}
-                        </div> 
-                        <div id="editProfile">
+                        <div className="photo-flexcard">
+                            <div className= "mycards" id="photo-card-container">
+                            {/* <div className="card-flex"></div> */}
+                            </div>
+                            <div className="dutycontainer" id="card-container2"></div>
+                        </div>
+                         
+                        <div  id="editProfile">
                             <div>
                                 <h2>Edit Profile Settings</h2>
                             </div>
@@ -853,13 +857,13 @@ const PhotographyHomepage = (user) => {
                         <button className="editpass" onClick={Passeditor}>Edit Password</button>
                         
 
-                        </div>
+                        </div>  
                         <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
             </div>
 
-            <div id="card-container2"></div>
+            
         </div>
  
        
