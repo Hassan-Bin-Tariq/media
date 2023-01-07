@@ -372,7 +372,7 @@ const PhotographyHomepage = (user) => {
     }
     function findFreeStudent(start,end,dateee)
     {
-        // console.log("inside find free")
+        console.log(start,end)
         studentSlots = [];
         freestuEmails = []
         var i=0;
@@ -381,7 +381,7 @@ const PhotographyHomepage = (user) => {
         var prev="";
         var required = getRequiredSlots(start,end);
         var day = getDayfromDate(dateee);
-        // console.log(required,day);
+        //console.log(required,day);
         // console.log(dict);
         for (var key in dict){                                  // ITERATING OVER ALL GB MEMBERS FREE SLOTS
             //console.log("hassan")                               
@@ -713,7 +713,8 @@ const PhotographyHomepage = (user) => {
         
         // cardbody.appendChild(mycard);
         let container = document.querySelector("#photo-card-container");
-        container.appendChild(mycard);        
+        container.appendChild(mycard);    
+        i +=1    
     }
     const GetEvents = () => {
         const xhr = new XMLHttpRequest();
