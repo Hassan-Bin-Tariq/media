@@ -643,7 +643,7 @@ const PhotographyHomepage = (user) => {
         imgTeacherText.innerText = "Requesting Teacher:";
 
         let imgTeacher = document.createElement('h3');
-        imgTeacher.innerText = item.description;
+        imgTeacher.innerText = item.teacherName;
 
         let image = document.createElement('img');
         // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
