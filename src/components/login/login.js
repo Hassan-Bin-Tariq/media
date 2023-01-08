@@ -83,19 +83,31 @@ const Login = ({ setLoginUser }) => {
     const handleRegChange = e => {
         const { name, value } = e.target
         console.log(name,value);
-        if(name==="name" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=3 )
+        // NAME VALIDATIONS //
+        if(name==="name" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=3 && isNaN(value) )
         {
             console.log("so far so good!")
             
         }
-        else if(name==="name" && /[^a-zA-Z0-9\-\/]/.test(value))
+        else if(name==="name" && /[^a-zA-Z0-9\-\/]/.test(value) || !isNaN(value))
         {
             console.log("characters not allowed,hun.")
         }
-        else if(value.includes(" ") || value.includes(".") || value.includes("/") || value.length<3)
+        else if(name==="name" && value.includes(" ") || value.includes(".") || value.includes("/") || value.length<3)
         {
             console.log("space no good")
         }
+        // PASSWORD VALIDATIONS //
+        else if(name==="password" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=8 )
+        {
+            console.log("password good!")
+            
+        }
+        else if(name==="password" && value.includes(" ") || value.includes(".") || value.includes("/") || value.length<8 )
+        {
+            console.log("pass must be at least 8 digits")
+        }
+        // EMAIL VALIDATIONS //
         setUserReg({
             ...userReg,
             [name]: value

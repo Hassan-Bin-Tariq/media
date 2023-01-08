@@ -448,4 +448,11 @@ h1
     font-size: 20px;
     padding-bottom: 10px;
 }
+.myslotsclass{
+    font-size: 12px;
+}
+.slotname{
+    font-weight: bold;
+    font-size: 18px;
+}
 /* CURRENT SLOTS TABLE END */
