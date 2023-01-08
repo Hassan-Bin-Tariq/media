@@ -158,8 +158,9 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-
+            $('#mondayHolder').empty();
             let monday= document.querySelector("#mondayHolder");
+            
             monday.appendChild(MondayWritten);
 
             monday.appendChild(firstSlot);
@@ -216,7 +217,7 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-
+            $('#tuesdayHolder').empty();
             let tuesday = document.querySelector("#tuesdayHolder");
             tuesday.appendChild(TuesdayWritten);
             
@@ -273,7 +274,7 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-
+            $('#wednesdayHolder').empty();
             let wednesday = document.querySelector("#wednesdayHolder");
             wednesday.appendChild(WednesdayWritten);
             wednesday.appendChild(firstSlot);
@@ -329,7 +330,7 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-
+            $('#thursdayHolder').empty();
             let thursday = document.querySelector("#thursdayHolder");
             thursday.appendChild(ThursdayWritten);
             thursday.appendChild(firstSlot);
@@ -385,7 +386,7 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-
+            $('#fridayHolder').empty();
             let friday = document.querySelector("#fridayHolder");
             friday.appendChild(FridayWritten);
             
@@ -406,11 +407,13 @@ const GeneralHomepage = (user) => {
     //fetching slots from db
     const getallSlots = () =>
     {
+        
         studentSlots = [];
         axios.post("http://localhost:9002/GetFreeSlots",{zip:zip,Email: user.setLoginUser.email})
         .then((res) => {
             const data = res.data;
             givenslots=data.generalBodies[0].slots;
+            console.log(givenslots);
             givenslots.forEach(slotsPrinter);
         }).catch(() => {
             alert('errrdjd');
