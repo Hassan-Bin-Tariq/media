@@ -135,6 +135,7 @@ const TeacherHomepage = (user) => {
         });
        
          hideForm();
+         hideEvent();
     }
 
     const hidePass = () => {
@@ -148,6 +149,8 @@ const TeacherHomepage = (user) => {
         $(function () {
             $('#form').show();
         });
+        hideEvent();
+        hidePass();
     }
     const hideForm= () => {
     $(function () {
@@ -171,11 +174,88 @@ const TeacherHomepage = (user) => {
                     console.log(GeneralBodies[g].Duty.venue)
                     console.log(GeneralBodies[g].Duty.Date)
                     console.log(GeneralBodies[g].Duty.Slot)
+                    ///////////////////////DYNAMIC CARDS////////////////////////////////
+                            // let row = document.createElement('div');
+                            // row.className = 'row'
+
+                            let card = document.createElement('div');
+                            card.className = 'cardDutyStudent';
+                            
+
+                            let cardBody = document.createElement('div');
+                            cardBody.className = 'card-body-duty-student';
+
+                            let underline = document.createElement('div');
+                            underline.className = 'underline-duty-student';
+
+                            let student = document.createElement('h3');
+                            student.innerText ="Student: "+ GeneralBodies[g].name;
+                            student.className = 'assign-student-card-title';
+
+                            let email = document.createElement('h5');
+                            email.innerText = "Email: "+ GeneralBodies[g].email;
+                            email.className = 'assign-student-card-text';
+
+                            let date = document.createElement('div');
+                            date.innerText = "Free Slot: "+ GeneralBodies[g].Duty.Slot;
+                            date.className = 'assign-student-card-text';
+
+                            let venue = document.createElement('h5');
+                            venue.innerText = "Venue: "+ GeneralBodies[g].Duty.venue;
+                            venue.className = 'assign-student-card-text';
+
+                            cardBody.appendChild(student);
+                            cardBody.appendChild(underline);
+                            cardBody.appendChild(email);
+                            cardBody.appendChild(date);
+                            cardBody.appendChild(venue);
+                            card.appendChild(cardBody);
+                            // i+=1;
+                            $('#teacher-card-container').empty();
+                            let container = document.querySelector("#teacher-card-container");
+                            container.appendChild(card);
+
+                            // let modelerr = document.getElementById("Name");
+                            // modelerr.appendChild(card);
                 }
             }
         })
 
     }
+    const GetEvents = () => {
+        // hidePass();
+        showEvent();
+        const xhr = new XMLHttpRequest();
+        // eventts.forEach(checkAssigned);
+        checkAssigned();
+        let container = document.querySelector("#teacher-card-container");
+        console.log(container.childNodes);
+       
+    }
+    const showEvent = () => {
+        
+        $(function () {
+            $('#teacher-card-container').show();
+            
+        });
+        $(function () {
+            $('#headingduty').show();
+        });
+       hidePass();
+       hideForm();
+    }
+    const hideEvent = () => {
+        
+        $(function () {
+            $('#teacher-card-container').hide();
+        });
+        $(function () {
+            $('#headingduty').hide();
+        });
+        
+    //    hideeventdeets();
+    }
+   
 
     return (
 
@@ -201,7 +281,7 @@ const TeacherHomepage = (user) => {
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button  onClick={checkAssigned} className="sidebarbtn">
+                    <button  onClick={GetEvents} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Check Assigned Students
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
@@ -229,8 +309,7 @@ const TeacherHomepage = (user) => {
                     <button  className="flex2user">
                                 <FaUserAlt />
                     </button>
-                    {/* Div with card */}
-                    {console.log("Event",event)}    
+                    {/* Div with card */}   
                     <Container className="cardBody">
                         <div id="form">
                         <Row className="mt-2 text-center">
@@ -297,7 +376,12 @@ const TeacherHomepage = (user) => {
                         
 
                         </div>
-                        <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                        <h2 style={{paddingTop: "25px"}} id="headingduty">Assigned Student for Event</h2>
+                        <div className= "mycards" id="teacher-card-container">
+                            
+                            {/* <div className="card-flex"></div> */}
+                        </div>
+                        {/* <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6> */}
                     </Container>
                     {/* Div with card end */}
             </div>
