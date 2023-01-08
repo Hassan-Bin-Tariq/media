@@ -739,6 +739,7 @@ const PhotographyHomepage = (user) => {
     const GetEvents = () => {
         // hidePass();
         showEvent();
+        $('#photo-card-container').empty();
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetAcceptEvent", )
         .then(res => {
