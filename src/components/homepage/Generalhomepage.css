@@ -40,11 +40,18 @@
 }
 #mondayHolder
 {
-    padding-top: 15px;
-    padding-left: 30px;
-    margin-top: 10px;
+    
+    margin-top: 15px;
     color: black;
     font-size: 100px;
+    
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 150px;
+    padding-top: 20px;
+    height: 120px;
+    
 }
 #tuesdayHolder
 {
@@ -52,15 +59,28 @@
     margin-top: 15px;
     color: black;
     font-size: 100px;
-    padding-left: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 150px;
+    padding-top: 35px;
+    height: 120px;
+   
 }
 #wednesdayHolder
 {
-    padding-top: 15px;
+    
     margin-top: 15px;
     color: black;
     font-size: 100px;
-    padding-left: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 150px;
+    padding-top: 20px;
+    height: 120px;
 }
 #thursdayHolder
 {
@@ -68,7 +88,13 @@
     margin-top: 15px;
     color: black;
     font-size: 100px;
-    padding-left: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 150px;
+    padding-top: 20px;
+    height: 120px;
 }
 #fridayHolder
 {
@@ -76,8 +102,15 @@
     margin-top: 15px;
     color: black;
     font-size: 100px;
-    padding-left: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 150px;
+    padding-top: 35px;
+    height: 120px;
 }
+
 
 .gbpopover strong{
     color: black;
