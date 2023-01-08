@@ -74,9 +74,9 @@ const GeneralHomepage = (user) => {
     var Name = user.setLoginUser.name
     var Date= user.setLoginUser.day
     var Time= user.setLoginUser.time
-    console.log(Name)
-    console.log(user.setLoginUser.day);
-    console.log(user.setLoginUser.time);
+    // console.log(Name)
+    // console.log(user.setLoginUser.day);
+    // console.log(user.setLoginUser.time);
 
     
     //usestate handler for offcanvas to show assigned duties
@@ -448,7 +448,7 @@ const GeneralHomepage = (user) => {
         Fridayslots.push(val)
     );
 
-    console.log(sub);
+    // console.log(sub);
     if (sub === true)
     {
         
@@ -595,6 +595,36 @@ const GeneralHomepage = (user) => {
         $('#currentdiv').hide();
     });
     }
+    function MondayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-7").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-7").disabled = false;
+
+            document.getElementById("tbg-btn-1").disabled = true;
+            document.getElementById("tbg-btn-2").disabled = true;
+            document.getElementById("tbg-btn-3").disabled = true;
+            document.getElementById("tbg-btn-4").disabled = true;
+            document.getElementById("tbg-btn-5").disabled = true;
+            document.getElementById("tbg-btn-6").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-7").disabled = false;
+
+            document.getElementById("tbg-btn-1").disabled = false;
+            document.getElementById("tbg-btn-2").disabled = false;
+            document.getElementById("tbg-btn-3").disabled = false;
+            document.getElementById("tbg-btn-4").disabled = false;
+            document.getElementById("tbg-btn-5").disabled = false;
+            document.getElementById("tbg-btn-6").disabled = false;
+        }
+
+    }
 
 return (
         
@@ -694,7 +724,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-6" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
+                                                <ToggleButton onClick={MondayDisabler} className="none" variant="danger" id="tbg-btn-7" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
