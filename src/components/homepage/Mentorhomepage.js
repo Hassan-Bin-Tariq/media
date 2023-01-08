@@ -756,9 +756,9 @@ const MentorHomepage = (user) => {
                             Looks like you have some pending Event Requests</h2>
                             {/* <div className="card-flex"></div> */}
                         </div>
-                        <h2 style={{paddingTop: "25px"}} id="headingdutymentor">Assigned Student for Event</h2>
-                        <div className= "mycards" id="mentor-card-container">
-                                
+                        
+                        <div className= "mentor-mycards" id="mentor-card-container">
+                        <h2 style={{paddingTop: "25px"}} id="headingdutymentor" class="hidden">Assigned Student for Event</h2>
                                 {/* <div className="card-flex"></div> */}
                         </div>    
                         {/* Holders for current slots */}
