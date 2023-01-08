@@ -219,7 +219,7 @@ const MentorHomepage = (user) => {
             mycard.appendChild(imgBx);
             
             // cardbody.appendChild(mycard);
-            $('#card-container').empty();
+            //$('#card-container').empty();
             let container = document.querySelector("#card-container");
             container.appendChild(mycard);    
         }
@@ -229,6 +229,7 @@ const MentorHomepage = (user) => {
     const GetEvents = () => {
         showEvent();
         const xhr = new XMLHttpRequest();
+        $('#card-container').empty();
         eventts.forEach(myFunction);
 
         let container = document.querySelector("#card-container");
