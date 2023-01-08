@@ -338,19 +338,41 @@ h2
 }
 #mondayHolder{
   display: none;
+  margin-left: 10px;
+
+  width: 180px;
+  height: 200px;
 }
 
 #tuesdayHolder{
   display: none;
+  margin-left: 10px;
+
+  width: 180px;
+  height: 200px;
 }
+
 #wednesdayHolder{
   display: none;
+  margin-left: 10px;
+
+  width: 180px;
+  height: 200px;
+
 }
 #thursdayHolder{
   display: none;
+  margin-left: 10px;
+
+  width: 180px;
+  height: 200px;
 }
 #fridayHolder{
   display: none;
+  margin-left: 10px;
+
+  width: 180px;
+  height: 200px;
 }
 
 
@@ -669,3 +691,4 @@ h2
   justify-content:flex-end;
   
 }
+
