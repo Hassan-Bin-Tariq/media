@@ -698,7 +698,7 @@ const MentorHomepage = (user) => {
             $('#card-container').hide();
             
         });
-    //    hidePass();
+     hidePass();
     //    hideForm();
     }
 
@@ -706,7 +706,7 @@ const MentorHomepage = (user) => {
         $(function () {
             $('#myGallery').show();
         });
-        //hidePass();
+        hidePass();
         hideEvent();
         hideSlots();
         hideDuty();
@@ -717,7 +717,23 @@ const MentorHomepage = (user) => {
             $('#myGallery').hide();
         });
     }
-
+    const showPass = () => {
+        
+        $(function () {
+            $('#editProfile').show();
+        });
+      hideEvent();
+      hideDuty();
+      hideSlots();
+      hideAlbum();
+    }
+    const hidePass = () => {
+        
+        $(function () {
+            $('#editProfile').hide();
+        });
+       //hideeventdeets();
+    }
     const GetDuties = () => {
         // hidePass();
         //hideAlbum();
@@ -727,6 +743,28 @@ const MentorHomepage = (user) => {
         checkAssigned();
         let container = document.querySelector("#teacher-card-container");
         console.log(container.childNodes);
+    }
+    const Passeditor = () =>
+    {
+        let OldPass = document.getElementById("oldpass").value;
+        let newPass = document.getElementById("newpass").value;
+        let rePass = document.getElementById("reNewPass").value;
+        let useremail = user.setLoginUser.email;
+
+        if(newPass === rePass)
+        {
+            console.log(OldPass,newPass,rePass,useremail)
+
+            axios.post("http://localhost:9002/ChangePass",{Email: useremail,OldPassword: OldPass,newPassword: newPass}) 
+            .then(res => {
+                // alert(res.data.message)
+                // eventts = res.data.event;
+                // console.log(eventts)
+            })
+        }
+        else{
+            alert("Password not matched")
+        }
     }
 
     return (
@@ -757,6 +795,9 @@ const MentorHomepage = (user) => {
                     <button  onClick={checkFreeSlots} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Check Free Students
                     </button>
+                    <button  onClick={showPass} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
                     <button className="sidebarbtn" id ="sleek" onClick={logOuter}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
                     </button>
@@ -785,6 +826,8 @@ const MentorHomepage = (user) => {
                 
                     
                     <Container className="cardBody">
+
+                        
                     <div className="student-container" id="myGallery">
                         <h2>Take a look at some of our picks for you</h2>
                         <div className='student-slider'>
@@ -828,6 +871,32 @@ const MentorHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                         </div>
+                        <div  id="editProfile">
+                            <div>
+                                <h2>Edit Profile Settings</h2>
+                            </div>
+                            <div className="oldpass">
+                                <label >Current Password</label>
+                                <br></br>
+                                <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
+                            </div>
+
+                            <div className="pass">
+                                <label >New Password</label>
+                                <br></br>
+                                <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
+                            </div>
+
+                            <div className="repass">
+                                <label >Re-enter Password</label>
+                                <br></br>
+                                <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                                
+                        </div>
+                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        
+
+                        </div>  
                         {/* Div with card */}
                         <div className = "mycards" id="card-container">
                             <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
