@@ -62,6 +62,7 @@ const MentorHomepage = (user) => {
     })
     function sendMail(event)
     {
+        alert("Event Request Accepted");
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var EventID = eventts[str1]._id;
 
@@ -79,21 +80,25 @@ const MentorHomepage = (user) => {
         var TeacherName = eventts[str1].teacherName;
         var EventTitle = eventts[str1].title;
         var EventDate= eventts[str1].date;
-        // emailjs.send("service_xsod6da","template_x40k3wu",{
-        //     to_name: TeacherName,
-        //     event_subject: "Request Status for event: " + EventTitle,
-        //     message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
-        //     " has been approved by Mentor!",
-        //     reply_to: "mediascape0@gmail.com",
-        //     to_email: Teacheremail,
-        // },"nv_Jq-1YJR57e3z-E");
+        emailjs.send("service_xsod6da","template_x40k3wu",{
+            to_name: TeacherName,
+            event_subject: "Request Status for event: " + EventTitle,
+            message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
+            " has been approved by Mentor!" + "Thank you for choosing MediaScape."+
+            "Your request for event coverage has been accepted."+
+            "Soon you’ll be notified with assigned students and further details."+
+            "Please be patient until then.",
+            reply_to: "mediascape0@gmail.com",
+            to_email: Teacheremail,
+        },"nv_Jq-1YJR57e3z-E");
 
-        // alert("Acceptance e-mail sent to requesting party!" );
+        alert("Acceptance e-mail sent to requesting party!" );
 
     }
     //send mail to teacher in case of Rejected Event Request
     function sendRejection(event) 
     {
+        alert("Event Request Rejected");
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var EventID = eventts[str1]._id;
 
@@ -113,15 +118,17 @@ const MentorHomepage = (user) => {
         var EventTitle = eventts[str1].title;
         var EventDate= eventts[str1].date;
 
-        // emailjs.send("service_xsod6da","template_x40k3wu",{
-        //     to_name: TeacherName,
-        //     event_subject: "Request Status for event: " + EventTitle,
-        //     message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
-        //     " has been rejected by Mentor.",
-        //     reply_to: "mediascape0@gmail.com",
-        //     to_email: Teacheremail,
-        // },"nv_Jq-1YJR57e3z-E");
-        // alert("Rejection e-mail sent to requesting party!" );
+        emailjs.send("service_xsod6da","template_x40k3wu",{
+            to_name: TeacherName,
+            event_subject: "Request Status for event: " + EventTitle,
+            message: "Your request for event "+ EventTitle+ " to be held on "+EventDate+
+            " has been rejected by Mentor." +"Thank you for choosing MediaScape."+
+            "We’re sorry to inform you that due to unavailability of human and technical resource, FPS wouldn’t be able to provide"+"coverage for your event."+
+            "Please contact us for further events.",
+            reply_to: "mediascape0@gmail.com",
+            to_email: Teacheremail,
+        },"nv_Jq-1YJR57e3z-E");
+        alert("Rejection e-mail sent to requesting party!" );
     }
     
     function doNothing(){
