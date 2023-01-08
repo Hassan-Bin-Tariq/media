@@ -106,7 +106,7 @@ const Login = ({ setLoginUser }) => {
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
         }
-        else if(!isNaN(na))
+        else if(!isNaN(na)) //abc //123 //abc123
         {
             document.getElementById("namespan").innerHTML="* numeric characters not allowed";
             console.log("numeric not allowed")
@@ -183,12 +183,12 @@ const Login = ({ setLoginUser }) => {
             console.log("pass less than 8")
         }
         /////RE-ENTER PASSWORD VALIDATION
-        if(re!=em)
+        if(re!=pas)
         {
             document.getElementById("repasswordspan").innerHTML="passwords do not match";
             document.querySelector('.repasswordspan').style.color="red";
         }
-        else if(re==em)
+        else if(re==pas)
         {
             document.getElementById("repasswordspan").innerHTML="passwords match!";
             document.querySelector('.repasswordspan').style.color="green";
