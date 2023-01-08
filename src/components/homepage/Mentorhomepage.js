@@ -11,6 +11,12 @@ import {Button,Container} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import navlogo from "../../assets/Picture1.png";
 import ghous from "../../assets/ghous.jpg";
+import Carousel from 'react-bootstrap/Carousel';
+import icit from '../../assets/icit.jpg'
+import c from '../../assets/c.png'
+import cc from '../../assets/cc.png'
+import ccc from '../../assets/ccc.png'
+import cccc from '../../assets/cccc.png'
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -634,6 +640,7 @@ const MentorHomepage = (user) => {
         });
         hideEvent();
         hideDuty();
+        hideAlbum();
     }
     const hideSlots = () => {
         
@@ -659,6 +666,7 @@ const MentorHomepage = (user) => {
         });
         hideEvent();
         hideSlots();
+        hideAlbum();
     }
     const hideDuty = () => {
         
@@ -678,8 +686,11 @@ const MentorHomepage = (user) => {
             $('#card-container').show();
             
         });
+        //hidePass();
         hideDuty();
         hideSlots();
+        hideAlbum();
+        
     }
     const hideEvent = () => {
         
@@ -691,8 +702,25 @@ const MentorHomepage = (user) => {
     //    hideForm();
     }
 
+    const showAlbum = () => {
+        $(function () {
+            $('#myGallery').show();
+        });
+        //hidePass();
+        hideEvent();
+        hideSlots();
+        hideDuty();
+       
+    }
+    const hideAlbum = () => {
+        $(function () {
+            $('#myGallery').hide();
+        });
+    }
+
     const GetDuties = () => {
         // hidePass();
+        //hideAlbum();
         showDuty();
         const xhr = new XMLHttpRequest();
         // eventts.forEach(checkAssigned);
@@ -700,6 +728,7 @@ const MentorHomepage = (user) => {
         let container = document.querySelector("#teacher-card-container");
         console.log(container.childNodes);
     }
+
     return (
 
     <div>
@@ -716,7 +745,7 @@ const MentorHomepage = (user) => {
 
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
-                    <button onClick={GetEvents} className="sidebarbtn" >
+                    <button onClick={showAlbum} className="sidebarbtn" >
                                 <FaGripHorizontal className="sidebaricon"/> My Albums
                     </button>
                     <button  onClick={GetEvents} className="sidebarbtn">
@@ -756,6 +785,49 @@ const MentorHomepage = (user) => {
                 
                     
                     <Container className="cardBody">
+                    <div className="student-container" id="myGallery">
+                        <h2>Take a look at some of our picks for you</h2>
+                        <div className='student-slider'>
+                            <Carousel fade className="d-block w-100 h-100">
+                                <Carousel.Item className="d-block w-100 h-100" interval={5000} backgroundColor="#f8f7f2">
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={icit}
+                                    alt="First slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cc}
+                                    alt="Second slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={ccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={c}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
+                        </div>
+                        <p>Stay tuned for more personalized content!</p>
+                        </div>
                         {/* Div with card */}
                         <div className = "mycards" id="card-container">
                             <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
