@@ -381,7 +381,7 @@ const TeacherHomepage = (user) => {
                         <Row className="mt-2 text-center">
                             <h2>Generate Event Request</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
-                                <Form>
+                                <div>
                                     <Form.Group controlId="formBasicTitle">
                                         <Form.Label>Event Title</Form.Label>
                                         <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
@@ -412,7 +412,7 @@ const TeacherHomepage = (user) => {
                                             Submit Request
                                         </button>
                                     </Row>
-                                </Form>
+                                </div>
                             </Col>
                         </Row>
                         </div>
