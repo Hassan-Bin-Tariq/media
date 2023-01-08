@@ -691,6 +691,7 @@ const MentorHomepage = (user) => {
         hideEvent();
         hideDuty();
         hideAlbum();
+        hidePass();
     }
     const hideSlots = () => {
         
@@ -717,6 +718,7 @@ const MentorHomepage = (user) => {
         hideEvent();
         hideSlots();
         hideAlbum();
+        hidePass();
     }
     const hideDuty = () => {
         
@@ -740,6 +742,7 @@ const MentorHomepage = (user) => {
         hideDuty();
         hideSlots();
         hideAlbum();
+        hidePass();
         
     }
     const hideEvent = () => {
@@ -748,7 +751,7 @@ const MentorHomepage = (user) => {
             $('#card-container').hide();
             
         });
-     hidePass();
+    //  hidePass();
     //    hideForm();
     }
 
@@ -878,7 +881,7 @@ const MentorHomepage = (user) => {
                     <Container className="cardBody">
 
                         
-                    <div className="student-container" id="myGallery">
+                        <div className="student-container" id="myGallery">
                         <h2>Take a look at some of our picks for you</h2>
                         <div className='student-slider'>
                             <Carousel fade className="d-block w-100 h-100">
@@ -921,6 +924,25 @@ const MentorHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                         </div>
+                          
+                        {/* Div with card */}
+                        <div className = "mycards" id="card-container">
+                            <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
+                            Looks like you have some pending Event Requests</h2>
+                            {/* <div className="card-flex"></div> */}
+                        </div>
+                        
+                        <div className= "mentor-mycards" id="mentor-card-container">
+                        <h2 style={{paddingTop: "25px"}} id="headingdutymentor" class="hidden">Assigned Student for Event</h2>
+                                {/* <div className="card-flex"></div> */}
+                        </div>    
+                        {/* Holders for current slots */}
+                        <table class = "dayDiv" id='mondayHolder2'></table>
+                        <table class = "dayDiv" id='tuesdayHolder2'></table>
+                        <table class = "dayDiv" id='wednesdayHolder2'></table>
+                        <table class = "dayDiv" id='thursdayHolder2'></table>
+                        <table class = "dayDiv" id='fridayHolder2'></table>
+                        {/* end of holders */}
                         <div  id="editProfile">
                             <div>
                                 <h2>Edit Profile Settings</h2>
@@ -946,25 +968,7 @@ const MentorHomepage = (user) => {
                         <button className="editpass" onClick={Passeditor}>Edit Password</button>
                         
 
-                        </div>  
-                        {/* Div with card */}
-                        <div className = "mycards" id="card-container">
-                            <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
-                            Looks like you have some pending Event Requests</h2>
-                            {/* <div className="card-flex"></div> */}
                         </div>
-                        
-                        <div className= "mentor-mycards" id="mentor-card-container">
-                        <h2 style={{paddingTop: "25px"}} id="headingdutymentor" class="hidden">Assigned Student for Event</h2>
-                                {/* <div className="card-flex"></div> */}
-                        </div>    
-                        {/* Holders for current slots */}
-                        <table class = "dayDiv" id='mondayHolder2'></table>
-                        <table class = "dayDiv" id='tuesdayHolder2'></table>
-                        <table class = "dayDiv" id='wednesdayHolder2'></table>
-                        <table class = "dayDiv" id='thursdayHolder2'></table>
-                        <table class = "dayDiv" id='fridayHolder2'></table>
-                        {/* end of holders */}
                     </Container>        
                     
 
