@@ -60,6 +60,10 @@ const Login = ({ setLoginUser }) => {
                 else if(res.data.message === "Student"){
                     history.push("/studentPortal")
                 }
+                else{
+                    document.getElementById("passspan").innerHTML="Wrong password";
+                    document.querySelector('.passspan').style.color="red";
+                }
             })
     }
     
@@ -349,6 +353,7 @@ const Login = ({ setLoginUser }) => {
                     <div class="inputBox">
                                 <i class='bx bxs-user'></i>
                                 <input className="passcode" type="password" placeholder="Password" name="password" value={user.password}  onChange={handleChange}/>
+                                <span class="passspan"id="passspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
                     <btn  type="submit" value="Login" class="newbtn2" onClick={login}>Login</btn>
