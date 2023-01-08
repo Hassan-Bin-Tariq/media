@@ -16,6 +16,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import ghous from "../../assets/ghous.jpg";
+import Carousel from 'react-bootstrap/Carousel';
+import icit from '../../assets/icit.jpg'
+import c from '../../assets/c.png'
+import cc from '../../assets/cc.png'
+import ccc from '../../assets/ccc.png'
+import cccc from '../../assets/cccc.png'
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -804,6 +810,7 @@ const PhotographyHomepage = (user) => {
             $('#showeventsid').show();
         });
        hidePass();
+       hideAlbum();
     }
     const hideEvent = () => {
         
@@ -814,6 +821,18 @@ const PhotographyHomepage = (user) => {
     //    hideeventdeets();
     }
    
+    const showAlbum = () => {
+        $(function () {
+            $('#myGallery').show();
+        });
+        hideEvent();
+        hidePass();
+    }
+    const hideAlbum = () => {
+        $(function () {
+            $('#myGallery').hide();
+        });
+    }
     return (
         
         <>
@@ -829,7 +848,7 @@ const PhotographyHomepage = (user) => {
 
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
-                    <button  onClick="/" className="sidebarbtn" >
+                    <button  onClick={showAlbum} className="sidebarbtn" >
                                 <FaGripHorizontal className="sidebaricon"/> My Albums
                     </button>
                     <button  onClick={GetEvents} className="sidebarbtn">
@@ -866,6 +885,49 @@ const PhotographyHomepage = (user) => {
                     </button>
                     {/* Div with card */}
                     <Container className="cardBody" >
+                    <div className="student-container" id="myGallery">
+                        <h2>Take a look at some of our picks for you</h2>
+                        <div className='student-slider'>
+                            <Carousel fade className="d-block w-100 h-100">
+                                <Carousel.Item className="d-block w-100 h-100" interval={5000} backgroundColor="#f8f7f2">
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={icit}
+                                    alt="First slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cc}
+                                    alt="Second slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={ccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={c}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
+                        </div>
+                        <p>Stay tuned for more personalized content!</p>
+                    </div>
                         <div className="photo-flexcard" id="showeventsid">
                             <div className= "mycards" id="photo-card-container">
                             {/* <div className="card-flex"></div> */}
