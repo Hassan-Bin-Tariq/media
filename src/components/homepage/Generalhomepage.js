@@ -844,7 +844,19 @@ return (
         }
          {/*////////////// */} 
        
-                    <div className="student-container" id="myGallery">
+                   
+               
+
+
+            <div className="mentor-flex2">
+                
+                    
+                <button  className="flex2user">
+                            <FaUserAlt />
+                </button>
+                <Container className='cardBody'>
+                        
+                <div className="student-container" id="myGallery">
                         <h2>Take a look at some of our picks for you</h2>
                         <div className='student-slider'>
                             <Carousel fade className="d-block w-100 h-100">
@@ -887,18 +899,6 @@ return (
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-               
-
-
-            <div className="mentor-flex2">
-                
-                    
-                <button  className="flex2user">
-                            <FaUserAlt />
-                </button>
-                <Container className='cardBody'>
-                        
-                        
                     <div className="currentslotdiv" id="currentdiv">
                         <div id="name">
                             <h3 className="zx">Here's your current available time slots </h3>
