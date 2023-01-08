@@ -19,6 +19,12 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
+import Carousel from 'react-bootstrap/Carousel';
+import icit from '../../assets/icit.jpg'
+import c from '../../assets/c.png'
+import cc from '../../assets/cc.png'
+import ccc from '../../assets/ccc.png'
+import cccc from '../../assets/cccc.png'
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -567,49 +573,6 @@ const GeneralHomepage = (user) => {
             alert("Password not matched")
         }
     }
-    const showPass = () => {
-        const targetDiv = document.getElementById("editProfile");
-        // if (targetDiv.style.display !== "none") {
-        //     targetDiv.style.display = "none";
-        //   } else {
-            targetDiv.style.display = "block";
-          //}
-          //hideDuty();
-          hideSlots();
-          hideTable();
-          hideCurrent();
-    }
-    const hidePass = () => {
-        $(function () {
-            $('#editProfile').hide();
-        });
-        showSlots();
-    }
-    const showSlots = () => {
-        $(function () {
-            $('#name').show();
-        });
-    }
-    const hideSlots= () => {
-    $(function () {
-        $('#name').hide();
-    });
-    }
-    const showCurrent = () => {
-        $(function () {
-            $('#currentdiv').show();
-            getallSlots();
-        });
-        
-        hideSlots();
-        hidePass();
-        hideTable();
-    }
-    const hideCurrent= () => {
-    $(function () {
-        $('#currentdiv').hide();
-    });
-    }
     function MondayDisabler()
     {
         
@@ -695,12 +658,12 @@ const GeneralHomepage = (user) => {
         {
             document.getElementById("tbg-btn-21").disabled = false;
 
-            document.getElementById("tbg-btn-15").disabled = true;
-            document.getElementById("tbg-btn-16").disabled = true;
-            document.getElementById("tbg-btn-17").disabled = true;
-            document.getElementById("tbg-btn-18").disabled = true;
-            document.getElementById("tbg-btn-19").disabled = true;
-            document.getElementById("tbg-btn-20").disabled = true;
+            document.getElementById("tbg-btn-15").disabled = false;
+            document.getElementById("tbg-btn-16").disabled = false;
+            document.getElementById("tbg-btn-17").disabled = false;
+            document.getElementById("tbg-btn-18").disabled = false;
+            document.getElementById("tbg-btn-19").disabled = false;
+            document.getElementById("tbg-btn-20").disabled = false;
         }
 
 
@@ -726,12 +689,12 @@ const GeneralHomepage = (user) => {
         {
             document.getElementById("tbg-btn-28").disabled = false;
 
-            document.getElementById("tbg-btn-22").disabled = true;
-            document.getElementById("tbg-btn-23").disabled = true;
-            document.getElementById("tbg-btn-24").disabled = true;
-            document.getElementById("tbg-btn-25").disabled = true;
-            document.getElementById("tbg-btn-26").disabled = true;
-            document.getElementById("tbg-btn-27").disabled = true;
+            document.getElementById("tbg-btn-22").disabled = false;
+            document.getElementById("tbg-btn-23").disabled = false;
+            document.getElementById("tbg-btn-24").disabled = false;
+            document.getElementById("tbg-btn-25").disabled = false;
+            document.getElementById("tbg-btn-26").disabled = false;
+            document.getElementById("tbg-btn-27").disabled = false;
         }
 
 
@@ -758,18 +721,76 @@ const GeneralHomepage = (user) => {
         {
             document.getElementById("tbg-btn-35").disabled = false;
 
-            document.getElementById("tbg-btn-29").disabled = true;
-            document.getElementById("tbg-btn-30").disabled = true;
-            document.getElementById("tbg-btn-31").disabled = true;
-            document.getElementById("tbg-btn-32").disabled = true;
-            document.getElementById("tbg-btn-33").disabled = true;
-            document.getElementById("tbg-btn-34").disabled = true;
+            document.getElementById("tbg-btn-29").disabled = false;
+            document.getElementById("tbg-btn-30").disabled = false;
+            document.getElementById("tbg-btn-31").disabled = false;
+            document.getElementById("tbg-btn-32").disabled = false;
+            document.getElementById("tbg-btn-33").disabled = false;
+            document.getElementById("tbg-btn-34").disabled = false;
         }
 
 
     }
-    
-    
+    const showPass = () => {
+        const targetDiv = document.getElementById("editProfile");
+        // if (targetDiv.style.display !== "none") {
+        //     targetDiv.style.display = "none";
+        //   } else {
+            targetDiv.style.display = "block";
+          //}
+          //hideDuty();
+          hideSlots();
+          hideTable();
+          hideCurrent();
+          hideAlbum();
+    }
+    const hidePass = () => {
+        $(function () {
+            $('#editProfile').hide();
+        });
+        showSlots();
+    }
+    const showSlots = () => {
+        $(function () {
+            $('#name').show();
+        });
+    }
+    const hideSlots= () => {
+    $(function () {
+        $('#name').hide();
+    });
+    }
+    const showCurrent = () => {
+        $(function () {
+            $('#currentdiv').show();
+            getallSlots();
+        });
+        
+        hideSlots();
+        hidePass();
+        hideTable();
+        hideAlbum();
+    }
+    const hideCurrent= () => {
+    $(function () {
+        $('#currentdiv').hide();
+    });
+    }
+   
+    const showAlbum = () => {
+        $(function () {
+            $('#myGallery').show();
+        });
+        hidePass();
+        hideCurrent();
+        hideDuty();
+        hideSlots();
+    }
+    const hideAlbum = () => {
+        $(function () {
+            $('#myGallery').hide();
+        });
+    }
 
 
 return (
@@ -787,7 +808,7 @@ return (
 
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
-                    <button  onClick="/" className="sidebarbtn">
+                    <button  onClick={showAlbum} className="sidebarbtn">
                         <FaImage className="sidebaricon"/> My Albums
                     </button>
                     <button  className="sidebarbtn" onClick={showCurrent}>
@@ -818,12 +839,57 @@ return (
                 </CDBSidebarFooter>
                 </CDBSidebar>
         </div>
-        {/*gb popover///*/}
-             <div id='overllay'>
-           
+        {
+            /**albums div */
+        }
+         {/*////////////// */} 
+       
+                    <div className="student-container" id="myGallery">
+                        <h2>Take a look at some of our picks for you</h2>
+                        <div className='student-slider'>
+                            <Carousel fade className="d-block w-100 h-100">
+                                <Carousel.Item className="d-block w-100 h-100" interval={5000} backgroundColor="#f8f7f2">
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={icit}
+                                    alt="First slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cc}
+                                    alt="Second slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={ccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={c}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
+                        </div>
+                        <p>Stay tuned for more personalized content!</p>
+                    </div>
+               
 
-                </div>
-            {/*////////////// */}
+
             <div className="mentor-flex2">
                 
                     
