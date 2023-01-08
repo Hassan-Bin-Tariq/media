@@ -83,30 +83,145 @@ const Login = ({ setLoginUser }) => {
     const handleRegChange = e => {
         const { name, value } = e.target
         console.log(name,value);
+        var na=document.getElementById("names").value;
+        var em=document.getElementById("emails").value;
+        var pas=document.getElementById("passwords").value;
+        var re=document.getElementById("repasswords").value;
+        ///// NAME VALIDATIONS ////////
+        var NumInName = na.replace ( /[^\d.]/g, '' );
+        console.log(NumInName)
+        if(na==="")
+        {
+            document.getElementById("namespan").innerHTML="* please fill name field";
+            console.log("name less than 3")
+            document.querySelector('.namespan').style.color="red";
+        }
+        else if(na.includes(" "))
+        {
+            document.getElementById("namespan").innerHTML="* spaces not allowed";
+            console.log("name less than 3")
+            document.querySelector('.namespan').style.color="red";
+        }
+        else if(na.includes(".")||na.includes(",")||na.includes("*")||na.includes("/")||na.includes("$")||na.includes("@")||na.includes("#")||na.includes("%")||na.includes("^")||na.includes("&")||na.includes("(")||na.includes(")")||na.includes("{")||na.includes("}"))
+        {
+            document.getElementById("namespan").innerHTML="* special characters not allowed";
+            console.log("name less than 3")
+            document.querySelector('.namespan').style.color="red";
+        }
+        else if(!isNaN(na) || NumInName != "" ) //abc //123 //abc123
+        {
+            var str1 = na.replace ( /[^\d.]/g, '' );
+            console.log(typeof str1);
+            document.getElementById("namespan").innerHTML="* numeric characters not allowed";
+            console.log("numeric not allowed")
+            document.querySelector('.namespan').style.color="red";
+        }
+        else if(na.length <3)
+        {
+            document.getElementById("namespan").innerHTML="* name less than 3";
+            console.log("name less than 3")
+            document.querySelector('.namespan').style.color="red";
+        }
+        else if(na.length>=3 && !na.includes(" ") && isNaN(na) && na!="" )
+        {
+            document.getElementById("namespan").innerHTML="correct name";
+            document.querySelector('.namespan').style.color="green";
+
+        }
+        /////EMAIL VALIDATIONS////
+        if(!em.startsWith("f") )
+        {
+            document.getElementById("emailspan").innerHTML="* email starts with f";
+            document.querySelector('.emailspan').style.color="red";
+        }
+        if(!em.endsWith("@nu.edu.pk") )
+        {
+            document.getElementById("emailspan").innerHTML="* email must be nu.edu.pk";
+            document.querySelector('.emailspan').style.color="red";
+        }
+        else if(em.includes(" "))
+        {
+            document.getElementById("emailspan").innerHTML="* spaces not allowed";
+            document.querySelector('.emailspan').style.color="red";
+        }
+        if(em.length!=17 )
+        {
+            document.getElementById("emailspan").innerHTML="* incorrect email length";
+            document.querySelector('.emailspan').style.color="red";
+        }
+        else if(!em.includes("@nu.edu.pk"))
+        {
+            document.getElementById("emailspan").innerHTML="* incorrect email";
+            console.log("incorrect email")
+            document.querySelector('.emailspan').style.color="red";
+        }
+        else if(em.includes("@nu.edu.pk") && em.length==17 && em.startsWith("f") && em.endsWith("@nu.edu.pk") && !em.includes(" "))
+        {
+            document.getElementById("emailspan").innerHTML="correct email";
+            document.querySelector('.emailspan').style.color="green";
+        }
+        /////PASSWORD VALIDATIONS////
+        if(pas.includes(" "))
+        {
+            document.getElementById("passwordspan").innerHTML="* spaces not allowed";
+            document.querySelector('.passwordspan').style.color="red";
+            console.log("pass less than 8")
+        }
+        else if(pas.length <8)
+        {
+            document.getElementById("passwordspan").innerHTML="* length must be at least 8 characters";
+            document.querySelector('.passwordspan').style.color="red";
+            console.log("pass less than 8")
+        }
+        else if(pas.length >20)
+        {
+            document.getElementById("passwordspan").innerHTML="* too long";
+            document.querySelector('.passwordspan').style.color="red";
+            console.log("pass less than 8")
+        }
+        
+        else if(pas.length>=8 && pas.length<=20 && !pas.includes(" "))
+        {
+            document.getElementById("passwordspan").innerHTML="correct password";
+            document.querySelector('.passwordspan').style.color="green";
+            console.log("pass less than 8")
+        }
+        /////RE-ENTER PASSWORD VALIDATION
+        if(re!=pas)
+        {
+            document.getElementById("repasswordspan").innerHTML="passwords do not match";
+            document.querySelector('.repasswordspan').style.color="red";
+        }
+        else if(re==pas)
+        {
+            document.getElementById("repasswordspan").innerHTML="passwords match!";
+            document.querySelector('.repasswordspan').style.color="green";
+        }
+
         // NAME VALIDATIONS //
-        if(name==="name" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=3 && isNaN(value) )
-        {
-            console.log("so far so good!")
+        // if(name==="name" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=3 && isNaN(value) )
+        // {
+        //     console.log("so far so good!")
             
-        }
-        else if(name==="name" && /[^a-zA-Z0-9\-\/]/.test(value) || !isNaN(value))
-        {
-            console.log("characters not allowed,hun.")
-        }
-        else if(name==="name" && value.includes(" ") || value.includes(".") || value.includes("/") || value.length<3)
-        {
-            console.log("space no good")
-        }
-        // PASSWORD VALIDATIONS //
-        else if(name==="password" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=8 )
-        {
-            console.log("password good!")
+        // }
+        // else if(name==="name" && /[^a-zA-Z0-9\-\/]/.test(value) || !isNaN(value))
+        // {
+        //     console.log("characters not allowed,hun.")
+        // }
+        // else if(name==="name" && value.includes(" ") || value.includes(".") || value.includes("/") || value.length<3)
+        // {
+        //     console.log("space no good")
+        // }
+        // // PASSWORD VALIDATIONS //
+        // else if(name==="password" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=8 )
+        // {
+        //     console.log("password good!")
             
-        }
-        else if(name==="password" && value.includes(" ") || value.includes(".") || value.includes("/") || value.length<8 )
-        {
-            console.log("pass must be at least 8 digits")
-        }
+        // }
+        // else if(name==="password" && value.includes(" ") || value.includes(".") || value.includes("/") || value.length<8 )
+        // {
+        //     console.log("pass must be at least 8 digits")
+        // }
         // EMAIL VALIDATIONS //
         setUserReg({
             ...userReg,
@@ -217,21 +332,25 @@ const Login = ({ setLoginUser }) => {
                     <h2 class="title">Sign Up</h2>
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="text" name="name" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
+                        <input type="text" name="name" id="names" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
+                        <span class="namespan"id="namespan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="email" name="email" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
+                        <input type="email" name="email" id="emails" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
+                        <span class="emailspan" id="emailspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="password" name="password" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
+                        <input type="password" name="password" id="passwords" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
+                        <span class="passwordspan" id="passwordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
                     <div class="inputBox">
                         <i class='bx bxs-user'></i>
-                        <input type="password" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
+                        <input type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
+                        <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
                     
 
