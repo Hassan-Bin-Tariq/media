@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"
 import emailjs from "emailjs-com";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
-import {Button} from "react-bootstrap";
+import {Button,Container} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import navlogo from "../../assets/Picture1.png";
 import ghous from "../../assets/ghous.jpg";
@@ -227,6 +227,7 @@ const MentorHomepage = (user) => {
     }
 
     const GetEvents = () => {
+        showEvent();
         const xhr = new XMLHttpRequest();
         eventts.forEach(myFunction);
 
@@ -260,7 +261,45 @@ const MentorHomepage = (user) => {
                     console.log(GeneralBodies[g].Duty.venue)
                     console.log(GeneralBodies[g].Duty.Date)
                     console.log(GeneralBodies[g].Duty.Slot)
+                    console.log("turn no."+g)
                     //////// DYNAMIC VISUALIZATION ///////
+                    let card = document.createElement('div');
+                    card.className = 'cardDutyMentor';
+                    
+
+                    let cardBody = document.createElement('div');
+                    cardBody.className = 'card-body-duty-mentor';
+
+                    let underline = document.createElement('div');
+                    underline.className = 'underline-duty-student';
+
+                    let student = document.createElement('h3');
+                    student.innerText ="Student: "+ GeneralBodies[g].name;
+                    student.className = 'assign-student-card-title';
+
+                    let email = document.createElement('h5');
+                    email.innerText = "Email: "+ GeneralBodies[g].email;
+                    email.className = 'assign-student-card-text';
+
+                    let date = document.createElement('div');
+                    date.innerText = "Free Slot: "+ GeneralBodies[g].Duty.Slot;
+                    date.className = 'assign-student-card-text';
+
+                    let venue = document.createElement('h5');
+                    venue.innerText = "Venue: "+ GeneralBodies[g].Duty.venue;
+                    venue.className = 'assign-student-card-text';
+
+                    cardBody.appendChild(student);
+                    cardBody.appendChild(underline);
+                    cardBody.appendChild(email);
+                    cardBody.appendChild(date);
+                    cardBody.appendChild(venue);
+                    card.appendChild(cardBody);
+                    // i+=1;
+                    $('#mentor-card-container').empty();
+                    let container = document.querySelector("#mentor-card-container");
+                    container.appendChild(card);
+
                     
                 }
             }
@@ -560,6 +599,7 @@ const MentorHomepage = (user) => {
 
     var givenslots;
     function checkFreeSlots(){
+        showSlots();
         axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
         .then(res => {
             const data = res.data;
@@ -574,6 +614,85 @@ const MentorHomepage = (user) => {
             alert('Error in fetching GB members');
         })
 
+    }
+    const showSlots = () => {
+        
+        $(function () {
+            $('#mondayHolder').show();
+            $('#tuesdayHolder').show();
+            $('#wednesdayHolder').show();
+            $('#thursdayHolder').show();
+            $('#fridayHolder').show();
+            
+        });
+        hideEvent();
+        hideDuty();
+    }
+    const hideSlots = () => {
+        
+        $(function () {
+            $('#mondayHolder').hide();
+            $('#tuesdayHolder').hide();
+            $('#wednesdayHolder').hide();
+            $('#thursdayHolder').hide();
+            $('#fridayHolder').hide();
+            
+        });
+    //    hidePass();
+    //    hideForm();
+    }
+    const showDuty = () => {
+        
+        $(function () {
+            $('#mentor-card-container').show();
+            
+        });
+        $(function () {
+            $('#headingdutymentor').show();
+        });
+        hideEvent();
+        hideSlots();
+    }
+    const hideDuty = () => {
+        
+        $(function () {
+            $('#mentor-card-container').hide();
+            
+        });
+        $(function () {
+            $('#headingdutymentor').hide();
+        });
+    //    hidePass();
+    //    hideForm();
+    }
+    const showEvent = () => {
+        
+        $(function () {
+            $('#card-container').show();
+            
+        });
+        hideDuty();
+        hideSlots();
+    }
+    const hideEvent = () => {
+        
+        $(function () {
+            $('#card-container').hide();
+            
+        });
+    //    hidePass();
+    //    hideForm();
+    }
+
+    const GetDuties = () => {
+        // hidePass();
+        showDuty();
+        const xhr = new XMLHttpRequest();
+        // eventts.forEach(checkAssigned);
+        checkAssigned();
+        let container = document.querySelector("#teacher-card-container");
+        console.log(container.childNodes);
+       
     }
     return (
 
@@ -597,7 +716,7 @@ const MentorHomepage = (user) => {
                     <button  onClick={GetEvents} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Event Requests
                     </button>
-                    <button  onClick={checkAssigned} className="sidebarbtn">
+                    <button  onClick={GetDuties} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Check Assigned Students
                     </button>
                     <button  onClick={checkFreeSlots} className="sidebarbtn">
@@ -630,13 +749,27 @@ const MentorHomepage = (user) => {
                     </button>
                 
                     
-                            
-                    {/* Div with card */}
-                    <div class = "cardBody" id="card-container">
-                        <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
-                        Looks like you have some pending Event Requests</h2>
-                        {/* <div className="card-flex"></div> */}
-                    </div>
+                    <Container className="cardBody">
+                        {/* Div with card */}
+                        <div className = "mycards" id="card-container">
+                            <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
+                            Looks like you have some pending Event Requests</h2>
+                            {/* <div className="card-flex"></div> */}
+                        </div>
+                        
+                        <div className= "mentor-mycards" id="mentor-card-container">
+                        <h2 style={{paddingTop: "25px"}} id="headingdutymentor" class="hidden">Assigned Student for Event</h2>
+                                {/* <div className="card-flex"></div> */}
+                        </div>    
+                        {/* Holders for current slots */}
+                        <div class = "dayDiv" id='mondayHolder'></div>
+                        <div class = "dayDiv" id='tuesdayHolder'></div>
+                        <div class = "dayDiv" id='wednesdayHolder'></div>
+                        <div class = "dayDiv" id='thursdayHolder'></div>
+                        <div class = "dayDiv" id='fridayHolder'></div>
+                        {/* end of holders */}
+                    </Container>        
+                    
 
                     {/* Div with card end */}
             </div>
@@ -647,13 +780,7 @@ const MentorHomepage = (user) => {
             <br></br> */}
             
             
-            {/* Holders for current slots */}
-            <div class = "dayDiv" id='mondayHolder'></div>
-            <div class = "dayDiv" id='tuesdayHolder'></div>
-            <div class = "dayDiv" id='wednesdayHolder'></div>
-            <div class = "dayDiv" id='thursdayHolder'></div>
-            <div class = "dayDiv" id='fridayHolder'></div>
-            {/* end of holders */}
+            
             
             {/* CHECK DETAILS START */}
             {

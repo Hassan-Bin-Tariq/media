@@ -795,8 +795,8 @@ const PhotographyHomepage = (user) => {
         $(function () {
             $('#editProfile').show();
         });
-        hideEvent();
-        hideAlbum();
+      hideEvent();
+      hideAlbum();
     }
     const hidePass = () => {
         
@@ -828,6 +828,7 @@ const PhotographyHomepage = (user) => {
         });
         hideEvent();
         hidePass();
+
     }
     const hideAlbum = () => {
         $(function () {
