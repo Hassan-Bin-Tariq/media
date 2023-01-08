@@ -166,6 +166,27 @@ h3
     grid-template-columns: 15% 85%;
     padding: 0 0.4rem;
     position: relative;
+    margin-bottom: 20px;
+  }
+
+  .namespan{
+    width: 300px;
+    margin-top: 20px;
+  }
+
+  .emailspan{
+    width: 300px;
+    margin-top: 20px;
+  }
+
+  .passwordspan{
+    width: 300px;
+    margin-top: 20px;
+  }
+
+  .repasswordspan{
+    width: 300px;
+    margin-top: 20px;
   }
 
   .inputBox input {

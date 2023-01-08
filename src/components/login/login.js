@@ -81,12 +81,16 @@ const Login = ({ setLoginUser }) => {
     })
 
     const handleRegChange = e => {
+        
         const { name, value } = e.target
         console.log(name,value);
         var na=document.getElementById("names").value;
         var em=document.getElementById("emails").value;
         var pas=document.getElementById("passwords").value;
         var re=document.getElementById("repasswords").value;
+
+
+        document.querySelector('.inputBox').style.border = "red";
         ///// NAME VALIDATIONS ////////
         var NumInName = na.replace ( /[^\d.]/g, '' );
         console.log(NumInName)
@@ -124,16 +128,18 @@ const Login = ({ setLoginUser }) => {
         }
         else if(na.length>=3 && !na.includes(" ") && isNaN(na) && na!="" )
         {
-            document.getElementById("namespan").innerHTML="correct name";
+            document.getElementById("namespan").innerHTML="Name Accepted";
             document.querySelector('.namespan').style.color="green";
+ 
+            
 
         }
         /////EMAIL VALIDATIONS////
-        if(!em.startsWith("f") )
-        {
-            document.getElementById("emailspan").innerHTML="* email starts with f";
-            document.querySelector('.emailspan').style.color="red";
-        }
+        // if(!em.startsWith("f") )
+        // {
+        //     document.getElementById("emailspan").innerHTML="* email starts with f";
+        //     document.querySelector('.emailspan').style.color="red";
+        // }
         if(!em.endsWith("@nu.edu.pk") )
         {
             document.getElementById("emailspan").innerHTML="* email must be nu.edu.pk";
@@ -144,20 +150,20 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("emailspan").innerHTML="* spaces not allowed";
             document.querySelector('.emailspan').style.color="red";
         }
-        if(em.length!=17 )
+        // if(em.length!=17 )
+        // {
+        //     document.getElementById("emailspan").innerHTML="* incorrect email length";
+        //     document.querySelector('.emailspan').style.color="red";
+        // }
+        // else if(!em.includes("@nu.edu.pk"))
+        // {
+        //     document.getElementById("emailspan").innerHTML="* incorrect email";
+        //     console.log("incorrect email")
+        //     document.querySelector('.emailspan').style.color="red";
+        // }
+        else if(em.endsWith("@nu.edu.pk") && !em.includes(" "))
         {
-            document.getElementById("emailspan").innerHTML="* incorrect email length";
-            document.querySelector('.emailspan').style.color="red";
-        }
-        else if(!em.includes("@nu.edu.pk"))
-        {
-            document.getElementById("emailspan").innerHTML="* incorrect email";
-            console.log("incorrect email")
-            document.querySelector('.emailspan').style.color="red";
-        }
-        else if(em.includes("@nu.edu.pk") && em.length==17 && em.startsWith("f") && em.endsWith("@nu.edu.pk") && !em.includes(" "))
-        {
-            document.getElementById("emailspan").innerHTML="correct email";
+            document.getElementById("emailspan").innerHTML="Email Accepted";
             document.querySelector('.emailspan').style.color="green";
         }
         /////PASSWORD VALIDATIONS////
@@ -182,7 +188,7 @@ const Login = ({ setLoginUser }) => {
         
         else if(pas.length>=8 && pas.length<=20 && !pas.includes(" "))
         {
-            document.getElementById("passwordspan").innerHTML="correct password";
+            document.getElementById("passwordspan").innerHTML="Password accepted";
             document.querySelector('.passwordspan').style.color="green";
             console.log("pass less than 8")
         }
@@ -194,7 +200,7 @@ const Login = ({ setLoginUser }) => {
         }
         else if(re==pas)
         {
-            document.getElementById("repasswordspan").innerHTML="passwords match!";
+            document.getElementById("repasswordspan").innerHTML="Passwords matched!";
             document.querySelector('.repasswordspan').style.color="green";
         }
 
@@ -330,24 +336,24 @@ const Login = ({ setLoginUser }) => {
                     </div> 
                     
                     <h2 class="title">Sign Up</h2>
-                    <div class="inputBox">
+                    <div class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="text" name="name" id="names" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
                         <span class="namespan"id="namespan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
-                    <div class="inputBox">
+                    <div class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="email" name="email" id="emails" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
                         <span class="emailspan" id="emailspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
-                    <div class="inputBox">
+                    <div class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="password" name="password" id="passwords" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
                         <span class="passwordspan" id="passwordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
-                    <div class="inputBox">
+                    <div class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
                         <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
