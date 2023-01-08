@@ -152,10 +152,17 @@ const GeneralHomepage = (user) => {
                 }
             }
 
-            let mon1= document.querySelector("#mondayHolder");
-            mon1.appendChild(MondayWritten);
-            
-            
+            let monday= document.querySelector("#mondayHolder");
+            monday.appendChild(MondayWritten);
+
+            monday.appendChild(firstSlot);
+            monday.appendChild(secondslot);
+            monday.appendChild(thirdlot);
+            monday.appendChild(forthslot);
+            monday.appendChild(fifthslot);
+            monday.appendChild(sixslot);
+            monday.appendChild(nonslot);
+
         }
 
         else if(i === 1)
@@ -205,13 +212,13 @@ const GeneralHomepage = (user) => {
             let tuesday = document.querySelector("#tuesdayHolder");
             tuesday.appendChild(TuesdayWritten);
             
-           /* tuesday.appendChild(firstSlot);
+            tuesday.appendChild(firstSlot);
             tuesday.appendChild(secondslot);
             tuesday.appendChild(thirdlot);
             tuesday.appendChild(forthslot);
             tuesday.appendChild(fifthslot);
             tuesday.appendChild(sixslot);
-            tuesday.appendChild(nonslot);*/
+            tuesday.appendChild(nonslot);
         }
 
         else if(i === 2)
@@ -327,7 +334,7 @@ const GeneralHomepage = (user) => {
         else if(i === 4)
         {
             let FridayWritten = document.createElement('h4')
-            //FridayWritten.innerText = "Friday";
+            FridayWritten.innerText = "Friday";
 
             let firstSlot = document.createElement('h2');
             let secondslot = document.createElement('h2');
@@ -369,8 +376,9 @@ const GeneralHomepage = (user) => {
             }
 
             let friday = document.querySelector("#fridayHolder");
-           // friday.appendChild(FridayWritten);
-            //friday.appendChild(firstSlot);
+            friday.appendChild(FridayWritten);
+            
+            friday.appendChild(firstSlot);
             friday.appendChild(secondslot);
             friday.appendChild(thirdlot);
             friday.appendChild(forthslot);
@@ -585,7 +593,9 @@ const GeneralHomepage = (user) => {
     const showCurrent = () => {
         $(function () {
             $('#currentdiv').show();
+            getallSlots();
         });
+        
         hideSlots();
         hidePass();
         hideTable();
