@@ -219,7 +219,7 @@ const MentorHomepage = (user) => {
             mycard.appendChild(imgBx);
             
             // cardbody.appendChild(mycard);
-            $('#card-container').empty();
+            //$('#card-container').empty();
             let container = document.querySelector("#card-container");
             container.appendChild(mycard);    
         }
@@ -229,6 +229,7 @@ const MentorHomepage = (user) => {
     const GetEvents = () => {
         showEvent();
         const xhr = new XMLHttpRequest();
+        $('#card-container').empty();
         eventts.forEach(myFunction);
 
         let container = document.querySelector("#card-container");
@@ -580,7 +581,7 @@ const MentorHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-
+            
             let friday = document.querySelector("#fridayHolder");
             friday.appendChild(FridayWritten);
             
@@ -603,6 +604,11 @@ const MentorHomepage = (user) => {
         axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
         .then(res => {
             const data = res.data;
+            $('#mondayHolder').empty();
+            $('#tuesdayHolder').empty();
+            $('#wednesdayHolder').empty();
+            $('#thursdayHolder').empty();
+            $('#fridayHolder').empty();
             for(var all = 0; all<data.generalBodies.length ; all++)
             {
                 k = 0;
