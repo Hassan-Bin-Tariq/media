@@ -336,6 +336,25 @@ h2
   /* stopping sidebar from moving */
   
 }
+#mondayHolder{
+  display: none;
+}
+
+#tuesdayHolder{
+  display: none;
+}
+#wednesdayHolder{
+  display: none;
+}
+#thursdayHolder{
+  display: none;
+}
+#fridayHolder{
+  display: none;
+}
+
+
+
 
 .mycard {
   position: relative;
