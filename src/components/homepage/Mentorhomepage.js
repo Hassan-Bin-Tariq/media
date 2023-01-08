@@ -267,6 +267,314 @@ const MentorHomepage = (user) => {
         })
 
     }
+    let k = 0;
+    function slotsPrinter(slot) {
+
+        if(k === 0)
+        {
+            let MondayWritten = document.createElement('h4')
+            MondayWritten.innerText = "Monday";
+            MondayWritten.className="slotname"
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+           
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let monday= document.querySelector("#mondayHolder");
+            monday.appendChild(MondayWritten);
+
+            monday.appendChild(firstSlot);
+            monday.appendChild(secondslot);
+            monday.appendChild(thirdlot);
+            monday.appendChild(forthslot);
+            monday.appendChild(fifthslot);
+            monday.appendChild(sixslot);
+            monday.appendChild(nonslot);
+
+        }
+
+        else if(k === 1)
+        {
+            let TuesdayWritten = document.createElement('h4')
+            TuesdayWritten.innerText = "Tuesday";
+
+            TuesdayWritten.className="slotname"
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let tuesday = document.querySelector("#tuesdayHolder");
+            tuesday.appendChild(TuesdayWritten);
+            
+            tuesday.appendChild(firstSlot);
+            tuesday.appendChild(secondslot);
+            tuesday.appendChild(thirdlot);
+            tuesday.appendChild(forthslot);
+            tuesday.appendChild(fifthslot);
+            tuesday.appendChild(sixslot);
+            tuesday.appendChild(nonslot);
+        }
+
+        else if(k === 2)
+        {
+            let WednesdayWritten = document.createElement('h4')
+            WednesdayWritten.innerText = "Wednesday";
+
+            WednesdayWritten.className="slotname"
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let wednesday = document.querySelector("#wednesdayHolder");
+            wednesday.appendChild(WednesdayWritten);
+            wednesday.appendChild(firstSlot);
+            wednesday.appendChild(secondslot);
+            wednesday.appendChild(thirdlot);
+            wednesday.appendChild(forthslot);
+            wednesday.appendChild(fifthslot);
+            wednesday.appendChild(sixslot);
+            wednesday.appendChild(nonslot);
+        }
+
+        else if(k === 3)
+        {
+            let ThursdayWritten = document.createElement('h4')
+            ThursdayWritten.innerText = "Thursday";
+
+            ThursdayWritten.className="slotname"
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let thursday = document.querySelector("#thursdayHolder");
+            thursday.appendChild(ThursdayWritten);
+            thursday.appendChild(firstSlot);
+            thursday.appendChild(secondslot);
+            thursday.appendChild(thirdlot);
+            thursday.appendChild(forthslot);
+            thursday.appendChild(fifthslot);
+            thursday.appendChild(sixslot);
+            thursday.appendChild(nonslot);
+        }
+
+        else if(k === 4)
+        {
+            let FridayWritten = document.createElement('h4')
+            FridayWritten.innerText = "Friday";
+
+            FridayWritten.className="slotname"
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
+
+            for (let j = 0; j < slot.length; j++) {
+                if(slot[j] === 1)
+                {
+                    firstSlot.innerText = "8:45 - 10:10";
+                }
+                if(slot[j] === 2)
+                {
+                    secondslot.innerText = "10:15 - 11:40";
+                }
+                if(slot[j] === 3)
+                {
+                    thirdlot.innerText = "11:45 - 1:10";
+                }
+                if(slot[j] === 4)
+                {
+                    forthslot.innerText = "1:15 - 1:40";
+                }
+                if(slot[j] === 5)
+                {
+                    fifthslot.innerText = "1:45 - 3:10";
+                }
+                if(slot[j] === 6)
+                {
+                    sixslot.innerText = "3:15 - 4:45";
+                }
+                if(slot[j] === 7)
+                {
+                    nonslot.innerText = "None";
+                }
+            }
+
+            let friday = document.querySelector("#fridayHolder");
+            friday.appendChild(FridayWritten);
+            
+            friday.appendChild(firstSlot);
+            friday.appendChild(secondslot);
+            friday.appendChild(thirdlot);
+            friday.appendChild(forthslot);
+            friday.appendChild(fifthslot);
+            friday.appendChild(sixslot);
+            friday.appendChild(nonslot);
+        }
+
+        k+=1;
+    }
+
+
+    var givenslots;
+    function checkFreeSlots(){
+        axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
+        .then(res => {
+            const data = res.data;
+            for(var all = 0; all<data.generalBodies.length ; all++)
+            {
+                k = 0;
+                givenslots = data.generalBodies[all].slots;
+                console.log(givenslots);
+                givenslots.forEach(slotsPrinter);
+            }
+        }).catch(() => {
+            alert('Error in fetching GB members');
+        })
+
+    }
     return (
 
     <div>
@@ -291,6 +599,9 @@ const MentorHomepage = (user) => {
                     </button>
                     <button  onClick={checkAssigned} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Check Assigned Students
+                    </button>
+                    <button  onClick={checkFreeSlots} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Check Free Students
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={logOuter}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -336,7 +647,13 @@ const MentorHomepage = (user) => {
             <br></br> */}
             
             
-
+            {/* Holders for current slots */}
+            <div class = "dayDiv" id='mondayHolder'></div>
+            <div class = "dayDiv" id='tuesdayHolder'></div>
+            <div class = "dayDiv" id='wednesdayHolder'></div>
+            <div class = "dayDiv" id='thursdayHolder'></div>
+            <div class = "dayDiv" id='fridayHolder'></div>
+            {/* end of holders */}
             
             {/* CHECK DETAILS START */}
             {
