@@ -112,9 +112,11 @@ const GeneralHomepage = (user) => {
         {
             let MondayWritten = document.createElement('h4')
             MondayWritten.innerText = "Monday";
-
+            MondayWritten.className="slotname"
             let firstSlot = document.createElement('h5');
+            firstSlot.className="myslotsclass";
             let secondslot = document.createElement('h5');
+            secondslot.className="myslotsclass";
             let thirdlot = document.createElement('h5');
             let forthslot = document.createElement('h5');
             let fifthslot = document.createElement('h5');
@@ -124,11 +126,11 @@ const GeneralHomepage = (user) => {
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
                 {
-                    firstSlot.innerText = "8:45 - 10:10";
+                    firstSlot.innerText = " 1st Slot: 8:45 - 10:10";
                 }
                 if(slot[j] === 2)
                 {
-                    secondslot.innerText = "10:15 - 11:40";
+                    secondslot.innerText = "2nd Slot: 10:15 - 11:40";
                 }
                 if(slot[j] === 3)
                 {
