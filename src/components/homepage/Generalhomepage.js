@@ -634,7 +634,138 @@ const GeneralHomepage = (user) => {
             document.getElementById("tbg-btn-6").disabled = false;
         }
 
+       
     }
+    function TuesdayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-14").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-14").disabled = false;
+
+            document.getElementById("tbg-btn-8").disabled = true;
+            document.getElementById("tbg-btn-9").disabled = true;
+            document.getElementById("tbg-btn-10").disabled = true;
+            document.getElementById("tbg-btn-11").disabled = true;
+            document.getElementById("tbg-btn-12").disabled = true;
+            document.getElementById("tbg-btn-13").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-14").disabled = false;
+
+            document.getElementById("tbg-btn-8").disabled = false;
+            document.getElementById("tbg-btn-9").disabled = false;
+            document.getElementById("tbg-btn-10").disabled = false;
+            document.getElementById("tbg-btn-11").disabled = false;
+            document.getElementById("tbg-btn-12").disabled = false;
+            document.getElementById("tbg-btn-13").disabled = false;
+        }
+
+
+    }
+    
+
+    function WednesdayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-21").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-21").disabled = false;
+
+            document.getElementById("tbg-btn-15").disabled = true;
+            document.getElementById("tbg-btn-16").disabled = true;
+            document.getElementById("tbg-btn-17").disabled = true;
+            document.getElementById("tbg-btn-18").disabled = true;
+            document.getElementById("tbg-btn-19").disabled = true;
+            document.getElementById("tbg-btn-20").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-21").disabled = false;
+
+            document.getElementById("tbg-btn-15").disabled = true;
+            document.getElementById("tbg-btn-16").disabled = true;
+            document.getElementById("tbg-btn-17").disabled = true;
+            document.getElementById("tbg-btn-18").disabled = true;
+            document.getElementById("tbg-btn-19").disabled = true;
+            document.getElementById("tbg-btn-20").disabled = true;
+        }
+
+
+    }
+    function ThursdayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-28").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-28").disabled = false;
+
+            document.getElementById("tbg-btn-22").disabled = true;
+            document.getElementById("tbg-btn-23").disabled = true;
+            document.getElementById("tbg-btn-24").disabled = true;
+            document.getElementById("tbg-btn-25").disabled = true;
+            document.getElementById("tbg-btn-26").disabled = true;
+            document.getElementById("tbg-btn-27").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-28").disabled = false;
+
+            document.getElementById("tbg-btn-22").disabled = true;
+            document.getElementById("tbg-btn-23").disabled = true;
+            document.getElementById("tbg-btn-24").disabled = true;
+            document.getElementById("tbg-btn-25").disabled = true;
+            document.getElementById("tbg-btn-26").disabled = true;
+            document.getElementById("tbg-btn-27").disabled = true;
+        }
+
+
+    }
+    
+    function FridayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-35").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-35").disabled = false;
+
+            document.getElementById("tbg-btn-29").disabled = true;
+            document.getElementById("tbg-btn-30").disabled = true;
+            document.getElementById("tbg-btn-31").disabled = true;
+            document.getElementById("tbg-btn-32").disabled = true;
+            document.getElementById("tbg-btn-33").disabled = true;
+            document.getElementById("tbg-btn-34").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-35").disabled = false;
+
+            document.getElementById("tbg-btn-29").disabled = true;
+            document.getElementById("tbg-btn-30").disabled = true;
+            document.getElementById("tbg-btn-31").disabled = true;
+            document.getElementById("tbg-btn-32").disabled = true;
+            document.getElementById("tbg-btn-33").disabled = true;
+            document.getElementById("tbg-btn-34").disabled = true;
+        }
+
+
+    }
+    
+    
+
 
 return (
         
@@ -682,6 +813,11 @@ return (
                 </CDBSidebarFooter>
                 </CDBSidebar>
         </div>
+        {/*gb popover///*/}
+             <div id='overllay'>
+           
+
+                </div>
             {/*////////////// */}
             <div className="mentor-flex2">
                 
@@ -696,6 +832,7 @@ return (
                         <div id="name">
                             <h3 className="zx">Here's your current available time slots </h3>
                         </div>
+                        {getallSlots()};
                         {/* Holders for current slots */}
                         <div class = "dayDiv" id='mondayHolder'></div>
                         <div class = "dayDiv" id='tuesdayHolder'></div>
@@ -760,7 +897,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-13" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
+                                                <ToggleButton  onClick={TuesdayDisabler} className="none" variant="danger" id="tbg-btn-14" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -786,7 +923,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-20" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
+                                                <ToggleButton onClick={WednesdayDisabler}className="none" variant="danger" id="tbg-btn-21" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -812,7 +949,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-27" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
+                                                <ToggleButton onClick={ThursdayDisabler} className="none" variant="danger" id="tbg-btn-28" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -838,7 +975,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-34" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
+                                                <ToggleButton onClick={FridayDisabler} className="none" variant="danger" id="tbg-btn-35" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
