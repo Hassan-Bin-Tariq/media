@@ -113,13 +113,13 @@ const GeneralHomepage = (user) => {
             let MondayWritten = document.createElement('h4')
             MondayWritten.innerText = "Monday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -170,13 +170,13 @@ const GeneralHomepage = (user) => {
             let TuesdayWritten = document.createElement('h4')
             TuesdayWritten.innerText = "Tuesday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -226,13 +226,13 @@ const GeneralHomepage = (user) => {
             let WednesdayWritten = document.createElement('h4')
             WednesdayWritten.innerText = "Wednesday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+             let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -281,13 +281,13 @@ const GeneralHomepage = (user) => {
             let ThursdayWritten = document.createElement('h4')
             ThursdayWritten.innerText = "Thursday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -336,13 +336,13 @@ const GeneralHomepage = (user) => {
             let FridayWritten = document.createElement('h4')
             FridayWritten.innerText = "Friday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -359,7 +359,7 @@ const GeneralHomepage = (user) => {
                 }
                 if(slot[j] === 4)
                 {
-                    //forthslot.innerText = "1:15 - 1:40";
+                    forthslot.innerText = "1:15 - 1:40";
                 }
                 if(slot[j] === 5)
                 {
