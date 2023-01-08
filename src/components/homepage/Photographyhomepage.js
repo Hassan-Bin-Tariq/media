@@ -878,9 +878,10 @@ const PhotographyHomepage = (user) => {
                 </CDBSidebar>
             </div>
             {/*////////////// */} 
-            
+          
             <div  className="mentor-flex2">
                 
+               
                     
                     <button  className="flex2user">
                                 <FaUserAlt />
@@ -965,7 +966,7 @@ const PhotographyHomepage = (user) => {
                         
 
                         </div>  
-                        <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                        <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
             </div>

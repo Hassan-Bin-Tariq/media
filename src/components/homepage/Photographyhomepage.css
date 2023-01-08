@@ -12,6 +12,13 @@
     margin-left: 400px;
     margin-top: 70px;
 }
+#copyrights
+{
+  text-align: center;
+  margin-left: 25px;
+ 
+  margin-bottom: 2px;
+}
 .asdtest{
     position: relative;
     left: 0px;
