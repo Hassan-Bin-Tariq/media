@@ -83,10 +83,25 @@ const Login = ({ setLoginUser }) => {
 
     const handleRegChange = e => {
         const { name, value } = e.target
+        console.log(name,value);
+        if(name==="name" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=3 )
+        {
+            console.log("so far so good!")
+            
+        }
+        else if(name==="name" && /[^a-zA-Z0-9\-\/]/.test(value))
+        {
+            console.log("characters not allowed,hun.")
+        }
+        else if(value.includes(" ") || value.includes(".") || value.includes("/") || value.length<3)
+        {
+            console.log("space no good")
+        }
         setUserReg({
             ...userReg,
             [name]: value
         })
+        
     }
 
     const sendEmail = (name, email) => {
