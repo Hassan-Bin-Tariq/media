@@ -630,3 +630,23 @@ h2
   margin-left: 1020px;
   background-color: white;
 }
+.cardDutyMentor{
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items:flex-start;
+  justify-content:space-evenly;
+  background-color: transparent;
+}
+/* ASSIGN DUTY CARD */
+.card-body-duty-mentor{
+  background-color: rgb(43, 41, 41);
+  width: 300px;
+  height: 200px;
+  color: #f8f8f8;
+  align-items: center;
+  align-content: center;
+  justify-content:flex-end;
+  
+}
