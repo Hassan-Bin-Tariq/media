@@ -30,6 +30,7 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import {AiOutlineLogout} from "react-icons/ai";
 import Sidebar from "../Header/Sidebar";
+import $ from "jquery"
 
 var EventTitle;
 var EventDescription;
@@ -218,6 +219,7 @@ const MentorHomepage = (user) => {
             mycard.appendChild(imgBx);
             
             // cardbody.appendChild(mycard);
+            $('#card-container').empty();
             let container = document.querySelector("#card-container");
             container.appendChild(mycard);    
         }
