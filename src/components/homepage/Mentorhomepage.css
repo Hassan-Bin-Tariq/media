@@ -336,23 +336,155 @@ h2
   /* stopping sidebar from moving */
   
 }
-#mondayHolder{
+/* #mondayHolder{
   display: none;
   margin-left: 10px;
 
   width: 180px;
   height: 200px;
+} */
+#mondayHolder2 {
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 800px;
+  margin-left: -80px;
 }
 
-#tuesdayHolder{
+#mondayHolder2 td, #mondayHolder2 th {
+  border: 1px solid #ddd;
+  padding: 1px;
+  
+}
+
+#mondayHolder2 tr{
+  background-color: rgb(180, 172, 172);
+  font-size: 18px;
+}
+
+#mondayHolder2 th {
+  width:200px;
+  text-align: left;
+  background-color: rgb(59, 57, 57);
+  color: white;
+}
+/* tue */
+#tuesdayHolder2 {
+  display: none;
+  margin-left: -80px;
+  width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  /* width: 100%; */
+}
+
+#tuesdayHolder2 td, #tuesdayHolder2 th {
+  border: 1px solid #ddd;
+  padding: 1px;
+  
+}
+
+#tuesdayHolder2 tr{
+  background-color: rgb(180, 172, 172);
+  font-size: 18px;
+}
+
+#tuesdayHolder2 th {
+  width:200px;
+  text-align: left;
+  background-color: rgb(59, 57, 57);
+  color: white;
+}
+/* wed */
+#wednesdayHolder2 {
+  display: none;
+  margin-left: -80px;
+  width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  /* width: 100%; */
+}
+
+#wednesdayHolder2 td, #wednesdayHolder2 th {
+  border: 1px solid #ddd;
+  padding: 1px;
+  
+}
+
+#wednesdayHolder2 tr{
+  background-color: rgb(180, 172, 172);
+  font-size: 18px;
+}
+
+#wednesdayHolder2 th {
+  width:200px;
+  text-align: left;
+  background-color: rgb(59, 57, 57);
+  color: white;
+}
+/* thur */
+#thursdayHolder2 {
+  display: none;
+  margin-left: -80px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 800px;
+}
+
+#thursdayHolder2 td, #thursdayHolder2 th {
+  border: 1px solid #ddd;
+  padding: 1px;
+  
+}
+
+#thursdayHolder2 tr{
+  background-color: rgb(180, 172, 172);
+  font-size: 18px;
+  width:200px;
+}
+
+#thursdayHolder2 th {
+  width:200px;
+  text-align: left;
+  background-color: rgb(59, 57, 57);
+  color: white;
+}
+/* fri */
+#fridayHolder2 {
+  display: none;
+  margin-left: -80px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  /* width: 100%; */
+  width: 800px;
+}
+#fridayHolder2 td, #fridayHolder2 th {
+  border: 1px solid #ddd;
+  padding: 1px;
+  
+}
+
+#fridayHolder2 tr{
+  background-color: rgb(180, 172, 172);
+  font-size: 18px;
+}
+
+#fridayHolder2 th {
+  width:200px;
+  text-align: left;
+  background-color: rgb(59, 57, 57);
+  color: white;
+}
+
+/* #tuesdayHolder{
   display: none;
   margin-left: 10px;
 
   width: 180px;
   height: 200px;
-}
+} */
 
-#wednesdayHolder{
+/* #wednesdayHolder{
   display: none;
   margin-left: 10px;
 
@@ -373,7 +505,7 @@ h2
 
   width: 180px;
   height: 200px;
-}
+} */
 
 
 
