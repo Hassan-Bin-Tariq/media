@@ -529,7 +529,7 @@ const PhotographyHomepage = (user) => {
     function EventDetails(event)
     {
 
-        hidePass();
+        // hidePass();
         console.log(event.target.id)
         var str1 = event.target.id.replace( /[^\d.]/g, '' );
         EventTitle = eventts[str1].title;
@@ -644,7 +644,7 @@ const PhotographyHomepage = (user) => {
         handleShow();
     }
     function myFunction(item) {
-        hidePass();
+        // hidePass();
         // let cardbody = document.createElement('div');
         // cardbody.className = 'photo-cardbody'
         let mycard = document.createElement('div');
@@ -737,7 +737,8 @@ const PhotographyHomepage = (user) => {
         i +=1    
     }
     const GetEvents = () => {
-        hidePass();
+        // hidePass();
+        showEvent();
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetAcceptEvent", )
         .then(res => {
@@ -787,7 +788,7 @@ const PhotographyHomepage = (user) => {
         $(function () {
             $('#editProfile').show();
         });
-      //hideEvent();
+      hideEvent();
     }
     const hidePass = () => {
         
@@ -799,16 +800,17 @@ const PhotographyHomepage = (user) => {
     const showEvent = () => {
         
         $(function () {
-            $('#eventdeets').show();
+            $('#showeventsid').show();
         });
-       //hideeventdeets();
+       hidePass();
     }
     const hideEvent = () => {
         
         $(function () {
-            $('#eventdeets').hide();
+            $('#showeventsid').hide();
         });
-       //hideeventdeets();
+        
+    //    hideeventdeets();
     }
    
     return (
@@ -862,9 +864,8 @@ const PhotographyHomepage = (user) => {
                                 <FaUserAlt />
                     </button>
                     {/* Div with card */}
-                    <div id="eventdeets">
-                    <Container className="cardBody">
-                        <div className="photo-flexcard">
+                    <Container className="cardBody" >
+                        <div className="photo-flexcard" id="showeventsid">
                             <div className= "mycards" id="photo-card-container">
                             {/* <div className="card-flex"></div> */}
                             </div>
@@ -901,7 +902,6 @@ const PhotographyHomepage = (user) => {
                         </div>  
                         <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
-                    </div>
                     {/* Div with card end */}
             </div>
 

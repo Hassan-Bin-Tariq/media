@@ -255,6 +255,13 @@ const MentorHomepage = (user) => {
                 if(GeneralBodies[g].Duty.teacherEmail != undefined)
                 {
                     console.log(GeneralBodies[g].Duty.teacherEmail)
+                    console.log(GeneralBodies[g].name)
+                    console.log(GeneralBodies[g].email)
+                    console.log(GeneralBodies[g].Duty.venue)
+                    console.log(GeneralBodies[g].Duty.Date)
+                    console.log(GeneralBodies[g].Duty.Slot)
+                    //////// DYNAMIC VISUALIZATION ///////
+                    
                 }
             }
         })
