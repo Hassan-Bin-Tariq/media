@@ -14,7 +14,9 @@ import {
     FaTwitter,
     FaHome,
 } from "react-icons/fa";
+import { boolean } from "joi";
 const Login = ({ setLoginUser }) => {
+    
 
     const history = useHistory()
     //asd
@@ -88,9 +90,14 @@ const Login = ({ setLoginUser }) => {
         var em=document.getElementById("emails").value;
         var pas=document.getElementById("passwords").value;
         var re=document.getElementById("repasswords").value;
+        /////pickimg out divs to color red or green/////
+        var nameinput = document.getElementById('namebox');
+        var emailinput = document.getElementById('emailbox');
+        var passinput = document.getElementById('passbox');
+        var repassinput = document.getElementById('repassbox');
+        /////////////////////////////////////////////
 
-
-        document.querySelector('.inputBox').style.border = "red";
+        // document.querySelector('.inputBox').style.border = "red";
         ///// NAME VALIDATIONS ////////
         var NumInName = na.replace ( /[^\d.]/g, '' );
         console.log(NumInName)
@@ -99,18 +106,21 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("namespan").innerHTML="* please fill name field";
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
+            nameinput.style.backgroundColor = '#FFC3C3';
         }
         else if(na.includes(" "))
         {
             document.getElementById("namespan").innerHTML="* spaces not allowed";
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
+            nameinput.style.backgroundColor = '#FFC3C3';
         }
         else if(na.includes(".")||na.includes(",")||na.includes("*")||na.includes("/")||na.includes("$")||na.includes("@")||na.includes("#")||na.includes("%")||na.includes("^")||na.includes("&")||na.includes("(")||na.includes(")")||na.includes("{")||na.includes("}"))
         {
             document.getElementById("namespan").innerHTML="* special characters not allowed";
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
+            nameinput.style.backgroundColor = '#FFC3C3';
         }
         else if(!isNaN(na) || NumInName != "" ) //abc //123 //abc123
         {
@@ -119,20 +129,21 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("namespan").innerHTML="* numeric characters not allowed";
             console.log("numeric not allowed")
             document.querySelector('.namespan').style.color="red";
+            nameinput.style.backgroundColor = '#FFC3C3';
         }
         else if(na.length <3)
         {
             document.getElementById("namespan").innerHTML="* name less than 3";
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
+            nameinput.style.backgroundColor = '#FFC3C3';
         }
         else if(na.length>=3 && !na.includes(" ") && isNaN(na) && na!="" )
         {
             document.getElementById("namespan").innerHTML="Name Accepted";
             document.querySelector('.namespan').style.color="green";
- 
             
-
+            nameinput.style.backgroundColor = '#CCD6A6';
         }
         /////EMAIL VALIDATIONS////
         // if(!em.startsWith("f") )
@@ -144,11 +155,13 @@ const Login = ({ setLoginUser }) => {
         {
             document.getElementById("emailspan").innerHTML="* email must be nu.edu.pk";
             document.querySelector('.emailspan').style.color="red";
+            emailinput.style.backgroundColor = '#FFC3C3';
         }
         else if(em.includes(" "))
         {
             document.getElementById("emailspan").innerHTML="* spaces not allowed";
             document.querySelector('.emailspan').style.color="red";
+            emailinput.style.backgroundColor = '#FFC3C3';
         }
         // if(em.length!=17 )
         // {
@@ -165,6 +178,7 @@ const Login = ({ setLoginUser }) => {
         {
             document.getElementById("emailspan").innerHTML="Email Accepted";
             document.querySelector('.emailspan').style.color="green";
+            emailinput.style.backgroundColor = '#CCD6A6';
         }
         /////PASSWORD VALIDATIONS////
         if(pas.includes(" "))
@@ -172,18 +186,21 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("passwordspan").innerHTML="* spaces not allowed";
             document.querySelector('.passwordspan').style.color="red";
             console.log("pass less than 8")
+            passinput.style.backgroundColor = '#FFC3C3';
         }
         else if(pas.length <8)
         {
             document.getElementById("passwordspan").innerHTML="* length must be at least 8 characters";
             document.querySelector('.passwordspan').style.color="red";
             console.log("pass less than 8")
+            passinput.style.backgroundColor = '#FFC3C3';
         }
         else if(pas.length >20)
         {
             document.getElementById("passwordspan").innerHTML="* too long";
             document.querySelector('.passwordspan').style.color="red";
             console.log("pass less than 8")
+            passinput.style.backgroundColor = '#FFC3C3';
         }
         
         else if(pas.length>=8 && pas.length<=20 && !pas.includes(" "))
@@ -191,17 +208,20 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("passwordspan").innerHTML="Password accepted";
             document.querySelector('.passwordspan').style.color="green";
             console.log("pass less than 8")
+            passinput.style.backgroundColor = '#CCD6A6';
         }
         /////RE-ENTER PASSWORD VALIDATION
         if(re!=pas)
         {
             document.getElementById("repasswordspan").innerHTML="passwords do not match";
             document.querySelector('.repasswordspan').style.color="red";
+            repassinput.style.backgroundColor = '#FFC3C3';
         }
         else if(re==pas)
         {
             document.getElementById("repasswordspan").innerHTML="Passwords matched!";
             document.querySelector('.repasswordspan').style.color="green";
+            repassinput.style.backgroundColor = '#CCD6A6';
         }
 
         // NAME VALIDATIONS //
@@ -336,24 +356,24 @@ const Login = ({ setLoginUser }) => {
                     </div> 
                     
                     <h2 class="title">Sign Up</h2>
-                    <div class="inputBox" style={{border : "3px solid #555"}}>
+                    <div id="namebox" class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="text" name="name" id="names" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
                         <span class="namespan"id="namespan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
-                    <div class="inputBox" style={{border : "3px solid #555"}}>
+                    <div id="emailbox" class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="email" name="email" id="emails" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
                         <span class="emailspan" id="emailspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
-                    <div class="inputBox" style={{border : "3px solid #555"}}>
+                    <div id="passbox" class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="password" name="password" id="passwords" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
                         <span class="passwordspan" id="passwordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
-                    <div class="inputBox" style={{border : "3px solid #555"}}>
+                    <div id="repassbox" class="inputBox" style={{border : "3px solid #555"}}>
                         <i class='bx bxs-user'></i>
                         <input type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
                         <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
