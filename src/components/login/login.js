@@ -77,8 +77,7 @@ const Login = ({ setLoginUser }) => {
         password: "",
         reEnterPassword: "",
         slots: [],
-        day: "None",
-        time: "None",
+        Duty: []
     })
 
     const handleRegChange = e => {
@@ -127,7 +126,7 @@ const Login = ({ setLoginUser }) => {
     }
 
     const register = () => {
-        const { name, email, password, reEnterPassword, slots, day, time } = userReg
+        const { name, email, password, reEnterPassword, Duty } = userReg
         if (name && email && password && (password === reEnterPassword)) {
             axios.post("http://localhost:9002/register", userReg)
                 .then(

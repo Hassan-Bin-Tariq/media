@@ -37,7 +37,7 @@ import {
 const TeacherHomepage = (user) => {
     // const history = useHistory()
     var teachName = user.setLoginUser.name
-    //var teachEmail = user.setLoginUser.email
+    var teachEmail = user.setLoginUser.email
     //var teachID = user.setLoginUser._id
 
     //console.log(teachName)
@@ -154,8 +154,23 @@ const TeacherHomepage = (user) => {
         $('#form').hide();
     });
     
-     }
+    }
 
+    function checkAssigned(){
+        axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
+        .then(res => {
+        
+            var GeneralBodies = res.data.generalBodies;
+            for(var g = 0; g<GeneralBodies.length; g++)
+            {//GET YOUR DATA FROM HERE
+                if(GeneralBodies[g].Duty.teacherEmail != undefined && GeneralBodies[g].Duty.teacherEmail === teachEmail)
+                {
+                    console.log(GeneralBodies[g].Duty.teacherEmail)
+                }
+            }
+        })
+
+    }
 
     return (
 
@@ -180,6 +195,9 @@ const TeacherHomepage = (user) => {
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button  onClick={checkAssigned} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Check Assigned Students
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout

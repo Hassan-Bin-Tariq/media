@@ -30,6 +30,7 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import {AiOutlineLogout} from "react-icons/ai";
 import Sidebar from "../Header/Sidebar";
+import $ from "jquery"
 
 var EventTitle;
 var EventDescription;
@@ -218,6 +219,7 @@ const MentorHomepage = (user) => {
             mycard.appendChild(imgBx);
             
             // cardbody.appendChild(mycard);
+            $('#card-container').empty();
             let container = document.querySelector("#card-container");
             container.appendChild(mycard);    
         }
@@ -243,6 +245,21 @@ const MentorHomepage = (user) => {
         history.push("./login");
 
     }
+    function checkAssigned(){
+        axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
+        .then(res => {
+        
+            var GeneralBodies = res.data.generalBodies;
+            for(var g = 0; g<GeneralBodies.length; g++)
+            {
+                if(GeneralBodies[g].Duty.teacherEmail != undefined)
+                {
+                    console.log(GeneralBodies[g].Duty.teacherEmail)
+                }
+            }
+        })
+
+    }
     return (
 
     <div>
@@ -264,6 +281,9 @@ const MentorHomepage = (user) => {
                     </button>
                     <button  onClick={GetEvents} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Event Requests
+                    </button>
+                    <button  onClick={checkAssigned} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Check Assigned Students
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={logOuter}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -299,6 +319,7 @@ const MentorHomepage = (user) => {
                         Looks like you have some pending Event Requests</h2>
                         {/* <div className="card-flex"></div> */}
                     </div>
+
                     {/* Div with card end */}
             </div>
                     

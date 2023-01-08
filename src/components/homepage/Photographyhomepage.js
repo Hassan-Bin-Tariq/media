@@ -62,11 +62,8 @@ const PhotographyHomepage = (user) => {
     var freestuEmails = [];
     var eventts;
 
-
-    //VARIABLES FOR MODAL
-    var StudentName ;
-    var StudentEmail;
-    var StudentSlot;
+    var RequestingTeacherEmail;
+    var Venuee;
 
     //overlay
     const [showOverlay, setShowOverlay] = useState(false);
@@ -362,14 +359,19 @@ const PhotographyHomepage = (user) => {
     }
 
     function sendDuty(event){
-
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var slot = studentSlots[str1];
         var mail = freestuEmails[str1];
         console.log(slot);
         console.log(selectedDate);
+        var dict = {
+            Date: selectedDate,
+            Slot: slot,
+            teacherEmail:RequestingTeacherEmail,
+            venue:Venuee
+          };
 
-        axios.post("http://localhost:9002/sendDuty",{Date: selectedDate, Slot: slot,Email: mail}) 
+        axios.post("http://localhost:9002/sendDuty",{dict,Email: mail}) 
         .then(res => {
             // alert(res.data.message)
             // eventts = res.data.event;
@@ -426,7 +428,6 @@ const PhotographyHomepage = (user) => {
                             let student = document.createElement('h3');
                             student.innerText ="Student: "+ second[i];
                             student.className = 'assign-card-title';
-                            StudentName = second[i]
 
                             let email = document.createElement('h5');
                             email.innerText = "Email: "+ key;
@@ -516,7 +517,9 @@ const PhotographyHomepage = (user) => {
         //console.log(str1);
         var starttime = showevents[str1].StartTime;
         var endtime = showevents[str1].EndTime;
-        var date = showevents[str1].date
+        var date = showevents[str1].date;
+        RequestingTeacherEmail = showevents[str1].teacherEmail;
+        Venuee = showevents[str1].venue;
         selectedDate = date;
         handleShow();
         //console.log(starttime,endtime,date);

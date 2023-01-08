@@ -74,9 +74,9 @@ const GeneralHomepage = (user) => {
     var Name = user.setLoginUser.name
     var Date= user.setLoginUser.day
     var Time= user.setLoginUser.time
-    console.log(Name)
-    console.log(user.setLoginUser.day);
-    console.log(user.setLoginUser.time);
+    // console.log(Name)
+    // console.log(user.setLoginUser.day);
+    // console.log(user.setLoginUser.time);
 
     
     //usestate handler for offcanvas to show assigned duties
@@ -113,13 +113,13 @@ const GeneralHomepage = (user) => {
             let MondayWritten = document.createElement('h4')
             MondayWritten.innerText = "Monday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -152,10 +152,17 @@ const GeneralHomepage = (user) => {
                 }
             }
 
-            let mon1= document.querySelector("#mondayHolder");
-            mon1.appendChild(MondayWritten);
-            
-            
+            let monday= document.querySelector("#mondayHolder");
+            monday.appendChild(MondayWritten);
+
+            monday.appendChild(firstSlot);
+            monday.appendChild(secondslot);
+            monday.appendChild(thirdlot);
+            monday.appendChild(forthslot);
+            monday.appendChild(fifthslot);
+            monday.appendChild(sixslot);
+            monday.appendChild(nonslot);
+
         }
 
         else if(i === 1)
@@ -163,13 +170,13 @@ const GeneralHomepage = (user) => {
             let TuesdayWritten = document.createElement('h4')
             TuesdayWritten.innerText = "Tuesday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -205,13 +212,13 @@ const GeneralHomepage = (user) => {
             let tuesday = document.querySelector("#tuesdayHolder");
             tuesday.appendChild(TuesdayWritten);
             
-           /* tuesday.appendChild(firstSlot);
+            tuesday.appendChild(firstSlot);
             tuesday.appendChild(secondslot);
             tuesday.appendChild(thirdlot);
             tuesday.appendChild(forthslot);
             tuesday.appendChild(fifthslot);
             tuesday.appendChild(sixslot);
-            tuesday.appendChild(nonslot);*/
+            tuesday.appendChild(nonslot);
         }
 
         else if(i === 2)
@@ -219,13 +226,13 @@ const GeneralHomepage = (user) => {
             let WednesdayWritten = document.createElement('h4')
             WednesdayWritten.innerText = "Wednesday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+             let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -274,13 +281,13 @@ const GeneralHomepage = (user) => {
             let ThursdayWritten = document.createElement('h4')
             ThursdayWritten.innerText = "Thursday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -327,15 +334,15 @@ const GeneralHomepage = (user) => {
         else if(i === 4)
         {
             let FridayWritten = document.createElement('h4')
-            //FridayWritten.innerText = "Friday";
+            FridayWritten.innerText = "Friday";
 
-            let firstSlot = document.createElement('h2');
-            let secondslot = document.createElement('h2');
-            let thirdlot = document.createElement('h2');
-            let forthslot = document.createElement('h2');
-            let fifthslot = document.createElement('h2');
-            let sixslot = document.createElement('h2');
-            let nonslot = document.createElement('h2');
+            let firstSlot = document.createElement('h5');
+            let secondslot = document.createElement('h5');
+            let thirdlot = document.createElement('h5');
+            let forthslot = document.createElement('h5');
+            let fifthslot = document.createElement('h5');
+            let sixslot = document.createElement('h5');
+            let nonslot = document.createElement('h5');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -352,7 +359,7 @@ const GeneralHomepage = (user) => {
                 }
                 if(slot[j] === 4)
                 {
-                    //forthslot.innerText = "1:15 - 1:40";
+                    forthslot.innerText = "1:15 - 1:40";
                 }
                 if(slot[j] === 5)
                 {
@@ -369,8 +376,9 @@ const GeneralHomepage = (user) => {
             }
 
             let friday = document.querySelector("#fridayHolder");
-           // friday.appendChild(FridayWritten);
-            //friday.appendChild(firstSlot);
+            friday.appendChild(FridayWritten);
+            
+            friday.appendChild(firstSlot);
             friday.appendChild(secondslot);
             friday.appendChild(thirdlot);
             friday.appendChild(forthslot);
@@ -448,7 +456,7 @@ const GeneralHomepage = (user) => {
         Fridayslots.push(val)
     );
 
-    console.log(sub);
+    // console.log(sub);
     if (sub === true)
     {
         
@@ -585,7 +593,9 @@ const GeneralHomepage = (user) => {
     const showCurrent = () => {
         $(function () {
             $('#currentdiv').show();
+            getallSlots();
         });
+        
         hideSlots();
         hidePass();
         hideTable();
@@ -595,6 +605,167 @@ const GeneralHomepage = (user) => {
         $('#currentdiv').hide();
     });
     }
+    function MondayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-7").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-7").disabled = false;
+
+            document.getElementById("tbg-btn-1").disabled = true;
+            document.getElementById("tbg-btn-2").disabled = true;
+            document.getElementById("tbg-btn-3").disabled = true;
+            document.getElementById("tbg-btn-4").disabled = true;
+            document.getElementById("tbg-btn-5").disabled = true;
+            document.getElementById("tbg-btn-6").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-7").disabled = false;
+
+            document.getElementById("tbg-btn-1").disabled = false;
+            document.getElementById("tbg-btn-2").disabled = false;
+            document.getElementById("tbg-btn-3").disabled = false;
+            document.getElementById("tbg-btn-4").disabled = false;
+            document.getElementById("tbg-btn-5").disabled = false;
+            document.getElementById("tbg-btn-6").disabled = false;
+        }
+
+       
+    }
+    function TuesdayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-14").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-14").disabled = false;
+
+            document.getElementById("tbg-btn-8").disabled = true;
+            document.getElementById("tbg-btn-9").disabled = true;
+            document.getElementById("tbg-btn-10").disabled = true;
+            document.getElementById("tbg-btn-11").disabled = true;
+            document.getElementById("tbg-btn-12").disabled = true;
+            document.getElementById("tbg-btn-13").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-14").disabled = false;
+
+            document.getElementById("tbg-btn-8").disabled = false;
+            document.getElementById("tbg-btn-9").disabled = false;
+            document.getElementById("tbg-btn-10").disabled = false;
+            document.getElementById("tbg-btn-11").disabled = false;
+            document.getElementById("tbg-btn-12").disabled = false;
+            document.getElementById("tbg-btn-13").disabled = false;
+        }
+
+
+    }
+    
+
+    function WednesdayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-21").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-21").disabled = false;
+
+            document.getElementById("tbg-btn-15").disabled = true;
+            document.getElementById("tbg-btn-16").disabled = true;
+            document.getElementById("tbg-btn-17").disabled = true;
+            document.getElementById("tbg-btn-18").disabled = true;
+            document.getElementById("tbg-btn-19").disabled = true;
+            document.getElementById("tbg-btn-20").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-21").disabled = false;
+
+            document.getElementById("tbg-btn-15").disabled = true;
+            document.getElementById("tbg-btn-16").disabled = true;
+            document.getElementById("tbg-btn-17").disabled = true;
+            document.getElementById("tbg-btn-18").disabled = true;
+            document.getElementById("tbg-btn-19").disabled = true;
+            document.getElementById("tbg-btn-20").disabled = true;
+        }
+
+
+    }
+    function ThursdayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-28").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-28").disabled = false;
+
+            document.getElementById("tbg-btn-22").disabled = true;
+            document.getElementById("tbg-btn-23").disabled = true;
+            document.getElementById("tbg-btn-24").disabled = true;
+            document.getElementById("tbg-btn-25").disabled = true;
+            document.getElementById("tbg-btn-26").disabled = true;
+            document.getElementById("tbg-btn-27").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-28").disabled = false;
+
+            document.getElementById("tbg-btn-22").disabled = true;
+            document.getElementById("tbg-btn-23").disabled = true;
+            document.getElementById("tbg-btn-24").disabled = true;
+            document.getElementById("tbg-btn-25").disabled = true;
+            document.getElementById("tbg-btn-26").disabled = true;
+            document.getElementById("tbg-btn-27").disabled = true;
+        }
+
+
+    }
+    
+    function FridayDisabler()
+    {
+        
+        var isChecked=document.getElementById("tbg-btn-35").checked;
+        
+        console.log(isChecked)
+        if(isChecked === false)
+        {
+            document.getElementById("tbg-btn-35").disabled = false;
+
+            document.getElementById("tbg-btn-29").disabled = true;
+            document.getElementById("tbg-btn-30").disabled = true;
+            document.getElementById("tbg-btn-31").disabled = true;
+            document.getElementById("tbg-btn-32").disabled = true;
+            document.getElementById("tbg-btn-33").disabled = true;
+            document.getElementById("tbg-btn-34").disabled = true;
+        }
+        if(isChecked === true)
+        {
+            document.getElementById("tbg-btn-35").disabled = false;
+
+            document.getElementById("tbg-btn-29").disabled = true;
+            document.getElementById("tbg-btn-30").disabled = true;
+            document.getElementById("tbg-btn-31").disabled = true;
+            document.getElementById("tbg-btn-32").disabled = true;
+            document.getElementById("tbg-btn-33").disabled = true;
+            document.getElementById("tbg-btn-34").disabled = true;
+        }
+
+
+    }
+    
+    
+
 
 return (
         
@@ -642,6 +813,11 @@ return (
                 </CDBSidebarFooter>
                 </CDBSidebar>
         </div>
+        {/*gb popover///*/}
+             <div id='overllay'>
+           
+
+                </div>
             {/*////////////// */}
             <div className="mentor-flex2">
                 
@@ -656,6 +832,7 @@ return (
                         <div id="name">
                             <h3 className="zx">Here's your current available time slots </h3>
                         </div>
+                        {getallSlots()};
                         {/* Holders for current slots */}
                         <div class = "dayDiv" id='mondayHolder'></div>
                         <div class = "dayDiv" id='tuesdayHolder'></div>
@@ -694,7 +871,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-6" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-7" value={7}>
+                                                <ToggleButton onClick={MondayDisabler} className="none" variant="danger" id="tbg-btn-7" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -720,7 +897,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-13" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-14" value={7}>
+                                                <ToggleButton  onClick={TuesdayDisabler} className="none" variant="danger" id="tbg-btn-14" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -746,7 +923,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-20" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-21" value={7}>
+                                                <ToggleButton onClick={WednesdayDisabler}className="none" variant="danger" id="tbg-btn-21" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -772,7 +949,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-27" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-28" value={7}>
+                                                <ToggleButton onClick={ThursdayDisabler} className="none" variant="danger" id="tbg-btn-28" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
@@ -798,7 +975,7 @@ return (
                                                 <ToggleButton className="togo" id="tbg-btn-34" value={6}>
                                                     3:15 - 4:45
                                                 </ToggleButton>
-                                                <ToggleButton className="none" variant="danger" id="tbg-btn-35" value={7}>
+                                                <ToggleButton onClick={FridayDisabler} className="none" variant="danger" id="tbg-btn-35" value={7}>
                                                     None
                                                 </ToggleButton>
                                             </ToggleButtonGroup>
