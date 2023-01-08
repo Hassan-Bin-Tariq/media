@@ -14,8 +14,12 @@ import {
     FaTwitter,
     FaHome,
 } from "react-icons/fa";
-
+    var namebool=false;
+    var emailbool=false;
+    var passbool=false;
+    var repassbool=false;
 const Login = ({ setLoginUser }) => {
+    
 
     const history = useHistory()
     //asd
@@ -106,6 +110,7 @@ const Login = ({ setLoginUser }) => {
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
             nameinput.style.backgroundColor = '#FFC3C3';
+            namebool=false;
         }
         else if(na.includes(" "))
         {
@@ -113,6 +118,7 @@ const Login = ({ setLoginUser }) => {
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
             nameinput.style.backgroundColor = '#FFC3C3';
+            namebool=false;
         }
         else if(na.includes(".")||na.includes(",")||na.includes("*")||na.includes("/")||na.includes("$")||na.includes("@")||na.includes("#")||na.includes("%")||na.includes("^")||na.includes("&")||na.includes("(")||na.includes(")")||na.includes("{")||na.includes("}"))
         {
@@ -120,6 +126,7 @@ const Login = ({ setLoginUser }) => {
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
             nameinput.style.backgroundColor = '#FFC3C3';
+            namebool=false;
         }
         else if(!isNaN(na) || NumInName != "" ) //abc //123 //abc123
         {
@@ -129,6 +136,7 @@ const Login = ({ setLoginUser }) => {
             console.log("numeric not allowed")
             document.querySelector('.namespan').style.color="red";
             nameinput.style.backgroundColor = '#FFC3C3';
+            namebool=false;
         }
         else if(na.length <3)
         {
@@ -136,13 +144,15 @@ const Login = ({ setLoginUser }) => {
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
             nameinput.style.backgroundColor = '#FFC3C3';
+            namebool=false;
         }
         else if(na.length>=3 && !na.includes(" ") && isNaN(na) && na!="" )
         {
             document.getElementById("namespan").innerHTML="Name Accepted";
             document.querySelector('.namespan').style.color="green";
-            
             nameinput.style.backgroundColor = '#CCD6A6';
+            namebool=true;
+            console.log("name:"+namebool);
         }
         /////EMAIL VALIDATIONS////
         // if(!em.startsWith("f") )
@@ -155,12 +165,14 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("emailspan").innerHTML="* email must be nu.edu.pk";
             document.querySelector('.emailspan').style.color="red";
             emailinput.style.backgroundColor = '#FFC3C3';
+            emailbool=false;
         }
         else if(em.includes(" "))
         {
             document.getElementById("emailspan").innerHTML="* spaces not allowed";
             document.querySelector('.emailspan').style.color="red";
             emailinput.style.backgroundColor = '#FFC3C3';
+            emailbool=false;
         }
         // if(em.length!=17 )
         // {
@@ -178,6 +190,8 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("emailspan").innerHTML="Email Accepted";
             document.querySelector('.emailspan').style.color="green";
             emailinput.style.backgroundColor = '#CCD6A6';
+            emailbool=true;
+            console.log("email:"+emailbool);
         }
         /////PASSWORD VALIDATIONS////
         if(pas.includes(" "))
@@ -186,6 +200,7 @@ const Login = ({ setLoginUser }) => {
             document.querySelector('.passwordspan').style.color="red";
             console.log("pass less than 8")
             passinput.style.backgroundColor = '#FFC3C3';
+            passbool=false;
         }
         else if(pas.length <8)
         {
@@ -193,6 +208,7 @@ const Login = ({ setLoginUser }) => {
             document.querySelector('.passwordspan').style.color="red";
             console.log("pass less than 8")
             passinput.style.backgroundColor = '#FFC3C3';
+            passbool=false;
         }
         else if(pas.length >20)
         {
@@ -200,6 +216,7 @@ const Login = ({ setLoginUser }) => {
             document.querySelector('.passwordspan').style.color="red";
             console.log("pass less than 8")
             passinput.style.backgroundColor = '#FFC3C3';
+            passbool=false;
         }
         
         else if(pas.length>=8 && pas.length<=20 && !pas.includes(" "))
@@ -208,6 +225,8 @@ const Login = ({ setLoginUser }) => {
             document.querySelector('.passwordspan').style.color="green";
             console.log("pass less than 8")
             passinput.style.backgroundColor = '#CCD6A6';
+            passbool=true;
+            console.log("pass:"+passbool);
         }
         /////RE-ENTER PASSWORD VALIDATION
         if(re!=pas)
@@ -215,12 +234,15 @@ const Login = ({ setLoginUser }) => {
             document.getElementById("repasswordspan").innerHTML="passwords do not match";
             document.querySelector('.repasswordspan').style.color="red";
             repassinput.style.backgroundColor = '#FFC3C3';
+            repassbool=false;
         }
         else if(re==pas)
         {
             document.getElementById("repasswordspan").innerHTML="Passwords matched!";
             document.querySelector('.repasswordspan').style.color="green";
             repassinput.style.backgroundColor = '#CCD6A6';
+            repassbool=true;
+            console.log("re:"+repassbool);
         }
 
         // NAME VALIDATIONS //
@@ -267,12 +289,14 @@ const Login = ({ setLoginUser }) => {
 
     const register = () => {
         const { name, email, password, reEnterPassword, Duty } = userReg
-        if (name && email && password && (password === reEnterPassword)) {
+        console.log("checking my bools"+namebool+emailbool+passbool+repassbool)
+        if (namebool===true && emailbool===true && passbool===true && repassbool===true) {
             axios.post("http://localhost:9002/register", userReg)
                 .then(
                     res => alert(res.data.message),
                     //sendEmail(name,email),
                     // history.push("./login")
+                    alert("User Registered Successfully!")
                 )
         } else {
             alert("Invalid Input! Try Again.")
