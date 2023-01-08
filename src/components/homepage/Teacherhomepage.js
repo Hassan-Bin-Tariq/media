@@ -15,6 +15,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import navlogo from "../../assets/Picture1.png";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useHistory } from "react-router-dom"
+import Carousel from 'react-bootstrap/Carousel';
+import icit from '../../assets/icit.jpg'
+import c from '../../assets/c.png'
+import cc from '../../assets/cc.png'
+import ccc from '../../assets/ccc.png'
+import cccc from '../../assets/cccc.png'
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -129,35 +135,7 @@ const TeacherHomepage = (user) => {
         }
     }
 
-    const showPass = () => {
-        $(function () {
-            $('#editProfile').show();
-        });
-       
-         hideForm();
-         hideEvent();
-    }
-
-    const hidePass = () => {
-        $(function () {
-            $('#editProfile').hide();
-        });
-       
-    }
-
-    const showForm = () => {
-        $(function () {
-            $('#form').show();
-        });
-        hideEvent();
-        hidePass();
-    }
-    const hideForm= () => {
-    $(function () {
-        $('#form').hide();
-    });
-    
-    }
+   
 
     function checkAssigned(){
         axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
@@ -232,6 +210,37 @@ const TeacherHomepage = (user) => {
         console.log(container.childNodes);
        
     }
+    const showPass = () => {
+        $(function () {
+            $('#editProfile').show();
+        });
+       
+         hideForm();
+         hideEvent();
+         hideAlbum();
+    }
+
+    const hidePass = () => {
+        $(function () {
+            $('#editProfile').hide();
+        });
+       
+    }
+
+    const showForm = () => {
+        $(function () {
+            $('#form').show();
+        });
+        hideEvent();
+        hidePass();
+        hideAlbum();
+    }
+    const hideForm= () => {
+    $(function () {
+        $('#form').hide();
+    });
+    
+    }
     const showEvent = () => {
         
         $(function () {
@@ -243,6 +252,7 @@ const TeacherHomepage = (user) => {
         });
        hidePass();
        hideForm();
+       hideAlbum();
     }
     const hideEvent = () => {
         
@@ -254,6 +264,19 @@ const TeacherHomepage = (user) => {
         });
         
     //    hideeventdeets();
+    }
+    const showAlbum = () => {
+        $(function () {
+            $('#myGallery').show();
+        });
+        hideEvent();
+        hidePass();
+       hideForm();
+    }
+    const hideAlbum = () => {
+        $(function () {
+            $('#myGallery').hide();
+        });
     }
    
 
@@ -272,7 +295,7 @@ const TeacherHomepage = (user) => {
 
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
-                    <button  onClick="/" className="sidebarbtn" >
+                    <button  onClick={showAlbum} className="sidebarbtn" >
                                 <FaGripHorizontal className="sidebaricon"/> My Albums
                     </button>
                     <button  onClick={showForm} className="sidebarbtn">
@@ -311,6 +334,49 @@ const TeacherHomepage = (user) => {
                     </button>
                     {/* Div with card */}   
                     <Container className="cardBody">
+                    <div className="student-container" id="myGallery">
+                        <h2>Take a look at some of our picks for you</h2>
+                        <div className='student-slider'>
+                            <Carousel fade className="d-block w-100 h-100">
+                                <Carousel.Item className="d-block w-100 h-100" interval={5000} backgroundColor="#f8f7f2">
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={icit}
+                                    alt="First slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cc}
+                                    alt="Second slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={ccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={cccc}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item interval={5000}>
+                                    <img
+                                    className="d-block w-100 h-100"
+                                    src={c}
+                                    alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
+                        </div>
+                        <p>Stay tuned for more personalized content!</p>
+                    </div>
                         <div id="form">
                         <Row className="mt-2 text-center">
                             <h2>Generate Event Request</h2>
