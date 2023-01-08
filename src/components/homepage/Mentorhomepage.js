@@ -248,6 +248,7 @@ const MentorHomepage = (user) => {
 
     }
     function checkAssigned(){
+        $('#mentor-card-container').empty();
         axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK ASSIGNED DUTIES
         .then(res => {
         
@@ -297,7 +298,7 @@ const MentorHomepage = (user) => {
                     cardBody.appendChild(venue);
                     card.appendChild(cardBody);
                     // i+=1;
-                    $('#mentor-card-container').empty();
+                    // 
                     let container = document.querySelector("#mentor-card-container");
                     container.appendChild(card);
 
@@ -698,7 +699,6 @@ const MentorHomepage = (user) => {
         checkAssigned();
         let container = document.querySelector("#teacher-card-container");
         console.log(container.childNodes);
-       
     }
     return (
 
