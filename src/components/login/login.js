@@ -88,6 +88,8 @@ const Login = ({ setLoginUser }) => {
         var pas=document.getElementById("passwords").value;
         var re=document.getElementById("repasswords").value;
         ///// NAME VALIDATIONS ////////
+        var NumInName = na.replace ( /[^\d.]/g, '' );
+        console.log(NumInName)
         if(na==="")
         {
             document.getElementById("namespan").innerHTML="* please fill name field";
@@ -106,8 +108,10 @@ const Login = ({ setLoginUser }) => {
             console.log("name less than 3")
             document.querySelector('.namespan').style.color="red";
         }
-        else if(!isNaN(na)) //abc //123 //abc123
+        else if(!isNaN(na) || NumInName != "" ) //abc //123 //abc123
         {
+            var str1 = na.replace ( /[^\d.]/g, '' );
+            console.log(typeof str1);
             document.getElementById("namespan").innerHTML="* numeric characters not allowed";
             console.log("numeric not allowed")
             document.querySelector('.namespan').style.color="red";
