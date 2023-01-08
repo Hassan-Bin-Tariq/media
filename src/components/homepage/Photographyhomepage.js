@@ -529,6 +529,7 @@ const PhotographyHomepage = (user) => {
     function EventDetails(event)
     {
 
+        hidePass();
         console.log(event.target.id)
         var str1 = event.target.id.replace( /[^\d.]/g, '' );
         EventTitle = eventts[str1].title;
@@ -643,6 +644,7 @@ const PhotographyHomepage = (user) => {
         handleShow();
     }
     function myFunction(item) {
+        hidePass();
         // let cardbody = document.createElement('div');
         // cardbody.className = 'photo-cardbody'
         let mycard = document.createElement('div');
@@ -735,6 +737,7 @@ const PhotographyHomepage = (user) => {
         i +=1    
     }
     const GetEvents = () => {
+        hidePass();
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetAcceptEvent", )
         .then(res => {
@@ -745,6 +748,7 @@ const PhotographyHomepage = (user) => {
 
         let container = document.querySelector("#photo-card-container");
         console.log(container.childNodes);
+       
     }
 
     const myfub = () =>
@@ -779,18 +783,34 @@ const PhotographyHomepage = (user) => {
     }
 
     const showPass = () => {
-        const targetDiv = document.getElementById("editProfile");
-        if (targetDiv.style.display !== "none") {
-            targetDiv.style.display = "none";
-        } else {
-            targetDiv.style.display = "block";
-        }
+        
+        $(function () {
+            $('#editProfile').show();
+        });
+      //hideEvent();
     }
     const hidePass = () => {
+        
         $(function () {
             $('#editProfile').hide();
         });
+       //hideeventdeets();
     }
+    const showEvent = () => {
+        
+        $(function () {
+            $('#eventdeets').show();
+        });
+       //hideeventdeets();
+    }
+    const hideEvent = () => {
+        
+        $(function () {
+            $('#eventdeets').hide();
+        });
+       //hideeventdeets();
+    }
+   
     return (
         
         <>
@@ -834,20 +854,23 @@ const PhotographyHomepage = (user) => {
                 </CDBSidebar>
             </div>
             {/*////////////// */} 
-            <div className="mentor-flex2">
+            
+            <div  className="mentor-flex2">
                 
                     
                     <button  className="flex2user">
                                 <FaUserAlt />
                     </button>
                     {/* Div with card */}
-                    
+                    <div id="eventdeets">
                     <Container className="cardBody">
                         <div className="photo-flexcard">
                             <div className= "mycards" id="photo-card-container">
                             {/* <div className="card-flex"></div> */}
                             </div>
-                            <div className="dutycontainer" id="card-container2"></div>
+                            <div className="dutycontainer" id="card-container2">
+                                
+                            </div>
                         </div>
                         
                         <div  id="editProfile">
@@ -878,6 +901,7 @@ const PhotographyHomepage = (user) => {
                         </div>  
                         <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
+                    </div>
                     {/* Div with card end */}
             </div>
 

@@ -351,7 +351,8 @@ background: transparent;
   justify-content: center;
   position: relative;
   align-items:flex-start;
-  background-color: rebeccapurple;
+  background-color: #f8f7f2;;
+ 
 }
 .photo-flexcard{
   display: flex;
@@ -361,7 +362,7 @@ background: transparent;
   justify-content: space-around;
   position: relative;
   align-items:flex-start;
-  background-color: red;
+  
 }
 
 .photo-mycard {
