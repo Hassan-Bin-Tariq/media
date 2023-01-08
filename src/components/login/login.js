@@ -281,7 +281,11 @@ const Login = ({ setLoginUser }) => {
 
         emailjs.send("service_xsod6da", "template_01r4u37", {
             to_name: name,
-            message: "Hello From team mediaScape",
+            message: "we're excited to have you with us and know that youll love "+
+            "our amazing features, notifications, and great"+
+            "content. MediaScape is all about brining ease to its users."+
+            +"If you’re here, you’re at the right place on the right time."+
+            "We hope you enjoy your journey with MediaScape",
             to_email: email,
             reply_to: "mediascape0@gmail.com",
         }, "nv_Jq-1YJR57e3z-E");
@@ -294,7 +298,7 @@ const Login = ({ setLoginUser }) => {
             axios.post("http://localhost:9002/register", userReg)
                 .then(
                     res => alert(res.data.message),
-                    //sendEmail(name,email),
+                    sendEmail(name,email),
                     // history.push("./login")
                     alert("User Registered Successfully!")
                 )
