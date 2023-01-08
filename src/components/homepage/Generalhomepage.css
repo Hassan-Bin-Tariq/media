@@ -456,3 +456,35 @@ h1
     font-size: 18px;
 }
 /* CURRENT SLOTS TABLE END */
+.student-slider{
+    width: 800px;
+    height: 400px;
+    /* padding-left: 40px; */
+    /* background-color: red; */
+    background-color: #f8f7f2;
+}
+.student-container{
+    height: 500px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f8f7f2;
+}
+.student-container h2{
+    font-family: "Ubuntu";
+    font-weight: bold;
+    font-size: 30px;
+}
+.student-container p{
+    font-size: 20px;
+    background-color: #f8f7f2;
+    text-align: center;
+}
+#myGallery
+{
+    display: none;
+    background-color: #f8f7f2;
+}
