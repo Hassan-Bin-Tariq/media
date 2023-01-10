@@ -500,6 +500,7 @@ const GeneralHomepage = (user) => {
 
     }
     const SubmitForm = () => {
+        alert("Free Slots updated")
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
         //console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
         
