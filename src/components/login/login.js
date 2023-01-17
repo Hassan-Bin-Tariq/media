@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import "./login.css"
+import $ from "jquery"  
+
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 import emailjs from "emailjs-com";
@@ -7,6 +9,7 @@ import emailjs from "emailjs-com";
 import logo from "../../assets/Picture1.png";
 import loginpic from "../../assets/login.svg";
 import registerpic from "../../assets/register.svg";
+
 import {
     FaLinkedin,
     FaGoogle,
@@ -19,11 +22,13 @@ import {
     var passbool=false;
     var repassbool=false;
     //checking git
+
 const Login = ({ setLoginUser }) => {
     
 
     const history = useHistory()
     //asd
+    
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -314,17 +319,35 @@ const Login = ({ setLoginUser }) => {
     const tester = () => {
         console.log(document.getElementById("img").innerHTML)
     }
+    // var loadFile = function (event) {
+    //     var reader = new FileReader();
+    //     reader.onload = function () {
+    //         var output = document.getElementById('output');
+    //         output.src = reader.result;
+    //         console.log(reader.result)
+    //     };
+    //     reader.readAsDataURL(event.target.files[0]);
+    //     console.log(event.target.files[0])
+    // };
+
     var loadFile = function (event) {
         var reader = new FileReader();
         reader.onload = function () {
             var output = document.getElementById('output');
             output.src = reader.result;
-            console.log(reader.result)
+            //console.log(reader.result)
         };
         reader.readAsDataURL(event.target.files[0]);
-        console.log(event.target.files[0])
-    };
+        //console.log(event.target.files[0])
+        console.log("ibnet")
+        axios.post("http://localhost:9002/checkSpawn", userReg)
+                .then(
 
+                )
+
+
+        
+    };
 
     return (
                 
@@ -411,6 +434,11 @@ const Login = ({ setLoginUser }) => {
                         <input type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
                         <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
+
+                    <label >Upload profile picture</label>
+                    <br></br>
+                    <input type="file" accept="image/*" onChange={loadFile} />
+                    <img id = "output"/>
                     
 
                     <input type="submit" value="Sign up" class="signupbtn" onClick={register} />
