@@ -24,6 +24,7 @@
     "jquery": "^3.6.3",
     "mdb-react-ui-kit": "^5.0.0",
     "overlay-navbar": "^1.2.3",
+    "python-shell": "^3.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -63,7 +64,7 @@
   "devDependencies": {
     "tailwindcss": "^3.2.4"
   },
-  "browser":{
+  "browser": {
     "child_process": false
-    }  
+  }
 }
