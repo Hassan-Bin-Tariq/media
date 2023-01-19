@@ -330,16 +330,30 @@ const Login = ({ setLoginUser }) => {
     //     console.log(event.target.files[0])
     // };
 
+    function PythonTrigger(){
+        console.log("ibnet")
+        axios.get("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
+        .then(
+
+        )
+    }
+
     var loadFile = function (event) {
-        var reader = new FileReader();
-        reader.onload = function () {
-            var output = document.getElementById('output');
-            output.src = reader.result;
-            //console.log(reader.result)
-        };
-        reader.readAsDataURL(event.target.files[0]);
+        // var reader = new FileReader();
+        // reader.onload = function () {
+        //     var output = document.getElementById('output');
+        //     output.src = reader.result;
+        //     console.log(reader.result)
+        // };
+        // reader.readAsDataURL(event.target.files[0]);
         //console.log(event.target.files[0])
         console.log("ibnet")
+
+        // var variable = "hassan"
+        // axios.get("http://localhost:5000/hello?arg1=hello&arg2=world") //SEDNING REQUEST TO PYTHON FILE
+        // .then(
+
+        // )
 
         axios.get("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
         .then(
@@ -435,8 +449,17 @@ const Login = ({ setLoginUser }) => {
 
                     <label >Upload profile picture</label>
                     <br></br>
-                    <input type="file" accept="image/*" onChange={loadFile} />
+                    <button onClick={PythonTrigger}>Clickasdsa Me</button>
+                    {/* <input type="file" accept="image/*" onChange={loadFile} /> */}
                     <img id = "output"/>
+
+                    {/* <form action = "http://localhost:5000/your_url" method = "get">
+
+                    <input type = "text" name = "inputed" />
+
+                    <button type = "submit"> Send Data </button>
+
+                    </form> */}
                     
 
                     <input type="submit" value="Sign up" class="signupbtn" onClick={register} />
