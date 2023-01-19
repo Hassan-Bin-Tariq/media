@@ -340,13 +340,11 @@ const Login = ({ setLoginUser }) => {
         reader.readAsDataURL(event.target.files[0]);
         //console.log(event.target.files[0])
         console.log("ibnet")
-        axios.post("http://localhost:9002/checkSpawn", userReg)
-                .then(
 
-                )
+        axios.get("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
+        .then(
 
-
-        
+        )
     };
 
     return (
