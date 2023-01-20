@@ -329,13 +329,17 @@ const Login = ({ setLoginUser }) => {
     //     reader.readAsDataURL(event.target.files[0]);
     //     console.log(event.target.files[0])
     // };
-
     function PythonTrigger(){
         console.log("ibnet")
-        axios.get("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
-        .then(
+        fetch(`http://localhost:5000/FaceDetect`)
+            .then(function (response) {
+                return response.text();
+            }).then(function (text) {
+                console.log(text); 
+            });
 
-        )
+        // fetch("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
+        // .then((res)=>{ console.log(res)})
     }
 
     var loadFile = function (event) {
