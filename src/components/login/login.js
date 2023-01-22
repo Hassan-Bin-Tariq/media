@@ -319,51 +319,17 @@ const Login = ({ setLoginUser }) => {
     const tester = () => {
         console.log(document.getElementById("img").innerHTML)
     }
-    // var loadFile = function (event) {
-    //     var reader = new FileReader();
-    //     reader.onload = function () {
-    //         var output = document.getElementById('output');
-    //         output.src = reader.result;
-    //         console.log(reader.result)
-    //     };
-    //     reader.readAsDataURL(event.target.files[0]);
-    //     console.log(event.target.files[0])
-    // };
     function PythonTrigger(){
         console.log("ibnet")
-        fetch(`http://localhost:5000/FaceDetect`)
+        fetch(`http://localhost:5000/FaceDetect`)//SEDNING REQUEST TO PYTHON FILE
             .then(function (response) {
                 return response.text();
             }).then(function (text) {
-                console.log(text); 
+                console.log(text);  // GETTING IMAGE BACK IN BASE 64 FORMAT
+                var output = document.getElementById('output');
+                output.src = "data:image/jpeg;base64,"+text;
             });
-
-        // fetch("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
-        // .then((res)=>{ console.log(res)})
     }
-
-    var loadFile = function (event) {
-        // var reader = new FileReader();
-        // reader.onload = function () {
-        //     var output = document.getElementById('output');
-        //     output.src = reader.result;
-        //     console.log(reader.result)
-        // };
-        // reader.readAsDataURL(event.target.files[0]);
-        //console.log(event.target.files[0])
-        console.log("ibnet")
-
-        // var variable = "hassan"
-        // axios.get("http://localhost:5000/hello?arg1=hello&arg2=world") //SEDNING REQUEST TO PYTHON FILE
-        // .then(
-
-        // )
-
-        axios.get("http://localhost:5000/FaceDetect") //SEDNING REQUEST TO PYTHON FILE
-        .then(
-
-        )
-    };
 
     return (
                 
@@ -455,16 +421,8 @@ const Login = ({ setLoginUser }) => {
                     <br></br>
                     <button onClick={PythonTrigger}>Clickasdsa Me</button>
                     {/* <input type="file" accept="image/*" onChange={loadFile} /> */}
-                    <img id = "output"/>
-
-                    {/* <form action = "http://localhost:5000/your_url" method = "get">
-
-                    <input type = "text" name = "inputed" />
-
-                    <button type = "submit"> Send Data </button>
-
-                    </form> */}
                     
+                    <img  id = "output"/>                    
 
                     <input type="submit" value="Sign up" class="signupbtn" onClick={register} />
                     <p class="social_text">Or Sign up with social platforms</p>
