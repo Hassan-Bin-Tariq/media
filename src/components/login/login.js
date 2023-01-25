@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import "./login.css"
 import $ from "jquery"  
-
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 import emailjs from "emailjs-com";
@@ -16,6 +15,7 @@ import {
     FaFacebook,
     FaTwitter,
     FaHome,
+    FaGoogleDrive,
 } from "react-icons/fa";
     var namebool=false;
     var emailbool=false;
@@ -319,6 +319,7 @@ const Login = ({ setLoginUser }) => {
     const tester = () => {
         console.log(document.getElementById("img").innerHTML)
     }
+    
     function PythonTrigger(){
         console.log("ibnet")
         fetch(`http://localhost:5000/FaceDetect`)//SEDNING REQUEST TO PYTHON FILE
@@ -328,6 +329,10 @@ const Login = ({ setLoginUser }) => {
                 console.log(text);  // GETTING IMAGE BACK IN BASE 64 FORMAT
                 var output = document.getElementById('output');
                 output.src = "data:image/jpeg;base64,"+text;
+                axios.post("http://localhost:9002/googleTester", userReg)
+                .then(
+                    res => alert(res.data.message),
+                )
             });
     }
 
@@ -508,4 +513,4 @@ export default Login
 
                 <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                 </div> */}
-       
+    
