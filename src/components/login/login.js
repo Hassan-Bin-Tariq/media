@@ -321,12 +321,17 @@ const Login = ({ setLoginUser }) => {
         console.log(userReg.name)
         fetch(`http://localhost:5000/FaceDetect`)//SEDNING REQUEST TO PYTHON FILE
             .then(function (response) {
-                return response.text();
-            }).then(function (text) {
-                console.log(text);  // GETTING IMAGE BACK IN BASE 64 FORMAT
+                return response.json();
+            }).then(function (json) {
+                var base64 = json.base
+                var removeBase = base64.slice(2)
+                removeBase = removeBase.slice(0, -1);
+                //console.log(removeBase)
+                //console.log(json.path)
                 var output = document.getElementById('output');
-                output.src = "data:image/jpeg;base64,"+text;
-                axios.post("http://localhost:9002/FolderMaker", {Sender: userReg.email})
+                output.src = "data:image/jpeg;base64,"+removeBase;
+                console.log(output.src)
+                axios.post("http://localhost:9002/FolderMaker", {UserEmail: userReg.email,ImagePath:json.path})
                 .then(
                     res => alert(res.data.message),
                 )
