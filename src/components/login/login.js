@@ -329,7 +329,7 @@ const Login = ({ setLoginUser }) => {
                 console.log(text);  // GETTING IMAGE BACK IN BASE 64 FORMAT
                 var output = document.getElementById('output');
                 output.src = "data:image/jpeg;base64,"+text;
-                axios.post("http://localhost:9002/googleTester", userReg)
+                axios.post("http://localhost:9002/FolderMaker", {Sender:"asd"})
                 .then(
                     res => alert(res.data.message),
                 )
