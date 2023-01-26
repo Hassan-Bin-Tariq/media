@@ -308,7 +308,7 @@ const Login = ({ setLoginUser }) => {
             axios.post("http://localhost:9002/register", userReg)
                 .then(
                     res => alert(res.data.message),
-                    sendEmail(name,email),
+                    //sendEmail(name,email),
                     // history.push("./login")
                     alert("User Registered Successfully!")
                 )
@@ -316,12 +316,9 @@ const Login = ({ setLoginUser }) => {
             alert("Invalid Input! Try Again.")
         }
     }
-    const tester = () => {
-        console.log(document.getElementById("img").innerHTML)
-    }
     
     function PythonTrigger(){
-        console.log("ibnet")
+        console.log(userReg.name)
         fetch(`http://localhost:5000/FaceDetect`)//SEDNING REQUEST TO PYTHON FILE
             .then(function (response) {
                 return response.text();
@@ -329,7 +326,7 @@ const Login = ({ setLoginUser }) => {
                 console.log(text);  // GETTING IMAGE BACK IN BASE 64 FORMAT
                 var output = document.getElementById('output');
                 output.src = "data:image/jpeg;base64,"+text;
-                axios.post("http://localhost:9002/FolderMaker", {Sender:"asd"})
+                axios.post("http://localhost:9002/FolderMaker", {Sender: userReg.name})
                 .then(
                     res => alert(res.data.message),
                 )
