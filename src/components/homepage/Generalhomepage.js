@@ -796,6 +796,15 @@ const GeneralHomepage = (user) => {
         });
     }
 
+    function PythonForImages(){
+        fetch(`http://localhost:5000/UploadImages`)//SEDNING REQUEST TO PYTHON FILE
+            .then(function (response) {
+                return response.text();
+            }).then(function (text) {
+                console.log(text)
+            });
+    }
+
 
 return (
         
@@ -847,11 +856,6 @@ return (
             /**albums div */
         }
          {/*////////////// */} 
-       
-                   
-               
-
-
             <div className="mentor-flex2">
                 
                     
@@ -914,6 +918,8 @@ return (
                         <div class = "dayDiv" id='wednesdayHolder'></div>
                         <div class = "dayDiv" id='thursdayHolder'></div>
                         <div class = "dayDiv" id='fridayHolder'></div>
+
+                        <button onClick={PythonForImages}>Upload Images</button>
                         {/* end of holders */}
                     </div>
                     <div id="mydiv" class="hidden">

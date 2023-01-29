@@ -426,7 +426,7 @@ const Login = ({ setLoginUser }) => {
 
                     <label >Upload profile picture</label>
                     <br></br>
-                    <button onClick={PythonTrigger}>Clickasdsa Me</button>
+                    <button onClick={PythonTrigger}>Click Me</button>
                     {/* <input type="file" accept="image/*" onChange={loadFile} /> */}
                     
                     <img  id = "output"/>                    
