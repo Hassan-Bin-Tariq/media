@@ -799,19 +799,31 @@ const GeneralHomepage = (user) => {
     function PythonForImages(){
         axios.post("http://localhost:9002/DriveDataGetter")
         .then((res) => {
-            const data = res.data;
-            console.log(data);
+            const dataaa = res.data.Data;
+            console.log(dataaa);
+
+            axios.post(`http://localhost:5000/UploadImages`,dataaa)
+            .then(response => console.log(response.data))
+            .catch(error => console.error(error))
+
+
+            // fetch(`http://localhost:5000/UploadImages`, dataaa)
+            // .then(response => response.text())
+            // .then(data => console.log(data))
+            // .catch(error => console.error(error))
         }).catch(() => {
             alert('error in fetching data');
         })
 
+        
 
-        fetch(`http://localhost:5000/UploadImages`)//SEDNING REQUEST TO PYTHON FILE
-            .then(function (response) {
-                return response.text();
-            }).then(function (text) {
-                console.log(text)
-            });
+
+        // fetch(`http://localhost:5000/UploadImages`)//SEDNING REQUEST TO PYTHON FILE
+        //     .then(function (response) {
+        //         return response.text();
+        //     }).then(function (text) {
+        //         console.log(text)
+        //     });
     }
 
 
