@@ -797,6 +797,15 @@ const GeneralHomepage = (user) => {
     }
 
     function PythonForImages(){
+        axios.post("http://localhost:9002/DriveDataGetter")
+        .then((res) => {
+            const data = res.data;
+            console.log(data);
+        }).catch(() => {
+            alert('error in fetching data');
+        })
+
+
         fetch(`http://localhost:5000/UploadImages`)//SEDNING REQUEST TO PYTHON FILE
             .then(function (response) {
                 return response.text();
