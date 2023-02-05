@@ -92,7 +92,8 @@ const Login = ({ setLoginUser }) => {
         password: "",
         reEnterPassword: "",
         slots: [],
-        Duty: []
+        Duty: [],
+        FolderID: ""
     })
 
     const handleRegChange = e => {
@@ -302,7 +303,7 @@ const Login = ({ setLoginUser }) => {
     }
 
     const register = () => {
-        const { name, email, password, reEnterPassword, Duty } = userReg
+        const { name, email, password, reEnterPassword, Duty,FolderID } = userReg
         console.log("checking my bools"+namebool+emailbool+passbool+repassbool)
         if (namebool===true && emailbool===true && passbool===true && repassbool===true) {
             axios.post("http://localhost:9002/register", userReg)
@@ -333,7 +334,7 @@ const Login = ({ setLoginUser }) => {
                 //console.log(output.src)
                 axios.post("http://localhost:9002/FolderMaker", {UserEmail: userReg.email,ImagePath:json.path})
                 .then(
-                    res => console.log(res.data.Folder),
+                    res => userReg.FolderID = res.data.Folder,
                 )
             });
     }

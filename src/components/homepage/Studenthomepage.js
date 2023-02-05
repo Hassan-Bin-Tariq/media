@@ -82,6 +82,14 @@ const StudentHomepage = (user) => {
         }
     }
 
+    function GetAllImages(){
+        console.log("Image getter")
+        axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
+        .then(
+            res=> console.log(res.data.urlsForLogedIn)
+        )
+    }
+
     return (
         <div className="studentmain"> 
             {/* SIDE BAR  */}         
@@ -89,7 +97,7 @@ const StudentHomepage = (user) => {
                 <CDBSidebar textColor="#fff" backgroundColor="#333">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
-                    Welcome!
+                    Welcome! {Name}
                     </a>
                 </CDBSidebarHeader>
 
@@ -167,7 +175,7 @@ const StudentHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-                    
+                    <button onClick={GetAllImages}>Get Images</button>
                     {/* Div with card */}  
                     <div id="editProfile">
                             <div>
