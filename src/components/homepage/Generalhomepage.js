@@ -639,8 +639,6 @@ const GeneralHomepage = (user) => {
 
 
     }
-    
-
     function WednesdayDisabler()
     {
         
@@ -798,17 +796,15 @@ const GeneralHomepage = (user) => {
 
     function UploadToDrive(files){
         console.log(files)
-        axios.post("http://localhost:9002/UploadToDrive",{UploadData:files}) // JIN KA FACE MATCH HO GYA UN KO DRIVE PY UPLOAD K LIA bhej
+        axios.post("http://localhost:9002/UploadToDrive",{UploadData:files}) // JIN KA FACE MATCH HO GYA UN KO DRIVE PY UPLOAD K 
         .then((res) => {
 
         }).catch(() => {
             alert('error in Uploading data');
         })
-
     }
 
     function PythonForImages(){
-        var matchedFiles;
         axios.post("http://localhost:9002/DriveDataGetter") //PECHEY DRIVE SE SAREY USER JO SIGNED UP HN UN KA DATA LIA
         .then((res) => {
             const dataaa = res.data.Data;
@@ -820,25 +816,9 @@ const GeneralHomepage = (user) => {
                 //console.log(response.data)
                 )
             .catch(error => console.error(error))
-
-
-            // fetch(`http://localhost:5000/UploadImages`, dataaa)
-            // .then(response => response.text())
-            // .then(data => console.log(data))
-            // .catch(error => console.error(error))
         }).catch(() => {
             alert('error in fetching data');
         })
-
-        
-
-
-        // fetch(`http://localhost:5000/UploadImages`)//SEDNING REQUEST TO PYTHON FILE
-        //     .then(function (response) {
-        //         return response.text();
-        //     }).then(function (text) {
-        //         console.log(text)
-        //     });
     }
 
 
