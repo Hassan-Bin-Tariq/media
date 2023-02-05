@@ -81,13 +81,25 @@ const StudentHomepage = (user) => {
             alert("Password not matched")
         }
     }
-
+    var images;
     function GetAllImages(){
         console.log("Image getter")
         axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
         .then(
-            res=> console.log(res.data.urlsForLogedIn)
+            res=> images = res.data.urlsForLogedIn
         )
+    }
+
+    function showAllImages(){
+        console.log(images)
+
+        for (let i = 0; i < images.length; i++) {
+            var fileID = images[i].split("/")[5];
+            var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
+            document.getElementById("myImage"+i).src = imageURL;
+        }
+        
+        
     }
 
     return (
@@ -176,6 +188,10 @@ const StudentHomepage = (user) => {
                         <p>Stay tuned for more personalized content!</p>
                     </div>
                     <button onClick={GetAllImages}>Get Images</button>
+                    <button onClick={showAllImages}>show Images</button>
+                    <img id="myImage0"></img>
+                    <img id="myImage1"></img>
+                    <img id="myImage2"></img>
                     {/* Div with card */}  
                     <div id="editProfile">
                             <div>
