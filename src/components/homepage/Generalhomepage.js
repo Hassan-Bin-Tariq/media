@@ -796,14 +796,29 @@ const GeneralHomepage = (user) => {
         });
     }
 
+    function UploadToDrive(files){
+        console.log(files)
+        axios.post("http://localhost:9002/UploadToDrive",{UploadData:files}) // JIN KA FACE MATCH HO GYA UN KO DRIVE PY UPLOAD K LIA bhej
+        .then((res) => {
+
+        }).catch(() => {
+            alert('error in Uploading data');
+        })
+
+    }
+
     function PythonForImages(){
-        axios.post("http://localhost:9002/DriveDataGetter")
+        var matchedFiles;
+        axios.post("http://localhost:9002/DriveDataGetter") //PECHEY DRIVE SE SAREY USER JO SIGNED UP HN UN KA DATA LIA
         .then((res) => {
             const dataaa = res.data.Data;
             console.log(dataaa);
 
-            axios.post(`http://localhost:5000/UploadImages`,dataaa)
-            .then(response => console.log(response.data))
+            axios.post(`http://localhost:5000/UploadImages`,dataaa) // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
+            .then(response => 
+                UploadToDrive(response.data)
+                //console.log(response.data)
+                )
             .catch(error => console.error(error))
 
 
