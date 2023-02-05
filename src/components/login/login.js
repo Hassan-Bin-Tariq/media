@@ -318,7 +318,7 @@ const Login = ({ setLoginUser }) => {
     }
     
     function PythonTrigger(){
-        console.log(userReg.name)
+        //console.log(userReg.name)
         fetch(`http://localhost:5000/FaceDetect`)//SEDNING REQUEST TO PYTHON FILE
             .then(function (response) {
                 return response.json();
@@ -330,10 +330,10 @@ const Login = ({ setLoginUser }) => {
                 //console.log(json.path)
                 var output = document.getElementById('output');
                 output.src = "data:image/jpeg;base64,"+removeBase;
-                console.log(output.src)
+                //console.log(output.src)
                 axios.post("http://localhost:9002/FolderMaker", {UserEmail: userReg.email,ImagePath:json.path})
                 .then(
-                    res => alert(res.data.message),
+                    res => console.log(res.data.Folder),
                 )
             });
     }
