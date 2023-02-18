@@ -10,6 +10,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import logoNav from "../../assets/logo-copy.png";
 import Container from 'react-bootstrap/Container';
+import * as Excel from "exceljs";
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -90,7 +91,28 @@ const PhotographyHomepage = (user) => {
     };
     //const handleShow = () => setShow(true);
 
-    
+    //function to create a logsheetnpm 
+    function generateExcel()
+     {
+     const workbook = new Excel.Workbook();
+     const worksheet = workbook.addWorksheet("My Sheet");
+  
+     worksheet.columns = [
+    { header: "Name", key: "name", width: 20 },
+    { header: "Age", key: "age", width: 10 },
+    { header: "Email", key: "email", width: 30 },
+     ];
+  
+    worksheet.addRow({ name: "John Doe", age: 30, email: "john@example.com" });
+    worksheet.addRow({ name: "Jane Doe", age: 25, email: "jane@example.com" });
+  
+    workbook.xlsx.writeBuffer().then((data) => {
+    const blob = new Blob([data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const url = URL.createObjectURL(blob);
+    window.open(url);
+    });
+    }
+
     function changetimeformat (times)
     {
         //CONVERTING SLOT NUMBER TO ITS EQUVILENT TIME
