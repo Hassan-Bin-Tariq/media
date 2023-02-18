@@ -837,6 +837,7 @@ const PhotographyHomepage = (user) => {
         });
       hideEvent();
       hideAlbum();
+      hideInventory();
     }
     const hidePass = () => {
         
@@ -852,6 +853,7 @@ const PhotographyHomepage = (user) => {
         });
        hidePass();
        hideAlbum();
+       hideInventory();
     }
     const hideEvent = () => {
         
@@ -868,11 +870,27 @@ const PhotographyHomepage = (user) => {
         });
         hideEvent();
         hidePass();
+        hideInventory();
 
     }
     const hideAlbum = () => {
         $(function () {
             $('#myGallery').hide();
+        });
+    }
+
+    const showInventory = () => {
+        $(function () {
+            $('#logsheet').show();
+        });
+        hideEvent();
+        hidePass();
+
+    }
+    const hideInventory = () =>
+    {
+        $(function () {
+            $('#logsheet').hide();
         });
     }
     return (
@@ -898,6 +916,9 @@ const PhotographyHomepage = (user) => {
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button  onClick={showInventory} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Inventory
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -1039,12 +1060,10 @@ const PhotographyHomepage = (user) => {
                                     </tr>
                                     ))
                                 }
-                            
-    
-    
                             </tbody>
                           </table>
                         </div>
+                        {hideInventory()};
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
