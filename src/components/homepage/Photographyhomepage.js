@@ -10,7 +10,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import logoNav from "../../assets/logo-copy.png";
 import Container from 'react-bootstrap/Container';
-import * as Excel from "exceljs";
+import * as XLSX from 'xlsx'
+//import * as Excel from "exceljs";
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -91,28 +92,7 @@ const PhotographyHomepage = (user) => {
     };
     //const handleShow = () => setShow(true);
 
-    //function to create a logsheetnpm 
-    function generateExcel()
-     {
-     const workbook = new Excel.Workbook();
-     const worksheet = workbook.addWorksheet("My Sheet");
-  
-     worksheet.columns = [
-    { header: "Name", key: "name", width: 20 },
-    { header: "Age", key: "age", width: 10 },
-    { header: "Email", key: "email", width: 30 },
-     ];
-  
-    worksheet.addRow({ name: "John Doe", age: 30, email: "john@example.com" });
-    worksheet.addRow({ name: "Jane Doe", age: 25, email: "jane@example.com" });
-  
-    workbook.xlsx.writeBuffer().then((data) => {
-    const blob = new Blob([data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    const url = URL.createObjectURL(blob);
-    window.open(url);
-    });
-    }
-
+   
     function changetimeformat (times)
     {
         //CONVERTING SLOT NUMBER TO ITS EQUVILENT TIME
@@ -812,6 +792,43 @@ const PhotographyHomepage = (user) => {
         }
     }
 
+    const readExcel =(file)=>
+    {
+        const promise = new Promise((resolve, reject) =>
+        {
+            const fileReader = new FileReader();
+            fileReader.readAsArrayBuffer(file);
+
+            fileReader.onload=(e)=>
+            {
+
+                const bufferArray = e.target.result;
+
+                const wb =XLSX.read(bufferArray, {type:'buffer'});
+
+                const wsname= wb.SheetNames[0];
+
+                const ws = wb.Sheets[wsname];
+
+                //excel sheet data to json
+                const data=XLSX.utils.sheet_to_json(ws);
+                
+                resolve(data);
+
+            };
+            fileReader.onerror=(error) =>
+            {
+                reject(error);
+            };
+        });
+
+
+        promise.then((d)=>{
+            console.log(d);
+        })
+
+    }
+
     const showPass = () => {
         
         $(function () {
@@ -988,6 +1005,17 @@ const PhotographyHomepage = (user) => {
                         
 
                         </div>  
+                        {/*Sheet js div */}
+                        <div id = "logsheet">
+                            <input type = "file" onChange={(e) =>
+                            {
+                             const file= e.target.files[0];
+
+ 
+
+                            readExcel(file)
+                            }}/>
+                        </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
@@ -995,6 +1023,8 @@ const PhotographyHomepage = (user) => {
 
             
         </div>
+         
+                       
 
             {/* MODAL START */}
             {
