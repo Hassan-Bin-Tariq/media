@@ -53,6 +53,7 @@ const PhotographyHomepage = (user) => {
     const handleShow = () => setShow(true);
     const history = useHistory()
     const [showMediaIcons, setShowMediaIcons] = useState(false);
+    const [item, setItem]=useState([]);
     var Name = user.setLoginUser.name
     var i = 0;
     var EventTitle;
@@ -824,7 +825,7 @@ const PhotographyHomepage = (user) => {
 
 
         promise.then((d)=>{
-            console.log(d);
+            setItem(d);
         })
 
     }
@@ -1015,6 +1016,34 @@ const PhotographyHomepage = (user) => {
 
                             readExcel(file)
                             }}/>
+                            
+                            <table class="table">
+                              <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">TIME</th>
+                                <th scope="col">ASSIGNEDMEMBER</th>
+                                <th scope="col">GADGET</th>
+                            </tr>
+                              </thead>
+                            <tbody>
+                                {
+                                    item.map((d)=> (
+                                    <tr key ={d.SR}>
+                                    <th>{d.SR}</th>
+                                    <th>{d.DATE}</th>
+                                    <td>{d.TIME}</td>
+                                    <td>{d.ASSIGNEDMEMBER}</td>
+                                    <td>{d.GADGET}</td>
+                                    </tr>
+                                    ))
+                                }
+                            
+    
+    
+                            </tbody>
+                          </table>
                         </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
