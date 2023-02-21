@@ -47,6 +47,14 @@ import {
   import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
   import {AiOutlineLogout} from "react-icons/ai";
+// import { elementAcceptingRef } from "@mui/utils"
+// import { empSchema} from  '../mongoDBSchemas/empSchema';
+// import {APIResponse, ErrResponse} '../utils/statusMessages';
+// import {
+//     BrowserRouter as Router,
+//     Routes,
+//     Route,
+//   } from 'react-router-dom';
 const PhotographyHomepage = (user) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -78,6 +86,39 @@ const PhotographyHomepage = (user) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
     const ref = useRef(null);
+    // router.post('/importExcel', async(req, res)=>
+    // {
+      
+
+    //     //reading file from path
+    //     let xlFile = XLSX.readFile("C:\Users\SmartCom\Downloads\Desktop\FYP - MEDIASCAPE\Inventory_Logsheet")
+
+    //     //exctracting data in sheet
+    //     let sheet = xlFile.Sheets[xlFile.SheetNames[0]];
+    //     //let sheet = xlFile.Sheets["emp"];
+        
+    //     //converting excel data to json
+    //     let P_JSON = xlFile.utils.sheet_to_json(sheet);
+
+    //     await empSchema.insertMany(P_JSON).then((result: any) =>
+    //         {
+
+    //             if(result.length>0)
+    //             {
+    //                 res.send({status:200, message: "success", Count:result.length});
+
+    //             }
+    //             else
+    //             {
+    //                 res.send(new ErrResponse(201, "No data Found"))
+    //             }
+                
+    //         })
+        
+    // })
+    
+
+    
     let showevents
     axios.post("http://localhost:9002/GetAcceptEvent", )
     .then(res => {
@@ -793,6 +834,44 @@ const PhotographyHomepage = (user) => {
         }
     }
 
+    //function to save editable 
+    const saveDataa = () =>
+    {
+       const saveButton = document.getElementById("saveButton");
+       const tbody = document.querySelector("tbody");
+    
+       saveButton.addEventListener("click", async () => {
+       const rows = Array.from(tbody.children);
+       const tableData = rows.map((row) => {
+       const [column1, column2, column3, column4] = row.children;
+        return {
+          column1: column1.innerText,
+          column2: column2.innerText,
+          column3: column3.innerText,
+          column4: column4.innerText,
+        };
+         });
+         try {
+            const response = await fetch("http://http://localhost:3000/photographyPortal", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(tableData),
+            });
+        
+            if (response.ok) {
+              alert("Table data saved successfully");
+            } 
+          } 
+          catch (error) {
+          console.error(error);
+            alert("Failed to save table data");
+          }
+        });
+    }
+
+
     const readExcel =(file)=>
     {
         const promise = new Promise((resolve, reject) =>
@@ -1038,7 +1117,7 @@ const PhotographyHomepage = (user) => {
                             readExcel(file)
                             }}/>
                             
-                            <table class="table">
+                            {/* <table class="table">
                               <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -1061,9 +1140,34 @@ const PhotographyHomepage = (user) => {
                                     ))
                                 }
                             </tbody>
-                          </table>
+                          </table> */}
                         </div>
-                        {hideInventory()};
+                        {hideInventory()}
+                        {/*editable table div*/ }
+                        <div id="editabletable">
+                       
+                        <table>
+                        <thead>
+                        <tr>
+                        <th name="column1">DATE</th>
+                        <th name="column2">Time</th>
+                        <th name="column3">Assigned Member</th>
+                        <th name="column4">Gadget</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        <button id="saveButton">Save</button>
+                      
+                      
+                        </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
