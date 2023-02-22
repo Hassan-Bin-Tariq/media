@@ -837,34 +837,22 @@ const PhotographyHomepage = (user) => {
     //function to save editable 
     const saveDataa = () =>
     {
-        console.log("ibnet")
+            console.log("ibnet")
+            var tableData = [];
+            var rows = document.getElementById("editabletable1").rows;
 
-        const tableData = [];
-        //let tableRes;
-        const saveButton = document.getElementById('saveButton');
-        const tbody = document.querySelector('tbody');
+            for (var i = 1; i < rows.length; i++) {
+                var rowData = [];
+                var cells = rows[i].cells;
 
-                    saveButton.addEventListener('click', async () => {
-                    const rows = Array.from(tbody.children);
-                        const tableData = rows.map((row) => {
-                          const [column1, column2, column3, column4] = row.children;
-                          return {
-                            column1: column1.innerText,
-                            column2: column2.innerText,
-                            column3: column3.innerText,
-                            column4: column4.innerText
-                          };
-                    // iterate over the table cells and store their values in an array
-                   
-                    // tableCells.forEach(function(cell) {
-                    // tableData.push(cell.textContent);
-                    
-                //   });
-                });
-            })
-                //tableRes = tableData;
+                for (var j = 0; j < cells.length; j++) {
+                rowData.push(cells[j].innerHTML);
+                }
+
+                tableData.push(rowData);
+            }
             if(tableData!=null){
-                axios.post("http://localhost:9002/photographyPortal", {tableData} )
+                axios.post("http://localhost:9002/inventory", {tableData} )
                .then(res => {
                 // alert(res.data.message)
                 // eventts = res.data.event;
