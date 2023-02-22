@@ -10,7 +10,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import logoNav from "../../assets/logo-copy.png";
 import Container from 'react-bootstrap/Container';
-import * as XLSX from 'xlsx'
+import {Col, Form, Row} from "react-bootstrap";
+// import * as XLSX from 'xlsx'
 //import * as Excel from "exceljs";
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -56,12 +57,26 @@ import Popover from 'react-bootstrap/Popover';
 //     Route,
 //   } from 'react-router-dom';
 const PhotographyHomepage = (user) => {
+    var Name = user.setLoginUser.name
+    var Email = user.setLoginUser.email
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const history = useHistory()
     const [showMediaIcons, setShowMediaIcons] = useState(false);
     const [item, setItem]=useState([]);
+    const [ event, setEvent] = useState({
+        headName: Name,
+        headEmail: user.setLoginUser.email,
+        userID: user.setLoginUser._id,
+        title: "",
+        description:"",
+        date:"",
+        StartTime: "",
+        EndTime: "",
+        venue: "",
+        status: "Not Checked"
+    })
     var Name = user.setLoginUser.name
     var i = 0;
     var EventTitle;
@@ -86,6 +101,28 @@ const PhotographyHomepage = (user) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
     const ref = useRef(null);
+    const handleChange = e => {
+        var { name, value } = e.target
+        if(name === "StartTime" || name === "EndTime")
+        {
+            value = tConvert (value);
+        }
+        setEvent({
+            ...event,
+            [name]: value
+        })
+    }
+    function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+    
+        if (time.length > 1) { // If time format correct
+          time = time.slice (1);  // Remove full string match value
+          time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+          time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+    }
     // router.post('/importExcel', async(req, res)=>
     // {
       
@@ -132,6 +169,29 @@ const PhotographyHomepage = (user) => {
         setShowOverlay(!show);
         setTarget(event.target);
     };
+    const showForm = () => {
+        $(function () {
+            $('#form').show();
+        });
+        // hideEvent();
+        // hidePass();
+        // hideAlbum();
+    }
+    const SubmitEvent = () => {
+
+        const { title,headName,headEmail,userID,description,date,StartTime,EndTime,venue,status } = event
+
+        if(title && headName && headEmail && userID && description && date && StartTime && EndTime && venue && status){
+            axios.post("http://localhost:9002/GenerateEventRequest", event)
+            .then( 
+                res => alert(res.data.message),
+                //history.push("./login")
+            )
+        }else {
+            alert("invalid input")
+        }
+        //alert("Submited")
+    }
     //const handleShow = () => setShow(true);
 
    
@@ -904,42 +964,42 @@ const PhotographyHomepage = (user) => {
     }
 
 
-    const readExcel =(file)=>
-    {
-        const promise = new Promise((resolve, reject) =>
-        {
-            const fileReader = new FileReader();
-            fileReader.readAsArrayBuffer(file);
+    // const readExcel =(file)=>
+    // {
+    //     const promise = new Promise((resolve, reject) =>
+    //     {
+    //         const fileReader = new FileReader();
+    //         fileReader.readAsArrayBuffer(file);
 
-            fileReader.onload=(e)=>
-            {
+    //         fileReader.onload=(e)=>
+    //         {
 
-                const bufferArray = e.target.result;
+    //             const bufferArray = e.target.result;
 
-                const wb =XLSX.read(bufferArray, {type:'buffer'});
+    //             const wb =XLSX.read(bufferArray, {type:'buffer'});
 
-                const wsname= wb.SheetNames[0];
+    //             const wsname= wb.SheetNames[0];
 
-                const ws = wb.Sheets[wsname];
+    //             const ws = wb.Sheets[wsname];
 
-                //excel sheet data to json
-                const data=XLSX.utils.sheet_to_json(ws);
+    //             //excel sheet data to json
+    //             const data=XLSX.utils.sheet_to_json(ws);
                 
-                resolve(data);
+    //             resolve(data);
 
-            };
-            fileReader.onerror=(error) =>
-            {
-                reject(error);
-            };
-        });
+    //         };
+    //         fileReader.onerror=(error) =>
+    //         {
+    //             reject(error);
+    //         };
+    //     });
 
 
-        promise.then((d)=>{
-            setItem(d);
-        })
+    //     promise.then((d)=>{
+    //         setItem(d);
+    //     })
 
-    }
+    // }
 
     const showPass = () => {
         
@@ -1024,6 +1084,9 @@ const PhotographyHomepage = (user) => {
                     </button>
                     <button  onClick={GetEvents} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Assign Duties
+                    </button>
+                    <button  onClick={showForm} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Generate Event
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
@@ -1139,7 +1202,7 @@ const PhotographyHomepage = (user) => {
 
                         </div>  
                         {/*Sheet js div */}
-                        <div id = "logsheet">
+                        {/* <div id = "logsheet">
                             <input type = "file" onChange={(e) =>
                             {
                              const file= e.target.files[0];
@@ -1147,7 +1210,7 @@ const PhotographyHomepage = (user) => {
  
 
                             readExcel(file)
-                            }}/>
+                            }}/> */}
                             
                             {/* <table class="table">
                               <thead>
@@ -1173,7 +1236,7 @@ const PhotographyHomepage = (user) => {
                                 }
                             </tbody>
                           </table> */}
-                        </div>
+                        {/* </div> */}
                         {hideInventory()}
                         {/*editable table div*/ }
                         <div id="editabletable">
@@ -1199,6 +1262,46 @@ const PhotographyHomepage = (user) => {
                         <button id="saveButton" onClick={saveDataa}>Save</button>
                       
                       
+                        </div>
+                        {/* GENERATE EVENT FORM STARTS HERE */}
+                        <div id="form">
+                        <Row className="mt-2 text-center">
+                            <h2>Generate Event Request</h2>
+                            <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
+                                <div>
+                                    <Form.Group controlId="formBasicTitle">
+                                        <Form.Label>Event Title</Form.Label>
+                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicDescription">
+                                        <Form.Label>Event Description</Form.Label>
+                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicDate">
+                                        <Form.Label>Event Date</Form.Label>
+                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicTime">
+                                        <Form.Label>Event Start Time</Form.Label>
+                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicTime">
+                                        <Form.Label>Event End Time</Form.Label>
+                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicVenue">
+                                        <Form.Label>Event Venue</Form.Label>
+                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
+                                    </Form.Group>
+                                    <Row className="mt-2">
+                                    {/* Removed type="submit" from here */}
+                                        <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
+                                            Submit Request
+                                        </button>
+                                    </Row>
+                                </div>
+                            </Col>
+                        </Row>
                         </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
