@@ -837,38 +837,82 @@ const PhotographyHomepage = (user) => {
     //function to save editable 
     const saveDataa = () =>
     {
-       const saveButton = document.getElementById("saveButton");
-       const tbody = document.querySelector("tbody");
-    
-       saveButton.addEventListener("click", async () => {
-       const rows = Array.from(tbody.children);
-       const tableData = rows.map((row) => {
-       const [column1, column2, column3, column4] = row.children;
-        return {
-          column1: column1.innerText,
-          column2: column2.innerText,
-          column3: column3.innerText,
-          column4: column4.innerText,
-        };
-         });
-         try {
-            const response = await fetch("http://http://localhost:3000/photographyPortal", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(tableData),
-            });
-        
-            if (response.ok) {
-              alert("Table data saved successfully");
-            } 
-          } 
-          catch (error) {
-          console.error(error);
-            alert("Failed to save table data");
-          }
-        });
+        console.log("ibnet")
+
+        const tableData = [];
+        //let tableRes;
+        const saveButton = document.getElementById('saveButton');
+        const tbody = document.querySelector('tbody');
+
+                    saveButton.addEventListener('click', async () => {
+                    const rows = Array.from(tbody.children);
+                        const tableData = rows.map((row) => {
+                          const [column1, column2, column3, column4] = row.children;
+                          return {
+                            column1: column1.innerText,
+                            column2: column2.innerText,
+                            column3: column3.innerText,
+                            column4: column4.innerText
+                          };
+                    // iterate over the table cells and store their values in an array
+                   
+                    // tableCells.forEach(function(cell) {
+                    // tableData.push(cell.textContent);
+                    
+                //   });
+                });
+            })
+                //tableRes = tableData;
+            if(tableData!=null){
+                axios.post("http://localhost:9002/photographyPortal", {tableData} )
+               .then(res => {
+                // alert(res.data.message)
+                // eventts = res.data.event;
+                // console.log(eventts)
+                console.log(tableData);
+                alert('Table data saved successfully');
+
+            })
+        }
+        else
+        {
+            alert("Failed to save data")
+        }
+
+    //     const saveButton = document.getElementById('saveButton');
+    //   const tbody = document.querySelector('tbody');
+
+    //   saveButton.addEventListener('click', async () => {
+    //     const rows = Array.from(tbody.children);
+    //     const tableData = rows.map((row) => {
+    //       const [column1, column2, column3, column4] = row.children;
+    //       return {
+    //         column1: column1.innerText,
+    //         column2: column2.innerText,
+    //         column3: column3.innerText,
+    //         column4: column4.innerText
+    //       };
+    //     });
+
+    //     try {
+    //       const response = await fetch('/http://localhost:9002/photographyPortal', {
+    //         method: 'POST',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(tableData),
+    //       });
+
+    //       if (response.ok) {
+    //         alert('Table data saved successfully');
+    //       } else {
+    //         throw new Error('Failed to save table data');
+    //       }
+    //     } catch (error) {
+    //       console.error(error);
+    //       alert('Failed to save table data');
+    //     }
+    //   });
     }
 
 
@@ -1146,7 +1190,7 @@ const PhotographyHomepage = (user) => {
                         {/*editable table div*/ }
                         <div id="editabletable">
                        
-                        <table>
+                        <table id="editabletable1">
                         <thead>
                         <tr>
                         <th name="column1">DATE</th>
@@ -1164,7 +1208,7 @@ const PhotographyHomepage = (user) => {
                         </tr>
                         </tbody>
                         </table>
-                        <button id="saveButton">Save</button>
+                        <button id="saveButton" onClick={saveDataa}>Save</button>
                       
                       
                         </div>
