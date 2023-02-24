@@ -911,13 +911,12 @@ const PhotographyHomepage = (user) => {
 
                 tableData.push(rowData);
             }
-            if(tableData!=null){
-                axios.post("http://localhost:9002/inventory", {tableData} )
+            console.log(tableData)
+            if(tableData!=null)
+            {
+                axios.post("http://localhost:9002/invent", {tableData})
                .then(res => {
-                // alert(res.data.message)
-                // eventts = res.data.event;
-                // console.log(eventts)
-                console.log(tableData);
+                console.log(res.tableData);
                 alert('Table data saved successfully');
 
             })
@@ -926,41 +925,6 @@ const PhotographyHomepage = (user) => {
         {
             alert("Failed to save data")
         }
-
-    //     const saveButton = document.getElementById('saveButton');
-    //   const tbody = document.querySelector('tbody');
-
-    //   saveButton.addEventListener('click', async () => {
-    //     const rows = Array.from(tbody.children);
-    //     const tableData = rows.map((row) => {
-    //       const [column1, column2, column3, column4] = row.children;
-    //       return {
-    //         column1: column1.innerText,
-    //         column2: column2.innerText,
-    //         column3: column3.innerText,
-    //         column4: column4.innerText
-    //       };
-    //     });
-
-    //     try {
-    //       const response = await fetch('/http://localhost:9002/photographyPortal', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(tableData),
-    //       });
-
-    //       if (response.ok) {
-    //         alert('Table data saved successfully');
-    //       } else {
-    //         throw new Error('Failed to save table data');
-    //       }
-    //     } catch (error) {
-    //       console.error(error);
-    //       alert('Failed to save table data');
-    //     }
-    //   });
     }
 
 
