@@ -76,6 +76,7 @@ const PhotographyHomepage = (user) => {
         EndTime: "",
         venue: "",
         status: "Not Checked"
+        
     })
     var Name = user.setLoginUser.name
     var i = 0;
