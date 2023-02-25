@@ -973,6 +973,7 @@ const PhotographyHomepage = (user) => {
       hideEvent();
       hideAlbum();
       hideInventory();
+      hideGenerated();
     }
     const hidePass = () => {
         
@@ -989,6 +990,7 @@ const PhotographyHomepage = (user) => {
        hidePass();
        hideAlbum();
        hideInventory();
+       hideGenerated();
     }
     const hideEvent = () => {
         
@@ -1006,6 +1008,7 @@ const PhotographyHomepage = (user) => {
         hideEvent();
         hidePass();
         hideInventory();
+        hideGenerated();
 
     }
     const hideAlbum = () => {
@@ -1020,12 +1023,30 @@ const PhotographyHomepage = (user) => {
         });
         hideEvent();
         hidePass();
+        hideGenerated();
 
     }
     const hideInventory = () =>
     {
         $(function () {
             $('#logsheet').hide();
+        });
+    }
+    // show hide generate event form //
+    const showGenerated = () => {
+        $(function () {
+            $('#form').show();
+        });
+        hideEvent();
+        hidePass();
+        hideInventory();
+        hideAlbum();
+
+
+    }
+    const hideGenerated = () => {
+        $(function () {
+            $('#form').hide();
         });
     }
     return (
@@ -1049,7 +1070,7 @@ const PhotographyHomepage = (user) => {
                     <button  onClick={GetEvents} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Assign Duties
                     </button>
-                    <button  onClick={showForm} className="sidebarbtn">
+                    <button  onClick={showGenerated} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Generate Event
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
@@ -1230,7 +1251,7 @@ const PhotographyHomepage = (user) => {
                         {/* GENERATE EVENT FORM STARTS HERE */}
                         <div id="form">
                         <Row className="mt-2 text-center">
-                            <h2>Generate Event Request</h2>
+                            <h2>Generate FPS Event</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
                                 <div>
                                     <Form.Group controlId="formBasicTitle">
@@ -1260,7 +1281,7 @@ const PhotographyHomepage = (user) => {
                                     <Row className="mt-2">
                                     {/* Removed type="submit" from here */}
                                         <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
-                                            Submit Request
+                                            Submit Event
                                         </button>
                                     </Row>
                                 </div>
