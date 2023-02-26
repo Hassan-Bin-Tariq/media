@@ -1020,9 +1020,10 @@ const PhotographyHomepage = (user) => {
 
     const showInventory = () => {
         $(function () {
-            $('#logsheet').show();
+            $('#editabletable').show();
         });
         hideEvent();
+        hideAlbum();
         hidePass();
         hideGenerated();
 
@@ -1030,7 +1031,7 @@ const PhotographyHomepage = (user) => {
     const hideInventory = () =>
     {
         $(function () {
-            $('#logsheet').hide();
+            $('#editabletable').hide();
         });
     }
     // show hide generate event form //
@@ -1050,6 +1051,7 @@ const PhotographyHomepage = (user) => {
             $('#form').hide();
         });
     }
+    
     return (
         
         <>
@@ -1224,6 +1226,7 @@ const PhotographyHomepage = (user) => {
                           </table> */}
                         {/* </div> */}
                         {hideInventory()}
+                        {hideGenerated()}
                         {/*editable table div*/ }
                         <div id="editabletable">
                        
