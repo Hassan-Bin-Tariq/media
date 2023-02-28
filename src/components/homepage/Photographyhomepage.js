@@ -32,7 +32,7 @@ import {
     CDBSidebarHeader,
     CDBSidebarMenu,
     CDBSidebarMenuItem,
-  } from 'cdbreact';
+} from 'cdbreact';
 import {
     FaFacebookSquare,
     FaInstagramSquare,
@@ -42,12 +42,12 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaGripHorizontal,
-  
-  } from "react-icons/fa";
-  import $ from "jquery"
-  import Overlay from 'react-bootstrap/Overlay';
+
+} from "react-icons/fa";
+import $ from "jquery"
+import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
-  import {AiOutlineLogout} from "react-icons/ai";
+import {AiOutlineLogout} from "react-icons/ai";
 // import { elementAcceptingRef } from "@mui/utils"
 // import { empSchema} from  '../mongoDBSchemas/empSchema';
 // import {APIResponse, ErrResponse} '../utils/statusMessages';
@@ -65,7 +65,7 @@ const PhotographyHomepage = (user) => {
     const history = useHistory()
     const [showMediaIcons, setShowMediaIcons] = useState(false);
     const [item, setItem]=useState([]);
-    const [ event, setEvent] = useState({
+    const [ event2, setEvent2] = useState({
         headName: Name,
         headEmail: user.setLoginUser.email,
         userID: user.setLoginUser._id,
@@ -75,9 +75,20 @@ const PhotographyHomepage = (user) => {
         StartTime: "",
         EndTime: "",
         venue: "",
-        status: "Not Checked"
-        
+        status: "Not Checked"    
     })
+    const handleChange = e => {
+        var { name, value } = e.target
+        if(name === "StartTime" || name === "EndTime")
+        {
+            value = tConvert (value);
+        }
+        setEvent2({
+            ...event2,
+            [name]: value
+        })
+    }
+    console.log(event2)
     var Name = user.setLoginUser.name
     var i = 0;
     var EventTitle;
@@ -102,45 +113,35 @@ const PhotographyHomepage = (user) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
     const ref = useRef(null);
-    const handleChange = e => {
-        var { name, value } = e.target
-        if(name === "StartTime" || name === "EndTime")
-        {
-            value = tConvert (value);
-        }
-        setEvent({
-            ...event,
-            [name]: value
-        })
-    }
+ 
     const [options, setOptions] = useState([
         { id: 1, text: 'Option 1', votes: 0 },
         { id: 2, text: 'Option 2', votes: 0 },
         { id: 3, text: 'Option 3', votes: 0 },
-      ]);
-      const [selectedOption, setSelectedOption] = useState(null);
-      const [submitted, setSubmitted] = useState(false);
+    ]);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [submitted, setSubmitted] = useState(false);
     
-      const handleOptionChange = event => {
+    const handleOptionChange = event => {
         setSelectedOption(parseInt(event.target.value));
-      };
+    };
     
-      const handleSubmit = (event) =>
-       {
+    const handleSubmit = (event) =>
+    {
         event.preventDefault();
         //axios.post('http://localhost:9002/poll', { optionId: selectedOption }).then(res=>{
         
-     
+    
             const updatedOptions = options.map(option => {
-              if (option.id === selectedOption) {
+            if (option.id === selectedOption) {
                 return { ...option, votes: option.votes + 1 };
-              }
-              return option;
+            }
+            return option;
             });
             setOptions(updatedOptions);
             setSubmitted(true);
             console.log(updatedOptions);
-      }
+    }
     
     function tConvert (time) {
         // Check correct time format and split into components
@@ -209,10 +210,10 @@ const PhotographyHomepage = (user) => {
     }
     const SubmitEvent = () => {
 
-        const { title,headName,headEmail,userID,description,date,StartTime,EndTime,venue,status } = event
+        const { title,headName,headEmail,userID,description,date,StartTime,EndTime,venue,status } = event2
 
         if(title && headName && headEmail && userID && description && date && StartTime && EndTime && venue && status){
-            axios.post("http://localhost:9002/GenerateEventRequest", event)
+            axios.post("http://localhost:9002/GenerateEventRequest", event2)
             .then( 
                 res => alert(res.data.message),
                 //history.push("./login")
@@ -223,8 +224,6 @@ const PhotographyHomepage = (user) => {
         //alert("Submited")
     }
     //const handleShow = () => setShow(true);
-
-   
     function changetimeformat (times)
     {
         //CONVERTING SLOT NUMBER TO ITS EQUVILENT TIME
@@ -956,10 +955,6 @@ const PhotographyHomepage = (user) => {
             alert("Failed to save data")
         }
     }
-
-   
-
-        
     // const readExcel =(file)=>
     // {
     //     const promise = new Promise((resolve, reject) =>
@@ -1019,10 +1014,10 @@ const PhotographyHomepage = (user) => {
         $(function () {
             $('#showeventsid').show();
         });
-       hidePass();
-       hideAlbum();
-       hideInventory();
-       hideGenerated();
+        hidePass();
+        hideAlbum();
+        hideInventory();
+        hideGenerated();
     }
     const hideEvent = () => {
         
@@ -1032,7 +1027,6 @@ const PhotographyHomepage = (user) => {
         
     //    hideeventdeets();
     }
-   
     const showAlbum = () => {
         $(function () {
             $('#myGallery').show();
@@ -1132,11 +1126,8 @@ const PhotographyHomepage = (user) => {
                 </CDBSidebar>
             </div>
             {/*////////////// */} 
-          
-            <div  className="mentor-flex2">
-                
-               
-                    
+        
+            <div  className="mentor-flex2">                   
                     <button  className="flex2user">
                                 <FaUserAlt />
                     </button>
@@ -1260,7 +1251,7 @@ const PhotographyHomepage = (user) => {
                         {hideGenerated()}
                         {/*editable table div*/ }
                         <div id="editabletable">
-                       
+                    
                         <table id="editabletable1">
                         <thead>
                         <tr>
@@ -1283,7 +1274,6 @@ const PhotographyHomepage = (user) => {
                         </div>
                         {/*Poll*/}
                         <div id ="voting poll">
-                          
                         <h1>Vote for your favorite option:</h1>
                             <form onSubmit={handleSubmit}>
                                 {options.map(option => (
@@ -1311,8 +1301,7 @@ const PhotographyHomepage = (user) => {
                                 ))}
                                 </div>   
                             )}
-                            </div>
-                          
+                            </div>        
                         </div>
                         {/* GENERATE EVENT FORM STARTS HERE */}
                         <div id="form">
@@ -1386,7 +1375,6 @@ const PhotographyHomepage = (user) => {
                 </div>
             }
             {/* MODAL END */}
-       
          {/* Div with card */}
             
             {/* Div with card end */}
