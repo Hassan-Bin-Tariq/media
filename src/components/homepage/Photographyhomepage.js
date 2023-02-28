@@ -113,6 +113,35 @@ const PhotographyHomepage = (user) => {
             [name]: value
         })
     }
+    const [options, setOptions] = useState([
+        { id: 1, text: 'Option 1', votes: 0 },
+        { id: 2, text: 'Option 2', votes: 0 },
+        { id: 3, text: 'Option 3', votes: 0 },
+      ]);
+      const [selectedOption, setSelectedOption] = useState(null);
+      const [submitted, setSubmitted] = useState(false);
+    
+      const handleOptionChange = event => {
+        setSelectedOption(parseInt(event.target.value));
+      };
+    
+      const handleSubmit = (event) =>
+       {
+        event.preventDefault();
+        //axios.post('http://localhost:9002/poll', { optionId: selectedOption }).then(res=>{
+        
+     
+            const updatedOptions = options.map(option => {
+              if (option.id === selectedOption) {
+                return { ...option, votes: option.votes + 1 };
+              }
+              return option;
+            });
+            setOptions(updatedOptions);
+            setSubmitted(true);
+            console.log(updatedOptions);
+      }
+    
     function tConvert (time) {
         // Check correct time format and split into components
         time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
@@ -928,7 +957,9 @@ const PhotographyHomepage = (user) => {
         }
     }
 
+   
 
+        
     // const readExcel =(file)=>
     // {
     //     const promise = new Promise((resolve, reject) =>
@@ -1249,8 +1280,39 @@ const PhotographyHomepage = (user) => {
                         </tbody>
                         </table>
                         <button id="saveButton" onClick={saveDataa}>Save</button>
-                      
-                      
+                        </div>
+                        {/*Poll*/}
+                        <div id ="voting poll">
+                          
+                        <h1>Vote for your favorite option:</h1>
+                            <form onSubmit={handleSubmit}>
+                                {options.map(option => (
+                                <div key={option.id}>
+                                    <input
+                                    type="radio"
+                                    name="option"
+                                    value={option.id}
+                                    checked={selectedOption === option.id}
+                                    onChange={handleOptionChange}
+                                    />
+                                    <label>{option.text}</label>
+                                </div>
+                                ))}
+                                <button type="submit">Submit</button>
+                            </form>
+                            <div id="poll results">
+                            {submitted && (
+                                <div>
+                                <h2>Results:</h2>
+                                {options.map(option => (
+                                    <div key={option.id}>
+                                    <p>{option.text}: {option.votes}</p>
+                                    </div>
+                                ))}
+                                </div>   
+                            )}
+                            </div>
+                          
                         </div>
                         {/* GENERATE EVENT FORM STARTS HERE */}
                         <div id="form">
