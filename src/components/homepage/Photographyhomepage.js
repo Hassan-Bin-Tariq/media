@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 import Modal from 'react-bootstrap/Modal';
-import { useState , useRef} from "react";
+import { useState , useRef, useEffect} from "react";
 import {Button} from "react-bootstrap";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
@@ -48,6 +48,7 @@ import $ from "jquery"
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 import {AiOutlineLogout} from "react-icons/ai";
+import { Pie } from 'react-chartjs-2';
 // import { elementAcceptingRef } from "@mui/utils"
 // import { empSchema} from  '../mongoDBSchemas/empSchema';
 // import {APIResponse, ErrResponse} '../utils/statusMessages';
@@ -112,37 +113,125 @@ const PhotographyHomepage = (user) => {
     //overlay
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
+    const [submitted, setSubmitted] = useState(false);
     const ref = useRef(null);
  
-    const [options, setOptions] = useState([
-        { id: 1, text: 'Option 1', votes: 0 },
-        { id: 2, text: 'Option 2', votes: 0 },
-        { id: 3, text: 'Option 3', votes: 0 },
-    ]);
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [submitted, setSubmitted] = useState(false);
+    // const [options, setOptions] = useState([
+    //     { id: 1, text: 'Option 1', votes: 0 },
+    //     { id: 2, text: 'Option 2', votes: 0 },
+    //     { id: 3, text: 'Option 3', votes: 0 },
+    // ]);
+    // const [selectedOption, setSelectedOption] = useState(null);
+    // const [submitted, setSubmitted] = useState(false);
     
-    const handleOptionChange = event => {
-        setSelectedOption(parseInt(event.target.value));
-    };
+    // const handleOptionChange = event => {
+    //     setSelectedOption(parseInt(event.target.value));
+    // };
     
-    const handleSubmit = (event) =>
-    {
-        event.preventDefault();
-        //axios.post('http://localhost:9002/poll', { optionId: selectedOption }).then(res=>{
+    // const handleSubmit = (event) =>
+    // {
+    //     event.preventDefault();
+    //     //axios.post('http://localhost:9002/poll', { optionId: selectedOption }).then(res=>{
         
     
-            const updatedOptions = options.map(option => {
-            if (option.id === selectedOption) {
-                return { ...option, votes: option.votes + 1 };
-            }
-            return option;
-            });
-            setOptions(updatedOptions);
-            setSubmitted(true);
-            console.log(updatedOptions);
-    }
+    //         const updatedOptions = options.map(option => {
+    //         if (option.id === selectedOption) {
+    //             return { ...option, votes: option.votes + 1 };
+    //         }
+    //         return option;
+    //         });
+    //         setOptions(updatedOptions);
+    //         setSubmitted(true);
+    //         console.log(updatedOptions);
+    // }
     
+        const [question, setQuestion] = useState('');
+        const [options, setOptions] = useState([]);
+        const [response, setResponse] = useState('');
+        const [polls, setPolls] = useState([]);
+        const [submittedPoll, setSubmittedPoll] = useState(null);
+
+        useEffect(() => {
+            const fetchPolls = async () => {
+            try {
+                const { data } = await axios.get("http://localhost:9002/cpolls");
+
+                setPolls(data);
+            } catch (error) {
+                console.log(error);
+            }
+            };
+
+            fetchPolls();
+        }, []);
+
+        const handleSubmit = async (event) => {
+            event.preventDefault();
+            const data = {question, options, response};
+                console.log("inside handle")
+                axios.post("http://localhost:9002/createpoll", data) 
+                .then(res => {
+                    setSubmittedPoll(data);
+                    setQuestion('');
+                    setOptions([]);
+                    setResponse('');
+                })
+
+            // try {
+            // const { data } = await axios.post("http://localhost:9002/createpoll", {
+            //     question,
+            //     options,
+            //     response,
+            // });
+
+            // setSubmittedPoll(data);
+
+            // setQuestion('');
+            // setOptions([]);
+            // setResponse('');
+            // } catch (error) {
+            // console.log(error);
+            // }
+        };
+
+        const handleOptionChange = (event, index) => {
+            const newOptions = [...options];
+
+            newOptions[index] = event.target.value;
+
+            setOptions(newOptions);
+        };
+
+        const handleAddOption = () => {
+            setOptions([...options, '']);
+        };
+
+        let chart = null;
+        if (submittedPoll !== null) {
+            const pollChartData = {
+            labels: submittedPoll.options,
+            datasets: [
+                {
+                label: submittedPoll.question,
+                data: submittedPoll.options.map((option) =>
+                    polls.reduce(
+                    (acc, poll) =>
+                        poll.options.includes(option)
+                        ? acc + poll.responses.filter((response) => response === option).length
+                        : acc,
+                    0
+                    )
+                ),
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8BC34A', '#3F51B5'],
+                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8BC34A', '#3F51B5'],
+                },
+            ],
+            };
+
+            chart = <Pie data={pollChartData} />;
+        }
+
+
     function tConvert (time) {
         // Check correct time format and split into components
         time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
@@ -945,8 +1034,8 @@ const PhotographyHomepage = (user) => {
             {
                 axios.post("http://localhost:9002/invent", {tableData})
                .then(res => {
-                console.log(res.tableData);
-                alert('Table data saved successfully');
+                console.log(res.error);
+                //alert('Table data saved successfully');
 
             })
         }
@@ -1274,7 +1363,55 @@ const PhotographyHomepage = (user) => {
                         </div>
                         {/*Poll*/}
                         <div id ="voting poll">
-                        <h1>Vote for your favorite option:</h1>
+                         <h1>Create a Poll</h1>
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                            Question:
+                            <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} />
+                            </label>
+                            <br />
+                            <label>
+                            Options:
+                            {options.map((option, index) => (
+                                <div key={index}>
+                                <input
+                                    type="text"
+                                    value={option}
+                                    onChange={(event) => handleOptionChange(event, index)}
+                                />
+                                </div>
+                            ))}
+                            </label>
+                            <button type="button" onClick={handleAddOption}>
+                            Add Option
+                            </button>
+                            <br />
+                            <label>
+                            Response:
+                            <select value={response} onChange={(event) => setResponse(event.target.value)}>
+                                <option value="">Select an option</option>
+                                {options.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                                ))}
+                            </select>
+                            </label>
+                            <br />
+                            <button type="submit">Submit</button>
+                        </form>
+                         {submittedPoll && (
+                                <div>
+                                <h2>Results:</h2>
+                                {options.map(option => (
+                                    <div key={option.id}>
+                                    <p>{option.text}: {option.votes}</p>
+                                    </div>
+                                ))}
+                                </div>   
+                            )}
+                        {chart}
+                        {/* <h1>Vote for your favorite option:</h1>
                             <form onSubmit={handleSubmit}>
                                 {options.map(option => (
                                 <div key={option.id}>
@@ -1301,7 +1438,7 @@ const PhotographyHomepage = (user) => {
                                 ))}
                                 </div>   
                             )}
-                            </div>        
+                            </div>         */}
                         </div>
                         {/* GENERATE EVENT FORM STARTS HERE */}
                         <div id="form">
