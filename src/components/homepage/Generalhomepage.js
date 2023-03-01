@@ -877,10 +877,10 @@ const GeneralHomepage = (user) => {
         let timeul = document.createElement('ul');
         timeul.className = 'photo-size'
 
-        let starttime = document.createElement('li');
-        starttime.innerText = "Start: "+item.StartTime
-        let endtime = document.createElement('li');
-        endtime.innerText = "End: "+item.EndTime
+        // let starttime = document.createElement('li');
+        // starttime.innerText = "Start: "+item.StartTime
+        // let endtime = document.createElement('li');
+        // endtime.innerText = "End: "+item.EndTime
 
         let divgroup = document.createElement('div');
         divgroup.className = 'photo-group'
@@ -898,9 +898,9 @@ const GeneralHomepage = (user) => {
         details.appendChild(Date);
         details.appendChild(timewritten);
 
-        timeul.appendChild(starttime);
-        timeul.appendChild(endtime);
-        details.appendChild(timeul);
+        // timeul.appendChild(starttime);
+        // timeul.appendChild(endtime);
+        // details.appendChild(timeul);
 
         // divgroup.appendChild(divpricewritten);
         divgroup.appendChild(acceptbtn);
@@ -938,7 +938,7 @@ const GeneralHomepage = (user) => {
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetGeneratedEvent", )
         .then(res => {
-            showevents = res.data.event;
+            showevents = res.data.genevent;
             showevents.forEach(myFunction);
         })
         //eventts.forEach(myFunction);

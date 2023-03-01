@@ -1151,7 +1151,7 @@ const PhotographyHomepage = (user) => {
     // show hide generate event form //
     const showGenerated = () => {
         $(function () {
-            $('#form').show();
+            $('#form2').show();
         });
         hideEvent();
         hidePass();
@@ -1162,7 +1162,7 @@ const PhotographyHomepage = (user) => {
     }
     const hideGenerated = () => {
         $(function () {
-            $('#form').hide();
+            $('#form2').hide();
         });
     }
     
@@ -1441,7 +1441,7 @@ const PhotographyHomepage = (user) => {
                             </div>         */}
                         </div>
                         {/* GENERATE EVENT FORM STARTS HERE */}
-                        <div id="form">
+                        <div id="form2">
                         <Row className="mt-2 text-center">
                             <h2>Generate FPS Event</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
