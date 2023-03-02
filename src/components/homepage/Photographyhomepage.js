@@ -1234,7 +1234,7 @@ const PhotographyHomepage = (user) => {
                         </div>  
                         
                         {hideInventory()}
-                        {hideGenerated()}
+                        {/* {hideGenerated()} */}
                         {/*editable table div*/ }
                         <div id="editabletable">
                     
