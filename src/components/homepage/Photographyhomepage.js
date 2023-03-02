@@ -243,36 +243,6 @@ const PhotographyHomepage = (user) => {
         }
         return time.join (''); // return adjusted time or original string
     }
-    // router.post('/importExcel', async(req, res)=>
-    // {
-      
-
-    //     //reading file from path
-    //     let xlFile = XLSX.readFile("C:\Users\SmartCom\Downloads\Desktop\FYP - MEDIASCAPE\Inventory_Logsheet")
-
-    //     //exctracting data in sheet
-    //     let sheet = xlFile.Sheets[xlFile.SheetNames[0]];
-    //     //let sheet = xlFile.Sheets["emp"];
-        
-    //     //converting excel data to json
-    //     let P_JSON = xlFile.utils.sheet_to_json(sheet);
-
-    //     await empSchema.insertMany(P_JSON).then((result: any) =>
-    //         {
-
-    //             if(result.length>0)
-    //             {
-    //                 res.send({status:200, message: "success", Count:result.length});
-
-    //             }
-    //             else
-    //             {
-    //                 res.send(new ErrResponse(201, "No data Found"))
-    //             }
-                
-    //         })
-        
-    // })
     
 
     
@@ -978,7 +948,6 @@ const PhotographyHomepage = (user) => {
 
         let container = document.querySelector("#photo-card-container");
         console.log(container.childNodes);
-       
     }
 
     const myfub = () =>
@@ -1032,8 +1001,7 @@ const PhotographyHomepage = (user) => {
             console.log(tableData)
             if(tableData!=null)
             {
-                axios.post("http://localhost:9002/invent", {tableData})
-               .then(res => {
+                axios.post("http://localhost:9002/invent", {tableData}).then(res => {
                 console.log(res.error);
                 //alert('Table data saved successfully');
 
@@ -1044,42 +1012,6 @@ const PhotographyHomepage = (user) => {
             alert("Failed to save data")
         }
     }
-    // const readExcel =(file)=>
-    // {
-    //     const promise = new Promise((resolve, reject) =>
-    //     {
-    //         const fileReader = new FileReader();
-    //         fileReader.readAsArrayBuffer(file);
-
-    //         fileReader.onload=(e)=>
-    //         {
-
-    //             const bufferArray = e.target.result;
-
-    //             const wb =XLSX.read(bufferArray, {type:'buffer'});
-
-    //             const wsname= wb.SheetNames[0];
-
-    //             const ws = wb.Sheets[wsname];
-
-    //             //excel sheet data to json
-    //             const data=XLSX.utils.sheet_to_json(ws);
-                
-    //             resolve(data);
-
-    //         };
-    //         fileReader.onerror=(error) =>
-    //         {
-    //             reject(error);
-    //         };
-    //     });
-
-
-    //     promise.then((d)=>{
-    //         setItem(d);
-    //     })
-
-    // }
 
     const showPass = () => {
         
@@ -1300,42 +1232,7 @@ const PhotographyHomepage = (user) => {
                         
 
                         </div>  
-                        {/*Sheet js div */}
-                        {/* <div id = "logsheet">
-                            <input type = "file" onChange={(e) =>
-                            {
-                             const file= e.target.files[0];
-
- 
-
-                            readExcel(file)
-                            }}/> */}
-                            
-                            {/* <table class="table">
-                              <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">DATE</th>
-                                <th scope="col">TIME</th>
-                                <th scope="col">ASSIGNEDMEMBER</th>
-                                <th scope="col">GADGET</th>
-                            </tr>
-                              </thead>
-                            <tbody>
-                                {
-                                    item.map((d)=> (
-                                    <tr key ={d.SR}>
-                                    <th>{d.SR}</th>
-                                    <th>{d.DATE}</th>
-                                    <td>{d.TIME}</td>
-                                    <td>{d.ASSIGNEDMEMBER}</td>
-                                    <td>{d.GADGET}</td>
-                                    </tr>
-                                    ))
-                                }
-                            </tbody>
-                          </table> */}
-                        {/* </div> */}
+                        
                         {hideInventory()}
                         {hideGenerated()}
                         {/*editable table div*/ }
@@ -1363,7 +1260,7 @@ const PhotographyHomepage = (user) => {
                         </div>
                         {/*Poll*/}
                         <div id ="voting poll">
-                         <h1>Create a Poll</h1>
+                        <h1>Create a Poll</h1>
                         <form onSubmit={handleSubmit}>
                             <label>
                             Question:
@@ -1400,7 +1297,7 @@ const PhotographyHomepage = (user) => {
                             <br />
                             <button type="submit">Submit</button>
                         </form>
-                         {submittedPoll && (
+                        {submittedPoll && (
                                 <div>
                                 <h2>Results:</h2>
                                 {options.map(option => (
@@ -1487,9 +1384,6 @@ const PhotographyHomepage = (user) => {
 
             
         </div>
-         
-                       
-
             {/* MODAL START */}
             {
                 show && <div id="Modal-container2">
@@ -1515,8 +1409,6 @@ const PhotographyHomepage = (user) => {
          {/* Div with card */}
             
             {/* Div with card end */}
-
-       
               {/* CHECK DETAILS START */}
             {
                 // <div id="photo-cardBody">
