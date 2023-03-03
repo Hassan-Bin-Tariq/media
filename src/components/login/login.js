@@ -66,6 +66,10 @@ const Login = ({ setLoginUser }) => {
                 else if(res.data.message === "Student"){
                     history.push("/studentPortal")
                 }
+                else if (res.data.message === "Logistics Head")
+                {
+                    history.push("/logisticsPortal")
+                }
                 else{
                     document.getElementById("passspan").innerHTML="Wrong password";
                     document.querySelector('.passspan').style.color="red";

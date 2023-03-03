@@ -6,6 +6,7 @@ import MentorHomepage from "./components/homepage/Mentorhomepage"
 import Login from "./components/login/login"
 import Register from "./components/register/register"
 import StudentHomepage from "./components/homepage/Studenthomepage"
+import LogisticsHomepage from "./components/homepage/Logisticshomepage"
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import { useState,useEffect } from 'react';
 import Home from './components/Home/Home';
@@ -63,6 +64,7 @@ function App() {
             }
           </Route>
 
+
           <Route exact path="/login">
             <Login setLoginUser={setLoginUser}/>
           </Route>
@@ -73,6 +75,11 @@ function App() {
           {
               user && user._id ? <StudentHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
           }
+          </Route>
+          <Route exact path="/logisticsPortal">  
+            {
+              user && user._id ? <LogisticsHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
+            }
           </Route>
           <Route path="/">
           {
