@@ -45,14 +45,14 @@ const StudentHomepage = (user) => {
         purpose: "",
         agenda:"",
         date:"",
-        Time: "",
+        MeetingTime: "",
         venue: "",
         
     })
 
     const handleChangeMeeting = e => {
         var { name, value } = e.target
-        if(name === "StartTime")
+        if(name === "MeetingTime")
         {
             value = tConvert (value);
         }
@@ -75,18 +75,20 @@ const StudentHomepage = (user) => {
 
     const ScheduleMeeting = () => {
 
-        const { purpose,callerName,callerEmail,callerID,agenda,date,Time,venue } = meeting
+        const { purpose,callerName,callerEmail,callerID,agenda,date,MeetingTime,venue } = meeting
 
-        if(purpose && callerName && callerEmail && callerID && agenda && date && Time &&venue){
-            axios.post("http://localhost:9002/SendEventRequest", meeting)
+        console.log(meeting)
+        if(purpose && callerName && callerEmail && callerID && agenda && date && MeetingTime &&venue){
+            axios.post("http://localhost:9002/scheduleMeeting", meeting)
             .then( 
                 res => alert(res.data.message),
-                //history.push("./login")
+                alert("Meeting scheduled.")
             )
-        }else {
+        }else 
+        {
             alert("invalid input")
         }
-        //alert("Submited")
+        
     }
     const showAlbum = () => {
         $(function () {
@@ -305,7 +307,7 @@ const StudentHomepage = (user) => {
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
                                         <Form.Label>Meeting Time</Form.Label>
-                                        <Form.Control type="time" name="StartTime" placeholder="Meeting Time" onChange={handleChangeMeeting}/>
+                                        <Form.Control type="time" name="MeetingTime" placeholder="Meeting Time" onChange={handleChangeMeeting}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicVenue">
                                         <Form.Label>Expected Venue</Form.Label>
