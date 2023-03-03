@@ -537,8 +537,11 @@ const GeneralHomepage = (user) => {
             
         });
         hideSlots();
-        hidePass();
+        //hideTable();
         hideCurrent();
+        hideAlbum();
+        hideEvent();
+        hidePass();
     }
     const hideTable = () => {
         $(function () {
@@ -745,17 +748,24 @@ const GeneralHomepage = (user) => {
           hideTable();
           hideCurrent();
           hideAlbum();
+          hideEvent();
     }
     const hidePass = () => {
         $(function () {
             $('#editProfile').hide();
         });
-        showSlots();
+        // showSlots();
     }
     const showSlots = () => {
         $(function () {
             $('#name').show();
         });
+        //hideSlots();
+          hideTable();
+          hideCurrent();
+          hideAlbum();
+          hideEvent();
+          hidePass();
     }
     const hideSlots= () => {
     $(function () {
@@ -767,11 +777,12 @@ const GeneralHomepage = (user) => {
             $('#currentdiv').show();
             getallSlots();
         });
-        
         hideSlots();
-        hidePass();
         hideTable();
+        //hideCurrent();
         hideAlbum();
+        hideEvent();
+        hidePass();
     }
     const hideCurrent= () => {
     $(function () {
@@ -783,10 +794,12 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#myGallery').show();
         });
-        hidePass();
-        hideCurrent();
-        hideDuty();
         hideSlots();
+        hideTable();
+        hideCurrent();
+        //hideAlbum();
+        hideEvent();
+        hidePass();
     }
     const hideAlbum = () => {
         $(function () {
@@ -925,10 +938,18 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#showeventsid').show();
         });
-    //    hidePass();
-    //    hideAlbum();
-    //    hideInventory();
-    //    hideGenerated();
+       hideSlots();
+       hideTable();
+       hideCurrent();
+       hideAlbum();
+       //hideEvent();
+       hidePass();
+    }
+    const hideEvent = () => {
+        
+        $(function () {
+            $('#showeventsid').hide();
+        });
     }
 
     const GetEvents = () => {
