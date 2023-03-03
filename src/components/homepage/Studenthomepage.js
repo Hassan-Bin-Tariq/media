@@ -19,8 +19,8 @@ import {
     CDBSidebarHeader,
     CDBSidebarMenu,
     CDBSidebarMenuItem,
-  } from 'cdbreact';
-  import {
+} from 'cdbreact';
+import {
     FaUserAlt,
     FaWindowClose,
     FaGripHorizontal,
@@ -28,9 +28,9 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaImage,
-  } from "react-icons/fa";
-  import {AiOutlineLogout} from "react-icons/ai";
-  import $ from "jquery"
+} from "react-icons/fa";
+import {AiOutlineLogout} from "react-icons/ai";
+import $ from "jquery"
 
 const StudentHomepage = (user) => {
     const history = useHistory()

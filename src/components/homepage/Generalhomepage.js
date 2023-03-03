@@ -945,10 +945,125 @@ const GeneralHomepage = (user) => {
 
         let container = document.querySelector("#photo-card-container");
         console.log(container.childNodes);
-       
     }
 
+    let showmeeting
+    axios.post("http://localhost:9002/GetScheduledMeeting", )
+    .then(res => {
+        showmeeting = res.data.event;
+        console.log(showmeeting)
+        //console.log(showevents);
 
+    })
+    function myMeeting(item) {
+        // hidePass();
+        // let cardbody = document.createElement('div');
+        // cardbody.className = 'photo-cardbody'
+        let mycard = document.createElement('div');
+        mycard.className = 'photo-mycard2'
+
+        let imgBx = document.createElement('div');
+        imgBx.className = 'photo-imgBx'
+
+        let imgTitleText = document.createElement('h2');
+        imgTitleText.innerText = "Meeting:";
+
+        let imgTitle = document.createElement('h3');
+        imgTitle.innerText = item.title;
+
+        // let imgTeacherText = document.createElement('h2');
+        // imgTeacherText.innerText = "Requesting Teacher:";
+
+        let imgTeacher = document.createElement('h3');
+        imgTeacher.innerText = item.headName;
+
+        // let image = document.createElement('img');
+        // // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+        // // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
+        // image.src=ghous
+
+        //DETAILS STARTING
+
+        let details = document.createElement('div');
+        details.className = 'photo-details'
+
+        let descriptionWritten = document.createElement('h4');
+        descriptionWritten.innerText = 'Agenda:'
+
+        let description = document.createElement('h5');
+        description.innerText = item.description;
+
+        let Venue = document.createElement('h4')
+        Venue.innerText = "Venue: "+ item.venue;
+
+        let Date = document.createElement('h4')
+        Date.innerText = "Date: "+item.date;
+
+        let timewritten = document.createElement('h4');
+        timewritten.innerText = 'TIME'
+
+        let timeul = document.createElement('ul');
+        timeul.className = 'photo-size'
+
+        // let starttime = document.createElement('li');
+        // starttime.innerText = "Start: "+item.StartTime
+        // let endtime = document.createElement('li');
+        // endtime.innerText = "End: "+item.EndTime
+
+        let divgroup = document.createElement('div');
+        divgroup.className = 'photo-group'
+
+        let acceptbtn = document.createElement('button');
+        acceptbtn.innerText = 'Assign Duties'
+        acceptbtn.id = "id"+i;
+        // acceptbtn.addEventListener("click",AssignDuties,false);
+
+        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        
+        details.appendChild(descriptionWritten);
+        details.appendChild(description);
+        details.appendChild(Venue);
+        details.appendChild(Date);
+        details.appendChild(timewritten);
+
+        // timeul.appendChild(starttime);
+        // timeul.appendChild(endtime);
+        // details.appendChild(timeul);
+
+        // divgroup.appendChild(divpricewritten);
+        divgroup.appendChild(acceptbtn);
+
+        details.appendChild(divgroup);
+
+        // imgBx.appendChild(image);
+        imgBx.appendChild(imgTitleText);
+        imgBx.appendChild(imgTitle);
+        //imgBx.appendChild(imgTeacherText);
+        imgBx.appendChild(imgTeacher);
+        mycard.appendChild(details);
+        mycard.appendChild(imgBx);
+        
+        // cardbody.appendChild(mycard);
+        let container = document.querySelector("#photo-card-container2");
+        container.appendChild(mycard);    
+        i +=1    
+    }
+
+    const GetMeetings = () => {
+        // hidePass();
+        showEvent();
+        $('#photo-card-container').empty();
+        const xhr = new XMLHttpRequest();
+        axios.post("http://localhost:9002/GetScheduledMeeting", )
+        .then(res => {
+            showmeeting = res.data.schedulemeeting;
+            showmeeting.forEach(myMeeting);
+        })
+        //eventts.forEach(myFunction);
+
+        let container = document.querySelector("#photo-card-container2");
+        console.log(container.childNodes);
+    }
 return (
         
     <>
@@ -982,8 +1097,6 @@ return (
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/>   Logout</button>
-                   
-                
                     </CDBSidebarMenu>
                 </CDBSidebarContent>
 
@@ -1254,8 +1367,17 @@ return (
                                 
                             </div>
                         </div>
+                        {/* {show meetings} */}
                         
                 
+                        <div className="photo-flexcard-meeting" id="showeventsid">
+                            <div className= "mycards-meetin" id="photo-card-container2">
+                            {/* <div className="card-flex"></div> */}
+                            </div>
+                            <div className="dutycontainer-meeting" id="card-container2">
+                                
+                            </div>
+                        </div>
                         
                             {/* <div id="duty">
                                     <h3 className="freeslots">You are currently assigned coverage for: <br></br>

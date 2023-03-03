@@ -931,7 +931,7 @@ const MentorHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                         </div>
-                          
+                
                         {/* Div with card */}
                         <div className = "mycards" id="card-container">
                             <h2 style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px",fontWeight:"bold",paddingRight:"500px" }}>
@@ -982,7 +982,6 @@ const MentorHomepage = (user) => {
                     {/* Div with card end */}
             </div>
                     
-              
             {/* <h1>Hello, {Name} !</h1>
             <h2>Welcome to your portal</h2>
             <br></br> */}
