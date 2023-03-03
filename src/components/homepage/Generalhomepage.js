@@ -986,8 +986,8 @@ const GeneralHomepage = (user) => {
         let imgBx = document.createElement('div');
         imgBx.className = 'photo-imgBx'
 
-        let imgTitleText = document.createElement('h2');
-        imgTitleText.innerText = "Meeting:";
+        // let imgTitleText = document.createElement('h2');
+        // imgTitleText.innerText = "Meeting:";
 
         let imgTitle = document.createElement('h3');
         imgTitle.innerText = item.title;
@@ -1008,11 +1008,17 @@ const GeneralHomepage = (user) => {
         let details = document.createElement('div');
         details.className = 'photo-details'
 
+        let purposeWritten = document.createElement('h4');
+        purposeWritten.innerText = 'Purpose:'
+
+        let purpose= document.createElement('h5');
+        purpose.innerText = item.purpose;
+
         let descriptionWritten = document.createElement('h4');
         descriptionWritten.innerText = 'Agenda:'
 
         let description = document.createElement('h5');
-        description.innerText = item.description;
+        description.innerText = item.agenda;
 
         let Venue = document.createElement('h4')
         Venue.innerText = "Venue: "+ item.venue;
@@ -1021,50 +1027,25 @@ const GeneralHomepage = (user) => {
         Date.innerText = "Date: "+item.date;
 
         let timewritten = document.createElement('h4');
-        timewritten.innerText = 'TIME'
+        timewritten.innerText = 'Time: ' + item.MeetingTime
 
         let timeul = document.createElement('ul');
         timeul.className = 'photo-size'
 
-        // let starttime = document.createElement('li');
-        // starttime.innerText = "Start: "+item.StartTime
-        // let endtime = document.createElement('li');
-        // endtime.innerText = "End: "+item.EndTime
 
         let divgroup = document.createElement('div');
         divgroup.className = 'photo-group'
 
-        let acceptbtn = document.createElement('button');
-        acceptbtn.innerText = 'Assign Duties'
-        acceptbtn.id = "id"+i;
-        // acceptbtn.addEventListener("click",AssignDuties,false);
-
-        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
         
+        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        details.appendChild(purposeWritten);
+        details.appendChild(purpose);
         details.appendChild(descriptionWritten);
         details.appendChild(description);
         details.appendChild(Venue);
         details.appendChild(Date);
         details.appendChild(timewritten);
-
-        // timeul.appendChild(starttime);
-        // timeul.appendChild(endtime);
-        // details.appendChild(timeul);
-
-        // divgroup.appendChild(divpricewritten);
-        divgroup.appendChild(acceptbtn);
-
-        details.appendChild(divgroup);
-
-        // imgBx.appendChild(image);
-        imgBx.appendChild(imgTitleText);
-        imgBx.appendChild(imgTitle);
-        //imgBx.appendChild(imgTeacherText);
-        imgBx.appendChild(imgTeacher);
         mycard.appendChild(details);
-        mycard.appendChild(imgBx);
-        
-        // cardbody.appendChild(mycard);
         let container = document.querySelector("#photo-card-container2");
         container.appendChild(mycard);    
         i +=1    
@@ -1115,6 +1096,9 @@ return (
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                         <FaUserEdit className="sidebaricon"/>       Edit Profile
+                    </button>
+                    <button  onClick={GetMeetings} className="sidebarbtn">
+                        <FaUserEdit className="sidebaricon"/>       Cheeck Meeting
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/>   Logout</button>
@@ -1391,7 +1375,7 @@ return (
                         {/* {show meetings} */}
                         
                 
-                        <div className="photo-flexcard-meeting" id="showeventsid">
+                        <div className="photo-flexcard-meeting" id="showemeetingsid">
                             <div className= "mycards-meetin" id="photo-card-container2">
                             {/* <div className="card-flex"></div> */}
                             </div>
