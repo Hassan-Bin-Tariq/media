@@ -37,11 +37,63 @@ const StudentHomepage = (user) => {
     var Name = user.setLoginUser.name
     console.log(Name)
 
+    //meeting
+    const [meeting, setMeeting] = useState({
+        callerName:  user.setLoginUser.name,
+        callerEmail: user.setLoginUser.email,
+        callerID: user.setLoginUser._id,
+        purpose: "",
+        agenda:"",
+        date:"",
+        Time: "",
+        venue: "",
+        
+    })
+
+    const handleChangeMeeting = e => {
+        var { name, value } = e.target
+        if(name === "StartTime")
+        {
+            value = tConvert (value);
+        }
+        setMeeting({
+            ...meeting,
+            [name]: value
+        })
+    }
+    function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+    
+        if (time.length > 1) { // If time format correct
+          time = time.slice (1);  // Remove full string match value
+          time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+          time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+    }
+
+    const ScheduleMeeting = () => {
+
+        const { purpose,callerName,callerEmail,callerID,agenda,date,Time,venue } = meeting
+
+        if(purpose && callerName && callerEmail && callerID && agenda && date && Time &&venue){
+            axios.post("http://localhost:9002/SendEventRequest", meeting)
+            .then( 
+                res => alert(res.data.message),
+                //history.push("./login")
+            )
+        }else {
+            alert("invalid input")
+        }
+        //alert("Submited")
+    }
     const showAlbum = () => {
         $(function () {
             $('#myGallery').show();
         });
         hidePass();
+        hidemeeting();
     }
     const hideAlbum = () => {
         $(function () {
@@ -53,6 +105,7 @@ const StudentHomepage = (user) => {
             $('#editProfile').show();
         });
         hideAlbum();
+        hidemeeting();
     }
     const hidePass = () => {
         $(function () {
@@ -99,7 +152,17 @@ const StudentHomepage = (user) => {
             document.getElementById("myImage"+i).src = imageURL;
         }
         
-        
+    }
+    const showmeeting = () => {
+        $(function () {
+            $('#meetingForm').show();
+        });
+        hideAlbum();
+    }
+    const hidemeeting = () => {
+        $(function () {
+            $('#meetingForm').hide();
+        });
     }
 
     return (
@@ -120,6 +183,9 @@ const StudentHomepage = (user) => {
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button  onClick={showmeeting} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Schedule Meeeting
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -220,8 +286,45 @@ const StudentHomepage = (user) => {
 
                     </div>
                     {/* Div with card end */}
+                    <div id="meetingForm">
+                        <Row className="mt-2 text-center">
+                            <h2>Schedule a meeting</h2>
+                            <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
+                                <div>
+                                    <Form.Group controlId="formBasicTitle">
+                                        <Form.Label>Meeting purpose</Form.Label>
+                                        <Form.Control type="text" name="purpose" placeholder="Enter meeting purpose" onChange={handleChangeMeeting}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicDescription">
+                                        <Form.Label>Meeting Agenda</Form.Label>
+                                        <Form.Control as="textarea" rows="3" name="agenda" placeholder="Meeting Agenda" onChange={handleChangeMeeting}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicDate">
+                                        <Form.Label>Meeting Date</Form.Label>
+                                        <Form.Control type="date" name="date" placeholder="Meeting Date" onChange={handleChangeMeeting} />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicTime">
+                                        <Form.Label>Meeting Time</Form.Label>
+                                        <Form.Control type="time" name="StartTime" placeholder="Meeting Time" onChange={handleChangeMeeting}/>
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicVenue">
+                                        <Form.Label>Expected Venue</Form.Label>
+                                        <Form.Control type="text" name="venue" placeholder="Expected Venue" onChange={handleChangeMeeting} />
+                                    </Form.Group>
+                                    <Row className="mt-2">
+                                    {/* Removed type="submit" from here */}
+                                        <button variant="success btn-block" className="sub" onClick={ScheduleMeeting}> 
+                                            Schdule Meeeting
+                                        </button>
+                                    </Row>
+                                </div>
+                            </Col>
+                        </Row>
+                        </div>
             </div>
+
         </div>
+        
         
     )
 }
