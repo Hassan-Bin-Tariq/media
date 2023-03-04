@@ -65,171 +65,16 @@ const LogisticsHomepage = (user) => {
     const handleShow = () => setShow(true);
     const history = useHistory()
     const [showMediaIcons, setShowMediaIcons] = useState(false);
-    const [item, setItem]=useState([]);
-    const [ event2, setEvent2] = useState({
-        headName: Name,
-        headEmail: user.setLoginUser.email,
-        userID: user.setLoginUser._id,
-        title: "",
-        description:"",
-        date:"",
-        StartTime: "",
-        EndTime: "",
-        venue: "",
-        status: "Not Checked"    
-    })
-    const handleChange = e => {
-        var { name, value } = e.target
-        if(name === "StartTime" || name === "EndTime")
-        {
-            value = tConvert (value);
-        }
-        setEvent2({
-            ...event2,
-            [name]: value
-        })
-    }
-    console.log(event2)
+    const [item, setItem]=useState([
+    ]);
     var Name = user.setLoginUser.name
     var i = 0;
-    var EventTitle;
-    var EventDescription;
-    
-    var GeneralBodies;
-    var timeslost = [];
-    var emails = [];
-    var dict = {};
-    var requiredSlots = [];
-    var assignSlots={};
-    var names=[];
-    var selectedDate;
-    var studentSlots = [];
-    var freestuEmails = [];
-    var eventts;
-
-    var RequestingTeacherEmail;
-    var Venuee;
-
     //overlay
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const ref = useRef(null);
- 
-    // const [options, setOptions] = useState([
-    //     { id: 1, text: 'Option 1', votes: 0 },
-    //     { id: 2, text: 'Option 2', votes: 0 },
-    //     { id: 3, text: 'Option 3', votes: 0 },
-    // ]);
-    // const [selectedOption, setSelectedOption] = useState(null);
-    // const [submitted, setSubmitted] = useState(false);
-    
-    // const handleOptionChange = event => {
-    //     setSelectedOption(parseInt(event.target.value));
-    // };
-    
-    // const handleSubmit = (event) =>
-    // {
-    //     event.preventDefault();
-    //     //axios.post('http://localhost:9002/poll', { optionId: selectedOption }).then(res=>{
-        
-    
-    //         const updatedOptions = options.map(option => {
-    //         if (option.id === selectedOption) {
-    //             return { ...option, votes: option.votes + 1 };
-    //         }
-    //         return option;
-    //         });
-    //         setOptions(updatedOptions);
-    //         setSubmitted(true);
-    //         console.log(updatedOptions);
-    // }
-    
-        const [question, setQuestion] = useState('');
-        const [options, setOptions] = useState([]);
-        const [response, setResponse] = useState('');
-        const [polls, setPolls] = useState([]);
-        const [submittedPoll, setSubmittedPoll] = useState(null);
 
-        useEffect(() => {
-            const fetchPolls = async () => {
-            try {
-                const { data } = await axios.get("http://localhost:9002/cpolls");
-
-                setPolls(data);
-            } catch (error) {
-                console.log(error);
-            }
-            };
-
-            fetchPolls();
-        }, []);
-
-        const handleSubmit = async (event) => {
-            event.preventDefault();
-            const data = {question, options, response};
-                console.log("inside handle")
-                axios.post("http://localhost:9002/createpoll", data) 
-                .then(res => {
-                    setSubmittedPoll(data);
-                    setQuestion('');
-                    setOptions([]);
-                    setResponse('');
-                })
-
-            // try {
-            // const { data } = await axios.post("http://localhost:9002/createpoll", {
-            //     question,
-            //     options,
-            //     response,
-            // });
-
-            // setSubmittedPoll(data);
-
-            // setQuestion('');
-            // setOptions([]);
-            // setResponse('');
-            // } catch (error) {
-            // console.log(error);
-            // }
-        };
-
-        const handleOptionChange = (event, index) => {
-            const newOptions = [...options];
-
-            newOptions[index] = event.target.value;
-
-            setOptions(newOptions);
-        };
-
-        const handleAddOption = () => {
-            setOptions([...options, '']);
-        };
-
-        let chart = null;
-        if (submittedPoll !== null) {
-            const pollChartData = {
-            labels: submittedPoll.options,
-            datasets: [
-                {
-                label: submittedPoll.question,
-                data: submittedPoll.options.map((option) =>
-                    polls.reduce(
-                    (acc, poll) =>
-                        poll.options.includes(option)
-                        ? acc + poll.responses.filter((response) => response === option).length
-                        : acc,
-                    0
-                    )
-                ),
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8BC34A', '#3F51B5'],
-                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8BC34A', '#3F51B5'],
-                },
-            ],
-            };
-
-            chart = <Pie data={pollChartData} />;
-        }
 
 
     function tConvert (time) {
@@ -245,15 +90,7 @@ const LogisticsHomepage = (user) => {
     }
     
 
-    
-    let showevents
-    axios.post("http://localhost:9002/GetAcceptEvent", )
-    .then(res => {
-        showevents = res.data.event;
-        //console.log(showevents);
 
-    })
-    // console.log(showevents);
 
     const handleClick = (event) => {
         setShowOverlay(!show);
@@ -263,692 +100,12 @@ const LogisticsHomepage = (user) => {
         $(function () {
             $('#form').show();
         });
-        // hideEvent();
-        // hidePass();
-        // hideAlbum();
-    }
-    const SubmitEvent = () => {
 
-        const { title,headName,headEmail,userID,description,date,StartTime,EndTime,venue,status } = event2
-
-        if(title && headName && headEmail && userID && description && date && StartTime && EndTime && venue && status){
-            axios.post("http://localhost:9002/GenerateEventRequest", event2)
-            .then( 
-                res => alert(res.data.message),
-                //history.push("./login")
-            )
-        }else {
-            alert("invalid input")
-        }
-        //alert("Submited")
-    }
-    //const handleShow = () => setShow(true);
-    function changetimeformat (times)
-    {
-        //CONVERTING SLOT NUMBER TO ITS EQUVILENT TIME
-        requiredSlots = [];
-        var changedTimeFormat;
-        if(times === 1)
-        {
-            changedTimeFormat = "8:45 - 10:10";
-        }
-        else if(times === 2)
-        {
-            changedTimeFormat = "10:15 - 11:40";
-        }
-        else if(times === 3)
-        {
-            changedTimeFormat = "11:45 - 1:10";
-        }
-        else if(times === 4)
-        {
-            changedTimeFormat = "1:15 - 1:40";
-        }
-        else if(times === 5)
-        {
-            changedTimeFormat = "1:45 - 3:10";
-        }
-        else if(times === 6)
-        {
-            changedTimeFormat = "3:15 - 4:45";
-        }
-
-        return changedTimeFormat
-    }
-    function getRequiredSlots(start,end)
-    {
-        //GOTTA WRITE ALGO JO TEACHER K GIVEN TIME KO US K EQUVILANT REQUIRED SLOTS MA CONVERT KR DY 
-        var begin = parseInt(start[0]+start[1]);
-        var fin = parseInt(end[0]+end[1]);
-        if(begin === 3)
-        {
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 9 && fin === 10)
-        {
-            requiredSlots.push("8:45 - 10:10");
-        }
-        else if(begin === 9 && fin === 11)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-        }
-        else if(begin === 9 && fin === 12)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-        }
-        else if(begin === 9 && fin === 1)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-        }
-        else if(begin === 9 && fin === 2)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-        }
-        else if(begin === 9 && fin === 3)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-        }
-        else if(begin === 9 && fin === 4)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 9 && fin === 5)
-        {
-            requiredSlots.push("8:45 - 10:10");
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 10 && fin === 11)
-        {
-            requiredSlots.push("10:15 - 11:40");
-        }
-        else if(begin === 10 && fin === 12)
-        {
-            requiredSlots.push("10:15 - 11:40");
-        }
-        else if(begin === 10 && fin === 1)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-        }
-        else if(begin === 10 && fin === 2)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-        }
-        else if(begin === 10 && fin === 3)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-        }
-        else if(begin === 10 && fin === 4)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 10 && fin === 5)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 11 && fin === 12)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-        }
-        else if(begin === 11 && fin === 1)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-        }
-        else if(begin === 11 && fin === 2)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-        }
-        else if(begin === 11 && fin === 3)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-        }
-        else if(begin === 11 && fin === 4)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 11 && fin === 5)
-        {
-            requiredSlots.push("10:15 - 11:40");
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 12 && fin === 1)
-        {       
-            requiredSlots.push("11:45 - 1:10");
-        }
-        else if(begin === 12 && fin === 2)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-        }
-        else if(begin === 12 && fin === 3)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-        }
-        else if(begin === 12 && fin === 4)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 12 && fin === 5)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 1 && fin === 2)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-        }
-        else if(begin === 1 && fin === 3)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-        }
-        else if(begin === 1 && fin === 4)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 1 && fin === 5)
-        {
-            requiredSlots.push("11:45 - 1:10");
-            requiredSlots.push("1:15 - 1:40");
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 2 && fin === 3)
-        {
-            requiredSlots.push("1:45 - 3:10");
-        }
-        else if(begin === 2 && fin === 4)
-        {
-            requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        else if(begin === 2 && fin === 5)
-        {
-            requiredSlots.push("1:45 - 3:10");
-            //requiredSlots.push("1:45 - 3:10");
-            requiredSlots.push("3:15 - 4:45");
-        }
-        return requiredSlots;
-    }
-    function getDayfromDate(dateee){
-        //CONVERTING DATE INTO ITS EQUIVALENT DAY TO GET TIME SLOTS OF ONLY THAT DAY
-        var currentDate = new Date(dateee);
-        var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; 
-
-        if(daysOfWeek[currentDate.getDay()] === "Mon")
-        {
-            return 0;
-        }
-        else if(daysOfWeek[currentDate.getDay()] === "Tue")
-        {
-            return 1;
-        }
-        else if(daysOfWeek[currentDate.getDay()] === "Wed")
-        {
-            return 2;
-        }
-        else if(daysOfWeek[currentDate.getDay()] === "Thu")
-        {
-            return 3;
-        }
-        else if(daysOfWeek[currentDate.getDay()] === "Fri")
-        {
-            return 4;
-        }
-    }
-
-    function sendDuty(event){
-        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
-        var slot = studentSlots[str1];
-        var mail = freestuEmails[str1];
-        console.log(slot);
-        console.log(selectedDate);
-        var dict = {
-            Date: selectedDate,
-            Slot: slot,
-            teacherEmail:RequestingTeacherEmail,
-            venue:Venuee
-          };
-
-        axios.post("http://localhost:9002/sendDuty",{dict,Email: mail}) 
-        .then(res => {
-            // alert(res.data.message)
-            // eventts = res.data.event;
-            // console.log(eventts)
-        })
-    }
-    function findFreeStudent(start,end,dateee)
-    {
-        console.log(start,end)
-        studentSlots = [];
-        freestuEmails = []
-        var i=0;
-        var second=[];
-        var l=0;
-        var prev="";
-        var required = getRequiredSlots(start,end);
-        var day = getDayfromDate(dateee);
-        //console.log(required,day);
-        // console.log(dict);
-        for (var key in dict){                                  // ITERATING OVER ALL GB MEMBERS FREE SLOTS
-            //console.log("hassan")                               
-            for(var k = 0; k < dict[key][day].length; k++){     // ITERATING OVER ALL FREE SLOTS OF THAT DAY
-                
-                for(var m = 0; m < required.length; m++)        // ITERATING OVER ALL REQUIRED SLOTS TO COMPARE 
-                {
-                    
-                    if(required[m] === dict[key][day][k])
-                    {
-                        console.log(key,dict[key][day][k]); //key has email, dict has time slots
-                        second.push(names[l]);
-                        console.log(second[i]);
-                        /*if(key===prev)
-                        {
-                            console.log("name: "+names[i-1]);
-                        }
-                        else{
-                            console.log("name: "+names[i]);
-                        }*/
-                        
-                        prev=key;
-                        console.log("previous:"+ prev);
-                        //alert(dict[key][day][k]);
-                            let row = document.createElement('div');
-                            row.className = 'row'
-
-                            let card = document.createElement('div');
-                            card.className = 'cardDuty';
-                            
-
-                            let cardBody = document.createElement('div');
-                            cardBody.className = 'card-body';
-
-
-                            let student = document.createElement('h3');
-                            student.innerText ="Student: "+ second[i];
-                            student.className = 'assign-card-title';
-
-                            let email = document.createElement('h5');
-                            email.innerText = "Email: "+ key;
-                            email.className = 'assign-card-text';
-
-                            let date = document.createElement('div');
-                            date.innerText = "Free Slot: "+ dict[key][day][k];
-                            date.className = 'assign-card-text';
-
-
-                            let sendDutybtn = document.createElement('button');
-                            sendDutybtn.innerText = "Assign duty";
-                            sendDutybtn.className = 'assign-card-btn';
-                            sendDutybtn.id = "id"+i;
-                            sendDutybtn.class = 'mybtn';
-                            sendDutybtn.addEventListener("click", sendDuty, false);
-
-                            cardBody.appendChild(student);
-                            cardBody.appendChild(email);
-                            cardBody.appendChild(date);
-                            cardBody.appendChild(sendDutybtn);
-                            card.appendChild(cardBody);
-                            i+=1;
-                            let container = document.querySelector("#card-container2");
-                            container.appendChild(card);
-
-                            let modelerr = document.getElementById("Name");
-                            modelerr.appendChild(card);
-
-                            studentSlots.push(dict[key][day][k]);
-                            freestuEmails.push(key);
-                    }
-                }
-            }    
-            l+=1;
-        }
-        //handleShow()
-
-    }
-    function fetchslots (start,end,date)
-    {
-        emails = [];
-        axios.post("http://localhost:9002/GetGBmembers", ) //FETCH ALL GB MEMBERS TO CHECK THIER AVAILABLE SLOTS TO ASSIGN DUTY
-        .then(res => {
-            //alert(res.data.message)
-        //FETCHED ALL gbMEMBERS AND MADE A DICTIONARY OF THEM WITH THEIR EMAILS AS KEYS AND SLOTS IN FRONT OF THEM    
-            GeneralBodies = res.data.generalBodies;
-            for (var i=0; i<GeneralBodies.length; i++)
-            {
-                timeslost = [];
-                emails.push(GeneralBodies[i].email);
-                //console.log(GeneralBodies[i].name);
-                /*if(emails[i]===emails[i+1])
-                {
-                    names.push(GeneralBodies[i].name)
-                    names.push(GeneralBodies[i].name)
-                }
-                else if(emails[i]!==emails[i+1])
-                {
-                    
-                }*/
-                names.push(GeneralBodies[i].name);
-                
-                
-                for(var j=0; j<5; j++)
-                {
-                    var days = [];
-                    for(var k =0; k<GeneralBodies[i].slots[j].length; k++)
-                    {
-                        var changed = changetimeformat(GeneralBodies[i].slots[j][k])
-                        days.push(changed);                                          
-                    }
-                    timeslost.push(days); 
-                }
-                dict[GeneralBodies[i].email] = timeslost;
-                
-            }
-        })
-        //console.log(dict);
-        findFreeStudent(start,end,date);
-    }
-    function AssignDuties  (event) {
-        //console.log("ASS")
-        //mod.showAlert({title: "Hi", body: "Please press ok, if you like or dislike cookies."})
-        //console.log(event.target.id)
-        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
-        //console.log(str1);
-        var starttime = showevents[str1].StartTime;
-        var endtime = showevents[str1].EndTime;
-        var date = showevents[str1].date;
-        RequestingTeacherEmail = showevents[str1].teacherEmail;
-        Venuee = showevents[str1].venue;
-        selectedDate = date;
-        handleShow();
-        //console.log(starttime,endtime,date);
-        fetchslots(starttime,endtime,date);
-    }
-
-    function EventDetails(event)
-    {
-
-        // hidePass();
-        console.log(event.target.id)
-        var str1 = event.target.id.replace( /[^\d.]/g, '' );
-        EventTitle = eventts[str1].title;
-        console.log(eventts);
-        EventDescription = eventts[str1].description;       
-        //handleShow();
-    }
-    function showAccepted(event){
-        console.log(event.title);
-        console.log(event.description);
-        console.log(event.venue);
-        let row = document.createElement('div');
-        row.className = 'row'
-
-        let card = document.createElement('div');
-        card.className = 'card shadow cursor-pointer';
-        
-
-        let cardBody = document.createElement('div');
-        cardBody.className = 'card-body';
-
-
-        let title = document.createElement('h5');
-        title.innerText ="Event: "+ event.title;
-        title.className = 'card-title';
-
-        let date = document.createElement('h7');
-        date.innerText = "Date: "+event.date+ "  Venue: "+ event.venue;
-        date.className = 'card-color';
-
-        let description = document.createElement('p');
-        description.innerText = "Description: "+event.description;
-        description.className = 'card-text';
-
-        let startTime = document.createElement('p');
-        startTime.innerText = "Start Time: "+event.StartTime;
-        startTime.className = 'card-text';
-
-        let endTime = document.createElement('p');
-        endTime.innerText = "End Time: "+ event.EndTime;
-        endTime.className = 'card-text';
-
-        let status = document.createElement('p');
-        status.innerText = "Status: "+ event.status;
-        status.className = 'card-text';
-
-        let teacher = document.createElement('p');
-        teacher.innerText = "Teacher: "+event.teacherName;
-        teacher.className = 'card-text';
-        let email = document.createElement('p');
-        email.innerText ="Email: "+event.teacherEmail;
-        email.className = 'card-text';
-
-        let Assigndutiesbtn = document.createElement('a');
-        Assigndutiesbtn.innerText = "Assign duties";
-        Assigndutiesbtn.className = 'btn';
-        Assigndutiesbtn.id = "id"+i;
-        Assigndutiesbtn.class = 'mybtn';
-        Assigndutiesbtn.addEventListener("click", AssignDuties, false);
-
-        ///shwoing event details to photography head
-        let row2 = document.createElement('div');
-        row2.className = 'row'
-
-        let card2 = document.createElement('div');
-        card2.className = 'card shadow cursor-pointer';
-        
-        let cardBody2 = document.createElement('div');
-        cardBody2.className = 'card-body';
-
-
-        let title2 = document.createElement('h5');
-        title2.innerText ="Event: "+ event.title2;
-        title2.className = 'card-title';
-        
-        let description2 = document.createElement('p');
-        description2.innerText = "Description: "+ event.description2;
-        description2.className = 'card-text';
-
-        let showEventDeets = document.createElement('a');
-        showEventDeets.innerText = "Event Details";
-        showEventDeets.className = 'btn';
-        showEventDeets.id = "id"+i;
-        showEventDeets.class = 'mybtn';
-        showEventDeets.addEventListener("click", EventDetails , false);
-
-        cardBody.appendChild(title);
-        cardBody.appendChild(description);
-        cardBody.appendChild(date);
-        cardBody.appendChild(startTime);
-        cardBody.appendChild(endTime);
-        cardBody.appendChild(status);
-        cardBody.appendChild(teacher);
-        cardBody.appendChild(email);
-        cardBody.appendChild(Assigndutiesbtn);
-        cardBody.appendChild(showEventDeets);
-        card.appendChild(cardBody);
-
-        i+=1;
-        let container = document.querySelector("#card-container");
-        container.appendChild(card);
     }
 
     function doNothing(){
 
-    }
-    function CheckDetails  (event) {
-        console.log(event.target.id)
-        var str1 = event.target.id.replace ( /[^\d.]/g, '' );
-        EventTitle = eventts[str1].title;
-        EventDescription = eventts[str1].description;       
-        handleShow();
-    }
-    function myFunction(item) {
-        // hidePass();
-        // let cardbody = document.createElement('div');
-        // cardbody.className = 'photo-cardbody'
-        let mycard = document.createElement('div');
-        mycard.className = 'photo-mycard'
-
-        let imgBx = document.createElement('div');
-        imgBx.className = 'photo-imgBx'
-
-        let imgTitleText = document.createElement('h2');
-        imgTitleText.innerText = "Event:";
-
-        let imgTitle = document.createElement('h3');
-        imgTitle.innerText = item.title;
-
-        let imgTeacherText = document.createElement('h2');
-        imgTeacherText.innerText = "Requesting Teacher:";
-
-        let imgTeacher = document.createElement('h3');
-        imgTeacher.innerText = item.teacherName;
-
-        let image = document.createElement('img');
-        // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
-        // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
-        image.src=ghous
-
-        //DETAILS STARTING
-
-        let details = document.createElement('div');
-        details.className = 'photo-details'
-
-        let descriptionWritten = document.createElement('h4');
-        descriptionWritten.innerText = 'Description:'
-
-        let description = document.createElement('h5');
-        description.innerText = item.description;
-
-        let Venue = document.createElement('h4')
-        Venue.innerText = "Venue: "+item.venue;
-
-        let Date = document.createElement('h4')
-        Date.innerText = "Date: "+item.date;
-
-        let timewritten = document.createElement('h4');
-        timewritten.innerText = 'EVENT TIME'
-
-        let timeul = document.createElement('ul');
-        timeul.className = 'photo-size'
-
-        let starttime = document.createElement('li');
-        starttime.innerText = "Start: "+item.StartTime
-        let endtime = document.createElement('li');
-        endtime.innerText = "End: "+item.EndTime
-
-        let divgroup = document.createElement('div');
-        divgroup.className = 'photo-group'
-
-        let acceptbtn = document.createElement('button');
-        acceptbtn.innerText = 'Assign Duties'
-        acceptbtn.id = "id"+i;
-        acceptbtn.addEventListener("click",AssignDuties,false);
-
-        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
-        
-        details.appendChild(descriptionWritten);
-        details.appendChild(description);
-        details.appendChild(Venue);
-        details.appendChild(Date);
-        details.appendChild(timewritten);
-
-        timeul.appendChild(starttime);
-        timeul.appendChild(endtime);
-        details.appendChild(timeul);
-
-        // divgroup.appendChild(divpricewritten);
-        divgroup.appendChild(acceptbtn);
-
-        details.appendChild(divgroup);
-
-        imgBx.appendChild(image);
-        imgBx.appendChild(imgTitleText);
-        imgBx.appendChild(imgTitle);
-        imgBx.appendChild(imgTeacherText);
-        imgBx.appendChild(imgTeacher);
-        mycard.appendChild(details);
-        mycard.appendChild(imgBx);
-        
-        // cardbody.appendChild(mycard);
-        let container = document.querySelector("#photo-card-container");
-        container.appendChild(mycard);    
-        i +=1    
-    }
-    const GetEvents = () => {
-        // hidePass();
-        showEvent();
-        $('#photo-card-container').empty();
-        const xhr = new XMLHttpRequest();
-        axios.post("http://localhost:9002/GetAcceptEvent", )
-        .then(res => {
-            showevents = res.data.event;
-            showevents.forEach(myFunction);
-        })
-        //eventts.forEach(myFunction);
-
-        let container = document.querySelector("#photo-card-container");
-        console.log(container.childNodes);
-    }
+    }   
 
     const myfub = () =>
     {
@@ -1012,16 +169,73 @@ const LogisticsHomepage = (user) => {
             alert("Failed to save data")
         }
     }
+    function myInventory(item) {
+        let mycard = document.createElement('div');
+        mycard.className = 'photo-mycard2'
 
+        let imgBx = document.createElement('div');
+        imgBx.className = 'photo-imgBx'
+
+        let imgTitle = document.createElement('h3');
+        imgTitle.innerText = item.title;
+
+
+        let details = document.createElement('div');
+        details.className = 'photo-details'
+
+        let purposeWritten = document.createElement('h4');
+        purposeWritten.innerText = item.gadget + " assigned to " +item.am + "on " + item.date + " at" + item.time
+
+
+    
+
+        let timeul = document.createElement('ul');
+        timeul.className = 'photo-size'
+
+
+        let divgroup = document.createElement('div');
+        divgroup.className = 'photo-group'
+
+        
+        //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        details.appendChild(purposeWritten);
+        mycard.appendChild(details);
+        let container = document.querySelector("#photo-card-container2");
+        container.appendChild(mycard);    
+        i +=1    
+    }
+    let showinventory
+    axios.post("http://localhost:9002/GetInventory", )
+    .then(res => {
+        showinventory = res.data.event;
+        console.log(showinventory)
+        //console.log(showevents);
+
+    })
+
+    const GetInventory = () => {
+        $('#photo-card-container').empty();
+        const xhr = new XMLHttpRequest();
+        axios.post("http://localhost:9002/GetInventory", )
+        .then(res => {
+            showinventory = res.data.showtableData;
+            console.log(showinventory)
+            showinventory.forEach(myInventory);
+        })
+        //eventts.forEach(myFunction);
+
+        let container = document.querySelector("#photo-card-container2");
+        console.log(container.childNodes);
+    }
     const showPass = () => {
         
         $(function () {
             $('#editProfile').show();
         });
-      hideEvent();
-      hideAlbum();
-      hideInventory();
-      hideGenerated();
+
+    hideAlbum();
+    hideInventory();
+
     }
     const hidePass = () => {
         
@@ -1030,32 +244,14 @@ const LogisticsHomepage = (user) => {
         });
        //hideeventdeets();
     }
-    const showEvent = () => {
-        
-        $(function () {
-            $('#showeventsid').show();
-        });
-        hidePass();
-        hideAlbum();
-        hideInventory();
-        hideGenerated();
-    }
-    const hideEvent = () => {
-        
-        $(function () {
-            $('#showeventsid').hide();
-        });
-        
-    //    hideeventdeets();
-    }
+
     const showAlbum = () => {
         $(function () {
             $('#myGallery').show();
         });
-        hideEvent();
         hidePass();
         hideInventory();
-        hideGenerated();
+
 
     }
     const hideAlbum = () => {
@@ -1065,13 +261,14 @@ const LogisticsHomepage = (user) => {
     }
 
     const showInventory = () => {
+       
         $(function () {
             $('#editabletable').show();
         });
-        hideEvent();
+        GetInventory();
         hideAlbum();
         hidePass();
-        hideGenerated();
+        
 
     }
     const hideInventory = () =>
@@ -1080,23 +277,7 @@ const LogisticsHomepage = (user) => {
             $('#editabletable').hide();
         });
     }
-    // show hide generate event form //
-    const showGenerated = () => {
-        $(function () {
-            $('#form2').show();
-        });
-        hideEvent();
-        hidePass();
-        hideInventory();
-        hideAlbum();
-
-
-    }
-    const hideGenerated = () => {
-        $(function () {
-            $('#form2').hide();
-        });
-    }
+    
     
     return (
         
@@ -1122,6 +303,9 @@ const LogisticsHomepage = (user) => {
                     </button>
                     <button  onClick={showInventory} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Maintain Inventory
+                    </button>
+                    <button  onClick={GetInventory} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> View Inventory
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -1250,8 +434,19 @@ const LogisticsHomepage = (user) => {
                     {/* Div with card end */}
             </div>
 
-            
-        </div>
+                {/* {show meetings} */}
+                                        
+                                
+                <div className="photo-flexcard-meeting" id="showemeetingsid">
+                            <div className= "mycards-meetin" id="photo-card-container2">
+                            {/* <div className="card-flex"></div> */}
+                            </div>
+                            <div className="dutycontainer-meeting" id="card-container2">
+                                                
+                            </div>
+                </div>
+                            
+            </div>
 
             </>
     );
