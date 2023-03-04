@@ -861,16 +861,16 @@ const GeneralHomepage = (user) => {
         imgBx.className = 'photo-imgBx'
 
         let imgTitleText = document.createElement('h2');
-        imgTitleText.innerText = "Event:";
+        imgTitleText.innerText = "FPS Event:";
 
         let imgTitle = document.createElement('h3');
         imgTitle.innerText = item.title;
 
         let imgTeacherText = document.createElement('h2');
-        imgTeacherText.innerText = "Requesting Teacher:";
+        imgTeacherText.innerText = "Event Head:";
 
-        let imgTeacher = document.createElement('h3');
-        imgTeacher.innerText = item.headName;
+        let imgTeacher = document.createElement('h4');
+        imgTeacher.innerText = item.headEmail;
 
         // let image = document.createElement('img');
         // // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
@@ -900,10 +900,10 @@ const GeneralHomepage = (user) => {
         let timeul = document.createElement('ul');
         timeul.className = 'photo-size'
 
-        // let starttime = document.createElement('li');
-        // starttime.innerText = "Start: "+item.StartTime
-        // let endtime = document.createElement('li');
-        // endtime.innerText = "End: "+item.EndTime
+        let starttime = document.createElement('li');
+        starttime.innerText = "Start: "+item.StartTime
+        let endtime = document.createElement('li');
+        endtime.innerText = "End: "+item.EndTime
 
         let divgroup = document.createElement('div');
         divgroup.className = 'photo-group'
@@ -921,9 +921,9 @@ const GeneralHomepage = (user) => {
         details.appendChild(Date);
         details.appendChild(timewritten);
 
-        // timeul.appendChild(starttime);
-        // timeul.appendChild(endtime);
-        // details.appendChild(timeul);
+        timeul.appendChild(starttime);
+        timeul.appendChild(endtime);
+        details.appendChild(timeul);
 
         // divgroup.appendChild(divpricewritten);
         divgroup.appendChild(acceptbtn);
@@ -1108,7 +1108,7 @@ return (
                         <FaUserEdit className="sidebaricon"/>       Edit Profile
                     </button>
                     <button  onClick={GetMeetings} className="sidebarbtn">
-                        <FaUserEdit className="sidebaricon"/>       Cheeck Meeting
+                        <FaUserEdit className="sidebaricon"/>       Check Meeting
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/>   Logout</button>
