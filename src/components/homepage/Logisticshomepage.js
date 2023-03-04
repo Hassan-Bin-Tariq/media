@@ -57,7 +57,7 @@ import { Pie } from 'react-chartjs-2';
 //     Routes,
 //     Route,
 //   } from 'react-router-dom';
-const PhotographyHomepage = (user) => {
+const LogisticsHomepage = (user) => {
     var Name = user.setLoginUser.name
     var Email = user.setLoginUser.email
     const [show, setShow] = useState(false);
@@ -1116,17 +1116,12 @@ const PhotographyHomepage = (user) => {
                     <button  onClick={showAlbum} className="sidebarbtn" >
                                 <FaGripHorizontal className="sidebaricon"/> My Albums
                     </button>
-                    <button  onClick={GetEvents} className="sidebarbtn">
-                                <FaUserEdit className="sidebaricon" /> Assign Duties
-                    </button>
-                    <button  onClick={showGenerated} className="sidebarbtn">
-                                <FaUserEdit className="sidebaricon" /> Generate Event
-                    </button>
+            
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
                     <button  onClick={showInventory} className="sidebarbtn">
-                                <FaUserEdit className="sidebaricon" /> Inventory
+                                <FaUserEdit className="sidebaricon" /> Maintain Inventory
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -1197,15 +1192,7 @@ const PhotographyHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-                        <div className="photo-flexcard" id="showeventsid">
-                            <div className= "mycards" id="photo-card-container">
-                            {/* <div className="card-flex"></div> */}
-                            </div>
-                            <div className="dutycontainer" id="card-container2">
-                                
-                            </div>
-                        </div>
-                        
+
                         <div  id="editProfile">
                             <div>
                                 <h2>Edit Profile Settings</h2>
@@ -1234,7 +1221,7 @@ const PhotographyHomepage = (user) => {
                         </div>  
                         
                         {hideInventory()}
-                        {/* {hideGenerated()} */}
+                    
                         {/*editable table div*/ }
                         <div id="editabletable">
                     
@@ -1258,125 +1245,6 @@ const PhotographyHomepage = (user) => {
                         </table>
                         <button id="saveButton" onClick={saveDataa}>Save</button>
                         </div>
-                        {/*Poll*/}
-                        <div id ="voting poll">
-                        <h1>Create a Poll</h1>
-                        <form onSubmit={handleSubmit}>
-                            <label>
-                            Question:
-                            <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} />
-                            </label>
-                            <br />
-                            <label>
-                            Options:
-                            {options.map((option, index) => (
-                                <div key={index}>
-                                <input
-                                    type="text"
-                                    value={option}
-                                    onChange={(event) => handleOptionChange(event, index)}
-                                />
-                                </div>
-                            ))}
-                            </label>
-                            <button type="button" onClick={handleAddOption}>
-                            Add Option
-                            </button>
-                            <br />
-                            <label>
-                            Response:
-                            <select value={response} onChange={(event) => setResponse(event.target.value)}>
-                                <option value="">Select an option</option>
-                                {options.map((option) => (
-                                <option key={option} value={option}>
-                                    {option}
-                                </option>
-                                ))}
-                            </select>
-                            </label>
-                            <br />
-                            <button type="submit">Submit</button>
-                        </form>
-                        {submittedPoll && (
-                                <div>
-                                <h2>Results:</h2>
-                                {options.map(option => (
-                                    <div key={option.id}>
-                                    <p>{option.text}: {option.votes}</p>
-                                    </div>
-                                ))}
-                                </div>   
-                            )}
-                        {chart}
-                        {/* <h1>Vote for your favorite option:</h1>
-                            <form onSubmit={handleSubmit}>
-                                {options.map(option => (
-                                <div key={option.id}>
-                                    <input
-                                    type="radio"
-                                    name="option"
-                                    value={option.id}
-                                    checked={selectedOption === option.id}
-                                    onChange={handleOptionChange}
-                                    />
-                                    <label>{option.text}</label>
-                                </div>
-                                ))}
-                                <button type="submit">Submit</button>
-                            </form>
-                            <div id="poll results">
-                            {submitted && (
-                                <div>
-                                <h2>Results:</h2>
-                                {options.map(option => (
-                                    <div key={option.id}>
-                                    <p>{option.text}: {option.votes}</p>
-                                    </div>
-                                ))}
-                                </div>   
-                            )}
-                            </div>         */}
-                        </div>
-                        {/* GENERATE EVENT FORM STARTS HERE */}
-                        <div id="form2">
-                        <Row className="mt-2 text-center">
-                            <h2>Generate FPS Event</h2>
-                            <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
-                                <div>
-                                    <Form.Group controlId="formBasicTitle">
-                                        <Form.Label>Event Title</Form.Label>
-                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicDescription">
-                                        <Form.Label>Event Description</Form.Label>
-                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicDate">
-                                        <Form.Label>Event Date</Form.Label>
-                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicTime">
-                                        <Form.Label>Event Start Time</Form.Label>
-                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicTime">
-                                        <Form.Label>Event End Time</Form.Label>
-                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicVenue">
-                                        <Form.Label>Event Venue</Form.Label>
-                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
-                                    </Form.Group>
-                                    <Row className="mt-2">
-                                    {/* Removed type="submit" from here */}
-                                        <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
-                                            Submit Event
-                                        </button>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Row>
-                        </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
@@ -1384,85 +1252,9 @@ const PhotographyHomepage = (user) => {
 
             
         </div>
-            {/* MODAL START */}
-            {
-                show && <div id="Modal-container2">
-                    <h1 className="greeting">
-                        <>
-                            <Modal show = {show} onHide={handleClose}>
-                                <Modal.Header closeButton>
-                                <Modal.Title>Available students</Modal.Title>
-                                </Modal.Header>
-
-                                <Modal.Body>
-                                    <div id="Name"></div>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                
-                                </Modal.Footer>
-                            </Modal>
-                        </>
-                    </h1>
-                </div>
-            }
-            {/* MODAL END */}
-         {/* Div with card */}
-            
-            {/* Div with card end */}
-              {/* CHECK DETAILS START */}
-            {
-                // <div id="photo-cardBody">
-                //     <h1 className="greeting">
-                //         <>
-                //             <Modal show = {show} onHide={handleClose}>
-                //                 <Modal.Header closeButton>
-                //                 <Modal.Title>{EventTitle}</Modal.Title>
-                //                 </Modal.Header>
-                //                 <Modal.Body>{EventDescription}</Modal.Body>
-                //                 <Modal.Footer>
-                //                 <Button variant="secondary" onClick={doNothing}>
-                //                     Reject
-                //                 </Button>
-                //                 <Button variant="primary" onClick={doNothing}>
-                //                     Accept
-                //                 </Button>
-                //                 </Modal.Footer>
-                //             </Modal>
-                //         </>
-                //     </h1>
-                //     <div class="photo-mycard">
-                //         <div class="photo-imgBx">
-                //             <img
-                //             src="https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
-                //             alt=""
-                //             />
-                //         </div>
-                //         <div class="photo-details">
-                //             <h3>Nike Air Max<br /><span>Men's Shoe</span></h3>
-                //             <h4>Products Details</h4>
-                //             <p>
-                //             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
-                //             atque.
-                //             </p>
-                //             <h4>Size</h4>
-                //             <ul class="photo-size">
-                //             <li>36</li>
-                //             <li>38</li>
-                //             <li>40</li>
-                //             <li>42</li>
-                //             <li>44</li>
-                //             </ul>
-                //             <div class="photo-group">
-                //             <h2>$199<small>.99</small></h2>
-                //             <a href="#">Buy Now</a>
-                //             </div>
-                //         </div>
-                //         </div>
-                // </div>
-            }
 
             </>
     );
 }
 
-export default PhotographyHomepage
+export default LogisticsHomepage
