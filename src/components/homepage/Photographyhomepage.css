@@ -712,3 +712,6 @@ background: transparent;
   background-color: rgb(61, 58, 58);
   color: #f8f7f2;
 }
+#voting-poll{
+  display: none;
+}
