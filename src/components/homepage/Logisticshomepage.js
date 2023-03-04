@@ -412,18 +412,37 @@ const LogisticsHomepage = (user) => {
                         <table id="editabletable1">
                         <thead>
                         <tr>
+                        <div id="date">
                         <th name="column1">DATE</th>
+                        </div>
+                        <div id="time">
                         <th name="column2">Time</th>
+                        </div>
+                        <div id="am">
                         <th name="column3">Assigned Member</th>
+                        </div>
+                        <div id="gadget">
                         <th name="column4">Gadget</th>
+                        </div>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
+                            <div id="editdate">
                         <td contenteditable="true"></td>
+                        </div>
+                        <div id="edittime">
                         <td contenteditable="true"></td>
+                        </div>
+                        <div id="editam">
                         <td contenteditable="true"></td>
+                        </div>
+                        <div id="editgadget">
                         <td contenteditable="true"></td>
+                        </div>
+                        {/* <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td> */}
                         </tr>
                         </tbody>
                         </table>
