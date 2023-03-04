@@ -1022,6 +1022,7 @@ const PhotographyHomepage = (user) => {
       hideAlbum();
       hideInventory();
       hideGenerated();
+      hidePoll();
     }
     const hidePass = () => {
         
@@ -1039,6 +1040,7 @@ const PhotographyHomepage = (user) => {
         hideAlbum();
         hideInventory();
         hideGenerated();
+        hidePoll();
     }
     const hideEvent = () => {
         
@@ -1056,6 +1058,7 @@ const PhotographyHomepage = (user) => {
         hidePass();
         hideInventory();
         hideGenerated();
+        hidePoll();
 
     }
     const hideAlbum = () => {
@@ -1072,6 +1075,7 @@ const PhotographyHomepage = (user) => {
         hideAlbum();
         hidePass();
         hideGenerated();
+        hidePoll();
 
     }
     const hideInventory = () =>
@@ -1089,12 +1093,30 @@ const PhotographyHomepage = (user) => {
         hidePass();
         hideInventory();
         hideAlbum();
-
+        hidePoll();
 
     }
     const hideGenerated = () => {
         $(function () {
             $('#form2').hide();
+        });
+    }
+
+    // show poll form //
+    const showPoll = () => {
+        $(function () {
+            $('#voting-poll').show();
+        });
+        hideEvent();
+        hidePass();
+        hideInventory();
+        hideAlbum();
+        hideGenerated();
+
+    }
+    const hidePoll = () => {
+        $(function () {
+            $('#voting-poll').hide();
         });
     }
     
@@ -1121,6 +1143,9 @@ const PhotographyHomepage = (user) => {
                     </button>
                     <button  onClick={showGenerated} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Generate Event
+                    </button>
+                    <button  onClick={showPoll} className="sidebarbtn">
+                                <FaUserEdit className="sidebaricon" /> Create Poll
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
@@ -1259,10 +1284,10 @@ const PhotographyHomepage = (user) => {
                         <button id="saveButton" onClick={saveDataa}>Save</button>
                         </div>
                         {/*Poll*/}
-                        <div id ="voting poll">
+                        <div className="myPoll" id ="voting-poll">
                         <h1>Create a Poll</h1>
                         <form onSubmit={handleSubmit}>
-                            <label>
+                            <label className="myPoll-label">
                             Question:
                             <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} />
                             </label>
@@ -1279,11 +1304,11 @@ const PhotographyHomepage = (user) => {
                                 </div>
                             ))}
                             </label>
-                            <button type="button" onClick={handleAddOption}>
+                            <button className="myPoll-options" type="button" onClick={handleAddOption}>
                             Add Option
                             </button>
                             <br />
-                            <label>
+                            {/* <label>
                             Response:
                             <select value={response} onChange={(event) => setResponse(event.target.value)}>
                                 <option value="">Select an option</option>
@@ -1293,9 +1318,9 @@ const PhotographyHomepage = (user) => {
                                 </option>
                                 ))}
                             </select>
-                            </label>
+                            </label> */}
                             <br />
-                            <button type="submit">Submit</button>
+                            <button className="myPoll-submit" type="submit">Submit</button>
                         </form>
                         {submittedPoll && (
                                 <div>
