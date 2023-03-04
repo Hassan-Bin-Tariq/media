@@ -833,6 +833,16 @@ const GeneralHomepage = (user) => {
             alert('error in fetching data');
         })
     }
+    function PythonForImages2(){
+            axios.post(`http://localhost:5000/UploadImagesPKL`) // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
+            .then(response => 
+                //UploadToDrive(response.data)
+                console.log(response.data)
+                )
+            .catch(error => console.error(error))
+    }
+
+
     let showevents
     axios.post("http://localhost:9002/GetGeneratedEvent", )
     .then(res => {
@@ -1183,7 +1193,7 @@ return (
                         <div class = "dayDiv" id='thursdayHolder'></div>
                         <div class = "dayDiv" id='fridayHolder'></div>
 
-                        <button onClick={PythonForImages}>Upload Images</button>
+                        <button onClick={PythonForImages2}>Upload Images</button>
                         {/* end of holders */}
                     </div>
                     <div id="mydiv" class="hidden">
