@@ -663,3 +663,52 @@ background: transparent;
   display: none;
   background-color: #f8f7f2;
 }
+/* VOTING POLL CSS STARTS HERE */
+.myPoll{
+  /* font-size: 20px; */
+  justify-self: center;
+  font-family: "Ubuntu";
+  padding-left: 250px;
+}
+.myPoll h1{
+  padding-bottom: 50px;
+  padding-right: 450px;
+}
+.myPoll label{
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 450px;
+  padding-bottom: 20px;
+  /* padding-right: 20px; */
+}
+.myPoll-options{
+  font-size: 12px;
+  width: 250px;
+  font-weight: bold;
+  background-color: rgb(61, 58, 58);
+  color: #f8f7f2;
+  
+}
+.myPoll-options:hover{ 
+  background-color: rgb(17, 16, 16);
+  color: #f8f7f2;
+}
+/* .myPoll-options:focus{ 
+  background-color: rgb(17, 16, 16);
+  color: #f8f7f2;
+  width: 80px;
+} */
+.myPoll-submit{
+  font-size: 12px;
+  width: 250px;
+  
+  font-weight: bold;
+  background-color: rgb(17, 16, 16);
+  color: #f8f7f2;
+  align-self: center;
+  
+}
+.myPoll-submit:hover{ 
+  background-color: rgb(61, 58, 58);
+  color: #f8f7f2;
+}
