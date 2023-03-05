@@ -1140,14 +1140,22 @@ const GeneralHomepage = (user) => {
         console.log("options"+item.options);
         console.log("responses"+item.responses);
         // hidePass();
-        // let cardbody = document.createElement('div');
-        // cardbody.className = 'photo-cardbody'
+        let cardbody = document.createElement('div');
+        cardbody.className = 'photo-cardbody'
         let mycard = document.createElement('div');
-        mycard.className = 'photo-mycard'
+        mycard.className = 'photo-mycard3'
         let TitleText = document.createElement('h2');
         TitleText.innerText = "FPS Poll:";
         let Title = document.createElement('h2');
         Title.innerText = item.question;
+        let TitleText2 = document.createElement('h2');
+        TitleText2.innerText = "Options:";
+        let Title2 = document.createElement('h2');
+        Title2.innerText = item.options;
+        let TitleText3 = document.createElement('h2');
+        TitleText3.innerText = "Responses:";
+        let Title3 = document.createElement('h2');
+        Title3.innerText = item.responses;
 
         // let imgBx = document.createElement('div');
         // imgBx.className = 'photo-imgBx'
@@ -1217,8 +1225,12 @@ const GeneralHomepage = (user) => {
         // // mycard.appendChild(details);
         mycard.appendChild(TitleText);
         mycard.appendChild(Title);
-        // cardbody.appendChild(mycard);
-        let container = document.querySelector("#photo-card-container");
+        mycard.appendChild(TitleText2);
+        mycard.appendChild(Title2);
+        mycard.appendChild(TitleText3);
+        mycard.appendChild(Title3);
+        cardbody.appendChild(mycard);
+        let container = document.querySelector("#photo-card-container-poll");
         container.appendChild(mycard);    
         i +=1    
     }
@@ -1561,11 +1573,11 @@ return (
                             </div>
                         </div>
                         {/* SHOW POLLS STARTS HERE */}
-                        <div className="photo-flexcard" id="showpollsid">
-                            <div className= "mycards" id="photo-card-container">
+                        <div className="photo-flexcard-poll" id="showpollsid">
+                            <div className= "mycards-poll" id="photo-card-container-poll">
                             {/* <div className="card-flex"></div> */}
                             </div>
-                            <div className="dutycontainer" id="card-container2">
+                            <div className="dutycontainer-poll" id="card-container2">
                                 
                             </div>
                         </div>
