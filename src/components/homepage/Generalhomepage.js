@@ -807,6 +807,7 @@ const GeneralHomepage = (user) => {
         });
     }
 
+    //ibnet part start//
     function UploadToDrive(files){
         console.log(files)
         axios.post("http://localhost:9002/UploadToDrive",{UploadData:files}) // JIN KA FACE MATCH HO GYA UN KO DRIVE PY UPLOAD K 
@@ -841,8 +842,25 @@ const GeneralHomepage = (user) => {
                 )
             .catch(error => console.error(error))
     }
+    function ONLive() {
+        console.log("ON"); 
+        axios.post(`http://localhost:5000/CameraReceive`,"ON") // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
+        .then(response => 
+            console.log(response.data)
+        )
+        .catch(error => console.error(error))
+    }
 
+    function OFFLive() {
+        console.log("OFF"); 
+        axios.post(`http://localhost:5000/CameraReceive`,"OFF") // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
+        .then(response => 
+            console.log(response.data)
+        )
+        .catch(error => console.error(error))
+    }
 
+    //ibnet part END
     let showevents
     axios.post("http://localhost:9002/GetGeneratedEvent", )
     .then(res => {
@@ -1194,6 +1212,8 @@ return (
                         <div class = "dayDiv" id='fridayHolder'></div>
 
                         <button onClick={PythonForImages2}>Upload Images</button>
+                        <button onClick={ONLive}>ON</button>
+                        <button onClick={OFFLive}>OFF</button>
                         {/* end of holders */}
                     </div>
                     <div id="mydiv" class="hidden">
