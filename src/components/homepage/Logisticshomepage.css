@@ -1,4 +1,72 @@
-#date
+#inventorytable
 {
-    width: 5px;
+    width:50%;
+    color: whitesmoke;
+    background-color: #4393c3;
+}
+table a:link, a:visited { text-decoration: none; }
+
+table a:hover, a:active { text-decoration: underline; }
+
+table, th, td { border: 1px solid black; }
+table, th, tr { border: 1px solid black; }
+td, th {
+    /* padding: 5px; */
+    text-align: center;
+    height: 20px;
+  }
+th {
+background-color: #4393c3;
+color: #d9f0a3;
+}
+
+td { background-color: #92c5de; }
+
+tr { background-color: #92c5de; }
+
+tr:hover td { background-color: #edf8b1; }
+tr:hover tr { background-color: #edf8b1; }
+.sub
+{
+  margin-left: 200px;
+  width: fit-content;
+  border-radius: 5px;
+  background-color: #000;
+  color:#d9f0a3
+
+}
+table {
+    border: 1px solid #666;
+    table-layout: fixed;
+    width: 200px;
+    margin: 0 auto;
+    margin-top:30px
+}
+
+th,
+td {
+    border: 1px solid #666;
+    width: 90px;
+    overflow: hidden;
+}
+#editabletable
+{
+
+    width: 50%;
+margin-left: 150px;
+margin-top: 50px;
+justify-content: center;
+align-items: center;
+color: aliceblue;
+background-color: #ECF2FF;
+border-radius: 5px;
+}
+h6
+{
+    margin-bottom: 0;
+}
+h2{
+    color: #666;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: 1px 1px 1px green, 2px 2px 1px green;
 }

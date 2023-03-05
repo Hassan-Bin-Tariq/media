@@ -1,5 +1,5 @@
 import React from "react"
-import "./Photographyhomepage.css"
+import "./Logisticshomepage.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from "axios"
 import { useHistory } from "react-router-dom"
@@ -184,7 +184,7 @@ const LogisticsHomepage = (user) => {
         details.className = 'photo-details'
 
         let purposeWritten = document.createElement('h4');
-        purposeWritten.innerText = item.gadget + " assigned to " +item.am + "on " + item.date + " at" + item.time
+        purposeWritten.innerText = item.gadget + " assigned to " +item.am + " on " + item.date + " at " + item.time
 
 
     
@@ -261,7 +261,6 @@ const LogisticsHomepage = (user) => {
     }
 
     const showInventory = () => {
-       
         $(function () {
             $('#editabletable').show();
         });
@@ -409,61 +408,43 @@ const LogisticsHomepage = (user) => {
                         {/*editable table div*/ }
                         <div id="editabletable">
                     
-                        <table id="editabletable1">
+                        <h2>FPS INVENTORY</h2>
+                        <table class="table table-striped table-dark" id="inventorytable">
                         <thead>
-                        <tr>
-                        <div id="date">
-                        <th name="column1">DATE</th>
-                        </div>
-                        <div id="time">
-                        <th name="column2">Time</th>
-                        </div>
-                        <div id="am">
-                        <th name="column3">Assigned Member</th>
-                        </div>
-                        <div id="gadget">
-                        <th name="column4">Gadget</th>
-                        </div>
-                        </tr>
+                            <tr>
+                            <th scope="col">Assigned To</th>
+                            <th scope="col">Time           </th>
+                            <th scope="col">Gadget        </th>
+                            <th scope="col">Date           </th>   
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <div id="editdate">
-                        <td contenteditable="true"></td>
-                        </div>
-                        <div id="edittime">
-                        <td contenteditable="true"></td>
-                        </div>
-                        <div id="editam">
-                        <td contenteditable="true"></td>
-                        </div>
-                        <div id="editgadget">
-                        <td contenteditable="true"></td>
-                        </div>
-                        {/* <td contenteditable="true"></td>
-                        <td contenteditable="true"></td>
-                        <td contenteditable="true"></td> */}
-                        </tr>
+                            <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            </tr>
                         </tbody>
                         </table>
-                        <button id="saveButton" onClick={saveDataa}>Save</button>
+                        <button  variant="success btn-block" className="sub" onClick={saveDataa}>Save</button>
                         </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
-                    </Container>
-                    {/* Div with card end */}
-            </div>
-
-                {/* {show meetings} */}
+                            {/* Div with card end */}
+                       {/* {show meetings} */}
                                         
                                 
                 <div className="photo-flexcard-meeting" id="showemeetingsid">
                             <div className= "mycards-meetin" id="photo-card-container2">
-                            {/* <div className="card-flex"></div> */}
                             </div>
                             <div className="dutycontainer-meeting" id="card-container2">
                                                 
                             </div>
                 </div>
+                    </Container>
+                
+            </div>
+        
                             
             </div>
 
