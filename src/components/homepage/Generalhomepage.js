@@ -1107,6 +1107,137 @@ const GeneralHomepage = (user) => {
         let container = document.querySelector("#photo-card-container2");
         console.log(container.childNodes);
     }
+
+    let showpolls
+    axios.post("http://localhost:9002/GetPolls", )
+    .then(res => {
+        showpolls = res.data.poll;
+        //console.log(showevents);
+
+    })
+
+    const showPoll = () => {
+        
+        $(function () {
+            $('#showpollsid').show();
+        });
+       hideSlots();
+       hideTable();
+       hideCurrent();
+       hideAlbum();
+       hideEvent();
+       hidePass();
+    }
+    const hidePoll = () => {
+        
+        $(function () {
+            $('#showpollsid').hide();
+        });
+    }
+
+    function pollsFunction(item) {
+        console.log(item.question);
+        console.log("options"+item.options);
+        console.log("responses"+item.responses);
+        // hidePass();
+        // let cardbody = document.createElement('div');
+        // cardbody.className = 'photo-cardbody'
+        let mycard = document.createElement('div');
+        mycard.className = 'photo-mycard'
+        let TitleText = document.createElement('h2');
+        TitleText.innerText = "FPS Poll:";
+        let Title = document.createElement('h2');
+        Title.innerText = item.question;
+
+        // let imgBx = document.createElement('div');
+        // imgBx.className = 'photo-imgBx'
+
+        // let imgTitleText = document.createElement('h2');
+        // imgTitleText.innerText = "FPS Poll:";
+
+        // let imgTitle = document.createElement('h3');
+        // imgTitle.innerText = item.question;
+
+        // // let imgTeacherText = document.createElement('h2');
+        // // imgTeacherText.innerText = "Event Head:";
+
+        // // let imgTeacher = document.createElement('h4');
+        // // imgTeacher.innerText = item.headEmail;
+
+        // // let image = document.createElement('img');
+        // // // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
+        // // // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
+        // // image.src=ghous
+
+        // //DETAILS STARTING
+
+        // let details = document.createElement('div');
+        // details.className = 'photo-details'
+
+        // let descriptionWritten = document.createElement('h4');
+        // descriptionWritten.innerText = 'Options:'
+
+        // // let description = document.createElement('h5');
+        // // description.innerText = item.options;
+
+        // // let Venue = document.createElement('h4')
+        // // Venue.innerText = "Venue: "+item.venue;
+
+        // // let Date = document.createElement('h4')
+        // // Date.innerText = "Date: "+item.date;
+
+        
+        // let acceptbtn = document.createElement('button');
+        // acceptbtn.innerText = 'Submit Response'
+        // acceptbtn.id = "id"+i;
+        // // acceptbtn.addEventListener("click",AssignDuties,false);
+
+        // //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        
+        // details.appendChild(descriptionWritten);
+        // // details.appendChild(description);
+        // // details.appendChild(Venue);
+        // // details.appendChild(Date);
+        // // details.appendChild(timewritten);
+
+        // // timeul.appendChild(starttime);
+        // // timeul.appendChild(endtime);
+        // // details.appendChild(timeul);
+
+        // // divgroup.appendChild(divpricewritten);
+        // // divgroup.appendChild(acceptbtn);
+
+        // // details.appendChild(divgroup);
+
+        // // imgBx.appendChild(image);
+        // imgBx.appendChild(imgTitleText);
+        // imgBx.appendChild(imgTitle);
+        // // imgBx.appendChild(imgTeacherText);
+        // // imgBx.appendChild(imgTeacher);
+        // // mycard.appendChild(details);
+        mycard.appendChild(TitleText);
+        mycard.appendChild(Title);
+        // cardbody.appendChild(mycard);
+        let container = document.querySelector("#photo-card-container");
+        container.appendChild(mycard);    
+        i +=1    
+    }
+
+    const GetPoll=()=>{
+          // hidePass();
+          showPoll();
+          $('#photo-card-container').empty();
+          const xhr = new XMLHttpRequest();
+          axios.post("http://localhost:9002/GetPolls", )
+          .then(res => {
+              showpolls = res.data.poll;
+              showpolls.forEach(pollsFunction);
+          })
+          //eventts.forEach(myFunction);
+  
+          let container = document.querySelector("#photo-card-container");
+          console.log(container.childNodes);
+    }
 return (
         
     <>
@@ -1134,6 +1265,9 @@ return (
                     </button>
                     <button  className="sidebarbtn" onClick={GetEvents}>
                             <FaGripHorizontal className="sidebaricon"/> FPS Events
+                    </button>
+                    <button  className="sidebarbtn" onClick={GetPoll}>
+                            <FaGripHorizontal className="sidebaricon"/> FPS Polls
                     </button>
                     <button  onClick={showPass} className="sidebarbtn">
                         <FaUserEdit className="sidebaricon"/>       Edit Profile
@@ -1423,6 +1557,15 @@ return (
                             {/* <div className="card-flex"></div> */}
                             </div>
                             <div className="dutycontainer-meeting" id="card-container2">
+                                
+                            </div>
+                        </div>
+                        {/* SHOW POLLS STARTS HERE */}
+                        <div className="photo-flexcard" id="showpollsid">
+                            <div className= "mycards" id="photo-card-container">
+                            {/* <div className="card-flex"></div> */}
+                            </div>
+                            <div className="dutycontainer" id="card-container2">
                                 
                             </div>
                         </div>
