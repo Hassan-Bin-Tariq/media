@@ -808,14 +808,25 @@ const GeneralHomepage = (user) => {
     }
 
     //ibnet part start//
+
+    var lookup = false;
+
     function UploadToDrive(files){
         console.log(files)
+                    
+        axios.post(`http://localhost:5000/CameraReceive`,"OFF") 
+        .then(response => 
+            console.log("inside one")
+        )
         axios.post("http://localhost:9002/UploadToDrive",{UploadData:files}) // JIN KA FACE MATCH HO GYA UN KO DRIVE PY UPLOAD K 
         .then((res) => {
-
+            
         }).catch(() => {
             alert('error in Uploading data');
         })
+        if (lookup === true) // to keep looking up for new images
+            ONLive()
+
     }
 
     function PythonForImages(){
@@ -844,9 +855,11 @@ const GeneralHomepage = (user) => {
     }
     function ONLive() {
         console.log("ON"); 
-        axios.post(`http://localhost:5000/CameraReceive`,"ON") // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
+        lookup = true
+        axios.post(`http://localhost:5000/CameraReceive`,"ON") 
         .then(response => 
-            console.log(response.data)
+            UploadToDrive(response.data)
+            //console.log(response.data)
         )
         .catch(error => console.error(error))
     }
@@ -855,7 +868,7 @@ const GeneralHomepage = (user) => {
         console.log("OFF"); 
         axios.post(`http://localhost:5000/CameraReceive`,"OFF") // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
         .then(response => 
-            console.log(response.data)
+            lookup = false
         )
         .catch(error => console.error(error))
     }
