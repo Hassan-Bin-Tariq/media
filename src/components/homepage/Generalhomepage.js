@@ -1134,6 +1134,27 @@ const GeneralHomepage = (user) => {
             $('#showpollsid').hide();
         });
     }
+    let x=1;
+    //function for options //
+    function optionsFunc(item){
+        console.log("option no."+x+" "+item);
+        // x+=1;
+        let cardbody1 = document.createElement('div');
+        cardbody1.className = 'photo-cardbody'
+        let mycard1 = document.createElement('div');
+        mycard1.className = 'photo-mycard3'
+        let TitleText1 = document.createElement('h2');
+        TitleText1.innerText = "Options:";
+        let Title1 = document.createElement('h2');
+        Title1.innerText = item;
+        ///appending on div ///
+        mycard1.appendChild(TitleText1);
+        mycard1.appendChild(Title1);
+        cardbody1.appendChild(mycard1);
+        let container = document.querySelector("#photo-card-container-poll-opt");
+        container.appendChild(mycard1);    
+        x +=1    
+    }
 
     function pollsFunction(item) {
         console.log(item.question);
@@ -1148,10 +1169,14 @@ const GeneralHomepage = (user) => {
         TitleText.innerText = "FPS Poll:";
         let Title = document.createElement('h2');
         Title.innerText = item.question;
-        let TitleText2 = document.createElement('h2');
-        TitleText2.innerText = "Options:";
-        let Title2 = document.createElement('h2');
-        Title2.innerText = item.options;
+        ///options loop ///
+        item.options.forEach(optionsFunc)
+
+
+        // let TitleText2 = document.createElement('h2');
+        // TitleText2.innerText = "Options:";
+        // let Title2 = document.createElement('h2');
+        // Title2.innerText = item.options;
         let TitleText3 = document.createElement('h2');
         TitleText3.innerText = "Responses:";
         let Title3 = document.createElement('h2');
@@ -1225,8 +1250,8 @@ const GeneralHomepage = (user) => {
         // // mycard.appendChild(details);
         mycard.appendChild(TitleText);
         mycard.appendChild(Title);
-        mycard.appendChild(TitleText2);
-        mycard.appendChild(Title2);
+        // mycard.appendChild(TitleText2);
+        // mycard.appendChild(Title2);
         mycard.appendChild(TitleText3);
         mycard.appendChild(Title3);
         cardbody.appendChild(mycard);
@@ -1238,7 +1263,7 @@ const GeneralHomepage = (user) => {
     const GetPoll=()=>{
           // hidePass();
           showPoll();
-          $('#photo-card-container').empty();
+          $('#photo-card-container-poll').empty();
           const xhr = new XMLHttpRequest();
           axios.post("http://localhost:9002/GetPolls", )
           .then(res => {
@@ -1575,6 +1600,9 @@ return (
                         {/* SHOW POLLS STARTS HERE */}
                         <div className="photo-flexcard-poll" id="showpollsid">
                             <div className= "mycards-poll" id="photo-card-container-poll">
+                            {/* <div className="card-flex"></div> */}
+                            </div>
+                            <div className= "mycards-poll" id="photo-card-container-poll-opt">
                             {/* <div className="card-flex"></div> */}
                             </div>
                             <div className="dutycontainer-poll" id="card-container2">
