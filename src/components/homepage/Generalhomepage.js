@@ -1134,7 +1134,33 @@ const GeneralHomepage = (user) => {
             $('#showpollsid').hide();
         });
     }
+
     let x=1;
+    let y=1;
+    function responseFunc(item){
+        console.log("response no."+y+" "+item);
+        y+=1;
+        let cardbody2 = document.createElement('div');
+        cardbody2.className = 'photo-cardbody'
+        let mycard2 = document.createElement('div');
+        mycard2.className = 'photo-mycard3'
+        let responsebtn = document.createElement('button');
+        responsebtn.innerText = item
+        responsebtn.id = "id"+i;
+        // acceptbtn.addEventListener("click",AssignDuties,false);
+        // let TitleText1 = document.createElement('h2');
+        // TitleText1.innerText = "Options:";
+        // let Title2 = document.createElement('h2');
+        // Title2.innerText = item;
+        ///appending on div ///
+        //mycard1.appendChild(TitleText1);
+        mycard2.appendChild(responsebtn);
+        cardbody2.appendChild(mycard2);
+        let container = document.querySelector("#photo-card-container-poll-res");
+        container.appendChild(mycard2);  
+        
+    }
+
     //function for options //
     function optionsFunc(item){
         console.log("option no."+x+" "+item);
@@ -1143,12 +1169,12 @@ const GeneralHomepage = (user) => {
         cardbody1.className = 'photo-cardbody'
         let mycard1 = document.createElement('div');
         mycard1.className = 'photo-mycard3'
-        let TitleText1 = document.createElement('h2');
-        TitleText1.innerText = "Options:";
+        // let TitleText1 = document.createElement('h2');
+        // TitleText1.innerText = "Options:";
         let Title1 = document.createElement('h2');
         Title1.innerText = item;
         ///appending on div ///
-        mycard1.appendChild(TitleText1);
+        //mycard1.appendChild(TitleText1);
         mycard1.appendChild(Title1);
         cardbody1.appendChild(mycard1);
         let container = document.querySelector("#photo-card-container-poll-opt");
@@ -1169,6 +1195,8 @@ const GeneralHomepage = (user) => {
         TitleText.innerText = "FPS Poll:";
         let Title = document.createElement('h2');
         Title.innerText = item.question;
+        let TitleText2 = document.createElement('h2');
+        TitleText2.innerText = "Options:";
         ///options loop ///
         item.options.forEach(optionsFunc)
 
@@ -1179,81 +1207,21 @@ const GeneralHomepage = (user) => {
         // Title2.innerText = item.options;
         let TitleText3 = document.createElement('h2');
         TitleText3.innerText = "Responses:";
-        let Title3 = document.createElement('h2');
-        Title3.innerText = item.responses;
+        //response loop calling function
+        item.responses.forEach(responseFunc)
+        // let Title3 = document.createElement('h2');
+        // Title3.innerText = item.responses;
 
         // let imgBx = document.createElement('div');
         // imgBx.className = 'photo-imgBx'
 
-        // let imgTitleText = document.createElement('h2');
-        // imgTitleText.innerText = "FPS Poll:";
-
-        // let imgTitle = document.createElement('h3');
-        // imgTitle.innerText = item.question;
-
-        // // let imgTeacherText = document.createElement('h2');
-        // // imgTeacherText.innerText = "Event Head:";
-
-        // // let imgTeacher = document.createElement('h4');
-        // // imgTeacher.innerText = item.headEmail;
-
-        // // let image = document.createElement('img');
-        // // // image.src = "https://i.pinimg.com/564x/3e/b2/f7/3eb2f70bbd7cbc175f2ae3ffa7a6486d.jpg"
-        // // // image.src = "C://Users/ACS/Desktop/media/src/assets/ghous.jpg"
-        // // image.src=ghous
-
-        // //DETAILS STARTING
-
-        // let details = document.createElement('div');
-        // details.className = 'photo-details'
-
-        // let descriptionWritten = document.createElement('h4');
-        // descriptionWritten.innerText = 'Options:'
-
-        // // let description = document.createElement('h5');
-        // // description.innerText = item.options;
-
-        // // let Venue = document.createElement('h4')
-        // // Venue.innerText = "Venue: "+item.venue;
-
-        // // let Date = document.createElement('h4')
-        // // Date.innerText = "Date: "+item.date;
-
-        
-        // let acceptbtn = document.createElement('button');
-        // acceptbtn.innerText = 'Submit Response'
-        // acceptbtn.id = "id"+i;
-        // // acceptbtn.addEventListener("click",AssignDuties,false);
-
-        // //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
-        
-        // details.appendChild(descriptionWritten);
-        // // details.appendChild(description);
-        // // details.appendChild(Venue);
-        // // details.appendChild(Date);
-        // // details.appendChild(timewritten);
-
-        // // timeul.appendChild(starttime);
-        // // timeul.appendChild(endtime);
-        // // details.appendChild(timeul);
-
-        // // divgroup.appendChild(divpricewritten);
-        // // divgroup.appendChild(acceptbtn);
-
-        // // details.appendChild(divgroup);
-
-        // // imgBx.appendChild(image);
-        // imgBx.appendChild(imgTitleText);
-        // imgBx.appendChild(imgTitle);
-        // // imgBx.appendChild(imgTeacherText);
-        // // imgBx.appendChild(imgTeacher);
-        // // mycard.appendChild(details);
+       
         mycard.appendChild(TitleText);
         mycard.appendChild(Title);
-        // mycard.appendChild(TitleText2);
+        mycard.appendChild(TitleText2);
         // mycard.appendChild(Title2);
         mycard.appendChild(TitleText3);
-        mycard.appendChild(Title3);
+        // mycard.appendChild(Title3);
         cardbody.appendChild(mycard);
         let container = document.querySelector("#photo-card-container-poll");
         container.appendChild(mycard);    
@@ -1600,10 +1568,16 @@ return (
                         {/* SHOW POLLS STARTS HERE */}
                         <div className="photo-flexcard-poll" id="showpollsid">
                             <div className= "mycards-poll" id="photo-card-container-poll">
+                               
                             {/* <div className="card-flex"></div> */}
                             </div>
+                            {/* Options Div inside polls div */}
                             <div className= "mycards-poll" id="photo-card-container-poll-opt">
-                            {/* <div className="card-flex"></div> */}
+                                {/* <div className="card-flex"></div> */}
+                            </div>
+                            {/* Polls Div inside polls div */}
+                            <div className= "mycards-poll" id="photo-card-container-poll-res">
+                                {/* <div className="card-flex"></div> */}
                             </div>
                             <div className="dutycontainer-poll" id="card-container2">
                                 
