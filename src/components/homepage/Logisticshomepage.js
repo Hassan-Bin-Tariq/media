@@ -143,8 +143,9 @@ const LogisticsHomepage = (user) => {
     {
             console.log("ibnet")
             var tableData = [];
-            var rows = document.getElementById("editabletable1").rows;
+            var rows = document.getElementById("inventorytable").rows;
 
+            console.log(rows);
             for (var i = 1; i < rows.length; i++) {
                 var rowData = [];
                 var cells = rows[i].cells;
@@ -160,7 +161,7 @@ const LogisticsHomepage = (user) => {
             {
                 axios.post("http://localhost:9002/invent", {tableData}).then(res => {
                 console.log(res.error);
-                //alert('Table data saved successfully');
+                alert('Table data saved successfully');
 
             })
         }
@@ -214,7 +215,7 @@ const LogisticsHomepage = (user) => {
     })
 
     const GetInventory = () => {
-        $('#photo-card-container').empty();
+        $('#photo-card-container2').empty();
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetInventory", )
         .then(res => {
