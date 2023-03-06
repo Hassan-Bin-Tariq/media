@@ -303,9 +303,6 @@ const LogisticsHomepage = (user) => {
                     <button  onClick={showInventory} className="sidebarbtn">
                                 <FaUserEdit className="sidebaricon" /> Maintain Inventory
                     </button>
-                    <button  onClick={GetInventory} className="sidebarbtn">
-                                <FaUserEdit className="sidebaricon" /> View Inventory
-                    </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
                     </button>
@@ -408,7 +405,7 @@ const LogisticsHomepage = (user) => {
                         {/*editable table div*/ }
                         <div id="editabletable">
                     
-                        <h2>FPS INVENTORY</h2>
+                        <h4>UPADTE INVENTORY</h4>
                         <table class="table table-striped table-dark" id="inventorytable">
                         <thead>
                             <tr>
@@ -428,9 +425,8 @@ const LogisticsHomepage = (user) => {
                         </tbody>
                         </table>
                         <button  variant="success btn-block" className="sub" onClick={saveDataa}>Save</button>
-                        </div>
-                        <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
-                            {/* Div with card end */}
+                        <h4>CURRENT STATUS</h4>
+                           {/* Div with card end */}
                        {/* {show meetings} */}
                                         
                                 
@@ -440,7 +436,12 @@ const LogisticsHomepage = (user) => {
                             <div className="dutycontainer-meeting" id="card-container2">
                                                 
                             </div>
+
                 </div>
+                        </div>
+                
+                
+                <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                 
             </div>
