@@ -1160,32 +1160,70 @@ const GeneralHomepage = (user) => {
         container.appendChild(mycard2);  
         
     }
+    //useState to change response in DB
+    // const [response, setResponse] = useState('');
+    // const responseSubmit = async (event) => {
+    //     event.preventDefault();
+    //     const data = {question, options, response};
+    //         console.log("inside handle")
+    //         console.log("adding to db"+question,options,response)
+    //         axios.post("http://localhost:9002/createpoll", data) 
+    //         .then(res => {
+    //             // setSubmittedPoll(data);
+    //             // setQuestion('');
+    //             // setOptions([]);
+    //             setResponse('');
+    //         })
+            
+    // };
+    //
+    function setResponse(item){
+        // var str1 = event.target.id.replace ( /[^\d.]/g, '' );
+        console.log("onclick value:"+item);
+        // console.log("reponse value:"+item.target.value)
+    }
 
     //function for options //
     function optionsFunc(item){
-        console.log("option no."+x+" "+item);
+        // console.log("option no."+x+" "+item);
         // x+=1;
-        let cardbody1 = document.createElement('div');
-        cardbody1.className = 'photo-cardbody'
-        let mycard1 = document.createElement('div');
-        mycard1.className = 'photo-mycard3'
-        // let TitleText1 = document.createElement('h2');
-        // TitleText1.innerText = "Options:";
-        let Title1 = document.createElement('h2');
-        Title1.innerText = item;
-        ///appending on div ///
-        //mycard1.appendChild(TitleText1);
-        mycard1.appendChild(Title1);
-        cardbody1.appendChild(mycard1);
+        let cardbody2 = document.createElement('div');
+        cardbody2.className = 'photo-cardbody'
+        let mycard2 = document.createElement('div');
+        mycard2.className = 'photo-mycard3'
+        let responsebtn = document.createElement('button');
+        responsebtn.innerText = item
+        responsebtn.id = "id"+i;
+        responsebtn.addEventListener("click",setResponse(item),true);
+
+
+        //appending to divs
+        mycard2.appendChild(responsebtn);
+        cardbody2.appendChild(mycard2);
         let container = document.querySelector("#photo-card-container-poll-opt");
-        container.appendChild(mycard1);    
+        container.appendChild(mycard2);  
+        
+        // let cardbody1 = document.createElement('div');
+        // cardbody1.className = 'photo-cardbody'
+        // let mycard1 = document.createElement('div');
+        // mycard1.className = 'photo-mycard3'
+        // // let TitleText1 = document.createElement('h2');
+        // // TitleText1.innerText = "Options:";
+        // let Title1 = document.createElement('h2');
+        // Title1.innerText = item;
+        // ///appending on div ///
+        // //mycard1.appendChild(TitleText1);
+        // mycard1.appendChild(Title1);
+        // cardbody1.appendChild(mycard1);
+        // let container = document.querySelector("#photo-card-container-poll-opt");
+        // container.appendChild(mycard1);    
         x +=1    
     }
 
     function pollsFunction(item) {
         console.log(item.question);
-        console.log("options"+item.options);
-        console.log("responses"+item.responses);
+        // console.log("options"+item.options);
+        // console.log("responses"+item.responses);
         // hidePass();
         let cardbody = document.createElement('div');
         cardbody.className = 'photo-cardbody'
@@ -1196,19 +1234,22 @@ const GeneralHomepage = (user) => {
         let Title = document.createElement('h2');
         Title.innerText = item.question;
         let TitleText2 = document.createElement('h2');
-        TitleText2.innerText = "Options:";
+        TitleText2.innerText = "Select response from Options:";
         ///options loop ///
         item.options.forEach(optionsFunc)
-
+        // let submitbtn = document.createElement('button');
+        // submitbtn.innerText = item
+        // submitbtn.id = "id"+i;
+        // submitbtn.addEventListener("click",responseSubmit,false);
 
         // let TitleText2 = document.createElement('h2');
         // TitleText2.innerText = "Options:";
         // let Title2 = document.createElement('h2');
         // Title2.innerText = item.options;
-        let TitleText3 = document.createElement('h2');
-        TitleText3.innerText = "Responses:";
-        //response loop calling function
-        item.responses.forEach(responseFunc)
+        // let TitleText3 = document.createElement('h2');
+        // TitleText3.innerText = "Responses:";
+        // //response loop calling function
+        // item.responses.forEach(responseFunc)
         // let Title3 = document.createElement('h2');
         // Title3.innerText = item.responses;
 
@@ -1219,8 +1260,8 @@ const GeneralHomepage = (user) => {
         mycard.appendChild(TitleText);
         mycard.appendChild(Title);
         mycard.appendChild(TitleText2);
-        // mycard.appendChild(Title2);
-        mycard.appendChild(TitleText3);
+        // mycard.appendChild(submitbtn);
+        // mycard.appendChild(TitleText3);
         // mycard.appendChild(Title3);
         cardbody.appendChild(mycard);
         let container = document.querySelector("#photo-card-container-poll");
@@ -1555,8 +1596,7 @@ return (
                             </div>
                         </div>
                         {/* {show meetings} */}
-                        
-                
+                   
                         <div className="photo-flexcard-meeting" id="showemeetingsid">
                             <div className= "mycards-meetin" id="photo-card-container2">
                             {/* <div className="card-flex"></div> */}
@@ -1573,12 +1613,12 @@ return (
                             </div>
                             {/* Options Div inside polls div */}
                             <div className= "mycards-poll" id="photo-card-container-poll-opt">
-                                {/* <div className="card-flex"></div> */}
+                                
                             </div>
-                            {/* Polls Div inside polls div */}
-                            <div className= "mycards-poll" id="photo-card-container-poll-res">
-                                {/* <div className="card-flex"></div> */}
-                            </div>
+                            {/* Response Div inside polls div */}
+                            {/* <div className= "mycards-poll" id="photo-card-container-poll-res">
+                                
+                            </div> */}
                             <div className="dutycontainer-poll" id="card-container2">
                                 
                             </div>
