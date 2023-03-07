@@ -1185,12 +1185,13 @@ const GeneralHomepage = (user) => {
 
     //function for options //
     function optionsFunc(item){
+        console.log(item)
         // console.log("option no."+x+" "+item);
         // x+=1;
         let cardbody2 = document.createElement('div');
-        cardbody2.className = 'photo-cardbody'
-        let mycard2 = document.createElement('div');
-        mycard2.className = 'photo-mycard3'
+        cardbody2.className = 'photo-cardbody';
+        // let mycard2 = document.createElement('div');                     //NO NEED OF EXTRA DIV HERE
+        // mycard2.className = 'photo-mycard3'
         let responsebtn = document.createElement('button');
         responsebtn.innerText = item
         responsebtn.id = "id"+i;
@@ -1198,10 +1199,13 @@ const GeneralHomepage = (user) => {
 
 
         //appending to divs
-        mycard2.appendChild(responsebtn);
-        cardbody2.appendChild(mycard2);
-        let container = document.querySelector("#photo-card-container-poll-opt");
-        container.appendChild(mycard2);  
+        // mycard2.appendChild(responsebtn);
+        cardbody2.appendChild(responsebtn);                    //COLLECTED ALL OPTIONS IN CARDBODY2
+                                                            //ADDING ALL OPTIONS IN SAMEEE DIV JIS MA PECHEY DALI HN CHEEZEN
+        let container = document.querySelector("#photo-card-container-poll");   
+        container.appendChild(cardbody2); 
+        // let container = document.querySelector("#photo-card-container-poll-opt");   //BUG FIXXXX
+        // container.appendChild(mycard2);                                            //BUG FIXXXXX
         
         // let cardbody1 = document.createElement('div');
         // cardbody1.className = 'photo-cardbody'
@@ -1235,8 +1239,21 @@ const GeneralHomepage = (user) => {
         Title.innerText = item.question;
         let TitleText2 = document.createElement('h2');
         TitleText2.innerText = "Select response from Options:";
+
+        mycard.appendChild(TitleText);
+        mycard.appendChild(Title);
+        mycard.appendChild(TitleText2);
+        // mycard.appendChild(submitbtn);           
+        // mycard.appendChild(TitleText3);
+        // mycard.appendChild(Title3);
+        cardbody.appendChild(mycard);              
+        let container = document.querySelector("#photo-card-container-poll");
+        container.appendChild(mycard);         //FIRST WE ENTERED ALL THINGS IN THIS MAIN CONTAINER
+
+
         ///options loop ///
-        item.options.forEach(optionsFunc)
+        item.options.forEach(optionsFunc)      //MOVEDD ON TO OPTIONS AND SIMPLY ITERATED OVER ALL OPTIONS
+        //container.appendChild(cardbody2);
         // let submitbtn = document.createElement('button');
         // submitbtn.innerText = item
         // submitbtn.id = "id"+i;
@@ -1256,16 +1273,6 @@ const GeneralHomepage = (user) => {
         // let imgBx = document.createElement('div');
         // imgBx.className = 'photo-imgBx'
 
-       
-        mycard.appendChild(TitleText);
-        mycard.appendChild(Title);
-        mycard.appendChild(TitleText2);
-        // mycard.appendChild(submitbtn);
-        // mycard.appendChild(TitleText3);
-        // mycard.appendChild(Title3);
-        cardbody.appendChild(mycard);
-        let container = document.querySelector("#photo-card-container-poll");
-        container.appendChild(mycard);    
         i +=1    
     }
 
