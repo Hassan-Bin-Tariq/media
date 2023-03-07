@@ -1195,7 +1195,7 @@ const GeneralHomepage = (user) => {
         let responsebtn = document.createElement('button');
         responsebtn.innerText = item
         responsebtn.id = "id"+i;
-        responsebtn.addEventListener("click",setResponse(item),true);
+        responsebtn.addEventListener("click", function() {setResponse(item)}, true);   //BUG FIXXXX
 
 
         //appending to divs
