@@ -7,6 +7,7 @@ import Login from "./components/login/login"
 import Register from "./components/register/register"
 import StudentHomepage from "./components/homepage/Studenthomepage"
 import LogisticsHomepage from "./components/homepage/Logisticshomepage"
+import GSHomepage from "./components/homepage/GShomepage"
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import { useState,useEffect } from 'react';
 import Home from './components/Home/Home';
@@ -79,6 +80,11 @@ function App() {
           <Route exact path="/logisticsPortal">  
             {
               user && user._id ? <LogisticsHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
+            }
+          </Route>
+          <Route exact path="/gsPortal">  
+            {
+              user && user._id ? <GSHomepage setLoginUser={user} /> : <Login setLoginUser={setLoginUser}/>
             }
           </Route>
           <Route path="/">

@@ -70,6 +70,10 @@ const Login = ({ setLoginUser }) => {
                 {
                     history.push("/logisticsPortal")
                 }
+                else if (res.data.message === "General Secretary")
+                {
+                    history.push("/gsPortal")
+                }
                 else{
                     document.getElementById("passspan").innerHTML="Wrong password";
                     document.querySelector('.passspan').style.color="red";
