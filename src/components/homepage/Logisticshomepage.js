@@ -184,7 +184,7 @@ const LogisticsHomepage = (user) => {
         let details = document.createElement('div');
         details.className = 'photo-details'
 
-        let purposeWritten = document.createElement('h4');
+        let purposeWritten = document.createElement('h3');
         purposeWritten.innerText = item.gadget + " assigned to " +item.am + " on " + item.date + " at " + item.time
 
 
@@ -425,7 +425,7 @@ const LogisticsHomepage = (user) => {
                             </tr>
                         </tbody>
                         </table>
-                        <button  variant="success btn-block" className="sub" onClick={saveDataa}>Save</button>
+                        <button  variant="success btn-block" className="subInven" onClick={saveDataa}>Save</button>
                         <h4>CURRENT STATUS</h4>
                            {/* Div with card end */}
                        {/* {show meetings} */}
