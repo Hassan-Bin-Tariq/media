@@ -832,40 +832,48 @@ const MentorHomepage = (user) => {
     <div>
         
         <div className="Mentorhomepage" id="hassan">  
-            {/* SIDE BAR  */}         
-            <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
-                <CDBSidebar textColor="#fff" backgroundColor="#333">
+        
+
+
+            {/* SIDE BAR  */}  
+
+            {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+                <CDBSidebar textColor="#fff" backgroundColor="#333" class="nav__cont">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
                     Welcome, {Name}
                     </a>
-                </CDBSidebarHeader>
+                </CDBSidebarHeader> */}
 
-                <CDBSidebarContent className="sidebar-content">
-                    <CDBSidebarMenu>
-                    <button onClick={showAlbum} className="sidebarbtn" >
-                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                <nav class="nav__cont">
+                    
+                    <ul class="nav__one">
+                    <button href="/" class="nav_welcome" >
+                    Welcome, {Name}
                     </button>
-                    <button  onClick={GetEvents} className="sidebarbtn">
+                    <button onClick={showAlbum} class="nav__items" >
+                                <FaGripHorizontal className="sidebaricon" /> My Albums
+                    </button>
+                    <button  onClick={GetEvents} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Event Requests
                     </button>
-                    <button  onClick={GetDuties} className="sidebarbtn">
+                    <button  onClick={GetDuties} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Check Assigned Students
                     </button>
-                    <button  onClick={checkFreeSlots} className="sidebarbtn">
+                    <button  onClick={checkFreeSlots} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Check Free Students
                     </button>
-                    <button  onClick={showPass} className="sidebarbtn">
+                    <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button className="sidebarbtn" id ="sleek" onClick={logOuter}>
+                    <button class="nav__items" id ="sleek" onClick={logOuter}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
                     </button>
                 
-                    </CDBSidebarMenu>
-                </CDBSidebarContent>
+                    </ul>
+                </nav>
 
-                <CDBSidebarFooter style={{ textAlign: 'center' }}>
+                {/* <CDBSidebarFooter style={{ textAlign: 'center' }}>
                     <div
                     style={{
                         padding: '20px 5px',
@@ -873,9 +881,9 @@ const MentorHomepage = (user) => {
                     >
                     Mediascape
                     </div>
-                </CDBSidebarFooter>
-                </CDBSidebar>
-            </div>
+                </CDBSidebarFooter> */}
+                {/* </CDBSidebar>
+            </div> */}
             {/*////////////// */} 
             <div className="mentor-flex2">
                 
