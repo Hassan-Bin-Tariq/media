@@ -1207,6 +1207,14 @@ const GeneralHomepage = (user) => {
     function setResponse(item){
         // var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         console.log("onclick value:"+item);
+        // alert("option added to db");
+
+        // axios.post("http://localhost:9002/PollResponse",{responses: item} ) //changing status to accepted in DB
+        // .then(res => {
+        //     //alert(res.data.message)
+        //     pollss = res.data.item;
+        //     console.log(pollss)
+        // })
         // console.log("reponse value:"+item.target.value)
     }
 
