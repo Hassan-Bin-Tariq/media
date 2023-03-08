@@ -552,10 +552,34 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#duty').show();
         });
+        hideCurrent();
+        hideAlbum();
+        hideEvent();
+        hidePass();
+        hideMeeting();
+        hideTable();
     }
     const hideDuty = () => {
     $(function () {
         $('#duty').hide();
+    });
+    }
+    
+    const showMeetings = () => {
+        GetMeetings();
+        $(function () {
+            $('#showemeetingsid').show();
+        });
+        hideSlots();
+        hideTable();
+        hideCurrent();
+        hideAlbum();
+        hideEvent();
+        hidePass();
+    }
+    const hideMeeting = () => {
+    $(function () {
+        $('#showemeetingsid').hide();
     });
     }
     const Passeditor = () =>
@@ -749,6 +773,7 @@ const GeneralHomepage = (user) => {
           hideCurrent();
           hideAlbum();
           hideEvent();
+          hideMeeting();
     }
     const hidePass = () => {
         $(function () {
@@ -783,6 +808,7 @@ const GeneralHomepage = (user) => {
         hideAlbum();
         hideEvent();
         hidePass();
+        hideMeeting();
     }
     const hideCurrent= () => {
     $(function () {
@@ -1095,7 +1121,7 @@ const GeneralHomepage = (user) => {
     const GetMeetings = () => {
         // hidePass();
         showEvent();
-        $('#photo-card-container').empty();
+        $('#photo-card-container2').empty();
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetScheduledMeeting", )
         .then(res => {
@@ -1127,6 +1153,7 @@ const GeneralHomepage = (user) => {
        hideAlbum();
        hideEvent();
        hidePass();
+       hideMeeting();
     }
     const hidePoll = () => {
         
@@ -1325,7 +1352,7 @@ return (
                     <button  onClick={showPass} className="sidebarbtn">
                         <FaUserEdit className="sidebaricon"/>       Edit Profile
                     </button>
-                    <button  onClick={GetMeetings} className="sidebarbtn">
+                    <button  onClick={showMeetings} className="sidebarbtn">
                         <FaUserEdit className="sidebaricon"/>       Check Meeting
                     </button>
                     <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>

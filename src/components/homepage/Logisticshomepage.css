@@ -67,17 +67,18 @@ h6
 {
     margin-bottom: 0;
 }
-h4{
+/* h4
+{
     color: #666;
     margin-top: 20px;
     margin-left: 200px;
-    /* //font-family: "Lucida Console", "Courier New", monospace; */
-}
-#showemeetingsid
+   
+} */
+/* #showemeetingsid
 {
     background-color: #d9f0a3;
     width: fit-content;
-}
+} */
 .subInven
 {
     background-color: #000;
@@ -85,11 +86,11 @@ h4{
   width: fit-content;
   margin-left: 380px;
 }
-.photo-flexcard-meeting
+/* .photo-flexcard-meeting
 {
     margin: 0 auto;
 }
 h3
 {
     color: #000;
-}
+} */
