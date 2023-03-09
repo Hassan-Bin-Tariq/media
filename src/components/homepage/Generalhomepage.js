@@ -1330,8 +1330,43 @@ return (
         
     <>
     <div className="Mentorhomepage">
-        {/* SIDE BAR  */}         
-        <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+        {/* SIDE BAR  */} 
+        <nav class="nav__cont">
+                    
+                    <ul class="nav__one">
+                    <button href="/" class="nav_welcome" >
+                    Welcome, {Name}
+                    </button>
+                    <button  onClick={showAlbum} class="nav__items">
+                        <FaImage className="sidebaricon"/> My Albums
+                    </button>
+                    <button  class="nav__items" onClick={showCurrent}>
+                        <FaBookOpen className="sidebaricon"/> Current Slots
+                    </button>
+                    
+                    <button  class="nav__items" onClick={showTable}>
+                            <FaGripHorizontal className="sidebaricon"/> Update Slots
+                    </button>
+                    <button  class="nav__items" onClick={GetEvents}>
+                            <FaGripHorizontal className="sidebaricon"/> FPS Events
+                    </button>
+                    <button  class="nav__items" onClick={GetPoll}>
+                            <FaGripHorizontal className="sidebaricon"/> FPS Polls
+                    </button>
+                    <button  onClick={showPass} class="nav__items">
+                        <FaUserEdit className="sidebaricon"/>       Edit Profile
+                    </button>
+                    <button  onClick={showMeetings} class="nav__items">
+                        <FaUserEdit className="sidebaricon"/>       Check Meeting
+                    </button>
+                    <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/>   Logout</button>
+                
+                    </ul>
+        </nav>
+
+
+        {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
                 <CDBSidebar textColor="#fff" backgroundColor="#333">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
@@ -1378,7 +1413,7 @@ return (
                     </div>
                 </CDBSidebarFooter>
                 </CDBSidebar>
-        </div>
+        </div> */}
         {
             /**albums div */
         }

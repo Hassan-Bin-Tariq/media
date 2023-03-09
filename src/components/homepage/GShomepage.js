@@ -152,8 +152,30 @@ const  GSHomepage = (user) => {
 
     return (
         <div className="studentmain"> 
-            {/* SIDE BAR  */}         
-            <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+            {/* SIDE BAR  */}  
+            <nav class="nav__cont">
+                    
+                    <ul class="nav__one">
+                    <button href="/" class="nav_welcome" >
+                    Welcome, {Name}
+                    </button>
+                    <button  onClick={showAlbum} class="nav__items" >
+                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                    </button>
+                    <button  onClick={showPass} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button  onClick={showmeeting} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Schedule Meeeting
+                    </button>
+                    <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/> Logout
+                    </button>
+                
+                    </ul>
+        </nav>
+       
+            {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
                 <CDBSidebar textColor="#fff" backgroundColor="#333">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
@@ -189,7 +211,7 @@ const  GSHomepage = (user) => {
                     </div>
                 </CDBSidebarFooter>
                 </CDBSidebar>
-            </div>
+            </div> */}
             {/*////////////// */} 
                     <div className="student-flex2">
                     <button  className="flex2user">
