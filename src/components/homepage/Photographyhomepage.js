@@ -1124,8 +1124,38 @@ const PhotographyHomepage = (user) => {
         
         <>
         <div className="Mentorhomepage" >
-            {/* SIDE BAR  */}         
-            <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
+            {/* SIDE BAR  */}       
+            <nav class="nav__cont">
+                    
+                    <ul class="nav__one">
+                    <button href="/" class="nav_welcome" >
+                    Welcome, {Name}
+                    </button>
+                    <button  onClick={showAlbum} class="nav__items" >
+                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                    </button>
+                    <button  onClick={GetEvents} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Assign Duties
+                    </button>
+                    <button  onClick={showGenerated} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Generate Event
+                    </button>
+                    <button  onClick={showPoll} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Create Poll
+                    </button>
+                    <button  onClick={showPass} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Edit Profile
+                    </button>
+                    <button  onClick={showInventory} class="nav__items">
+                                <FaUserEdit className="sidebaricon" /> Inventory
+                    </button>
+                    <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
+                        <AiOutlineLogout className="sidebaricon"/> Logout
+                    </button>
+                
+                    </ul>
+        </nav>  
+            {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
                 <CDBSidebar textColor="#fff" backgroundColor="#333">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
@@ -1170,7 +1200,7 @@ const PhotographyHomepage = (user) => {
                     </div>
                 </CDBSidebarFooter>
                 </CDBSidebar>
-            </div>
+            </div> */}
             {/*////////////// */} 
         
             <div  className="mentor-flex2">                   
