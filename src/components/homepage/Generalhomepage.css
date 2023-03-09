@@ -2,7 +2,7 @@
 
 .gbbg
 {
-    background-color:#f8f7f2;
+    background-color:rgb(44, 40, 40);
     height: 100%;
 }
 .popheader{
@@ -225,12 +225,12 @@
 {
 border-radius: 0;
 margin-right:100px ;
-background: transparent;
+background: rgb(44, 40, 40);
 color: white;
 }
 .hide:hover
 {
-background: transparent;
+background: rgb(44, 40, 40);
 }
 .my-container {
     transition: 0.4s;
@@ -412,18 +412,21 @@ h1
   }
 .oldpass{
     margin-bottom: 20px;
-    font-family: 'Roboto';
+    font-family: 'Montessart';
     font-size: 15px;
+    color: #f8f7f2;
 }
 .pass{
     margin-bottom: 20px;
-    font-family: 'Roboto';
+    font-family: 'Montessart';
     font-size: 15px;
+    color: #f8f7f2;
 }
 .repass{
     margin-bottom: 20px;
-    font-family: 'Roboto';
+    font-family: 'Montessart';
     font-size: 15px;
+    color: #f8f7f2;
 }
 /* AVAILABLE SLOTS TABLE START */
 .slots-h2{
@@ -461,7 +464,7 @@ h1
     height: 400px;
     /* padding-left: 40px; */
     /* background-color: red; */
-    background-color: #f8f7f2;
+    background-color: rgb(44, 40, 40);
 }
 .student-container{
     height: 500px;
@@ -471,20 +474,22 @@ h1
     /* background-color: aqua; */
     align-items: center;
     justify-content: space-evenly;
-    background-color: #f8f7f2;
+    background-color: rgb(44, 40, 40);
 }
 .student-container h2{
-    font-family: "Ubuntu";
+    font-family: "Montessart";
     font-weight: bold;
     font-size: 30px;
+    color: #f8f7f2;
+    /* text-shadow: chartreuse; */
 }
 .student-container p{
     font-size: 20px;
-    background-color: #f8f7f2;
+    background-color: rgb(44, 40, 40);
     text-align: center;
 }
 #myGallery
 {
     display: none;
-    background-color: #f8f7f2;
+    background-color: rgb(44, 40, 40);
 }

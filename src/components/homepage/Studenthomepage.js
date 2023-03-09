@@ -190,7 +190,7 @@ const StudentHomepage = (user) => {
                     </button>
                 
                     </ul>
-        </nav>       
+            </nav>       
             {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
                 <CDBSidebar textColor="#fff" backgroundColor="#333">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>

@@ -542,6 +542,7 @@ const GeneralHomepage = (user) => {
         hideAlbum();
         hideEvent();
         hidePass();
+        hidePoll();
     }
     const hideTable = () => {
         $(function () {
@@ -558,6 +559,7 @@ const GeneralHomepage = (user) => {
         hidePass();
         hideMeeting();
         hideTable();
+        hidePoll();
     }
     const hideDuty = () => {
     $(function () {
@@ -576,6 +578,7 @@ const GeneralHomepage = (user) => {
         hideAlbum();
         hideEvent();
         hidePass();
+        hidePoll();
     }
     const hideMeeting = () => {
     $(function () {
@@ -774,6 +777,7 @@ const GeneralHomepage = (user) => {
           hideAlbum();
           hideEvent();
           hideMeeting();
+          hidePoll();
     }
     const hidePass = () => {
         $(function () {
@@ -791,6 +795,7 @@ const GeneralHomepage = (user) => {
           hideAlbum();
           hideEvent();
           hidePass();
+          hidePoll();
     }
     const hideSlots= () => {
     $(function () {
@@ -809,6 +814,7 @@ const GeneralHomepage = (user) => {
         hideEvent();
         hidePass();
         hideMeeting();
+        hidePoll();
     }
     const hideCurrent= () => {
     $(function () {
@@ -826,6 +832,7 @@ const GeneralHomepage = (user) => {
         //hideAlbum();
         hideEvent();
         hidePass();
+        hidePoll();
     }
     const hideAlbum = () => {
         $(function () {
@@ -1011,6 +1018,7 @@ const GeneralHomepage = (user) => {
        hideAlbum();
        //hideEvent();
        hidePass();
+       hidePoll();
     }
     const hideEvent = () => {
         

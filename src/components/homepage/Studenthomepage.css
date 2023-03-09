@@ -5,26 +5,27 @@
     display: flex;
     flex-direction: column;
     position: sticky;
+    background-color: rgb(44, 40, 40);
 }
 .studentmain{
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: #f8f7f2;
+    background-color: rgb(44, 40, 40);
 }
 .student-slider{
     width: 800px;
     height: 400px;
     /* padding-left: 40px; */
-    /* background-color: red; */
+    background-color: rgb(44, 40, 40);
 }
 .student-container{
     height: 500px;
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    /* background-color: aqua; */
+    background-color: rgb(44, 40, 40);
     align-items: center;
     justify-content: space-evenly;
 }
