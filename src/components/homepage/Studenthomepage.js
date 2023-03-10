@@ -12,6 +12,7 @@ import c from '../../assets/c.png'
 import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
 import cccc from '../../assets/cccc.png'
+import ghous from "../../assets/ghous.jpg";
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -230,9 +231,10 @@ const StudentHomepage = (user) => {
             </div> */}
             {/*////////////// */} 
                     <div className="student-flex2">
-                    <button  className="flex2user">
+                    {/* <button  className="flex2user">
                                 <FaUserAlt />
-                    </button>
+                    </button> */}
+                    <Container className="cardBody">
                     <div className="student-container" id="myGallery">
                         <h2>Take a look at some of our picks for you</h2>
                         <div className='student-slider'>
@@ -282,11 +284,20 @@ const StudentHomepage = (user) => {
                     <img id="myImage1"></img>
                     <img id="myImage2"></img>
                     {/* Div with card */}  
-                    <div id="editProfile">
-                            <div>
-                                <h2>Edit Profile Settings</h2>
-                            </div>
-                            <div className="oldpass">
+                    <div  id="editProfile">
+                        <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+                        <div class="card p-4"> 
+                        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
+                        <br></br>
+                        {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
+                        <div >
+                            <br></br>
+                            <h1 className="editpassheading">Edit Password</h1>
+                        </div>
+                        <br></br>
+                        <div className="oldpass">
+                        
                                 <label >Current Password</label>
                                 <br></br>
                                 <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
@@ -304,10 +315,14 @@ const StudentHomepage = (user) => {
                                 <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
                                 
                         </div>
-                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        <button class="button-56" onClick={Passeditor}>Save Changes</button>
                         
 
-                    </div>
+                        </div>  
+                        </div> 
+                        </div> 
+                        
+                        </div>
                     {/* Div with card end */}
                     <div id="meetingForm">
                         <Row className="mt-2 text-center">
@@ -343,9 +358,16 @@ const StudentHomepage = (user) => {
                                 </div>
                             </Col>
                         </Row>
+                      
                         </div>
+                        <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                    </Container>
+                        
+                    
             </div>
+           
 
+      
         </div>
         
         
