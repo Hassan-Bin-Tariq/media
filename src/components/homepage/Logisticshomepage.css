@@ -1,6 +1,6 @@
 #inventorytable
 {
-    width:50%;
+    width:70%;
     color: whitesmoke;
     background-color: #4393c3;
 }
@@ -26,15 +26,7 @@ tr { background-color: #92c5de; }
 
 tr:hover td { background-color: #edf8b1; }
 tr:hover tr { background-color: #edf8b1; }
-.sub
-{
-  margin-left: 200px;
- 
-  border-radius: 5px;
-  background-color: #000;
-  color:#d9f0a3
 
-}
 table {
     border: 1px solid #666;
     table-layout: fixed;
@@ -51,49 +43,63 @@ td {
 #editabletable
 {
 
-    width: 50%;
-margin-left: 100px;
-margin-top: 50px;
+
+margin-left: 200px;
+margin-top: 120px;
 justify-content: center;
 align-items: center;
 color: aliceblue;
-background-color: #ECF2FF;
+background-color:rgb(36, 35, 35);
 border-radius: 5px;
-width: 800px;
-height: 300px;
+width: 650px;
+border-radius: 10%;
+height: fit-content;
+-webkit-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+-moz-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
 }
 h6
 {
     margin-bottom: 0;
 }
-/* h4
+.currentstatusinven
 {
-    color: #666;
+    margin-left: 220px;
     margin-top: 20px;
-    margin-left: 200px;
-   
-} */
-/* #showemeetingsid
+    font-size: large;
+    font-weight: bold;
+}
+#photo-card-container2
 {
-    background-color: #d9f0a3;
-    width: fit-content;
-} */
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: small;
+    color:#edf8b1;
+    font-family:fantasy;
+    margin-bottom: 30px;
+}
+
+.edtpasheading
+{
+    color: #ECF2FF;
+    margin-left: 200px;
+}
+
 .subInven
 {
     background-color: #000;
   border-radius: 15px;
   width: fit-content;
-  margin-left: 380px;
+  margin-left: 280px;
+  font-size: large;
+  height: fit-content;
 }
-/* .photo-flexcard-meeting
+.subInven:hover
 {
-    margin: 0 auto;
-}
-h3
-{
+    background-color:#d9f0a3;
     color: #000;
-} */
-/* {edit profile} */
+}
+
 .card {
     width: 350px;
     background-color: transparent;
@@ -139,7 +145,7 @@ h3
 background-color: rgb(36, 35, 35);
 margin-top: 60px;
 margin-left:280px;
-border-radius: 10%;
+border-radius: 5%;
 width: 400px;
 -webkit-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
 -moz-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);

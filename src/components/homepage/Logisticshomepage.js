@@ -50,14 +50,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 import {AiOutlineLogout} from "react-icons/ai";
 import { Pie } from 'react-chartjs-2';
-// import { elementAcceptingRef } from "@mui/utils"
-// import { empSchema} from  '../mongoDBSchemas/empSchema';
-// import {APIResponse, ErrResponse} '../utils/statusMessages';
-// import {
-//     BrowserRouter as Router,
-//     Routes,
-//     Route,
-//   } from 'react-router-dom';
+
 const LogisticsHomepage = (user) => {
     var Name = user.setLoginUser.name
     var Email = user.setLoginUser.email
@@ -186,7 +179,7 @@ const LogisticsHomepage = (user) => {
         details.className = 'photo-details'
 
         let purposeWritten = document.createElement('h3');
-        purposeWritten.innerText = item.gadget + " assigned to " +item.am + " on " + item.date + " at " + item.time
+        purposeWritten.innerText =  "*  "+ item.gadget + " assigned to " +item.am + " on " + item.date + " at " + item.time
 
 
     
@@ -405,7 +398,9 @@ const LogisticsHomepage = (user) => {
                         <div class=" image d-flex flex-column justify-content-center align-items-center"> 
                         <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
                         <br></br>
+                        {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
                         <div className="oldpass">
+                        
                                 <label >Current Password</label>
                                 <br></br>
                                 <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
@@ -438,7 +433,7 @@ const LogisticsHomepage = (user) => {
                         {/*editable table div*/ }
                         <div id="editabletable">
                     
-                        <h4>UPADTE INVENTORY</h4>
+                        <h4 className="currentstatusinven" >UPADTE INVENTORY</h4>
                         <table class="table table-striped table-dark" id="inventorytable">
                         <thead>
                             <tr>
@@ -457,8 +452,9 @@ const LogisticsHomepage = (user) => {
                             </tr>
                         </tbody>
                         </table>
-                        <button  variant="success btn-block" className="subInven" onClick={saveDataa}>Save</button>
-                        <h4>CURRENT STATUS</h4>
+                        <button  variant="success btn-block" className="subInven" onClick={saveDataa}>Save</button><br></br><br></br>
+
+                        <h4 className="currentstatusinven">CURRENT STATUS</h4>
                            {/* Div with card end */}
                        {/* {show meetings} */}
                                         
