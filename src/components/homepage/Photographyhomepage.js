@@ -981,37 +981,7 @@ const PhotographyHomepage = (user) => {
         }
     }
 
-    //function to save editable 
-    const saveDataa = () =>
-    {
-            console.log("ibnet")
-            var tableData = [];
-            var rows = document.getElementById("editabletable1").rows;
-
-            for (var i = 1; i < rows.length; i++) {
-                var rowData = [];
-                var cells = rows[i].cells;
-
-                for (var j = 0; j < cells.length; j++) {
-                rowData.push(cells[j].innerHTML);
-                }
-
-                tableData.push(rowData);
-            }
-            console.log(tableData)
-            if(tableData!=null)
-            {
-                axios.post("http://localhost:9002/invent", {tableData}).then(res => {
-                console.log(res.error);
-                //alert('Table data saved successfully');
-
-            })
-        }
-        else
-        {
-            alert("Failed to save data")
-        }
-    }
+   
 
     const showPass = () => {
         
@@ -1020,7 +990,7 @@ const PhotographyHomepage = (user) => {
         });
       hideEvent();
       hideAlbum();
-      hideInventory();
+    
       hideGenerated();
       hidePoll();
     }
@@ -1038,7 +1008,7 @@ const PhotographyHomepage = (user) => {
         });
         hidePass();
         hideAlbum();
-        hideInventory();
+    
         hideGenerated();
         hidePoll();
     }
@@ -1056,7 +1026,7 @@ const PhotographyHomepage = (user) => {
         });
         hideEvent();
         hidePass();
-        hideInventory();
+     
         hideGenerated();
         hidePoll();
 
@@ -1067,23 +1037,6 @@ const PhotographyHomepage = (user) => {
         });
     }
 
-    const showInventory = () => {
-        $(function () {
-            $('#editabletable').show();
-        });
-        hideEvent();
-        hideAlbum();
-        hidePass();
-        hideGenerated();
-        hidePoll();
-
-    }
-    const hideInventory = () =>
-    {
-        $(function () {
-            $('#editabletable').hide();
-        });
-    }
     // show hide generate event form //
     const showGenerated = () => {
         $(function () {
@@ -1091,7 +1044,7 @@ const PhotographyHomepage = (user) => {
         });
         hideEvent();
         hidePass();
-        hideInventory();
+       
         hideAlbum();
         hidePoll();
 
@@ -1109,7 +1062,7 @@ const PhotographyHomepage = (user) => {
         });
         hideEvent();
         hidePass();
-        hideInventory();
+       
         hideAlbum();
         hideGenerated();
 
@@ -1146,9 +1099,7 @@ const PhotographyHomepage = (user) => {
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button  onClick={showInventory} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Inventory
-                    </button>
+                  
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
                     </button>
@@ -1204,9 +1155,9 @@ const PhotographyHomepage = (user) => {
             {/*////////////// */} 
         
             <div  className="mentor-flex2">                   
-                    <button  className="flex2user">
+                    {/* <button  className="flex2user">
                                 <FaUserAlt />
-                    </button>
+                    </button> */}
                     {/* Div with card */}
                     <Container className="cardBody" >
                     <div className="student-container" id="myGallery">
@@ -1262,10 +1213,19 @@ const PhotographyHomepage = (user) => {
                         </div>
                         
                         <div  id="editProfile">
-                            <div>
-                                <h2>Edit Profile Settings</h2>
-                            </div>
-                            <div className="oldpass">
+                        <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+                        <div class="card p-4"> 
+                        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
+                        <br></br>
+                        {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
+                        <div >
+                            <br></br>
+                            <h1 className="editpassheading">Edit Password</h1>
+                        </div>
+                        <br></br>
+                        <div className="oldpass">
+                        
                                 <label >Current Password</label>
                                 <br></br>
                                 <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
@@ -1283,36 +1243,16 @@ const PhotographyHomepage = (user) => {
                                 <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
                                 
                         </div>
-                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        <button class="button-56" onClick={Passeditor}>Save Changes</button>
                         
 
                         </div>  
+                        </div> 
+                        </div> 
                         
-                        {hideInventory()}
-                        {/* {hideGenerated()} */}
-                        {/*editable table div*/ }
-                        <div id="editabletable">
-                    
-                        <table id="editabletable1">
-                        <thead>
-                        <tr>
-                        <th name="column1">DATE</th>
-                        <th name="column2">Time</th>
-                        <th name="column3">Assigned Member</th>
-                        <th name="column4">Gadget</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                        <td contenteditable="true"></td>
-                        <td contenteditable="true"></td>
-                        <td contenteditable="true"></td>
-                        <td contenteditable="true"></td>
-                        </tr>
-                        </tbody>
-                        </table>
-                        <button id="saveButton" onClick={saveDataa}>Save</button>
                         </div>
+                        
+                        
                         {/*Poll*/}
                         <div className="myPoll" id ="voting-poll">
                         <h1>Create a Poll</h1>

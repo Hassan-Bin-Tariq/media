@@ -887,10 +887,10 @@ const MentorHomepage = (user) => {
             {/*////////////// */} 
             <div className="mentor-flex2">
                 
-                    
+{/*                     
                     <button  onClick={SideBarActivator} className="flex2user">
                                 <FaUserAlt />
-                    </button>
+                    </button> */}
                 
                     
                     <Container className="cardBody">
@@ -959,10 +959,19 @@ const MentorHomepage = (user) => {
                         <table class = "dayDiv" id='fridayHolder2'></table>
                         {/* end of holders */}
                         <div  id="editProfile">
-                            <div>
-                                <h2>Edit Profile Settings</h2>
-                            </div>
-                            <div className="oldpass">
+                        <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+                        <div class="card p-4"> 
+                        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
+                        <br></br>
+                        {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
+                        <div >
+                            <br></br>
+                            <h1 className="editpassheading">Edit Password</h1>
+                        </div>
+                        <br></br>
+                        <div className="oldpass">
+                        
                                 <label >Current Password</label>
                                 <br></br>
                                 <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
@@ -980,12 +989,17 @@ const MentorHomepage = (user) => {
                                 <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
                                 
                         </div>
-                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        <button class="button-56" onClick={Passeditor}>Save Changes</button>
                         
 
+                        </div>  
+                        </div> 
+                        </div> 
+                        
                         </div>
-                    </Container>        
-                    
+                           
+                    </Container>     
+                  
 
                     {/* Div with card end */}
             </div>
@@ -1021,7 +1035,10 @@ const MentorHomepage = (user) => {
                 </div>
             }
             {/* CHECK DETAILS END */}
+            
         </div> 
+        <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>   
+                    
 </div>
     )
 }
