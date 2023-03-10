@@ -8,6 +8,7 @@ import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import logoNav from "../../assets/logo-copy.png";
+import ghous from "../../assets/ghous.jpg";
 //import Container from 'react-bootstrap/Container';
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -353,9 +354,9 @@ const TeacherHomepage = (user) => {
             <div className="mentor-flex2">
                 
                     
-                    <button  className="flex2user">
+                    {/* <button  className="flex2user">
                                 <FaUserAlt />
-                    </button>
+                    </button> */}
                     {/* Div with card */}   
                     <Container className="cardBody">
                     <div className="student-container" id="myGallery">
@@ -440,11 +441,21 @@ const TeacherHomepage = (user) => {
                             </Col>
                         </Row>
                         </div>
-                        <div id="editProfile">
-                            <div>
-                                <h2>Edit Profile Settings</h2>
-                            </div>
-                            <div className="oldpass">
+                            
+                        <div  id="editProfile">
+                        <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+                        <div class="card p-4"> 
+                        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
+                        <br></br>
+                        {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
+                        <div >
+                            <br></br>
+                            <h1 className="editpassheading">Edit Password</h1>
+                        </div>
+                        <br></br>
+                        <div className="oldpass">
+                        
                                 <label >Current Password</label>
                                 <br></br>
                                 <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
@@ -462,16 +473,20 @@ const TeacherHomepage = (user) => {
                                 <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
                                 
                         </div>
-                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        <button class="button-56" onClick={Passeditor}>Save Changes</button>
                         
 
+                        </div>  
+                        </div> 
+                        </div> 
+                        
                         </div>
                         <h2 style={{paddingTop: "25px"}} id="headingduty">Assigned Student for Event</h2>
                         <div className= "mycards" id="teacher-card-container">
                             
                             {/* <div className="card-flex"></div> */}
                         </div>
-                        {/* <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6> */}
+                        <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                     {/* Div with card end */}
             </div>
