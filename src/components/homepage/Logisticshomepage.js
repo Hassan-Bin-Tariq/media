@@ -42,6 +42,7 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaGripHorizontal,
+    FaWarehouse
 
 } from "react-icons/fa";
 import $ from "jquery"
@@ -298,7 +299,7 @@ const LogisticsHomepage = (user) => {
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
                     <button  onClick={showInventory} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Maintain Inventory
+                                <FaWarehouse className="sidebaricon" /> Maintain Inventory
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
