@@ -347,9 +347,9 @@ const LogisticsHomepage = (user) => {
             {/*////////////// */} 
         
             <div  className="mentor-flex2">                   
-                    <button  className="flex2user">
+                    {/* <button  className="flex2user">
                                 <FaUserAlt />
-                    </button>
+                    </button> */}
                     {/* Div with card */}
                     <Container className="cardBody" >
                     <div className="student-container" id="myGallery">
@@ -473,8 +473,9 @@ const LogisticsHomepage = (user) => {
                         </div>
                 
                 
-                <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+               
                     </Container>
+                    <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                 
             </div>
         
