@@ -396,11 +396,15 @@ const LogisticsHomepage = (user) => {
                         <p>Stay tuned for more personalized content!</p>
                     </div>
 
+                        
+
                         <div  id="editProfile">
-                            <div>
-                                <h2>Edit Profile Settings</h2>
-                            </div>
-                            <div className="oldpass">
+                        <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+                        <div class="card p-4"> 
+                        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
+                        <br></br>
+                        <div className="oldpass">
                                 <label >Current Password</label>
                                 <br></br>
                                 <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
@@ -418,10 +422,15 @@ const LogisticsHomepage = (user) => {
                                 <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
                                 
                         </div>
-                        <button className="editpass" onClick={Passeditor}>Edit Password</button>
+                        <button class="button-56" onClick={Passeditor}>Save Changes</button>
                         
 
                         </div>  
+                        </div> 
+                        </div> 
+                        
+                        </div>
+                           
                         
                         {hideInventory()}
                     
