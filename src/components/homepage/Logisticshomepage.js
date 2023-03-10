@@ -399,6 +399,11 @@ const LogisticsHomepage = (user) => {
                         <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
                         <br></br>
                         {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
+                        <div >
+                            <br></br>
+                            <h1 className="editpassheading">Edit Password</h1>
+                        </div>
+                        <br></br>
                         <div className="oldpass">
                         
                                 <label >Current Password</label>

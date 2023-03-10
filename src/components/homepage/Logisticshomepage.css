@@ -79,10 +79,11 @@ h6
     margin-bottom: 30px;
 }
 
-.edtpasheading
+.editpassheading
 {
-    color: #ECF2FF;
-    margin-left: 200px;
+    font-size: large;
+    color: white;
+    font-weight: bold;
 }
 
 .subInven
