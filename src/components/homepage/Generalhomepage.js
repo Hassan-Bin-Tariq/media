@@ -24,6 +24,7 @@ import icit from '../../assets/icit.jpg'
 import c from '../../assets/c.png'
 import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
+import ghous from "../../assets/ghous.jpg";
 import cccc from '../../assets/cccc.png'
 import {
     CDBSidebar,
@@ -1429,9 +1430,7 @@ return (
             <div className="mentor-flex2">
                 
                     
-                <button  className="flex2user">
-                            <FaUserAlt />
-                </button>
+                
                 <Container className='cardBody'>
                         
                 <div className="student-container" id="myGallery">
@@ -1645,32 +1644,45 @@ return (
                             </centre>
 
                     </div>
-                    <div id="editProfile">
-                        <div>
-                            <h2>Edit Profile Settings</h2>
+                    <div  id="editProfile">
+                        <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+                        <div class="card p-4"> 
+                        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                        <button id="editImageimg"> <img src={ghous} height="100" width="100" /></button> 
+                        <br></br>
+                        {/* <div><h2 class="edtpasheading">Edit Password</h2></div> */}
+                        <div >
+                            <br></br>
+                            <h1 className="editpassheading">Edit Password</h1>
                         </div>
+                        <br></br>
                         <div className="oldpass">
-                            <label >Current Password</label>
-                            <br></br>
-                            <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
+                        
+                                <label >Current Password</label>
+                                <br></br>
+                                <input id = "oldpass" type="password" name="oldpassword" placeholder="Enter Current Password"></input>
+                            </div>
+
+                            <div className="pass">
+                                <label >New Password</label>
+                                <br></br>
+                                <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
+                            </div>
+
+                            <div className="repass">
+                                <label >Re-enter Password</label>
+                                <br></br>
+                                <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
+                                
                         </div>
+                        <button class="button-56" onClick={Passeditor}>Save Changes</button>
+                        
 
-                        <div className="pass">
-                            <label >New Password</label>
-                            <br></br>
-                            <input id = "newpass" type="password" name="newpassword" placeholder="Enter New Password"></input>
+                        </div>  
+                        </div> 
+                        </div> 
+                        
                         </div>
-
-                        <div className="repass">
-                            <label >Re-enter Password</label>
-                            <br></br>
-                            <input id = "reNewPass" type="password" name="reEnterPassword" placeholder="Re-enter Your Password"></input>
-                            
-                    </div>
-                    <button className="editpass" onClick={Passeditor}>Edit Password</button>
-                    
-
-                    </div>
                     {/* SHOW GENERATED EVENTS STARTS HERE */}
                     <div className="photo-flexcard" id="showeventsid">
                             <div className= "mycards" id="photo-card-container">
@@ -1720,6 +1732,7 @@ return (
                             </div> */}
                         
                 </Container>
+                <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </div>
         
         
