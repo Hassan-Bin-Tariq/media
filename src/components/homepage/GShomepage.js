@@ -312,24 +312,24 @@ const  GSHomepage = (user) => {
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
                                 <div>
                                     <Form.Group controlId="formBasicTitle">
-                                        <Form.Label>Meeting purpose</Form.Label>
+                                        <Form.Label id="labelColor">Meeting purpose</Form.Label>
                                         <Form.Control type="text" name="purpose" placeholder="Enter meeting purpose" onChange={handleChangeMeeting}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDescription">
-                                        <Form.Label>Meeting Agenda</Form.Label>
-                                        <Form.Control as="textarea" rows="3" name="agenda" placeholder="Meeting Agenda" onChange={handleChangeMeeting}/>
+                                        <Form.Label id="labelColor">Meeting Agenda</Form.Label>
+                                        <Form.Control as="textarea" rows="3" name="agenda" placeholder=" Enter meeting Agenda" onChange={handleChangeMeeting}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDate">
-                                        <Form.Label>Meeting Date</Form.Label>
-                                        <Form.Control type="date" name="date" placeholder="Meeting Date" onChange={handleChangeMeeting} />
+                                        <Form.Label id="labelColor">Meeting Date</Form.Label>
+                                        <Form.Control type="date" name="date" placeholder="Enter meeting date" onChange={handleChangeMeeting} />
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
-                                        <Form.Label>Meeting Time</Form.Label>
-                                        <Form.Control type="time" name="MeetingTime" placeholder="Meeting Time" onChange={handleChangeMeeting}/>
+                                        <Form.Label id="labelColor">Meeting Time</Form.Label>
+                                        <Form.Control type="time" name="MeetingTime" placeholder="Enter meeting time" onChange={handleChangeMeeting}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicVenue">
-                                        <Form.Label>Expected Venue</Form.Label>
-                                        <Form.Control type="text" name="venue" placeholder="Expected Venue" onChange={handleChangeMeeting} />
+                                        <Form.Label id="labelColor">Expected Venue</Form.Label>
+                                        <Form.Control type="text" name="venue" placeholder="Enter expected venue" onChange={handleChangeMeeting} />
                                     </Form.Group>
                                     <Row className="mt-2">
                                     {/* Removed type="submit" from here */}

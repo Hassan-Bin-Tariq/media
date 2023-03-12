@@ -38,6 +38,8 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaImage,
+    FaCalendarPlus,
+    FaUserFriends
   } from "react-icons/fa";
   import {AiOutlineLogout} from "react-icons/ai";
   import $ from "jquery"
@@ -296,13 +298,13 @@ const TeacherHomepage = (user) => {
                                 <FaGripHorizontal className="sidebaricon"/> My Albums
                     </button>
                     <button  onClick={showForm} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Request for Event
+                                < FaCalendarPlus className="sidebaricon" /> Request for Event
                     </button>
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
                     <button  onClick={GetEvents} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Check Assigned Students
+                                <FaUserFriends className="sidebaricon" /> Check Assigned Students
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -402,38 +404,38 @@ const TeacherHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-                        <div id="form">
+                        <div id="eventForm">
                         <Row className="mt-2 text-center">
-                            <h2>Generate Event Request</h2>
+                            <h2 id="meetingheading">Generate Event Request</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
                                 <div>
                                     <Form.Group controlId="formBasicTitle">
-                                        <Form.Label>Event Title</Form.Label>
+                                        <Form.Label id="labelColor">Event Title</Form.Label>
                                         <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDescription">
-                                        <Form.Label>Event Description</Form.Label>
+                                        <Form.Label id="labelColor">Event Description</Form.Label>
                                         <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDate">
-                                        <Form.Label>Event Date</Form.Label>
+                                        <Form.Label id="labelColor">Event Date</Form.Label>
                                         <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
-                                        <Form.Label>Event Start Time</Form.Label>
+                                        <Form.Label id="labelColor">Event Start Time</Form.Label>
                                         <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
-                                        <Form.Label>Event End Time</Form.Label>
+                                        <Form.Label id="labelColor">Event End Time</Form.Label>
                                         <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicVenue">
-                                        <Form.Label>Event Venue</Form.Label>
+                                        <Form.Label id="labelColor">Event Venue</Form.Label>
                                         <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
                                     </Form.Group>
                                     <Row className="mt-2">
                                     {/* Removed type="submit" from here */}
-                                        <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
+                                        <button variant="success btn-block" className="button6" onClick={SubmitEvent}> 
                                             Submit Request
                                         </button>
                                     </Row>
