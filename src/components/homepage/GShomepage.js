@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import axios from "axios"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Carousel from 'react-bootstrap/Carousel';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 //import Container from 'react-bootstrap/Container';
 import icit from '../../assets/icit.jpg'
@@ -38,6 +38,14 @@ const  GSHomepage = (user) => {
     const history = useHistory()
     var Name = user.setLoginUser.name
     console.log(Name)
+
+    const CustomScrollbar = () => {
+        useEffect(() => {
+          document.body.classList.add('custom-scrollbar');
+          return () => {
+            document.body.classList.remove('custom-scrollbar');
+          };
+        }, []);}
 
     //meeting
     const [meeting, setMeeting] = useState({
@@ -342,6 +350,9 @@ const  GSHomepage = (user) => {
                         </Row>
                         </div>
                         </Container>
+                        <div className="custom-scrollbar">
+                        {/* Content */}
+                        </div>
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </div>
             
