@@ -39,7 +39,8 @@ import {
     FaBookOpen,
     FaImage,
     FaCalendarPlus,
-    FaUserFriends
+    FaUserFriends,
+    FaUserCheck
   } from "react-icons/fa";
   import {AiOutlineLogout} from "react-icons/ai";
   import $ from "jquery"
@@ -303,8 +304,8 @@ const TeacherHomepage = (user) => {
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button  onClick={GetEvents} class="nav__items">
-                                <FaUserFriends className="sidebaricon" /> Check Assigned Students
+                    <button class="nav__items">
+                                <FaUserCheck className="sidebaricon" /> Assigned Students
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout

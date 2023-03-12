@@ -32,6 +32,9 @@ import {
     FaGripHorizontal,
     FaTimes,
     FaUserEdit,
+    FaCalendarPlus,
+    FaUserFriends,
+    FaUserCheck
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {AiOutlineLogout} from "react-icons/ai";
@@ -855,13 +858,13 @@ const MentorHomepage = (user) => {
                                 <FaGripHorizontal className="sidebaricon" /> My Albums
                     </button>
                     <button  onClick={GetEvents} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Event Requests
+                                <FaCalendarPlus className="sidebaricon" /> Event Requests
                     </button>
                     <button  onClick={GetDuties} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Check Assigned Students
+                                <FaUserCheck className="sidebaricon" /> Assigned Students
                     </button>
                     <button  onClick={checkFreeSlots} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Check Free Students
+                                <FaUserFriends className="sidebaricon" /> Free Students
                     </button>
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
