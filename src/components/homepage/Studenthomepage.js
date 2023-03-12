@@ -38,65 +38,14 @@ const StudentHomepage = (user) => {
     var Name = user.setLoginUser.name
     console.log(Name)
 
-    //meeting
-    const [meeting, setMeeting] = useState({
-        callerName:  user.setLoginUser.name,
-        callerEmail: user.setLoginUser.email,
-        callerID: user.setLoginUser._id,
-        purpose: "",
-        agenda:"",
-        date:"",
-        MeetingTime: "",
-        venue: "",
-        
-    })
 
-    const handleChangeMeeting = e => {
-        var { name, value } = e.target
-        if(name === "MeetingTime")
-        {
-            value = tConvert (value);
-        }
-        setMeeting({
-            ...meeting,
-            [name]: value
-        })
-    }
-    function tConvert (time) {
-        // Check correct time format and split into components
-        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
-    
-        if (time.length > 1) { // If time format correct
-          time = time.slice (1);  // Remove full string match value
-          time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
-          time[0] = +time[0] % 12 || 12; // Adjust hours
-        }
-        return time.join (''); // return adjusted time or original string
-    }
-
-    const ScheduleMeeting = () => {
-
-        const { purpose,callerName,callerEmail,callerID,agenda,date,MeetingTime,venue } = meeting
-
-        console.log(meeting)
-        if(purpose && callerName && callerEmail && callerID && agenda && date && MeetingTime &&venue){
-            axios.post("http://localhost:9002/scheduleMeeting", meeting)
-            .then( 
-                res => alert(res.data.message),
-                alert("Meeting scheduled.")
-            )
-        }else 
-        {
-            alert("invalid input")
-        }
-        
-    }
+ 
     const showAlbum = () => {
         $(function () {
             $('#myGallery').show();
         });
         hidePass();
-        hidemeeting();
+       
     }
     const hideAlbum = () => {
         $(function () {
@@ -108,7 +57,7 @@ const StudentHomepage = (user) => {
             $('#editProfile').show();
         });
         hideAlbum();
-        hidemeeting();
+    
     }
     const hidePass = () => {
         $(function () {
@@ -156,17 +105,7 @@ const StudentHomepage = (user) => {
         }
         
     }
-    const showmeeting = () => {
-        $(function () {
-            $('#meetingForm').show();
-        });
-        hideAlbum();
-    }
-    const hidemeeting = () => {
-        $(function () {
-            $('#meetingForm').hide();
-        });
-    }
+
 
     return (
         <div className="studentmain"> 
@@ -183,9 +122,7 @@ const StudentHomepage = (user) => {
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button  onClick={showmeeting} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Schedule Meeeting
-                    </button>
+                 
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
                     </button>
@@ -324,42 +261,7 @@ const StudentHomepage = (user) => {
                         
                         </div>
                     {/* Div with card end */}
-                    <div id="meetingForm">
-                        <Row className="mt-2 text-center">
-                            <h2>Schedule a meeting</h2>
-                            <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
-                                <div>
-                                    <Form.Group controlId="formBasicTitle">
-                                        <Form.Label>Meeting purpose</Form.Label>
-                                        <Form.Control type="text" name="purpose" placeholder="Enter meeting purpose" onChange={handleChangeMeeting}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicDescription">
-                                        <Form.Label>Meeting Agenda</Form.Label>
-                                        <Form.Control as="textarea" rows="3" name="agenda" placeholder="Meeting Agenda" onChange={handleChangeMeeting}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicDate">
-                                        <Form.Label>Meeting Date</Form.Label>
-                                        <Form.Control type="date" name="date" placeholder="Meeting Date" onChange={handleChangeMeeting} />
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicTime">
-                                        <Form.Label>Meeting Time</Form.Label>
-                                        <Form.Control type="time" name="MeetingTime" placeholder="Meeting Time" onChange={handleChangeMeeting}/>
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicVenue">
-                                        <Form.Label>Expected Venue</Form.Label>
-                                        <Form.Control type="text" name="venue" placeholder="Expected Venue" onChange={handleChangeMeeting} />
-                                    </Form.Group>
-                                    <Row className="mt-2">
-                                    {/* Removed type="submit" from here */}
-                                        <button variant="success btn-block" className="sub" onClick={ScheduleMeeting}> 
-                                            Schdule Meeeting
-                                        </button>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Row>
-                      
-                        </div>
+                   
                         <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     </Container>
                         
