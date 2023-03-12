@@ -29,6 +29,7 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaImage,
+    FaMeetup
 } from "react-icons/fa";
 import {AiOutlineLogout} from "react-icons/ai";
 import $ from "jquery"
@@ -167,7 +168,7 @@ const  GSHomepage = (user) => {
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
                     <button  onClick={showmeeting} class="nav__items">
-                                <FaUserEdit className="sidebaricon" /> Schedule Meeeting
+                                < FaMeetup className="sidebaricon" /> Schedule Meeeting
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/> Logout
@@ -307,7 +308,7 @@ const  GSHomepage = (user) => {
                     {/* Div with card end */}
                     <div id="meetingForm">
                         <Row className="mt-2 text-center">
-                            <h2>Schedule a meeting</h2>
+                            <h2 id="meetingheading">Schedule Meeting</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
                                 <div>
                                     <Form.Group controlId="formBasicTitle">
@@ -332,8 +333,8 @@ const  GSHomepage = (user) => {
                                     </Form.Group>
                                     <Row className="mt-2">
                                     {/* Removed type="submit" from here */}
-                                        <button variant="success btn-block" className="sub" onClick={ScheduleMeeting}> 
-                                            Schdule Meeeting
+                                        <button variant="success btn-block" className="button6" onClick={ScheduleMeeting}> 
+                                            Schedule Meeeting
                                         </button>
                                     </Row>
                                 </div>
