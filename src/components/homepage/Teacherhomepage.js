@@ -233,7 +233,7 @@ const TeacherHomepage = (user) => {
 
     const showForm = () => {
         $(function () {
-            $('#form').show();
+            $('#eventForm').show();
         });
         hideEvent();
         hidePass();
@@ -241,7 +241,7 @@ const TeacherHomepage = (user) => {
     }
     const hideForm= () => {
     $(function () {
-        $('#form').hide();
+        $('#eventForm').hide();
     });
     
     }
@@ -304,7 +304,7 @@ const TeacherHomepage = (user) => {
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button class="nav__items">
+                    <button onClick={GetEvents} class="nav__items">
                                 <FaUserCheck className="sidebaricon" /> Assigned Students
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
