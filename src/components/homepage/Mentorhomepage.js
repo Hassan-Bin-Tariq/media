@@ -341,7 +341,8 @@ const MentorHomepage = (user) => {
             MondayWritten2.innerText = "Slots";
             MondayWritten2.className="slotname"
 
-            let MondayWrittenname = document.createElement('tr')
+            let MondayWrittenname = document.createElement('h3')
+            MondayWrittenname.className="slotheading"
             MondayWrittenname.innerText ="Student: " + slotnames;
             // MondayWrittenname.className="slotname"
             let firstSlot = document.createElement('tr');
@@ -409,7 +410,8 @@ const MentorHomepage = (user) => {
             TuesdayWritten2.innerText = "Slots";
             TuesdayWritten2.className="slotname"
 
-            let TuesdayWrittenname = document.createElement('tr')
+            let TuesdayWrittenname = document.createElement('h3')
+            TuesdayWrittenname.className="slotheading"
             TuesdayWrittenname.innerText ="Student: " + slotnames;
             let firstSlot = document.createElement('tr');
             let secondslot = document.createElement('tr');
@@ -475,7 +477,8 @@ const MentorHomepage = (user) => {
             WednesdayWritten2.innerText = "Slots";
             WednesdayWritten2.className="slotname"
 
-            let WednesdayWrittenname = document.createElement('tr')
+            let WednesdayWrittenname = document.createElement('h3')
+            WednesdayWrittenname.className="slotheading"
             WednesdayWrittenname.innerText ="Student: " + slotnames;
             let firstSlot = document.createElement('tr');
             let secondslot = document.createElement('tr');
@@ -539,7 +542,8 @@ const MentorHomepage = (user) => {
             ThursdayWritten2.innerText = "Slots";
             ThursdayWritten2.className="slotname"
 
-            let ThursdayWrittenname = document.createElement('tr')
+            let ThursdayWrittenname = document.createElement('h3')
+            ThursdayWrittenname.className="slotheading"
             ThursdayWrittenname.innerText ="Student: " + slotnames;
             let firstSlot = document.createElement('tr');
             let secondslot = document.createElement('tr');
@@ -604,7 +608,8 @@ const MentorHomepage = (user) => {
             FridayWritten2.innerText = "Slots";
             FridayWritten2.className="slotname"
 
-            let FridayWrittenname = document.createElement('tr')
+            let FridayWrittenname = document.createElement('h3')
+            FridayWrittenname.className="slotheading"
             FridayWrittenname.innerText ="Student: " + slotnames;
             let firstSlot = document.createElement('tr');
             let secondslot = document.createElement('tr');
