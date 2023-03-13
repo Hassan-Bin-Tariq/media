@@ -368,6 +368,10 @@ border-radius: 10%;
     justify-content:space-evenly;
     background-color: transparent;
   }
+  #headingduty
+  {
+    color: #f8f8f8;
+  }
   /* ASSIGN DUTY CARD */
   .card-body-duty-student{
     background-color: rgb(43, 41, 41);

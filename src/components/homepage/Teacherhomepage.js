@@ -304,7 +304,7 @@ const TeacherHomepage = (user) => {
                     <button  onClick={showPass} class="nav__items">
                                 <FaUserEdit className="sidebaricon" /> Edit Profile
                     </button>
-                    <button onClick={GetEvents} class="nav__items">
+                    <button onClick={showEvent} class="nav__items">
                                 <FaUserCheck className="sidebaricon" /> Assigned Students
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
@@ -489,8 +489,9 @@ const TeacherHomepage = (user) => {
                             
                             {/* <div className="card-flex"></div> */}
                         </div>
-                        <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                    
                     </Container>
+                    <h6 className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
                     {/* Div with card end */}
             </div>
         </div>
