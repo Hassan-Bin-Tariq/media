@@ -814,6 +814,7 @@ const PhotographyHomepage = (user) => {
         showEventDeets.class = 'mybtn';
         showEventDeets.addEventListener("click", EventDetails , false);
 
+        // cardBody.appendChild(row);
         cardBody.appendChild(title);
         cardBody.appendChild(description);
         cardBody.appendChild(date);

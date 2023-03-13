@@ -518,7 +518,7 @@ h2
   position: relative;
   width: 250px;
   height: 250px;
-  background: rgb(44, 40, 40);
+  background: #f8f7f2;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.220);
   display: flex;
   overflow: hidden;
