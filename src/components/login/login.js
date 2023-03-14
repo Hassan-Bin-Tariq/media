@@ -101,7 +101,8 @@ const Login = ({ setLoginUser }) => {
         reEnterPassword: "",
         slots: [],
         Duty: [],
-        FolderID: ""
+        FolderID: "",
+        PhoneNumber: ""
     })
 
     const handleRegChange = e => {
@@ -311,7 +312,7 @@ const Login = ({ setLoginUser }) => {
     }
 
     const register = () => {
-        const { name, email, password, reEnterPassword, Duty,FolderID } = userReg
+        const { name, email, password, reEnterPassword, Duty,FolderID,PhoneNumber } = userReg
         console.log("checking my bools"+namebool+emailbool+passbool+repassbool)
         if (namebool===true && emailbool===true && passbool===true && repassbool===true) {
             axios.post("http://localhost:9002/register", userReg)
@@ -433,6 +434,11 @@ const Login = ({ setLoginUser }) => {
                         <i class='bx bxs-user'></i>
                         <input type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
                         <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
+                    </div>
+                    <div id="phone" class="inputBox" style={{border : "3px solid #555"}}>
+                        <i class='bx bxs-user'></i>
+                        <input type="phone" id="phones" name="PhoneNumber" value={userReg.PhoneNumber} placeholder="Phone Number" onChange={handleRegChange} />
+                        <span class="phoneNumber" id="phoneNumber" style={{color: "red", fontSize: "12px"}}></span><br></br>
                     </div>
 
                     <label >Upload profile picture</label>
