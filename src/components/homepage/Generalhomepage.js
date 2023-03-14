@@ -1281,7 +1281,7 @@ const GeneralHomepage = (user) => {
         // console.log("responses"+item.responses);
         // hidePass();
         let cardbody = document.createElement('div');
-        cardbody.className = 'photo-cardbody'
+        cardbody.className = 'photo-cardbody_poll'
         let mycard = document.createElement('div');
         mycard.className = 'photo-mycard3'
         let TitleText = document.createElement('h2');
@@ -1339,7 +1339,7 @@ const GeneralHomepage = (user) => {
           })
           //eventts.forEach(myFunction);
   
-          let container = document.querySelector("#photo-card-container");
+          let container = document.querySelector("#photo-card-container3");
           console.log(container.childNodes);
     }
 return (
