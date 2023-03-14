@@ -470,17 +470,13 @@ h2
   width: 800px;
   margin-left: 100px;
   margin-top: -1.5px;
-  align-content: center;
   
 }
 #fridayHolder2 tr{
   /* background-color: rgb(180, 172, 172); */
   font-size: 20px;
   border: none;
-  /* align-self:center; */
-  /* align-items: center;
   text-align: center;
-  margin-left: 100px; */
   background-color: rgb(158, 150, 150);
   width: 500px;
   font-family: "Montserrat";
@@ -831,22 +827,25 @@ h2
   background-color: white;
 }
 .cardDutyMentor{
-  padding-top: 50px;
+  padding-top: 60px;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 600px;
   align-items:flex-start;
   justify-content:space-evenly;
+  /* background-color: #ff0000; */
   background-color: rgb(44, 40, 40);
 }
 /* ASSIGN DUTY CARD */
 .card-body-duty-mentor{
-  background-color: rgb(43, 41, 41);
-  box-shadow: #f8f7f2;
+  /* background-color:cadetblue; */
+  background-color: rgb(59, 56, 56);
+  /* box-shadow: #f8f7f2; */
+  box-shadow: 0px 0px 3px 3px rgb(255, 255, 255);
   width: 300px;
   height: 200px;
   color: #f8f8f8;
-  align-items: center;
+  align-items: flex-start;
   align-content: center;
   justify-content:flex-end;
   

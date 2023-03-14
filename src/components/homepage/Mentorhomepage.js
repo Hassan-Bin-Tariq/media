@@ -301,7 +301,7 @@ const MentorHomepage = (user) => {
                     email.className = 'assign-student-card-text';
 
                     let date = document.createElement('div');
-                    date.innerText = "Free Slot: "+ GeneralBodies[g].Duty.Slot;
+                    date.innerText = "Duty Slot: "+ GeneralBodies[g].Duty.Slot;
                     date.className = 'assign-student-card-text';
 
                     let venue = document.createElement('h5');
@@ -330,8 +330,8 @@ const MentorHomepage = (user) => {
 
         if(k === 0)
         {
-            // let slotTable=document.createElement('table')
-            // slotTable.id="customers";
+            // let tableHeading=document.createElement('h1')
+            // tableHeading.innerText="Students Free Slots"
             let slotTr=document.createElement('tr')
 
             let MondayWritten = document.createElement('th')
@@ -396,6 +396,7 @@ const MentorHomepage = (user) => {
             slotTr.appendChild(fifthslot);
             slotTr.appendChild(sixslot);
             slotTr.appendChild(nonslot);
+            // monday.appendChild(tableHeading);
             monday.appendChild(slotTr);
         }
 
