@@ -576,6 +576,8 @@ const PhotographyHomepage = (user) => {
             // eventts = res.data.event;
             // console.log(eventts)
         })
+        alert("Duty assigned successfully!")
+        // swal("A Basic JS alert by a plug-in");
     }
     function findFreeStudent(start,end,dateee)
     {
@@ -709,6 +711,7 @@ const PhotographyHomepage = (user) => {
         findFreeStudent(start,end,date);
     }
     function AssignDuties  (event) {
+        
         //console.log("ASS")
         //mod.showAlert({title: "Hi", body: "Please press ok, if you like or dislike cookies."})
         //console.log(event.target.id)
