@@ -296,7 +296,7 @@ const TeacherHomepage = (user) => {
                         Welcome, {teachName}
                     </button>
                     <button  onClick={showAlbum} class="nav__items" >
-                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                                <FaImage className="sidebaricon"/> My Albums
                     </button>
                     <button  onClick={showForm} class="nav__items">
                                 < FaCalendarPlus className="sidebaricon" /> Request for Event

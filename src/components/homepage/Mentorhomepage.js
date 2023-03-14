@@ -860,7 +860,7 @@ const MentorHomepage = (user) => {
                     Welcome, {Name}
                     </button>
                     <button onClick={showAlbum} class="nav__items" >
-                                <FaGripHorizontal className="sidebaricon" /> My Albums
+                                <FaImage className="sidebaricon" /> My Albums
                     </button>
                     <button  onClick={GetEvents} class="nav__items">
                                 <FaCalendarPlus className="sidebaricon" /> Event Requests

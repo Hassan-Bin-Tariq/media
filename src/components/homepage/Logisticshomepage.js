@@ -42,7 +42,8 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaGripHorizontal,
-    FaWarehouse
+    FaWarehouse,
+    FaImage
 
 } from "react-icons/fa";
 import $ from "jquery"
@@ -285,7 +286,7 @@ const LogisticsHomepage = (user) => {
                     Welcome, {Name}
                     </button>
                     <button  onClick={showAlbum} class="nav__items" >
-                                <FaGripHorizontal className="sidebaricon"/> My Albums
+                                <FaImage className="sidebaricon"/> My Albums
                     </button>
             
                     <button  onClick={showPass} class="nav__items">
