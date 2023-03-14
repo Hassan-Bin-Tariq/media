@@ -166,7 +166,7 @@ const LogisticsHomepage = (user) => {
     }
     function myInventory(item) {
         let mycard = document.createElement('div');
-        mycard.className = 'photo-mycard2'
+        mycard.className = 'photo-mycard3'
 
         let imgBx = document.createElement('div');
         imgBx.className = 'photo-imgBx'
@@ -176,7 +176,7 @@ const LogisticsHomepage = (user) => {
 
 
         let details = document.createElement('div');
-        details.className = 'photo-details'
+        details.className = 'photo-details3'
 
         let purposeWritten = document.createElement('h3');
         purposeWritten.innerText =  "*  "+ item.gadget + " assigned to " +item.am + " on " + item.date + " at " + item.time
@@ -195,7 +195,7 @@ const LogisticsHomepage = (user) => {
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
         details.appendChild(purposeWritten);
         mycard.appendChild(details);
-        let container = document.querySelector("#photo-card-container2");
+        let container = document.querySelector("#photo-card-container3");
         container.appendChild(mycard);    
         i +=1    
     }
@@ -209,7 +209,7 @@ const LogisticsHomepage = (user) => {
     })
 
     const GetInventory = () => {
-        $('#photo-card-container2').empty();
+        $('#photo-card-container3').empty();
         const xhr = new XMLHttpRequest();
         axios.post("http://localhost:9002/GetInventory", )
         .then(res => {
@@ -219,7 +219,7 @@ const LogisticsHomepage = (user) => {
         })
         //eventts.forEach(myFunction);
 
-        let container = document.querySelector("#photo-card-container2");
+        let container = document.querySelector("#photo-card-container3");
         console.log(container.childNodes);
     }
     const showPass = () => {
@@ -464,10 +464,10 @@ const LogisticsHomepage = (user) => {
                        {/* {show meetings} */}
                                         
                                 
-                <div className="photo-flexcard-meeting" id="showemeetingsid">
-                            <div className= "mycards-meetin" id="photo-card-container2">
+                <div className="photo-flexcard-inevn" id="showinvenid">
+                            <div className= "mycards-inevn" id="photo-card-container3">
                             </div>
-                            <div className="dutycontainer-meeting" id="card-container2">
+                            <div className="dutycontainer-inven" id="card-container3">
                                                 
                             </div>
 

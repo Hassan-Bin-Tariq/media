@@ -41,7 +41,9 @@ import {
     FaGripHorizontal,
     FaTimes,
     FaUserEdit,
-    FaBookOpen
+    FaBookOpen,
+    FaMeetup,
+    FaPoll
   
   } from "react-icons/fa";
   import {AiOutlineLogout, AiOutlineFundView, AiFillNotification} from "react-icons/ai";
@@ -1084,25 +1086,28 @@ const GeneralHomepage = (user) => {
         let details = document.createElement('div');
         details.className = 'photo-details'
 
-        let purposeWritten = document.createElement('h4');
-        purposeWritten.innerText = 'Purpose:'
+        let meetpurposre = document.createElement('h1');
+        meetpurposre .innerText = 'MEETING DETAILS' ;
 
-        let purpose= document.createElement('h5');
-        purpose.innerText = item.purpose;
+        let purposeWritten = document.createElement('h2');
+        purposeWritten.innerText = 'Purpose: ' + item.purpose;
 
-        let descriptionWritten = document.createElement('h4');
-        descriptionWritten.innerText = 'Agenda:'
+        // let purpose= document.createElement('h5');
+        // purpose.innerText = ;
 
-        let description = document.createElement('h5');
-        description.innerText = item.agenda;
+        let descriptionWritten = document.createElement('h2');
+        descriptionWritten.innerText = 'Agenda: ' + item.agenda;
 
-        let Venue = document.createElement('h4')
+        // let description = document.createElement('h5');
+        // description.innerText = ;
+
+        let Venue = document.createElement('h2')
         Venue.innerText = "Venue: "+ item.venue;
 
-        let Date = document.createElement('h4')
+        let Date = document.createElement('h2')
         Date.innerText = "Date: "+item.date;
 
-        let timewritten = document.createElement('h4');
+        let timewritten = document.createElement('h2');
         timewritten.innerText = 'Time: ' + item.MeetingTime
 
         let timeul = document.createElement('ul');
@@ -1114,10 +1119,12 @@ const GeneralHomepage = (user) => {
 
         
         //EVERYTHING IS APPENDED BY FOLLOWING THE HERARICHY OF LINK PROVIDED 
+        details.appendChild(meetpurposre);
         details.appendChild(purposeWritten);
-        details.appendChild(purpose);
+        
+        // details.appendChild(purpose);
         details.appendChild(descriptionWritten);
-        details.appendChild(description);
+        // details.appendChild(description);
         details.appendChild(Venue);
         details.appendChild(Date);
         details.appendChild(timewritten);
@@ -1360,13 +1367,13 @@ return (
                             <FaGripHorizontal className="sidebaricon"/> FPS Events
                     </button>
                     <button  class="nav__items" onClick={GetPoll}>
-                            <FaGripHorizontal className="sidebaricon"/> FPS Polls
+                            <FaPoll className="sidebaricon"/> FPS Polls
                     </button>
                     <button  onClick={showPass} class="nav__items">
                         <FaUserEdit className="sidebaricon"/>       Edit Profile
                     </button>
                     <button  onClick={showMeetings} class="nav__items">
-                        <FaUserEdit className="sidebaricon"/>       Check Meeting
+                        <FaMeetup className="sidebaricon"/>       Check Meeting
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/>   Logout</button>
