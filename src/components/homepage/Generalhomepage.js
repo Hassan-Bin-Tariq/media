@@ -1190,13 +1190,6 @@ const GeneralHomepage = (user) => {
         let responsebtn = document.createElement('button');
         responsebtn.innerText = item
         responsebtn.id = "id"+i;
-        // acceptbtn.addEventListener("click",AssignDuties,false);
-        // let TitleText1 = document.createElement('h2');
-        // TitleText1.innerText = "Options:";
-        // let Title2 = document.createElement('h2');
-        // Title2.innerText = item;
-        ///appending on div ///
-        //mycard1.appendChild(TitleText1);
         mycard2.appendChild(responsebtn);
         cardbody2.appendChild(mycard2);
         let container = document.querySelector("#photo-card-container-poll-res");
@@ -1217,7 +1210,7 @@ const GeneralHomepage = (user) => {
         let cardbody2 = document.createElement('div');
         cardbody2.className = 'photo-cardbody';
         let responsebtn = document.createElement('button');
-        responsebtn.className = 'button6';
+        responsebtn.className = 'subPoll';
         responsebtn.innerText = item
         responsebtn.id = "id"+i;
         responsebtn.addEventListener("click", function() {setResponse(item)}, true);   //BUG FIXXXX
@@ -1236,7 +1229,7 @@ const GeneralHomepage = (user) => {
         cardbody.className = 'photo-cardbody_poll'
         let mycard = document.createElement('div');
         mycard.className = 'photo-mycard3'
-        let Title = document.createElement('h2');
+        let Title = document.createElement('h3');
         Title.innerText = item.question;
 
         mycard.appendChild(Title);
