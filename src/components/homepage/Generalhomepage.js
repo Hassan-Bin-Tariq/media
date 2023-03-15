@@ -1203,100 +1203,43 @@ const GeneralHomepage = (user) => {
         container.appendChild(mycard2);  
         
     }
-    //useState to change response in DB
-    // const [response, setResponse] = useState('');
-    // const responseSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const data = {question, options, response};
-    //         console.log("inside handle")
-    //         console.log("adding to db"+question,options,response)
-    //         axios.post("http://localhost:9002/createpoll", data) 
-    //         .then(res => {
-    //             // setSubmittedPoll(data);
-    //             // setQuestion('');
-    //             // setOptions([]);
-    //             setResponse('');
-    //         })
-            
-    // };
-    //
+
     function setResponse(item){
         // var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         console.log("onclick value:"+item);
-        // alert("option added to db");
-
-        // axios.post("http://localhost:9002/PollResponse",{responses: item} ) //changing status to accepted in DB
-        // .then(res => {
-        //     //alert(res.data.message)
-        //     pollss = res.data.item;
-        //     console.log(pollss)
-        // })
-        // console.log("reponse value:"+item.target.value)
+        
     }
 
     //function for options //
     function optionsFunc(item){
         console.log(item)
-        // console.log("option no."+x+" "+item);
-        // x+=1;
+
         let cardbody2 = document.createElement('div');
         cardbody2.className = 'photo-cardbody';
-        // let mycard2 = document.createElement('div');                     //NO NEED OF EXTRA DIV HERE
-        // mycard2.className = 'photo-mycard3'
         let responsebtn = document.createElement('button');
+        responsebtn.className = 'button6';
         responsebtn.innerText = item
         responsebtn.id = "id"+i;
         responsebtn.addEventListener("click", function() {setResponse(item)}, true);   //BUG FIXXXX
 
 
-        //appending to divs
-        // mycard2.appendChild(responsebtn);
         cardbody2.appendChild(responsebtn);                    //COLLECTED ALL OPTIONS IN CARDBODY2
                                                             //ADDING ALL OPTIONS IN SAMEEE DIV JIS MA PECHEY DALI HN CHEEZEN
         let container = document.querySelector("#photo-card-container-poll");   
         container.appendChild(cardbody2); 
-        // let container = document.querySelector("#photo-card-container-poll-opt");   //BUG FIXXXX
-        // container.appendChild(mycard2);                                            //BUG FIXXXXX
-        
-        // let cardbody1 = document.createElement('div');
-        // cardbody1.className = 'photo-cardbody'
-        // let mycard1 = document.createElement('div');
-        // mycard1.className = 'photo-mycard3'
-        // // let TitleText1 = document.createElement('h2');
-        // // TitleText1.innerText = "Options:";
-        // let Title1 = document.createElement('h2');
-        // Title1.innerText = item;
-        // ///appending on div ///
-        // //mycard1.appendChild(TitleText1);
-        // mycard1.appendChild(Title1);
-        // cardbody1.appendChild(mycard1);
-        // let container = document.querySelector("#photo-card-container-poll-opt");
-        // container.appendChild(mycard1);    
         x +=1    
     }
 
     function pollsFunction(item) {
         console.log(item.question);
-        // console.log("options"+item.options);
-        // console.log("responses"+item.responses);
-        // hidePass();
         let cardbody = document.createElement('div');
         cardbody.className = 'photo-cardbody_poll'
         let mycard = document.createElement('div');
         mycard.className = 'photo-mycard3'
-        let TitleText = document.createElement('h2');
-        TitleText.innerText = "FPS Poll:";
         let Title = document.createElement('h2');
         Title.innerText = item.question;
-        let TitleText2 = document.createElement('h2');
-        TitleText2.innerText = "Select response from Options:";
 
-        mycard.appendChild(TitleText);
         mycard.appendChild(Title);
-        mycard.appendChild(TitleText2);
-        // mycard.appendChild(submitbtn);           
-        // mycard.appendChild(TitleText3);
-        // mycard.appendChild(Title3);
         cardbody.appendChild(mycard);              
         let container = document.querySelector("#photo-card-container-poll");
         container.appendChild(mycard);         //FIRST WE ENTERED ALL THINGS IN THIS MAIN CONTAINER
@@ -1304,25 +1247,6 @@ const GeneralHomepage = (user) => {
 
         ///options loop ///
         item.options.forEach(optionsFunc)      //MOVEDD ON TO OPTIONS AND SIMPLY ITERATED OVER ALL OPTIONS
-        //container.appendChild(cardbody2);
-        // let submitbtn = document.createElement('button');
-        // submitbtn.innerText = item
-        // submitbtn.id = "id"+i;
-        // submitbtn.addEventListener("click",responseSubmit,false);
-
-        // let TitleText2 = document.createElement('h2');
-        // TitleText2.innerText = "Options:";
-        // let Title2 = document.createElement('h2');
-        // Title2.innerText = item.options;
-        // let TitleText3 = document.createElement('h2');
-        // TitleText3.innerText = "Responses:";
-        // //response loop calling function
-        // item.responses.forEach(responseFunc)
-        // let Title3 = document.createElement('h2');
-        // Title3.innerText = item.responses;
-
-        // let imgBx = document.createElement('div');
-        // imgBx.className = 'photo-imgBx'
 
         i +=1    
     }
@@ -1692,15 +1616,17 @@ return (
                         </div>
                     {/* SHOW GENERATED EVENTS STARTS HERE */}
                     <div className="photo-flexcard" id="showeventsid">
-                            <div className= "mycards" id="photo-card-container">
-                            {/* <div className="card-flex"></div> */}
-                            </div>
+                            
                             <div className="dutycontainer" id="card-container2">
+                            <div className= "mycards" id="photo-card-container">
+                            
+                            </div>
                                 
                             </div>
                         </div>
                         {/* {show meetings} */}
-                   
+
+                        {hideMeeting()}
                         <div className="photo-flexcard-meeting" id="showemeetingsid">
                             <div className= "mycards-meetin" id="photo-card-container2">
                             {/* <div className="card-flex"></div> */}
@@ -1710,34 +1636,21 @@ return (
                             </div>
                         </div>
                         {/* SHOW POLLS STARTS HERE */}
+                        <div className='FPSPolls'>
+                            <h1>FPS POLLS</h1>
                         <div className="photo-flexcard-poll" id="showpollsid">
                             <div className= "mycards-poll" id="photo-card-container-poll">
-                               
-                            {/* <div className="card-flex"></div> */}
                             </div>
-                            {/* Options Div inside polls div */}
                             <div className= "mycards-poll" id="photo-card-container-poll-opt">
                                 
                             </div>
-                            {/* Response Div inside polls div */}
-                            {/* <div className= "mycards-poll" id="photo-card-container-poll-res">
-                                
-                            </div> */}
+        
                             <div className="dutycontainer-poll" id="card-container2">
                                 
                             </div>
                         </div>
                         
-                            {/* <div id="duty">
-                                    <h3 className="freeslots">You are currently assigned coverage for: <br></br>
-                                                        
-                                    </h3>
-                                    <br/>
-                                    <button  className="notifclose" variant="success btn-block" onClick={hideDuty}>
-                                        OK
-                                    </button>
-                            </div> */}
-                        
+                        </div>
                 </Container>
                 <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
             </div>
