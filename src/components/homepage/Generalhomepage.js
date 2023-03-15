@@ -540,6 +540,7 @@ const GeneralHomepage = (user) => {
             
         });
         hideSlots();
+        hidePollheading();
         //hideTable();
         hideCurrent();
         hideAlbum();
@@ -556,6 +557,7 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#duty').show();
         });
+        hidePollheading();
         hideCurrent();
         hideAlbum();
         hideEvent();
@@ -575,6 +577,7 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#showemeetingsid').show();
         });
+        hidePollheading();
         hideSlots();
         hideTable();
         hideCurrent();
@@ -774,6 +777,7 @@ const GeneralHomepage = (user) => {
             targetDiv.style.display = "block";
           //}
           //hideDuty();
+          hidePollheading();
           hideSlots();
           hideTable();
           hideCurrent();
@@ -794,6 +798,7 @@ const GeneralHomepage = (user) => {
         });
         //hideSlots();
           hideTable();
+          hidePollheading();
           hideCurrent();
           hideAlbum();
           hideEvent();
@@ -818,6 +823,7 @@ const GeneralHomepage = (user) => {
         hidePass();
         hideMeeting();
         hidePoll();
+        hidePollheading();
     }
     const hideCurrent= () => {
     $(function () {
@@ -829,6 +835,7 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#myGallery').show();
         });
+        hidePollheading();
         hideSlots();
         hideTable();
         hideCurrent();
@@ -1015,13 +1022,14 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#showeventsid').show();
         });
-       hideSlots();
-       hideTable();
-       hideCurrent();
-       hideAlbum();
-       //hideEvent();
-       hidePass();
-       hidePoll();
+    hideSlots();
+    hideTable();
+    hideCurrent();
+    hideAlbum();
+    //hideEvent();
+    hidePollheading();
+    hidePass();
+    hidePoll();
     }
     const hideEvent = () => {
         
@@ -1029,7 +1037,26 @@ const GeneralHomepage = (user) => {
             $('#showeventsid').hide();
         });
     }
+    const showPollheading = () => {
+        
+        $(function () {
+            $('#FPSPolls').show();
+        });
+    // hideSlots();
 
+    // hideTable();
+    // hideCurrent();
+    // hideAlbum();
+    // hideEvent();
+    // hidePass();
+       //hidePoll();
+    }
+    const hidePollheading = () => {
+        
+        $(function () {
+            $('#FPSPolls').hide();
+        });
+    }
     const GetEvents = () => {
         // hidePass();
         showEvent();
@@ -1045,6 +1072,7 @@ const GeneralHomepage = (user) => {
         let container = document.querySelector("#photo-card-container");
         console.log(container.childNodes);
     }
+
 
     let showmeeting
     axios.post("http://localhost:9002/GetScheduledMeeting", )
@@ -1163,13 +1191,14 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#showpollsid').show();
         });
-       hideSlots();
-       hideTable();
-       hideCurrent();
-       hideAlbum();
-       hideEvent();
-       hidePass();
-       hideMeeting();
+        showPollheading()
+        hideSlots();
+        hideTable();
+        hideCurrent();
+        hideAlbum();
+        hideEvent();
+        hidePass();
+        hideMeeting();
     }
     const hidePoll = () => {
         
