@@ -1229,6 +1229,7 @@ const GeneralHomepage = (user) => {
     function setResponse(item){
         // var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         console.log("onclick value:"+item);
+        alert("Your response has been recorded.");
         
     }
 
@@ -1259,7 +1260,7 @@ const GeneralHomepage = (user) => {
         let mycard = document.createElement('div');
         mycard.className = 'photo-mycard3'
         let Title = document.createElement('h3');
-        Title.innerText = item.question;
+        Title.innerText = "*  " + item.question;
 
         mycard.appendChild(Title);
         cardbody.appendChild(mycard);              
