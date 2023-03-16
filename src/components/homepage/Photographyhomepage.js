@@ -1260,15 +1260,15 @@ const PhotographyHomepage = (user) => {
                         
                         {/*Poll*/}
                         <div className="myPoll" id ="voting-poll">
-                        <h1>Create a Poll</h1>
+                        <h1 className="=myPoll-heading">Create a Poll</h1>
                         <form onSubmit={handleSubmit}>
                             <label className="myPoll-label">
-                            Question:
+                            Enter your question:
                             <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} />
                             </label>
                             <br />
-                            <label>
-                            Options:
+                            <label className="myPoll-label">
+                            Enter poll options:
                             {options.map((option, index) => (
                                 <div key={index}>
                                 <input
@@ -1295,7 +1295,7 @@ const PhotographyHomepage = (user) => {
                             </select>
                             </label> */}
                             <br />
-                            <button className="myPoll-submit" type="submit">Submit</button>
+                            <button className="button-56" type="submit" style={{marginLeft:"120px"}}>Submit</button>
                         </form>
                         {submittedPoll && (
                                 <div>
@@ -1338,39 +1338,39 @@ const PhotographyHomepage = (user) => {
                             </div>         */}
                         </div>
                         {/* GENERATE EVENT FORM STARTS HERE */}
-                        <div id="form2">
+                        <div id="form2" style={{marginTop:"35px"}}>
                         <Row className="mt-2 text-center">
-                            <h2>Generate FPS Event</h2>
+                            <h2 style={{marginTop:"20px"}} id="meetingheading">Generate FPS Event</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
                                 <div>
                                     <Form.Group controlId="formBasicTitle">
                                         <Form.Label>Event Title</Form.Label>
-                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
+                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDescription">
                                         <Form.Label>Event Description</Form.Label>
-                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
+                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDate">
                                         <Form.Label>Event Date</Form.Label>
-                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
+                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
                                         <Form.Label>Event Start Time</Form.Label>
-                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
+                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
                                         <Form.Label>Event End Time</Form.Label>
-                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
+                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicVenue">
                                         <Form.Label>Event Venue</Form.Label>
-                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
+                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Row className="mt-2">
                                     {/* Removed type="submit" from here */}
-                                        <button variant="success btn-block" className="sub" onClick={SubmitEvent}> 
-                                            Submit Event
+                                        <button className="button-56" onClick={SubmitEvent} style={{width:"180px", marginTop:"20px",marginLeft:"10px"}}> 
+                                            Submit
                                         </button>
                                     </Row>
                                 </div>

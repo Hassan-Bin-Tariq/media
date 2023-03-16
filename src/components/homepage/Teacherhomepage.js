@@ -405,38 +405,38 @@ const TeacherHomepage = (user) => {
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-                        <div id="eventForm">
+                        <div id="eventForm" style={{marginTop:"20px"}}>
                         <Row className="mt-2 text-center">
-                            <h2 id="meetingheading">Generate Event Request</h2>
+                            <h2  id="meetingheading">Generate Event Request</h2>
                             <Col lg={5} md={6} sm={6} className="p-5 m-auto shadow-sm rounded-lg">
                                 <div>
                                     <Form.Group controlId="formBasicTitle">
                                         <Form.Label id="labelColor">Event Title</Form.Label>
-                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange}/>
+                                        <Form.Control type="text" name="title" placeholder="Enter event title" onChange={handleChange} style={{width:"250px",marginLeft:"-30px",marginTop:"-20px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDescription">
                                         <Form.Label id="labelColor">Event Description</Form.Label>
-                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange}/>
+                                        <Form.Control as="textarea" rows="3" name="description" placeholder="Event Description" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicDate">
                                         <Form.Label id="labelColor">Event Date</Form.Label>
-                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} />
+                                        <Form.Control type="date" name="date" placeholder="Event Date" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
                                         <Form.Label id="labelColor">Event Start Time</Form.Label>
-                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange}/>
+                                        <Form.Control type="time" name="StartTime" placeholder="Event Start Time" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicTime">
                                         <Form.Label id="labelColor">Event End Time</Form.Label>
-                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange}/>
+                                        <Form.Control type="time" name="EndTime" placeholder="Event End Time" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicVenue">
                                         <Form.Label id="labelColor">Event Venue</Form.Label>
-                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} />
+                                        <Form.Control type="text" name="venue" placeholder="Event Venue" onChange={handleChange} style={{width:"250px",marginLeft:"-30px"}}/>
                                     </Form.Group>
                                     <Row className="mt-2">
                                     {/* Removed type="submit" from here */}
-                                        <button variant="success btn-block" className="button6" onClick={SubmitEvent}> 
+                                        <button  className="button-56" onClick={SubmitEvent} style={{width:"180px", marginTop:"20px",marginLeft:"10px"}}> 
                                             Submit Request
                                         </button>
                                     </Row>

@@ -668,27 +668,55 @@ background: transparent;
 /* VOTING POLL CSS STARTS HERE */
 .myPoll{
   /* font-size: 20px; */
+  margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(29, 28, 28, 0.815);
+  width: 500px;
+  height: fit-content;
+  display: flex;
   justify-self: center;
-  font-family: "Ubuntu";
-  padding-left: 250px;
+  justify-items: center;
+  text-align: center;
+  font-family: "Montsserat";
+  margin-left: 220px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px 3px rgb(255, 255, 255);
+  /* padding-left: 50px; */
 }
 .myPoll h1{
-  padding-bottom: 50px;
-  padding-right: 450px;
+  color: #f8f7f2;
+
+  padding-bottom: 40px;
+  /* padding-right: 450px; */
 }
 .myPoll label{
+  margin-left: 60px;
   font-size: 20px;
   font-weight: bold;
   padding-right: 450px;
   padding-bottom: 20px;
+  color: #f8f7f2;
   /* padding-right: 20px; */
+}
+.myPoll input{
+  margin-left: 60px;
+  width: 250px;
+  height: 35px;
+  background-color: rgba(241, 240, 233, 0.712);
+  font-size: 15px;
+}
+.myPoll input:hover{
+  background-color: #f8f7f2f1;
+  font-size: 15px;
 }
 .myPoll-options{
   font-size: 12px;
-  width: 250px;
+  /* margin-left: 50px; */
+  width: 220px;
   font-weight: bold;
-  background-color: rgb(61, 58, 58);
-  color: #f8f7f2;
+  background-color: #f8f7f2f1;
+  color: #030303;
   
 }
 .myPoll-options:hover{ 
@@ -700,7 +728,7 @@ background: transparent;
   color: #f8f7f2;
   width: 80px;
 } */
-.myPoll-submit{
+/* .myPoll-submit{
   font-size: 12px;
   width: 250px;
   
@@ -713,7 +741,120 @@ background: transparent;
 .myPoll-submit:hover{ 
   background-color: rgb(61, 58, 58);
   color: #f8f7f2;
-}
+} */
 #voting-poll{
   display: none;
+}
+/* NEW SUBMIT BUTTON CSS */
+.myPoll-submit {
+  position: relative;
+  width: 200px;
+  /* margin-left: 60px; */
+  background: #444;
+  color: #f7f0f0;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+  transition: 0.2s;
+}
+
+.myPoll-submit:hover {
+  letter-spacing: 0.2rem;
+  padding: 1.1rem 3.1rem;
+  background: #8A2BE2;
+  color: #8A2BE2;
+  /* box-shadow: 0 0 35px var(--clr); */
+  animation: box 3s infinite;
+}
+
+.myPoll-submit::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #272822;
+}
+
+.myPoll-submit span {
+  position: relative;
+  z-index: 1;
+}
+.myPoll-submit i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.myPoll-submit i::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 80%;
+  top: -2px;
+  border: 2px solid #8A2BE2;
+  background: #272822;
+  transition: 0.2s;
+}
+
+.myPoll-submit:hover i::before {
+  width: 15px;
+  left: 20%;
+  animation: move 3s infinite;
+}
+
+.myPoll-submit i::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 20%;
+  bottom: -2px;
+  border: 2px solid #8A2BE2;
+  background: #272822;
+  transition: 0.2s;
+}
+
+.myPoll-submit:hover i::after {
+  width: 15px;
+  left: 80%;
+  animation: move 5s infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes box {
+  0% {
+    box-shadow: #27272c;
+  }
+  50% {
+    box-shadow: 0 0 25px #8A2BE2;
+  }
+  100% {
+    box-shadow: #27272c;
+  }
+}
+
+/* GENERATE EVENT FORM CSS */
+#form2{
+  background-color: rgb(36, 35, 35);
+    -webkit-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+-moz-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+width: 500px;
+margin-top: 10px;
+margin-left: 220px;
+border-radius: 10%;
 }
