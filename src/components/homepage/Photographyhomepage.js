@@ -1260,15 +1260,15 @@ const PhotographyHomepage = (user) => {
                         
                         {/*Poll*/}
                         <div className="myPoll" id ="voting-poll">
-                        <h1>Create a Poll</h1>
+                        <h1 className="=myPoll-heading">Create a Poll</h1>
                         <form onSubmit={handleSubmit}>
                             <label className="myPoll-label">
-                            Question:
+                            Enter your question:
                             <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} />
                             </label>
                             <br />
-                            <label>
-                            Options:
+                            <label className="myPoll-label">
+                            Enter poll options:
                             {options.map((option, index) => (
                                 <div key={index}>
                                 <input
@@ -1295,7 +1295,7 @@ const PhotographyHomepage = (user) => {
                             </select>
                             </label> */}
                             <br />
-                            <button className="myPoll-submit" type="submit">Submit</button>
+                            <button className="button-56" type="submit" style={{marginLeft:"120px"}}>Submit</button>
                         </form>
                         {submittedPoll && (
                                 <div>
