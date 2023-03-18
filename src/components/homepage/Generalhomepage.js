@@ -1549,7 +1549,7 @@ return (
                                 </Table>
                                 </Row>
                             <centre>
-                                <button className="submit-form" variant="success btn-block" onClick={SubmitForm}>
+                                <button className="button-56" style={{marginLeft:"300px"}} onClick={SubmitForm}>
                                     Submit Form
                                 </button>
                             </centre>
