@@ -1276,6 +1276,7 @@ const GeneralHomepage = (user) => {
 
     const GetPoll=()=>{
           // hidePass();
+          showPollheading();
           showPoll();
           $('#photo-card-container-poll').empty();
           const xhr = new XMLHttpRequest();
@@ -1658,8 +1659,9 @@ return (
                                 
                             </div>
                         </div>
+                        {hidePollheading()}
                         {/* SHOW POLLS STARTS HERE */}
-                        <div className='FPSPolls'>
+                        <div id='FPSPolls'>
                             <h1>FPS POLLS</h1>
                         <div className="photo-flexcard-poll" id="showpollsid">
                             <div className= "mycards-poll" id="photo-card-container-poll">
