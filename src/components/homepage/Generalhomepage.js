@@ -1026,6 +1026,7 @@ const GeneralHomepage = (user) => {
     hideTable();
     hideCurrent();
     hideAlbum();
+    hideMeeting();
     //hideEvent();
     hidePollheading();
     hidePass();
