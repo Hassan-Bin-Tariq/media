@@ -43,7 +43,8 @@ import {
     FaUserEdit,
     FaBookOpen,
     FaMeetup,
-    FaPoll
+    FaPoll, 
+    FaCalendarCheck
   
   } from "react-icons/fa";
   import {AiOutlineLogout, AiOutlineFundView, AiFillNotification} from "react-icons/ai";
@@ -64,7 +65,7 @@ var Wednesdayslots = [];
 var Thursdayslots = [];
 var Fridayslots = [];
 var sub = false;
-   
+
 var i = 0;
 
 const GeneralHomepage = (user) => {
@@ -1312,7 +1313,7 @@ return (
                             <FaGripHorizontal className="sidebaricon"/> Update Slots
                     </button>
                     <button  class="nav__items" onClick={GetEvents}>
-                            <FaGripHorizontal className="sidebaricon"/> FPS Events
+                            <FaCalendarCheck className="sidebaricon"/> FPS Events
                     </button>
                     <button  class="nav__items" onClick={GetPoll}>
                             <FaPoll className="sidebaricon"/> FPS Polls
@@ -1330,57 +1331,7 @@ return (
         </nav>
 
 
-        {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
-                <CDBSidebar textColor="#fff" backgroundColor="#333">
-                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-                    <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
-                    Welcome, {Name}
-                    </a>
-                </CDBSidebarHeader>
-
-                <CDBSidebarContent className="sidebar-content">
-                    <CDBSidebarMenu>
-                    <button  onClick={showAlbum} className="sidebarbtn">
-                        <FaImage className="sidebaricon"/> My Albums
-                    </button>
-                    <button  className="sidebarbtn" onClick={showCurrent}>
-                        <FaBookOpen className="sidebaricon"/> Current Slots
-                    </button>
-                    
-                    <button  className="sidebarbtn" onClick={showTable}>
-                            <FaGripHorizontal className="sidebaricon"/> Update Slots
-                    </button>
-                    <button  className="sidebarbtn" onClick={GetEvents}>
-                            <FaGripHorizontal className="sidebaricon"/> FPS Events
-                    </button>
-                    <button  className="sidebarbtn" onClick={GetPoll}>
-                            <FaGripHorizontal className="sidebaricon"/> FPS Polls
-                    </button>
-                    <button  onClick={showPass} className="sidebarbtn">
-                        <FaUserEdit className="sidebaricon"/>       Edit Profile
-                    </button>
-                    <button  onClick={showMeetings} className="sidebarbtn">
-                        <FaUserEdit className="sidebaricon"/>       Check Meeting
-                    </button>
-                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
-                        <AiOutlineLogout className="sidebaricon"/>   Logout</button>
-                    </CDBSidebarMenu>
-                </CDBSidebarContent>
-
-                <CDBSidebarFooter style={{ textAlign: 'center' }}>
-                    <div
-                    style={{
-                        padding: '20px 5px',
-                    }}
-                    >
-                    Mediascape
-                    </div>
-                </CDBSidebarFooter>
-                </CDBSidebar>
-        </div> */}
-        {
-            /**albums div */
-        }
+       
          {/*////////////// */} 
             <div className="mentor-flex2">
                 
@@ -1641,11 +1592,11 @@ return (
                     {/* SHOW GENERATED EVENTS STARTS HERE */}
                     <div className="photo-flexcard" id="showeventsid">
                             
-                            <div className="dutycontainer" id="card-container2">
+                            {/* <div className="dutycontainer" id="card-container2"> */}
                             <div className= "mycards" id="photo-card-container">
                             
-                            </div>
-                                
+                            {/* </div>
+                                 */}
                             </div>
                         </div>
                         {/* {show meetings} */}
