@@ -1441,7 +1441,7 @@ return (
                                         </tr>
                                         <tr>
                                             <td>Tuesday</td>
-                                            <ToggleButtonGroup type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
+                                            <ToggleButtonGroup className="togo-group" type="checkbox" value={Tuesdayvalue} onChange={TuesdayhandleChange}>
                                                 <ToggleButton className="togo" id="tbg-btn-8" value={1}>
                                                     8:45 - 10:10
                                                 </ToggleButton>
@@ -1467,7 +1467,7 @@ return (
                                         </tr>
                                         <tr>
                                             <td>Wednesday</td>
-                                            <ToggleButtonGroup type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
+                                            <ToggleButtonGroup className="togo-group" type="checkbox" value={Wednesdayvalue} onChange={WednesdayhandleChange}>
                                                 <ToggleButton className="togo" id="tbg-btn-15" value={1}>
                                                     8:45 - 10:10
                                                 </ToggleButton>
@@ -1493,7 +1493,7 @@ return (
                                         </tr>
                                         <tr>
                                             <td>Thursday</td>
-                                            <ToggleButtonGroup type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
+                                            <ToggleButtonGroup className="togo-group" type="checkbox" value={Thursdayvalue} onChange={ThursdayhandleChange}>
                                                 <ToggleButton className="togo" id="tbg-btn-22" value={1}>
                                                     8:45 - 10:10
                                                 </ToggleButton>
@@ -1519,7 +1519,7 @@ return (
                                         </tr>
                                         <tr>
                                             <td>Friday</td>
-                                            <ToggleButtonGroup type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
+                                            <ToggleButtonGroup className="togo-group" type="checkbox" value={Fridayvalue} onChange={FridayhandleChange}>
                                                 <ToggleButton variant="outline-info light"className="togo" id="tbg-btn-29" value={1}>
                                                     8:45 - 10:10
                                                 </ToggleButton>
