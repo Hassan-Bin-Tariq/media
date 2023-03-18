@@ -509,6 +509,10 @@ box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
 color: aliceblue;
 padding-top: 10px;
 }
+.photo-details
+{
+    width: fit-content;
+}
 .photo-details h2
 {
     padding-top: 10px;
@@ -563,4 +567,8 @@ box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
     background-color:#d9f0a3;
     color: #000;
 }
-  
+
+/* .photo-mycard
+{
+    width: 200px;
+} */

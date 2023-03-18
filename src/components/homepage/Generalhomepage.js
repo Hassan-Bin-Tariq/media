@@ -831,7 +831,6 @@ const GeneralHomepage = (user) => {
         $('#currentdiv').hide();
     });
     }
-   
     const showAlbum = () => {
         $(function () {
             $('#myGallery').show();
@@ -984,7 +983,7 @@ const GeneralHomepage = (user) => {
         divgroup.className = 'photo-group'
 
         let acceptbtn = document.createElement('button');
-        acceptbtn.innerText = 'Assign Duties'
+        acceptbtn.innerText = 'GOING TO ' +  item.title;
         acceptbtn.id = "id"+i;
         // acceptbtn.addEventListener("click",AssignDuties,false);
 
