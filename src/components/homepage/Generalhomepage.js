@@ -1230,7 +1230,12 @@ const GeneralHomepage = (user) => {
     function setResponse(item){
         // var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         console.log("onclick value:"+item);
-        alert("Your response has been recorded.");
+        axios.post("http://localhost:9002/setResponse", {item}).then(res => {
+            //console.log(res.error);
+            alert("Your response has been recorded.");
+
+    })
+
         
     }
 

@@ -19,8 +19,7 @@
     height: 180px;
     font-family: "Montserrat";
     background-color: #979c90;
-   
-    
+
     box-shadow: 5px 5px 10px #e1e1e1;
     background: linear-gradient(to left, #979c90 50%, #f8f7f2 50%);
     background-size: 200%;
@@ -136,9 +135,9 @@
     background-color: rgba(56, 54, 54, 0.651);
     border-radius: 0;
     font-family: "Montserrat";
-    height: 50px;
+    height: 5px;
     font-size: 13px;
-   width: 120px;
+   width: 12px;
 }
 .togo:hover
 {
@@ -162,11 +161,15 @@
 
 
 .duty-table td{
-    height: 7px;
+    height: fit-content;
     width: 20px;
     font-size: 15px;
     border-color: black;
     border-width: 1px;
+}
+.duty-table tr
+{
+height:5px;
 }
 .canvas
 {
