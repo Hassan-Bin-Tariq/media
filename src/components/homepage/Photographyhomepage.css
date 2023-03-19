@@ -858,3 +858,19 @@ margin-top: 10px;
 margin-left: 220px;
 border-radius: 10%;
 }
+/* SWEET ALERT CSS STARTS HERE */
+.sweet-warning{
+  background-color: rgb(121, 16, 16);
+  color: wheat;
+  width: 100px;
+}
+.sweet-ok{
+  background-color: rgb(16, 121, 56);
+  color: wheat;
+  width: 100px;
+}
+.sweet-info{
+  background-color: rgb(81, 104, 204);
+  color: wheat;
+  width: 100px;
+}

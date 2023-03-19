@@ -50,6 +50,7 @@ import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 import {AiOutlineLogout} from "react-icons/ai";
 import { Pie } from 'react-chartjs-2';
+import swal from 'sweetalert';
 // import { elementAcceptingRef } from "@mui/utils"
 // import { empSchema} from  '../mongoDBSchemas/empSchema';
 // import {APIResponse, ErrResponse} '../utils/statusMessages';
@@ -278,10 +279,25 @@ const PhotographyHomepage = (user) => {
                 res => alert(res.data.message),
                 //history.push("./login")
             )
+            swal({
+                title: "Event Submitted!",
+                text: "Your event for FPS was generated successfully!",
+                icon: "success",
+                buttons: {
+                    confirm : {text:'OK',className:'sweet-ok'},
+                },
+              });
         }else {
-            alert("invalid input")
+            swal({
+                title: "Invalid Input!",
+                text: "Please fill all given fields.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
-        //alert("Submited")
+        
     }
     //const handleShow = () => setShow(true);
     function changetimeformat (times)
@@ -576,7 +592,14 @@ const PhotographyHomepage = (user) => {
             // eventts = res.data.event;
             // console.log(eventts)
         })
-        alert("Duty assigned successfully!")
+        swal({
+            title: "Duty Assigned!",
+            text: "Duty was assigned successfully to student.",
+            icon: "success",
+            buttons: {
+                confirm : {text:'OK',className:'sweet-ok'},
+            },
+          });
         // swal("A Basic JS alert by a plug-in");
     }
     function findFreeStudent(start,end,dateee)
@@ -982,7 +1005,14 @@ const PhotographyHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
 

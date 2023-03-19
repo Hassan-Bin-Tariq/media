@@ -55,6 +55,7 @@ import {
 //import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
 //import SideNav, {Toggle, NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav';
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import swal from 'sweetalert';
 //import PhotoCamera from '@material-ui/icons/PhotoCamera';
 //import IconButton from '@material-ui/core/IconButton';
 import $ from "jquery"
@@ -504,7 +505,14 @@ const GeneralHomepage = (user) => {
 
     }
     const SubmitForm = () => {
-        alert("Free Slots updated")
+        swal({
+            title: "Updated!",
+            text: "Your free slots were updated successfully!",
+            icon: "info",
+            buttons: {
+                confirm : {text:'OK',className:'sweet-info'},
+            },
+          });
         var Mondaysize = (Object.keys(Mondayslots).length) - 1; //SINCE IT IS APPENDING IN LIST SO THE FINAL LIST WOULD BE IN LAST INDEX
         //console.log(Mondayslots[Mondaysize]); // SIZE WILL BE POINTING AT LAST INDEX WHERE OUR FINAL SLOTS ARE
         
@@ -611,7 +619,14 @@ const GeneralHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
     function MondayDisabler()
@@ -865,7 +880,14 @@ const GeneralHomepage = (user) => {
         .then((res) => {
             
         }).catch(() => {
-            alert('error in Uploading data');
+            swal({
+                title: "Error!",
+                text: "An error occurred while uploading data.",
+                icon: "info",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-info'},
+                },
+              });
         })
         if (lookup === true) // to keep looking up for new images
             ONLive()
@@ -885,7 +907,14 @@ const GeneralHomepage = (user) => {
                 )
             .catch(error => console.error(error))
         }).catch(() => {
-            alert('error in fetching data');
+            swal({
+                title: "Error!",
+                text: "An error occurred while fetching data.",
+                icon: "info",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-info'},
+                },
+              });
         })
     }
     function PythonForImages2(){
@@ -1232,7 +1261,14 @@ const GeneralHomepage = (user) => {
         console.log("onclick value:"+item);
         axios.post("http://localhost:9002/setResponse", {item}).then(res => {
             //console.log(res.error);
-            alert("Your response has been recorded.");
+            swal({
+                title: "Great!",
+                text: "Your response has been recorded successfully.",
+                icon: "success",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-success'},
+                },
+              });
 
     })
 
