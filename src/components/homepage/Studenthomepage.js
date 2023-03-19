@@ -13,6 +13,7 @@ import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
 import cccc from '../../assets/cccc.png'
 import ghous from "../../assets/ghous.jpg";
+import swal from 'sweetalert';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -83,7 +84,14 @@ const StudentHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
     var images;

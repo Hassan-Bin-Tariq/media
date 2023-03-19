@@ -17,6 +17,7 @@ import c from '../../assets/c.png'
 import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
 import cccc from '../../assets/cccc.png'
+import swal from 'sweetalert';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -65,7 +66,15 @@ const MentorHomepage = (user) => {
     })
     function sendMail(event)
     {
-        alert("Event Request Accepted");
+        // alert("Event Request Accepted");
+        swal({
+            title: "Accepted!",
+            text: "Event was accepted successfully! Acceptance email sent to requesting Teacher.",
+            icon: "success",
+            buttons: {
+                confirm : {text:'OK',className:'sweet-ok'},
+            },
+          });
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var EventID = eventts[str1]._id;
 
@@ -95,13 +104,21 @@ const MentorHomepage = (user) => {
             to_email: Teacheremail,
         },"nv_Jq-1YJR57e3z-E");
 
-        alert("Acceptance e-mail sent to requesting party!" );
+        // alert("Acceptance e-mail sent to requesting party!" );
 
     }
     //send mail to teacher in case of Rejected Event Request
     function sendRejection(event) 
     {
-        alert("Event Request Rejected");
+        // alert("Event Request Rejected");
+        swal({
+            title: "Rejected!",
+            text: "Event was rejected successfully! Rejection email sent to requesting Teacher.",
+            icon: "info",
+            buttons: {
+                confirm : {text:'OK',className:'sweet-info'},
+            },
+          });
         var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         var EventID = eventts[str1]._id;
 
@@ -131,7 +148,7 @@ const MentorHomepage = (user) => {
             reply_to: "mediascape0@gmail.com",
             to_email: Teacheremail,
         },"nv_Jq-1YJR57e3z-E");
-        alert("Rejection e-mail sent to requesting party!" );
+        // alert("Rejection e-mail sent to requesting party!" );
     }
     
     function doNothing(){
@@ -832,7 +849,14 @@ const MentorHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
 

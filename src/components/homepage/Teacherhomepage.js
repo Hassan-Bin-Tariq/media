@@ -22,6 +22,7 @@ import c from '../../assets/c.png'
 import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
 import cccc from '../../assets/cccc.png'
+import swal from 'sweetalert';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -109,10 +110,26 @@ const TeacherHomepage = (user) => {
             axios.post("http://localhost:9002/SendEventRequest", event)
             .then( 
                 res => alert(res.data.message),
+                
                 //history.push("./login")
             )
+            swal({
+                title: "Event Submitted!",
+                text: "Your event for was generated successfully!",
+                icon: "success",
+                buttons: {
+                    confirm : {text:'OK',className:'sweet-ok'},
+                },
+              });
         }else {
-            alert("invalid input")
+            swal({
+                title: "Invalid Input!",
+                text: "Please fill all given fields.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
         //alert("Submited")
     }
@@ -135,7 +152,14 @@ const TeacherHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
 

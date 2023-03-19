@@ -13,6 +13,7 @@ import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
 import cccc from '../../assets/cccc.png'
 import ghous from "../../assets/ghous.jpg";
+import swal from 'sweetalert';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -92,11 +93,25 @@ const  GSHomepage = (user) => {
             axios.post("http://localhost:9002/scheduleMeeting", meeting)
             .then( 
                 res => alert(res.data.message),
-                alert("Meeting scheduled.")
+                swal({
+                    title: "Done!",
+                    text: "Your meeting was scheduled successfully!",
+                    icon: "success",
+                    buttons: {
+                        confirm : {text:'OK',className:'sweet-ok'},
+                    },
+                  })
             )
         }else 
         {
-            alert("invalid input")
+            swal({
+                title: "Invalid Input!",
+                text: "Please enter correct values and try again.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              })
         }
         
     }
@@ -143,7 +158,14 @@ const  GSHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
     

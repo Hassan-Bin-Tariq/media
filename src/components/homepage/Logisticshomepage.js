@@ -25,6 +25,7 @@ import c from '../../assets/c.png'
 import cc from '../../assets/cc.png'
 import ccc from '../../assets/ccc.png'
 import cccc from '../../assets/cccc.png'
+import swal from 'sweetalert';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -129,7 +130,14 @@ const LogisticsHomepage = (user) => {
             })
         }
         else{
-            alert("Password not matched")
+            swal({
+                title: "Password Mismatch!",
+                text: "New & Re-entered password do not match.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
 
@@ -156,13 +164,27 @@ const LogisticsHomepage = (user) => {
             {
                 axios.post("http://localhost:9002/invent", {tableData}).then(res => {
                 console.log(res.error);
-                alert('Table data saved successfully');
+                swal({
+                    title: "Updated!",
+                    text: "Inventory data saved successfully",
+                    icon: "success",
+                    buttons: {
+                        confirm : {text:'OK',className:'sweet-ok'},
+                    },
+                  });
 
             })
         }
         else
         {
-            alert("Failed to save data")
+            swal({
+                title: "Error!",
+                text: "Failed to save data.",
+                icon: "error",
+                buttons: {
+                    confirm : {text:'Retry',className:'sweet-warning'},
+                },
+              });
         }
     }
     function myInventory(item) {
