@@ -95,13 +95,38 @@ const StudentHomepage = (user) => {
         }
     }
     var images;
+    function zoomImage(imageURL){
+        swal({
+            title: "Event Submitted!",
+            text: "Your event for FPS was generated successfully!",
+            icon: "success",
+            buttons: {
+                confirm : {text:'OK',className:'sweet-ok'},
+            },
+          });
+    }
     function showAllImages(){
+
         console.log(images)
 
         for (let i = 0; i < images.length; i++) {
             var fileID = images[i].split("/")[5];
             var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
-            document.getElementById("myImage"+i).src = imageURL;
+            // document.getElementById("myImage"+i).src = imageURL;
+            //////////TRYING TO ADD ALBUM CARDS ///////////
+            let albumcontainer = document.createElement('div');
+            albumcontainer.className = 'pin_container'
+
+            let albumcard = document.createElement('img');
+            albumcard.className = 'albumcard'
+            albumcard.src=imageURL;
+            albumcard.addEventListener("click", zoomImage(imageURL), false);
+            // let albumcard2 = document.createElement('img');
+            // albumcard2.className = 'albumcard2'
+            albumcontainer.appendChild(albumcard);
+            // albumcontainer.appendChild(albumcard2);
+            let container = document.querySelector("#myGallery");
+            container.appendChild(albumcontainer);
         }
         
     }
@@ -147,11 +172,11 @@ const StudentHomepage = (user) => {
                                 <FaUserAlt />
                     </button> */}
                     <Container className="cardBody">
-                    <div className="student-container" id="myGallery">
-                        <h2>Here are your latest updating images</h2>
-                        <img id="myImage0"></img>
-                        <img id="myImage1"></img>
-                        <img id="myImage2"></img>
+                    <div className="pin_container" id="myGallery">
+                        <h2>Here are your latest updated images</h2>
+                        {/* <img className="albumcard" id="myImage0"></img>
+                        <img className="albumcard" id="myImage1"></img>
+                        <img className="albumcard" id="myImage2"></img> */}
                     </div>
                     {/* <button onClick={GetAllImages}>Get Images</button>
                     <button onClick={showAllImages}>show Images</button> */}

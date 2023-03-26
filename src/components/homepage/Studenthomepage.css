@@ -25,7 +25,8 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(44, 40, 40);
+    /* background-color: rgb(44, 40, 40); */
+    background-color: aqua;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -36,4 +37,43 @@
 }
 .student-container p{
     font-size: 20px;
+}
+/* ALBUM CSS STARTS HERE */
+.pin_container{
+    height:fit-content;
+    margin-top: 40px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* background-color: rgb(44, 40, 40); */
+    /* background-color: aqua; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    width:80vw;
+    display: grid;
+    grid-area: repeat(auto-fill, 250px);
+    grid-auto-rows: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: flex-start;
+    background-color:blueviolet;
+       
+}
+.albumcard{
+    margin: 15px 10px;
+    padding: 0;
+    border-radius: 16px;
+    background-color: rgb(0, 255, 128);
+    height: 300px;
+    width: 300px;
+    grid-row-end: span 45;
+}
+.albumcard2{
+    margin: 15px 10px;
+    padding: 0;
+    border-radius: 16px;
+    background-color: rgb(255, 94, 0);
+    height: 300px;
+    width: 200px;
+    grid-row-end: span 33;
 }
