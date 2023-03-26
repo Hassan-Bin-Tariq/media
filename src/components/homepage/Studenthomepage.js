@@ -95,14 +95,6 @@ const StudentHomepage = (user) => {
         }
     }
     var images;
-    function GetAllImages(){
-        console.log("Image getter")
-        axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
-        .then(
-            res=> images = res.data.urlsForLogedIn
-        )
-    }
-
     function showAllImages(){
         console.log(images)
 
@@ -113,6 +105,17 @@ const StudentHomepage = (user) => {
         }
         
     }
+    function GetAllImages(){
+        showAlbum();
+        console.log("Image getter")
+        axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
+        .then(
+            res=> images = res.data.urlsForLogedIn
+        )
+        showAllImages();
+    }
+
+    
 
 
     return (
@@ -124,7 +127,7 @@ const StudentHomepage = (user) => {
                     <button href="/" class="nav_welcome" >
                     Welcome, {Name}
                     </button>
-                    <button  onClick={showAlbum} class="nav__items" >
+                    <button  onClick={GetAllImages} class="nav__items" >
                                 <FaImage className="sidebaricon"/> My Albums
                     </button>
                     <button  onClick={showPass} class="nav__items">
@@ -137,43 +140,7 @@ const StudentHomepage = (user) => {
                 
                     </ul>
             </nav>       
-            {/* <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial',position:"-webkit-sticky",position:"sticky" }}>
-                <CDBSidebar textColor="#fff" backgroundColor="#333">
-                <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-                    <a href="/" className="text-decoration-none" style={{ color: 'inherit', fontFamily:"Montserrat",fontSize: "18px" }}>
-                    Welcome! {Name}
-                    </a>
-                </CDBSidebarHeader>
 
-                <CDBSidebarContent className="sidebar-content">
-                    <CDBSidebarMenu>
-                    <button  onClick={showAlbum} className="sidebarbtn" >
-                                <FaGripHorizontal className="sidebaricon"/> My Albums
-                    </button>
-                    <button  onClick={showPass} className="sidebarbtn">
-                                <FaUserEdit className="sidebaricon" /> Edit Profile
-                    </button>
-                    <button  onClick={showmeeting} className="sidebarbtn">
-                                <FaUserEdit className="sidebaricon" /> Schedule Meeeting
-                    </button>
-                    <button className="sidebarbtn" id ="sleek" onClick={() => history.push("/login")}>
-                        <AiOutlineLogout className="sidebaricon"/> Logout
-                    </button>
-                
-                    </CDBSidebarMenu>
-                </CDBSidebarContent>
-
-                <CDBSidebarFooter style={{ textAlign: 'center' }}>
-                    <div
-                    style={{
-                        padding: '20px 5px',
-                    }}
-                    >
-                    Mediascape
-                    </div>
-                </CDBSidebarFooter>
-                </CDBSidebar>
-            </div> */}
             {/*////////////// */} 
                     <div className="student-flex2">
                     {/* <button  className="flex2user">
@@ -181,53 +148,14 @@ const StudentHomepage = (user) => {
                     </button> */}
                     <Container className="cardBody">
                     <div className="student-container" id="myGallery">
-                        <h2>Take a look at some of our picks for you</h2>
-                        <div className='student-slider'>
-                            <Carousel fade className="d-block w-100 h-100">
-                                <Carousel.Item className="d-block w-100 h-100" interval={5000}>
-                                    <img
-                                    className="d-block w-100 h-100"
-                                    src={icit}
-                                    alt="First slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item interval={5000}>
-                                    <img
-                                    className="d-block w-100 h-100"
-                                    src={cc}
-                                    alt="Second slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item interval={5000}>
-                                    <img
-                                    className="d-block w-100 h-100"
-                                    src={ccc}
-                                    alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item interval={5000}>
-                                    <img
-                                    className="d-block w-100 h-100"
-                                    src={cccc}
-                                    alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item interval={5000}>
-                                    <img
-                                    className="d-block w-100 h-100"
-                                    src={c}
-                                    alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                            </Carousel>
-                        </div>
-                        <p>Stay tuned for more personalized content!</p>
+                        <h2>Here are your latest updating images</h2>
+                        <img id="myImage0"></img>
+                        <img id="myImage1"></img>
+                        <img id="myImage2"></img>
                     </div>
-                    <button onClick={GetAllImages}>Get Images</button>
-                    <button onClick={showAllImages}>show Images</button>
-                    <img id="myImage0"></img>
-                    <img id="myImage1"></img>
-                    <img id="myImage2"></img>
+                    {/* <button onClick={GetAllImages}>Get Images</button>
+                    <button onClick={showAllImages}>show Images</button> */}
+                    
                     {/* Div with card */}  
                     <div  id="editProfile">
                         <div id="editPass" class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
