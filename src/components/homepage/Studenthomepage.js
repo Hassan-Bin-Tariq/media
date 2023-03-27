@@ -105,40 +105,64 @@ const StudentHomepage = (user) => {
             },
           });
     }
-    function showAllImages(){
+    // function showAllImages(){
 
-        console.log(images)
+    //     console.log(images)
 
-        for (let i = 0; i < images.length; i++) {
-            var fileID = images[i].split("/")[5];
-            var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
-            // document.getElementById("myImage"+i).src = imageURL;
-            //////////TRYING TO ADD ALBUM CARDS ///////////
-            let albumcontainer = document.createElement('div');
-            albumcontainer.className = 'pin_container'
 
-            let albumcard = document.createElement('img');
-            albumcard.className = 'albumcard'
-            albumcard.src=imageURL;
-            // albumcard.addEventListener("click", zoomImage(imageURL), false); //function for zoomed img
-            // let albumcard2 = document.createElement('img');
-            // albumcard2.className = 'albumcard2'
-            albumcontainer.appendChild(albumcard);
-            // albumcontainer.appendChild(albumcard2);
-            let container = document.querySelector("#myGallery");
-            container.appendChild(albumcontainer);
-        }
-        
-    }
-    function GetAllImages(){
+    //         var fileID = images[i].split("/")[5];
+    //         var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
+    //         // document.getElementById("myImage"+i).src = imageURL;
+    //         //////////TRYING TO ADD ALBUM CARDS ///////////
+    //         let albumcontainer = document.createElement('div');
+    //         albumcontainer.className = 'pin_container'
+
+    //         let albumcard = document.createElement('img');
+    //         albumcard.className = 'albumcard'
+    //         albumcard.src=imageURL;
+    //         // albumcard.addEventListener("click", zoomImage(imageURL), false); //function for zoomed img
+    //         // let albumcard2 = document.createElement('img');
+    //         // albumcard2.className = 'albumcard2'
+    //         albumcontainer.appendChild(albumcard);
+    //         // albumcontainer.appendChild(albumcard2);
+    //         let container = document.querySelector("#myGallery");
+    //         container.appendChild(albumcontainer);
+    //     //i+=1;
+    // }
+    async function GetAllImages(){
         showAlbum();
         console.log("Image getter")
-        axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
+        await axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
         .then(
             res=> images = res.data.urlsForLogedIn
             
         )
-        images.forEach(showAllImages);
+
+        for (let i = 0; i < images.length; i++) {
+            console.log(images)
+            var fileID = images[i].split("/")[5];
+            var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
+            // document.getElementById("myImage"+i).src = imageURL;
+            //////////TRYING TO ADD ALBUM CARDS ///////////
+            // let albumcontainer = document.createElement('div');
+            // albumcontainer.className = 'pin_container';
+            // albumcontainer.style.marginRight = '900px'; // add margin-right property
+            let albumcard = document.createElement('img');
+            albumcard.className = 'albumcard';
+            albumcard.src = imageURL;
+            // albumcard.addEventListener("click", zoomImage(imageURL), false); //function for zoomed img
+            // let albumcard2 = document.createElement('img');
+            // albumcard2.className = 'albumcard2'
+            //albumcontainer.appendChild(albumcard);
+            // albumcontainer.appendChild(albumcard2);
+            let container = document.querySelector("#myGallery");
+            container.appendChild(albumcard);
+            console.log(container);
+            
+        }
+
+
+        //images.forEach(showAllImages);
     }
 
     
