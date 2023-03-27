@@ -68,9 +68,8 @@ var Wednesdayslots = [];
 var Thursdayslots = [];
 var Fridayslots = [];
 var sub = false;
-
 var i = 0;
-
+var PollQuestion;
 const GeneralHomepage = (user) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [target, setTarget] = useState(null);
@@ -1348,10 +1347,13 @@ const GeneralHomepage = (user) => {
         
     }
 
+    
     function setResponse(item){
+        console.log(PollQuestion)
+
         // var str1 = event.target.id.replace ( /[^\d.]/g, '' );
         console.log("onclick value:"+item);
-        axios.post("http://localhost:9002/setResponse", {item}).then(res => {
+        axios.post("http://localhost:9002/setResponse", {item,PollQuestion}).then(res => {
             //console.log(res.error);
             swal({
                 title: "Great!",
@@ -1360,7 +1362,7 @@ const GeneralHomepage = (user) => {
                 buttons: {
                     confirm : {text:'Retry',className:'sweet-success'},
                 },
-              });
+            });
 
     })
 
@@ -1389,6 +1391,7 @@ const GeneralHomepage = (user) => {
 
     function pollsFunction(item) {
         console.log(item.question);
+        PollQuestion = item.question;
         let cardbody = document.createElement('div');
         cardbody.className = 'photo-cardbody_poll'
         let mycard = document.createElement('div');
