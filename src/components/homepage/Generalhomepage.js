@@ -44,7 +44,8 @@ import {
     FaBookOpen,
     FaMeetup,
     FaPoll, 
-    FaCalendarCheck
+    FaCalendarCheck,
+    FaUpload
   
   } from "react-icons/fa";
   import {AiOutlineLogout, AiOutlineFundView, AiFillNotification} from "react-icons/ai";
@@ -600,6 +601,7 @@ const GeneralHomepage = (user) => {
             $('#mydiv').show();
             
         });
+        hideuploadImages();
         hideSlots();
         hidePollheading();
         //hideTable();
@@ -618,6 +620,7 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#duty').show();
         });
+        hideuploadImages();
         hidePollheading();
         hideCurrent();
         hideAlbum();
@@ -646,6 +649,7 @@ const GeneralHomepage = (user) => {
         hideEvent();
         hidePass();
         hidePoll();
+        hideuploadImages();
     }
     const hideMeeting = () => {
     $(function () {
@@ -845,14 +849,15 @@ const GeneralHomepage = (user) => {
             targetDiv.style.display = "block";
           //}
           //hideDuty();
-          hidePollheading();
-          hideSlots();
-          hideTable();
-          hideCurrent();
-          hideAlbum();
-          hideEvent();
-          hideMeeting();
-          hidePoll();
+            hidePollheading();
+            hideSlots();
+            hideTable();
+            hideCurrent();
+            hideAlbum();
+            hideEvent();
+            hideMeeting();
+            hidePoll();
+            hideuploadImages();
     }
     const hidePass = () => {
         $(function () {
@@ -865,13 +870,14 @@ const GeneralHomepage = (user) => {
             $('#name').show();
         });
         //hideSlots();
-          hideTable();
-          hidePollheading();
-          hideCurrent();
-          hideAlbum();
-          hideEvent();
-          hidePass();
-          hidePoll();
+            hideTable();
+            hidePollheading();
+            hideCurrent();
+            hideAlbum();
+            hideEvent();
+            hidePass();
+            hidePoll();
+            hideuploadImages();
     }
     const hideSlots= () => {
     $(function () {
@@ -891,6 +897,7 @@ const GeneralHomepage = (user) => {
         });
         hideSlots();
         hideTable();
+        hideuploadImages();
         //hideCurrent();
         hideAlbum();
         hideEvent();
@@ -913,6 +920,7 @@ const GeneralHomepage = (user) => {
         hideSlots();
         hideTable();
         hideCurrent();
+        hideuploadImages();
         //hideAlbum();
         hideEvent();
         hidePass();
@@ -1105,6 +1113,27 @@ const GeneralHomepage = (user) => {
         container.appendChild(mycard);    
         i +=1    
     }
+    const showuploadImages = () => {
+        
+        $(function () {
+            $('#uploadImages').show();
+        });
+    hideSlots();
+    hideTable();
+    hideCurrent();
+    hideAlbum();
+    hideMeeting();
+    hideEvent();
+    hidePollheading();
+    hidePass();
+    hidePoll();
+    }
+    const hideuploadImages = () => {
+        
+        $(function () {
+            $('#uploadImages').hide();
+        });
+    }
     const showEvent = () => {
         
         $(function () {
@@ -1116,6 +1145,7 @@ const GeneralHomepage = (user) => {
     hideAlbum();
     hideMeeting();
     //hideEvent();
+    hideuploadImages();
     hidePollheading();
     hidePass();
     hidePoll();
@@ -1131,6 +1161,7 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#FPSPolls').show();
         });
+        hideuploadImages();
     // hideSlots();
 
     // hideTable();
@@ -1280,6 +1311,7 @@ const GeneralHomepage = (user) => {
         $(function () {
             $('#showpollsid').show();
         });
+        hideuploadImages();
         showPollheading()
         hideSlots();
         hideTable();
@@ -1411,6 +1443,9 @@ return (
                     
                     <button  class="nav__items" onClick={showTable}>
                             <FaGripHorizontal className="sidebaricon"/> Update Slots
+                    </button>
+                    <button  onClick={showuploadImages} class="nav__items">
+                        <FaUpload className="sidebaricon"/>       Upload Images
                     </button>
                     <button  class="nav__items" onClick={GetEvents}>
                             <FaCalendarCheck className="sidebaricon"/> FPS Events
