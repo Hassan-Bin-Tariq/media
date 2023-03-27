@@ -129,7 +129,13 @@ const StudentHomepage = (user) => {
     //         container.appendChild(albumcontainer);
     //     //i+=1;
     // }
+    var main=document.getElementById("main");
+    function showMainImage(imageURL){
+        document.getElementById("main").src = imageURL;
+    }
+    
     async function GetAllImages(){
+        $('#thumbnails').empty();
         showAlbum();
         console.log("Image getter")
         await axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
@@ -144,18 +150,34 @@ const StudentHomepage = (user) => {
             var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
             // document.getElementById("myImage"+i).src = imageURL;
             //////////TRYING TO ADD ALBUM CARDS ///////////
-            // let albumcontainer = document.createElement('div');
-            // albumcontainer.className = 'pin_container';
-            // albumcontainer.style.marginRight = '900px'; // add margin-right property
+            // let coldiv = document.createElement('img');
+            // coldiv.id = 'main';
+            // coldiv.src=imageURL;
+            // let fluidcontainer = document.createElement('div');
+            // fluidcontainer.id = 'thumbnails';
             let albumcard = document.createElement('img');
-            albumcard.className = 'albumcard';
+            albumcard.className = 'newimg';
             albumcard.src = imageURL;
+            albumcard.addEventListener("click",showMainImage(imageURL));
+            // let itemdiv = document.createElement('div');
+            // itemdiv.className = 'item';
+            // let imgdiv = document.createElement('div');
+            // imgdiv.className = 'img';
+            
+            ///////////TRY #02///////
+            
+
+            ///////////////////////////
             // albumcard.addEventListener("click", zoomImage(imageURL), false); //function for zoomed img
             // let albumcard2 = document.createElement('img');
             // albumcard2.className = 'albumcard2'
-            //albumcontainer.appendChild(albumcard);
-            // albumcontainer.appendChild(albumcard2);
-            let container = document.querySelector("#myGallery");
+            // coldiv.appendChild(albumcard);
+            // coldiv.appendChild(labeldiv);
+            // coldiv.appendChild(albumcard);
+            // fluidcontainer.appendChild(albumcard);
+            
+            let container = document.querySelector("#thumbnails");
+            // container.appendChild(coldiv);
             container.appendChild(albumcard);
             console.log(container);
             
@@ -164,7 +186,7 @@ const StudentHomepage = (user) => {
 
         //images.forEach(showAllImages);
     }
-
+    
     
 
 
@@ -198,7 +220,37 @@ const StudentHomepage = (user) => {
                     </button> */}
                     <Container className="cardBody">
                     <div className="pin_container" id="myGallery">
-                        <h2>Here are your latest updated images</h2>
+                        {/* <h2>Here are your latest updated images</h2> */}
+                        <img id="main"></img>
+                        <div id="thumbnails">
+                            {/* <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img>
+                            <img id="newimg" src={cc}></img> */}
+                        </div>
+                        {/* <div class="gallery2" id="myGallery2">
+
+                        </div> */}
+                        {/* <section class="gallery">
+                            <div class="row" id="myrow"></div>
+                        </section>
+                        <div class="overlay">
+                            <div class="viewer">
+                                <div>
+                                    <div class="alt">this image is ... </div>
+                                    <button class="close"><span class="material-symbols-rounded">close</span></button>
+                                </div>
+                                <div><img></img></div>
+                            </div>
+                        </div> */}
                         {/* <img className="albumcard" id="myImage0"></img>
                         <img className="albumcard" id="myImage1"></img>
                         <img className="albumcard" id="myImage2"></img> */}
@@ -245,10 +297,10 @@ const StudentHomepage = (user) => {
                         </div> 
                         </div> 
                         
-                        </div>
+                    </div>
                     {/* Div with card end */}
                    
-                        <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6>
+                    {/* <h6 id="copyrights" className="mt-2 p-2 text-center text-secondary ">Copyright © 2022 Team Welp FAST CFD. All Rights Reserved.</h6> */}
                     </Container>
                         
                     
