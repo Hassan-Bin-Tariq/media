@@ -1355,17 +1355,16 @@ const GeneralHomepage = (user) => {
         console.log("onclick value:"+item);
         axios.post("http://localhost:9002/setResponse", {item,PollQuestion}).then(res => {
             //console.log(res.error);
-            swal({
-                title: "Great!",
-                text: "Your response has been recorded successfully.",
-                icon: "success",
-                buttons: {
-                    confirm : {text:'Retry',className:'sweet-success'},
-                },
-            });
-
-    })
-
+        })
+        swal({
+            title: "Great!",
+            text: "Poll response has been recorded successfully.",
+            icon: "success",
+            buttons: {
+                confirm : {text:'OK',className:'sweet-success'},
+            },
+        });
+        hidePoll();
         
     }
 
