@@ -27,6 +27,167 @@
     transition: background-position 0.5s ease-out;
     
 }
+#mondayHolder3 {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+    margin-left: 100px;
+    margin-top: 80px;
+    
+  }
+  
+  /* #mondayHolder2 td, #mondayHolder2 th {
+    border: 1px solid #ddd;
+    padding: 1px;
+    
+    
+  } */
+  
+  #mondayHolder3 tr{
+    background-color: rgb(158, 150, 150);
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    /* background-color: #ff0000; */
+    width: 500px;
+    height: 20px;
+    font-family: "Montserrat";
+  }
+  
+  #mondayHolder3 th {
+    width:200px;
+    height: 20px;
+    text-align: center;
+    background-color: rgb(52, 52, 54);
+    color: white;
+    font-family: "Montserrat";
+  }
+  /* tue */
+  #tuesdayHolder3 {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+    margin-left: 100px;
+    margin-top: -1.5px;
+    
+  }
+  #tuesdayHolder3 tr{
+    /* background-color: rgb(180, 172, 172); */
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    background-color: rgb(158, 150, 150);
+    width: 500px;
+    height: 20px;
+    font-family: "Montserrat";
+  }
+  
+  #tuesdayHolder3 th {
+    width:200px;
+    height: 20px;
+    text-align: center;
+    background-color: rgb(52, 52, 54);
+    color: white;
+    font-family: "Montserrat";
+  }
+  /* wed */
+  #wednesdayHolder3 {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+    margin-left: 100px;
+    margin-top: -1.5px;
+    
+  }
+  #wednesdayHolder3 tr{
+    /* background-color: rgb(180, 172, 172); */
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    background-color: rgb(158, 150, 150);
+    width: 500px;
+    height: 20px;
+    font-family: "Montserrat";
+  }
+  
+  #wednesdayHolder3 th {
+    width:200px;
+    height: 20px;
+    text-align: center;
+    background-color: rgb(52, 52, 54);
+    color: white;
+    font-family: "Montserrat";
+  }
+  /* thur */
+  #thursdayHolder3 {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+    margin-left: 100px;
+    margin-top: -1.5px;
+    
+  }
+  #thursdayHolder3 tr{
+    /* background-color: rgb(180, 172, 172); */
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    background-color: rgb(158, 150, 150);
+    width: 500px;
+    height: 20px;
+    padding-top: 100px;
+    font-family: "Montserrat";
+  }
+  
+  #thursdayHolder3 th {
+    width:200px;
+    height: 20px;
+    text-align: center;
+    background-color: rgb(52, 52, 54);
+    color: white;
+    font-family: "Montserrat";
+  }
+  /* fri */
+  #fridayHolder3 {
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+    height: 20px;
+    margin-left: 100px;
+    margin-top: -1.5px;
+    
+  }
+  #fridayHolder3 tr{
+    /* background-color: rgb(180, 172, 172); */
+    height: 20px;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    background-color: rgb(158, 150, 150);
+    width: 200px;
+    font-family: "Montserrat";
+  }
+  
+  #fridayHolder3 th {
+    width:200px;
+    height: 20px;
+    text-align: center;
+    background-color: rgb(52, 52, 54);
+    color: white;
+    font-family: "Montserrat";
+  }
+  .slotheading{
+    font-size: 24px;
+    /* font-weight: bold; */
+    font-family: "Montserrat";
+    background-color: rgb(124, 124, 131);
+    color: #202020;
+  }
 .dayDiv:hover {
     background-position: left;
   }
@@ -38,7 +199,7 @@
     background-color: #979c90;
     /* border-radius: 50px; */
 }
-#mondayHolder
+/* #mondayHolder
 {
     
     margin-top: 15px;
@@ -110,8 +271,17 @@
     padding-top: 35px;
     height: 120px;
 }
-
-
+ */
+#f
+{
+    margin-top: 50px;
+    margin-left: 10px;
+    color: white;
+}
+#slotsTable
+{
+    margin-left: 170px;
+}
 .gbpopover strong{
     color: black;
 }

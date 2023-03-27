@@ -117,21 +117,34 @@ const GeneralHomepage = (user) => {
     const [Fridayvalue, setValueFriday] = useState();
 
     let i = 0;
+    var slotnames;
+    let k = 0;
     function slotsPrinter(slot) {
 
-        if(i === 0)
+        if(k === 0)
         {
-            let MondayWritten = document.createElement('h4')
+            // let tableHeading=document.createElement('h1')
+            // tableHeading.innerText="Students Free Slots"
+            let slotTr=document.createElement('tr')
+
+            let MondayWritten = document.createElement('th')
             MondayWritten.innerText = "Monday";
             MondayWritten.className="slotname"
-            let firstSlot = document.createElement('h5');
-            let secondslot = document.createElement('h5');
-           
-            let thirdlot = document.createElement('h5');
-            let forthslot = document.createElement('h5');
-            let fifthslot = document.createElement('h5');
-            let sixslot = document.createElement('h5');
-            let nonslot = document.createElement('h5');
+            let MondayWritten2 = document.createElement('th')
+            MondayWritten2.innerText = "Slots";
+            MondayWritten2.className="slotname"
+
+            let MondayWrittenname = document.createElement('h3')
+            MondayWrittenname.className="slotheading"
+            //MondayWrittenname.innerText ="Student: " + slotnames;
+            // MondayWrittenname.className="slotname"
+            let firstSlot = document.createElement('tr');
+            let secondslot = document.createElement('tr');
+            let thirdlot = document.createElement('tr');
+            let forthslot = document.createElement('tr');
+            let fifthslot = document.createElement('tr');
+            let sixslot = document.createElement('tr');
+            let nonslot = document.createElement('tr');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -163,34 +176,42 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-            $('#mondayHolder').empty();
-            let monday= document.querySelector("#mondayHolder");
+
             
-            monday.appendChild(MondayWritten);
-
-            monday.appendChild(firstSlot);
-            monday.appendChild(secondslot);
-            monday.appendChild(thirdlot);
-            monday.appendChild(forthslot);
-            monday.appendChild(fifthslot);
-            monday.appendChild(sixslot);
-            monday.appendChild(nonslot);
-
+            let monday= document.querySelector("#mondayHolder3");
+            slotTr.appendChild(MondayWritten);
+            slotTr.appendChild(MondayWrittenname);
+            slotTr.appendChild(firstSlot);
+            slotTr.appendChild(secondslot);
+            slotTr.appendChild(thirdlot);
+            slotTr.appendChild(forthslot);
+            slotTr.appendChild(fifthslot);
+            slotTr.appendChild(sixslot);
+            slotTr.appendChild(nonslot);
+            monday.appendChild(slotTr);
         }
 
-        else if(i === 1)
+        else if(k === 1)
         {
-            let TuesdayWritten = document.createElement('h4')
+            let slotTr=document.createElement('tr')
+
+            let TuesdayWritten = document.createElement('th')
             TuesdayWritten.innerText = "Tuesday";
-
             TuesdayWritten.className="slotname"
-            let firstSlot = document.createElement('h5');
-            let secondslot = document.createElement('h5');
-            let thirdlot = document.createElement('h5');
-            let forthslot = document.createElement('h5');
-            let fifthslot = document.createElement('h5');
-            let sixslot = document.createElement('h5');
-            let nonslot = document.createElement('h5');
+            let TuesdayWritten2 = document.createElement('th')
+            TuesdayWritten2.innerText = "Slots";
+            TuesdayWritten2.className="slotname"
+
+            let TuesdayWrittenname = document.createElement('h3')
+            TuesdayWrittenname.className="slotheading"
+            //TuesdayWrittenname.innerText ="Student: " + slotnames;
+            let firstSlot = document.createElement('tr');
+            let secondslot = document.createElement('tr');
+            let thirdlot = document.createElement('tr');
+            let forthslot = document.createElement('tr');
+            let fifthslot = document.createElement('tr');
+            let sixslot = document.createElement('tr');
+            let nonslot = document.createElement('tr');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -222,32 +243,41 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-            $('#tuesdayHolder').empty();
-            let tuesday = document.querySelector("#tuesdayHolder");
-            tuesday.appendChild(TuesdayWritten);
-            
-            tuesday.appendChild(firstSlot);
-            tuesday.appendChild(secondslot);
-            tuesday.appendChild(thirdlot);
-            tuesday.appendChild(forthslot);
-            tuesday.appendChild(fifthslot);
-            tuesday.appendChild(sixslot);
-            tuesday.appendChild(nonslot);
+
+            let tuesday= document.querySelector("#tuesdayHolder3");
+            slotTr.appendChild(TuesdayWritten);
+            slotTr.appendChild(TuesdayWrittenname);
+            slotTr.appendChild(firstSlot);
+            slotTr.appendChild(secondslot);
+            slotTr.appendChild(thirdlot);
+            slotTr.appendChild(forthslot);
+            slotTr.appendChild(fifthslot);
+            slotTr.appendChild(sixslot);
+            slotTr.appendChild(nonslot);
+            tuesday.appendChild(slotTr);
         }
 
-        else if(i === 2)
+        else if(k === 2)
         {
-            let WednesdayWritten = document.createElement('h4')
+            let slotTr=document.createElement('tr')
+
+            let WednesdayWritten = document.createElement('th')
             WednesdayWritten.innerText = "Wednesday";
-
             WednesdayWritten.className="slotname"
-            let firstSlot = document.createElement('h5');
-            let secondslot = document.createElement('h5');
-            let thirdlot = document.createElement('h5');
-            let forthslot = document.createElement('h5');
-            let fifthslot = document.createElement('h5');
-            let sixslot = document.createElement('h5');
-            let nonslot = document.createElement('h5');
+            let WednesdayWritten2 = document.createElement('th')
+            WednesdayWritten2.innerText = "Slots";
+            WednesdayWritten2.className="slotname"
+
+            let WednesdayWrittenname = document.createElement('h3')
+            WednesdayWrittenname.className="slotheading"
+            //WednesdayWrittenname.innerText ="Student: " + slotnames;
+            let firstSlot = document.createElement('tr');
+            let secondslot = document.createElement('tr');
+            let thirdlot = document.createElement('tr');
+            let forthslot = document.createElement('tr');
+            let fifthslot = document.createElement('tr');
+            let sixslot = document.createElement('tr');
+            let nonslot = document.createElement('tr');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -279,31 +309,40 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-            $('#wednesdayHolder').empty();
-            let wednesday = document.querySelector("#wednesdayHolder");
-            wednesday.appendChild(WednesdayWritten);
-            wednesday.appendChild(firstSlot);
-            wednesday.appendChild(secondslot);
-            wednesday.appendChild(thirdlot);
-            wednesday.appendChild(forthslot);
-            wednesday.appendChild(fifthslot);
-            wednesday.appendChild(sixslot);
-            wednesday.appendChild(nonslot);
+            let wednesday= document.querySelector("#wednesdayHolder3");
+            slotTr.appendChild(WednesdayWritten);
+            slotTr.appendChild(WednesdayWrittenname);
+            slotTr.appendChild(firstSlot);
+            slotTr.appendChild(secondslot);
+            slotTr.appendChild(thirdlot);
+            slotTr.appendChild(forthslot);
+            slotTr.appendChild(fifthslot);
+            slotTr.appendChild(sixslot);
+            slotTr.appendChild(nonslot);
+            wednesday.appendChild(slotTr);
         }
 
-        else if(i === 3)
+        else if(k === 3)
         {
-            let ThursdayWritten = document.createElement('h4')
+            let slotTr=document.createElement('tr')
+
+            let ThursdayWritten = document.createElement('th')
             ThursdayWritten.innerText = "Thursday";
-
             ThursdayWritten.className="slotname"
-            let firstSlot = document.createElement('h5');
-            let secondslot = document.createElement('h5');
-            let thirdlot = document.createElement('h5');
-            let forthslot = document.createElement('h5');
-            let fifthslot = document.createElement('h5');
-            let sixslot = document.createElement('h5');
-            let nonslot = document.createElement('h5');
+            let ThursdayWritten2 = document.createElement('th')
+            ThursdayWritten2.innerText = "Slots";
+            ThursdayWritten2.className="slotname"
+
+            let ThursdayWrittenname = document.createElement('h3')
+            ThursdayWrittenname.className="slotheading"
+            //ThursdayWrittenname.innerText ="Student: " + slotnames;
+            let firstSlot = document.createElement('tr');
+            let secondslot = document.createElement('tr');
+            let thirdlot = document.createElement('tr');
+            let forthslot = document.createElement('tr');
+            let fifthslot = document.createElement('tr');
+            let sixslot = document.createElement('tr');
+            let nonslot = document.createElement('tr');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -335,31 +374,41 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-            $('#thursdayHolder').empty();
-            let thursday = document.querySelector("#thursdayHolder");
-            thursday.appendChild(ThursdayWritten);
-            thursday.appendChild(firstSlot);
-            thursday.appendChild(secondslot);
-            thursday.appendChild(thirdlot);
-            thursday.appendChild(forthslot);
-            thursday.appendChild(fifthslot);
-            thursday.appendChild(sixslot);
-            thursday.appendChild(nonslot);
+
+            let thursday= document.querySelector("#thursdayHolder3");
+            slotTr.appendChild(ThursdayWritten);
+            slotTr.appendChild(ThursdayWrittenname);
+            slotTr.appendChild(firstSlot);
+            slotTr.appendChild(secondslot);
+            slotTr.appendChild(thirdlot);
+            slotTr.appendChild(forthslot);
+            slotTr.appendChild(fifthslot);
+            slotTr.appendChild(sixslot);
+            slotTr.appendChild(nonslot);
+            thursday.appendChild(slotTr);
         }
 
-        else if(i === 4)
+        else if(k === 4)
         {
-            let FridayWritten = document.createElement('h4')
-            FridayWritten.innerText = "Friday";
+            let slotTr=document.createElement('tr')
 
+            let FridayWritten = document.createElement('th')
+            FridayWritten.innerText = "Friday";
             FridayWritten.className="slotname"
-            let firstSlot = document.createElement('h5');
-            let secondslot = document.createElement('h5');
-            let thirdlot = document.createElement('h5');
-            let forthslot = document.createElement('h5');
-            let fifthslot = document.createElement('h5');
-            let sixslot = document.createElement('h5');
-            let nonslot = document.createElement('h5');
+            let FridayWritten2 = document.createElement('th')
+            FridayWritten2.innerText = "Slots";
+            FridayWritten2.className="slotname"
+
+            let FridayWrittenname = document.createElement('h3')
+            FridayWrittenname.className="slotheading"
+            FridayWrittenname.innerText =" ";
+            let firstSlot = document.createElement('tr');
+            let secondslot = document.createElement('tr');
+            let thirdlot = document.createElement('tr');
+            let forthslot = document.createElement('tr');
+            let fifthslot = document.createElement('tr');
+            let sixslot = document.createElement('tr');
+            let nonslot = document.createElement('tr');
 
             for (let j = 0; j < slot.length; j++) {
                 if(slot[j] === 1)
@@ -391,21 +440,24 @@ const GeneralHomepage = (user) => {
                     nonslot.innerText = "None";
                 }
             }
-            $('#fridayHolder').empty();
-            let friday = document.querySelector("#fridayHolder");
-            friday.appendChild(FridayWritten);
             
-            friday.appendChild(firstSlot);
-            friday.appendChild(secondslot);
-            friday.appendChild(thirdlot);
-            friday.appendChild(forthslot);
-            friday.appendChild(fifthslot);
-            friday.appendChild(sixslot);
-            friday.appendChild(nonslot);
+            let friday= document.querySelector("#fridayHolder3");
+            slotTr.appendChild(FridayWritten);
+            slotTr.appendChild(FridayWrittenname);
+            slotTr.appendChild(firstSlot);
+            slotTr.appendChild(secondslot);
+            slotTr.appendChild(thirdlot);
+            slotTr.appendChild(forthslot);
+            slotTr.appendChild(fifthslot);
+            slotTr.appendChild(sixslot);
+            slotTr.appendChild(nonslot);
+            friday.appendChild(slotTr);
         }
 
-        i+=1;
+        k+=1;
     }
+
+
 
     var studentSlots = [];
     var givenslots;
@@ -827,9 +879,15 @@ const GeneralHomepage = (user) => {
     });
     }
     const showCurrent = () => {
+        getallSlots();
         $(function () {
-            $('#currentdiv').show();
-            getallSlots();
+            $('#slotsTable').show();
+            $('#mondayHolder3').show();
+            $('#tuesdayHolder3').show();
+            $('#wednesdayHolder3').show();
+            $('#thursdayHolder3').show();
+            $('#fridayHolder3').show();
+            
         });
         hideSlots();
         hideTable();
@@ -843,6 +901,7 @@ const GeneralHomepage = (user) => {
     }
     const hideCurrent= () => {
     $(function () {
+        $('#slotsTable').hide();
         $('#currentdiv').hide();
     });
     }
@@ -1423,18 +1482,29 @@ return (
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-                    <div className="currentslotdiv" id="currentdiv">
+                    {/* <div className="currentslotdiv" id="currentdiv">
                         <div id="name">
                             <h3 className="zx">Here's your current available time slots </h3>
                         </div>
-                        {getallSlots()};
-                        {/* Holders for current slots */}
+                        {getallSlots()}; */}
+                        {/* Holders for current slots
                         <div class = "dayDiv" id='mondayHolder'></div>
                         <div class = "dayDiv" id='tuesdayHolder'></div>
                         <div class = "dayDiv" id='wednesdayHolder'></div>
                         <div class = "dayDiv" id='thursdayHolder'></div>
-                        <div class = "dayDiv" id='fridayHolder'></div>
-
+                        <div class = "dayDiv" id='fridayHolder'></div> */}
+                         {/* Holders for current slots */}
+                        {hideCurrent()}
+                        <div id='slotsTable'>
+                            <h1 id="f" color='white'>Following are your currently selected free slots.</h1>
+                        <table class = "dayDiv" id='mondayHolder3'></table>
+                        <table class = "dayDiv" id='tuesdayHolder3'></table>
+                        <table class = "dayDiv" id='wednesdayHolder3'></table>
+                        <table class = "dayDiv" id='thursdayHolder3'></table>
+                        <table class = "dayDiv" id='fridayHolder3'></table>
+                        </div>
+                        {/* end of holders */}
+                        <div id="uploadImages">
                         <button onClick={PythonForImages2}>Upload Images</button>
                         <button onClick={ONLive}>ON</button>
                         <button onClick={OFFLive}>OFF</button>
