@@ -1431,7 +1431,6 @@ return (
         </nav>
 
 
-       
          {/*////////////// */} 
             <div className="mentor-flex2">
                 
@@ -1482,18 +1481,6 @@ return (
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
-                    {/* <div className="currentslotdiv" id="currentdiv">
-                        <div id="name">
-                            <h3 className="zx">Here's your current available time slots </h3>
-                        </div>
-                        {getallSlots()}; */}
-                        {/* Holders for current slots
-                        <div class = "dayDiv" id='mondayHolder'></div>
-                        <div class = "dayDiv" id='tuesdayHolder'></div>
-                        <div class = "dayDiv" id='wednesdayHolder'></div>
-                        <div class = "dayDiv" id='thursdayHolder'></div>
-                        <div class = "dayDiv" id='fridayHolder'></div> */}
-                         {/* Holders for current slots */}
                         {hideCurrent()}
                         <div id='slotsTable'>
                             <h1 id="f" color='white'>Following are your currently selected free slots.</h1>
@@ -1505,9 +1492,11 @@ return (
                         </div>
                         {/* end of holders */}
                         <div id="uploadImages">
-                        <button onClick={PythonForImages2}>Upload Images</button>
-                        <button onClick={ONLive}>ON</button>
-                        <button onClick={OFFLive}>OFF</button>
+                        <button class="button-56" onClick={PythonForImages2}>Upload Images</button>
+                        <h3 id="g">Live Camera</h3>
+                        <button class="button-56" onClick={ONLive}>ON</button>
+                        <button class="button-56" onClick={OFFLive}>OFF</button>
+                        
                         {/* end of holders */}
                     </div>
                     <div id="mydiv" class="hidden">

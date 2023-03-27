@@ -272,11 +272,31 @@
     height: 120px;
 }
  */
+
 #f
 {
     margin-top: 50px;
     margin-left: 10px;
     color: white;
+}
+#g
+{
+    margin-top: 50px;
+    color: white;
+}
+#uploadImages
+{
+    height: 300px;
+    width: 400px;
+    border-radius: 15%;
+    padding-top: 30px;
+    padding-left: 50px;
+    margin-top: 200px;
+    background-color: rgb(36, 35, 35);
+    -webkit-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+-moz-box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+box-shadow: -1px 1px 3px 5px rgba(250, 250, 250, 0.75);
+    margin-left: 320px;
 }
 #slotsTable
 {
