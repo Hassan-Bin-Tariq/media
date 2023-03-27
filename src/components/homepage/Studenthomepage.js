@@ -120,7 +120,7 @@ const StudentHomepage = (user) => {
             let albumcard = document.createElement('img');
             albumcard.className = 'albumcard'
             albumcard.src=imageURL;
-            albumcard.addEventListener("click", zoomImage(imageURL), false);
+            // albumcard.addEventListener("click", zoomImage(imageURL), false); //function for zoomed img
             // let albumcard2 = document.createElement('img');
             // albumcard2.className = 'albumcard2'
             albumcontainer.appendChild(albumcard);
@@ -136,8 +136,9 @@ const StudentHomepage = (user) => {
         axios.post("http://localhost:9002/GetImages", {Folder:user.setLoginUser.FolderID})
         .then(
             res=> images = res.data.urlsForLogedIn
+            
         )
-        showAllImages();
+        images.forEach(showAllImages);
     }
 
     
