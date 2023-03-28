@@ -21,6 +21,7 @@ import {
     var emailbool=false;
     var passbool=false;
     var repassbool=false;
+    var numbool=false;
     //checking git
 
 const Login = ({ setLoginUser }) => {
@@ -113,11 +114,13 @@ const Login = ({ setLoginUser }) => {
         var em=document.getElementById("emails").value;
         var pas=document.getElementById("passwords").value;
         var re=document.getElementById("repasswords").value;
+        var num=document.getElementById("phones").value;
         /////pickimg out divs to color red or green/////
         var nameinput = document.getElementById('namebox');
         var emailinput = document.getElementById('emailbox');
         var passinput = document.getElementById('passbox');
         var repassinput = document.getElementById('repassbox');
+        var numinput = document.getElementById('phonebox');
         /////////////////////////////////////////////
 
         // document.querySelector('.inputBox').style.border = "red";
@@ -264,6 +267,54 @@ const Login = ({ setLoginUser }) => {
             repassbool=true;
             console.log("re:"+repassbool);
         }
+        ///// PHONE NUMBER VALIDATION
+        if(num.includes(" "))
+        {
+            document.getElementById("phoneNumber").innerHTML="* spaces not allowed";
+            document.querySelector('.phoneNumber').style.color="red";
+            numinput.style.backgroundColor = '#FFC3C3';
+            numbool=false;
+        }
+        else if(num.length <13)
+        {
+            document.getElementById("phoneNumber").innerHTML="* length must be 13 digit";
+            document.querySelector('.phoneNumber').style.color="red";
+            // console.log("pass less than 8")
+            numinput.style.backgroundColor = '#FFC3C3';
+            numbool=false;
+        }
+        else if(num.length >13)
+        {
+            document.getElementById("phoneNumber").innerHTML="* incorrect length";
+            document.querySelector('.phoneNumbery').style.color="red";
+            // console.log("pass less than 8")
+            numinput.style.backgroundColor = '#FFC3C3';
+            numbool=false;
+        }
+        
+        else if(!num.startsWith("+92") )
+        {
+            document.getElementById("phoneNumber").innerHTML="* number must start with +92";
+            document.querySelector('.phoneNumber').style.color="red";
+            numinput.style.backgroundColor = '#FFC3C3';
+            numbool=false;
+        }
+        else if(NaN(num) )
+        {
+            document.getElementById("phoneNumber").innerHTML="* must be digits only";
+            document.querySelector('.phoneNumber').style.color="red";
+            numinput.style.backgroundColor = '#FFC3C3';
+            numbool=false;
+        }
+        else if(!num.length<13 && !num.length>13 && !num.includes(" ")&& num.startsWith("+92")&& !NaN(num))
+        {
+            document.getElementById("phoneNumber").innerHTML="Contact Number accepted";
+            document.querySelector('.phoneNumber').style.color="green";
+            // console.log("pass less than 8")
+            numinput.style.backgroundColor = '#CCD6A6';
+            numbool=true;
+            // console.log("pass:"+passbool);
+        }
 
         // NAME VALIDATIONS //
         // if(name==="name" && !value.includes(" ") && !value.includes(".") && !value.includes("/") && value.length>=3 && isNaN(value) )
@@ -313,8 +364,8 @@ const Login = ({ setLoginUser }) => {
 
     const register = () => {
         const { name, email, password, reEnterPassword, Duty,FolderID,PhoneNumber } = userReg
-        console.log("checking my bools"+namebool+emailbool+passbool+repassbool)
-        if (namebool===true && emailbool===true && passbool===true && repassbool===true) {
+        console.log("checking my bools"+namebool+emailbool+passbool+repassbool+numbool)
+        if (namebool===true && emailbool===true && passbool===true && repassbool===true && numbool===true) {
             axios.post("http://localhost:9002/register", userReg)
                 .then(
                     res => alert(res.data.message),
@@ -442,7 +493,7 @@ const Login = ({ setLoginUser }) => {
                         <input class="nameinput" type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
                         <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
                     </div>
-                    <div id="phone" class="inputBox_up" style={{border : "3px solid #555"}}>
+                    <div id="phonebox" class="inputBox_up" style={{border : "3px solid #555"}}>
                         {/* <i class='bx bxs-user'></i> */}
                         <input class="nameinput" type="phone" id="phones" name="PhoneNumber" value={userReg.PhoneNumber} placeholder="Phone Number" onChange={handleRegChange} />
                         <span class="phoneNumber" id="phoneNumber" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
