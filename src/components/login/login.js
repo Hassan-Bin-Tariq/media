@@ -127,6 +127,7 @@ const Login = ({ setLoginUser }) => {
         ///// NAME VALIDATIONS ////////
         var NumInName = na.replace ( /[^\d.]/g, '' );
         console.log(NumInName)
+        console.log(num.length)
         if(na==="")
         {
             document.getElementById("namespan").innerHTML="* please fill name field";
@@ -299,13 +300,13 @@ const Login = ({ setLoginUser }) => {
             numinput.style.backgroundColor = '#FFC3C3';
             numbool=false;
         }
-        else if(NaN(num) )
-        {
-            document.getElementById("phoneNumber").innerHTML="* must be digits only";
-            document.querySelector('.phoneNumber').style.color="red";
-            numinput.style.backgroundColor = '#FFC3C3';
-            numbool=false;
-        }
+        // else if(NaN(num) )
+        // {
+        //     document.getElementById("phoneNumber").innerHTML="* must be digits only";
+        //     document.querySelector('.phoneNumber').style.color="red";
+        //     numinput.style.backgroundColor = '#FFC3C3';
+        //     numbool=false;
+        // }
         else if(num.includes(".")||num.includes(",")||num.includes("*")||num.includes("/")||num.includes("$")||num.includes("@")||num.includes("#")||num.includes("%")||num.includes("^")||num.includes("&")||num.includes("(")||num.includes(")")||num.includes("{")||num.includes("}"))
         {
             document.getElementById("phoneNumber").innerHTML="* special characters not allowed";
@@ -313,8 +314,10 @@ const Login = ({ setLoginUser }) => {
             numinput.style.backgroundColor = '#FFC3C3';
             numbool=false;
         }
-        else if(!num.length<14 && !num.length>14 && !num.includes(" ")&& num.startsWith("+92")&& !NaN(num))
+        // && !NaN(num)
+        else if(num.length === 13 && !num.includes(" ")&& num.startsWith("+92"))
         {
+            console.log("INSIDE")
             document.getElementById("phoneNumber").innerHTML="Contact Number accepted";
             document.querySelector('.phoneNumber').style.color="green";
             // console.log("pass less than 8")
