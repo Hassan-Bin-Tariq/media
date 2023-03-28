@@ -130,8 +130,11 @@ const StudentHomepage = (user) => {
     //     //i+=1;
     // }
     var main=document.getElementById("main");
-    function showMainImage(imageURL){
+    var imageURL;
+    var fileID;
+    function showMainImage(imageURL,i){
         document.getElementById("main").src = imageURL;
+        console.log("this is image number: "+i +" "+ imageURL);
     }
     
     async function GetAllImages(){
@@ -146,8 +149,8 @@ const StudentHomepage = (user) => {
 
         for (let i = 0; i < images.length; i++) {
             console.log(images)
-            var fileID = images[i].split("/")[5];
-            var imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
+            fileID = images[i].split("/")[5];
+            imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
             // document.getElementById("myImage"+i).src = imageURL;
             //////////TRYING TO ADD ALBUM CARDS ///////////
             // let coldiv = document.createElement('img');
@@ -158,7 +161,8 @@ const StudentHomepage = (user) => {
             let albumcard = document.createElement('img');
             albumcard.className = 'newimg';
             albumcard.src = imageURL;
-            albumcard.addEventListener("click",showMainImage(imageURL));
+            // albumcard.addEventListener("click",showMainImage(imageURL),false);
+            albumcard.addEventListener("click", function() {showMainImage(imageURL,i)}, true);
             // let itemdiv = document.createElement('div');
             // itemdiv.className = 'item';
             // let imgdiv = document.createElement('div');
