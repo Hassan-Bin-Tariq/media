@@ -403,53 +403,55 @@ const Login = ({ setLoginUser }) => {
                         <a href="/try" class="home_icon_signup"><FaHome />
                         <i class='bx bxl-linkedin'></i>
                         </a>
-                    {/* <div class="inputImage">
-                        <label >Upload Picture</label>
-                        <br></br>
-                        <input type="file" accept="image/*" onChange={loadFile} />
-                        <img id = "output"/>
-                    </div>*/}
-                    
+                        <div class="inputImage">
+                            <label className="inputLabel">Upload profile picture</label>
+                            {/* <br></br> */}
+                            
+                            {/* <input type="file" accept="image/*" onChange={loadFile} /> */}
+                            
+                            <img  id = "output"/>
+                            <button onClick={PythonTrigger} className="btnclickme">Upload</button>
+                                {/* <label >Upload Picture</label>
+                            <br></br>
+                            <input type="file" accept="image/*" onChange={loadFile} />
+                            <img id = "output"/> */}
+                        </div>
+                        <h2 class="title_up">Sign Up</h2>
                     </div> 
                     
-                    <h2 class="title">Sign Up</h2>
-                    <div id="namebox" class="inputBox" style={{border : "3px solid #555"}}>
-                        <i class='bx bxs-user'></i>
-                        <input type="text" name="name" id="names" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
-                        <span class="namespan"id="namespan" style={{color: "red", fontSize: "12px"}}></span><br></br>
-                    </div>
-
-                    <div id="emailbox" class="inputBox" style={{border : "3px solid #555"}}>
-                        <i class='bx bxs-user'></i>
-                        <input type="email" name="email" id="emails" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
-                        <span class="emailspan" id="emailspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
-                    </div>
-
-                    <div id="passbox" class="inputBox" style={{border : "3px solid #555"}}>
-                        <i class='bx bxs-user'></i>
-                        <input type="password" name="password" id="passwords" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
-                        <span class="passwordspan" id="passwordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
-                    </div>
-                    <div id="repassbox" class="inputBox" style={{border : "3px solid #555"}}>
-                        <i class='bx bxs-user'></i>
-                        <input type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
-                        <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px"}}></span><br></br>
-                    </div>
-                    <div id="phone" class="inputBox" style={{border : "3px solid #555"}}>
-                        <i class='bx bxs-user'></i>
-                        <input type="phone" id="phones" name="PhoneNumber" value={userReg.PhoneNumber} placeholder="Phone Number" onChange={handleRegChange} />
-                        <span class="phoneNumber" id="phoneNumber" style={{color: "red", fontSize: "12px"}}></span><br></br>
-                    </div>
-
-                    <label >Upload profile picture</label>
-                    <br></br>
-                    <button onClick={PythonTrigger}>Click Me</button>
-                    {/* <input type="file" accept="image/*" onChange={loadFile} /> */}
                     
-                    <img  id = "output"/>                    
+                    <div id="namebox" class="inputBox_up" style={{border : "3px solid #555"}}>
+                        {/* <i class='bx bxs-user'></i> */}
+                        <input class="nameinput" type="text" name="name" id="names" value={userReg.name} placeholder="Username" onChange={handleRegChange} />
+                        <span class="namespan"id="namespan" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
+                    </div>
+
+                    <div id="emailbox" class="inputBox_up" style={{border : "3px solid #555"}}>
+                        {/* <i class='bx bxs-user'></i> */}
+                        <input class="nameinput" type="email" name="email" id="emails" value={userReg.email} placeholder="Email" onChange={handleRegChange} />
+                        <span class="emailspan" id="emailspan" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
+                    </div>
+
+                    <div id="passbox" class="inputBox_up" style={{border : "3px solid #555"}}>
+                        {/* <i class='bx bxs-user'></i> */}
+                        <input class="nameinput" type="password" name="password" id="passwords" value={userReg.password} placeholder="Password" onChange={handleRegChange} />
+                        <span class="passwordspan" id="passwordspan" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
+                    </div>
+                    <div id="repassbox" class="inputBox_up" style={{border : "3px solid #555"}}>
+                        {/* <i class='bx bxs-user'></i> */}
+                        <input class="nameinput" type="password" id="repasswords" name="reEnterPassword" value={userReg.reEnterPassword} placeholder="Re-enter Password" onChange={handleRegChange} />
+                        <span class="repasswordspan" id="repasswordspan" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
+                    </div>
+                    <div id="phone" class="inputBox_up" style={{border : "3px solid #555"}}>
+                        {/* <i class='bx bxs-user'></i> */}
+                        <input class="nameinput" type="phone" id="phones" name="PhoneNumber" value={userReg.PhoneNumber} placeholder="Phone Number" onChange={handleRegChange} />
+                        <span class="phoneNumber" id="phoneNumber" style={{color: "red", fontSize: "12px",marginTop:"50px"}}></span><br></br>
+                    </div>
+
+                                       
 
                     <input type="submit" value="Sign up" class="signupbtn" onClick={register} />
-                    <p class="social_text">Or Sign up with social platforms</p>
+                    {/* <p class="social_text">Or Sign up with social platforms</p>
 
                     <div class="social_media">
                     <a href="#" class="social_icon" ><FaFacebook /><i class='bx bxl-facebook'></i></a>
@@ -461,7 +463,7 @@ const Login = ({ setLoginUser }) => {
                     <a href="#" class="social_icon"><FaLinkedin /><i class='bx bxl-linkedin'></i></a>
 
 
-                    </div>
+                    </div>  */}
                 </div>
             </div>
         </div>
