@@ -306,7 +306,14 @@ const Login = ({ setLoginUser }) => {
             numinput.style.backgroundColor = '#FFC3C3';
             numbool=false;
         }
-        else if(!num.length<13 && !num.length>13 && !num.includes(" ")&& num.startsWith("+92")&& !NaN(num))
+        else if(num.includes(".")||num.includes(",")||num.includes("*")||num.includes("/")||num.includes("$")||num.includes("@")||num.includes("#")||num.includes("%")||num.includes("^")||num.includes("&")||num.includes("(")||num.includes(")")||num.includes("{")||num.includes("}"))
+        {
+            document.getElementById("phoneNumber").innerHTML="* special characters not allowed";
+            document.querySelector('.phoneNumber').style.color="red";
+            numinput.style.backgroundColor = '#FFC3C3';
+            numbool=false;
+        }
+        else if(!num.length<14 && !num.length>14 && !num.includes(" ")&& num.startsWith("+92")&& !NaN(num))
         {
             document.getElementById("phoneNumber").innerHTML="Contact Number accepted";
             document.querySelector('.phoneNumber').style.color="green";
