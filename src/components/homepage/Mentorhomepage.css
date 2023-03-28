@@ -853,12 +853,13 @@ h2
 /* NEW SIDEBAR CSS */
 .nav__cont {
   position: fixed;
+  overflow-y: auto;
   width: 60px;
   top:0;
   height: 100vh;
   z-index: 100;
   background-color: #202020;
-  overflow:hidden;
+  /* overflow:hidden; */
   transition:width .3s ease;
   cursor:pointer;
   box-shadow:4px 7px 10px rgba(0,0,0,.4);
@@ -873,6 +874,8 @@ h2
 } */
 
 .nav_one {
+  overflow-y: auto;
+  overflow-x: hidden;
   list-style-type: none;
   color:white;
   /* padding-top: 100px;
