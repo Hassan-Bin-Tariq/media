@@ -17,7 +17,7 @@ describe("App.js", () => {
     await page.waitForSelector(".form-header");
 
     await page.click(".form-input__email");
-    await page.type(".form-input__email", "username@gmail.com");
+    await page.type(".form-input__email", "username@nu.edu.pk");
 
     await page.click(".form-input__password");
     await page.type(".form-input__password", "password");
@@ -38,7 +38,7 @@ describe("App.js", () => {
     await page.waitForSelector(".form-header");
 
     await page.click(".form-input__email");
-    await page.type(".form-input__email", "username@gmail.com");
+    await page.type(".form-input__email", "username@nu.edu.pk");
 
     await page.click(".form-input__password");
     await page.type(".form-input__password", "password123");
