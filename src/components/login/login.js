@@ -470,7 +470,7 @@ const Login = ({ setLoginUser }) => {
                             
                             {/* <input type="file" accept="image/*" onChange={loadFile} /> */}
                             
-                            <img  id = "output"/>
+                            <img className="img_up" id = "output"/>
                             <button onClick={PythonTrigger} className="btnclickme">Upload</button>
                                 {/* <label >Upload Picture</label>
                             <br></br>
