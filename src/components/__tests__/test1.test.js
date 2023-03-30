@@ -53,6 +53,21 @@ describe("App.js", () => {
 
   afterAll(() => browser.close());
 });
+describe(<SignUp/>, () => {
+
+    
+  
+    test('Switch state works correctly', async () => {
+      render( <About/> )
+  
+      expect(screen.getByText("SignUp")).toBeInTheDocument()
+      userEvent.click(screen.getByText('User Signed Up sucessfully'))
+      expect(screen.getByText("username@nu.edu.pk")).toBeInTheDocument()
+      userEvent.click(screen.getByText('You can signin now'))
+      expect(screen.getByText("passowrd123")).toBeInTheDocument()
+    })
+  
+  })
 
 //testing login
 test('should render the foven component', () =>
