@@ -230,10 +230,18 @@ const TeacherHomepage = (user) => {
 
     
     }
-
+    var main=document.getElementById("main");
     var imageURL;
     var fileID;
-    function showMainImage(imageURL,i){
+    function showMainImage(images,i){
+        
+        var temp;
+
+            fileID = images[i].split("/")[5];
+            imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
+            console.log(imageURL)
+
+
         document.getElementById("main").src = imageURL;
         console.log("this is image number: "+i +" "+ imageURL);
     }
@@ -262,7 +270,7 @@ const TeacherHomepage = (user) => {
             albumcard.className = 'newimg';
             albumcard.src = imageURL;
             // albumcard.addEventListener("click",showMainImage(imageURL),false);
-            albumcard.addEventListener("click", function() {showMainImage(imageURL,i)}, true);
+            albumcard.addEventListener("click", function() {showMainImage(images,i)}, true);
             // let itemdiv = document.createElement('div');
             // itemdiv.className = 'item';
             // let imgdiv = document.createElement('div');
@@ -452,42 +460,42 @@ const TeacherHomepage = (user) => {
                     </button> */}
                     {/* Div with card */}   
                     <Container className="cardBody">
-                    <div className="pin_container" id="myGallery">
-                        {/* <h2>Here are your latest updated images</h2> */}
-                        <img id="main"></img>
-                        <div id="thumbnails">
-                            {/* <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img>
-                            <img id="newimg" src={cc}></img> */}
-                        </div>
-                        {/* <div class="gallery2" id="myGallery2">
-
-                        </div> */}
-                        {/* <section class="gallery">
-                            <div class="row" id="myrow"></div>
-                        </section>
-                        <div class="overlay">
-                            <div class="viewer">
-                                <div>
-                                    <div class="alt">this image is ... </div>
-                                    <button class="close"><span class="material-symbols-rounded">close</span></button>
-                                </div>
-                                <div><img></img></div>
+                        <div className="pin_container" id="myGallery">
+                            {/* <h2>Here are your latest updated images</h2> */}
+                            <img id="main"></img>
+                            <div id="thumbnails">
+                                {/* <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img>
+                                <img id="newimg" src={cc}></img> */}
                             </div>
-                        </div> */}
-                        {/* <img className="albumcard" id="myImage0"></img>
-                        <img className="albumcard" id="myImage1"></img>
-                        <img className="albumcard" id="myImage2"></img> */}
-                    </div>
+                            {/* <div class="gallery2" id="myGallery2">
+
+                            </div> */}
+                            {/* <section class="gallery">
+                                <div class="row" id="myrow"></div>
+                            </section>
+                            <div class="overlay">
+                                <div class="viewer">
+                                    <div>
+                                        <div class="alt">this image is ... </div>
+                                        <button class="close"><span class="material-symbols-rounded">close</span></button>
+                                    </div>
+                                    <div><img></img></div>
+                                </div>
+                            </div> */}
+                            {/* <img className="albumcard" id="myImage0"></img>
+                            <img className="albumcard" id="myImage1"></img>
+                            <img className="albumcard" id="myImage2"></img> */}
+                        </div>
                         <div id="eventForm" style={{marginTop:"20px"}}>
                         <Row className="mt-2 text-center">
                             <h2  id="meetingheading">Generate Event Request</h2>
