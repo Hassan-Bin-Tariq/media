@@ -132,7 +132,15 @@ const StudentHomepage = (user) => {
     var main=document.getElementById("main");
     var imageURL;
     var fileID;
-    function showMainImage(imageURL,i){
+    function showMainImage(images,i){
+        
+        var temp;
+
+            fileID = images[i].split("/")[5];
+            imageURL = "https://drive.google.com/uc?export=view&id=" + fileID;
+            console.log(imageURL)
+
+
         document.getElementById("main").src = imageURL;
         console.log("this is image number: "+i +" "+ imageURL);
     }
@@ -162,7 +170,7 @@ const StudentHomepage = (user) => {
             albumcard.className = 'newimg';
             albumcard.src = imageURL;
             // albumcard.addEventListener("click",showMainImage(imageURL),false);
-            albumcard.addEventListener("click", function() {showMainImage(imageURL,i)}, true);
+            albumcard.addEventListener("click", function() {showMainImage(images,i)}, true);
             // let itemdiv = document.createElement('div');
             // itemdiv.className = 'item';
             // let imgdiv = document.createElement('div');
