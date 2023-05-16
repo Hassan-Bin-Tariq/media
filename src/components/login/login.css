@@ -167,9 +167,13 @@ h3
     width: 200px;
     height: 100px;
     margin-top: 50px;
-    margin-left: -80px;
+    margin-left: -100px;
     color: #444;
     /* margin-bottom: 10px; */
+  }
+  .img_up{
+    border : 3px solid #555;
+    margin-left: 10px;
   }
   .inputBox{
     max-width: 380px;
@@ -639,6 +643,7 @@ h3
     width: 100px;
     height: 45px;
     margin-top: 20px;
+    margin-left: 15px;
     background-color: #333;
     font-family: "Montserrat";
   }

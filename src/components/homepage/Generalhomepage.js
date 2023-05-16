@@ -597,6 +597,7 @@ const GeneralHomepage = (user) => {
         setZip(allSlots);
     }   
     const showTable = () => {
+
         $(function () {
             $('#mydiv').show();
             
@@ -1519,6 +1520,7 @@ return (
                         </div>
                         <p>Stay tuned for more personalized content!</p>
                     </div>
+                    {hideTable()}
                         {hideCurrent()}
                         <div id='slotsTable'>
                             <h1 id="f" color='white'>Following are your currently selected free slots.</h1>
@@ -1537,7 +1539,7 @@ return (
                         
                         {/* end of holders */}
                     </div>
-                    <div id="mydiv" class="hidden">
+                    <div id="mydiv">
                                 <Row className="sm-3 text-center">
                                         <h2 className='slots-h2'>Select desired available slots of the Week</h2>
                                         <Table className='duty-table'>
