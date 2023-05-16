@@ -42,6 +42,7 @@ const Login = ({ setLoginUser }) => {
             [name]: value
         })
     }
+    const mail= 'fps.cfd@nu.edu.pk'
     const login = () => {
         setLoginUser(null);
         axios.post("http://localhost:9002/login", user)
@@ -443,12 +444,12 @@ const Login = ({ setLoginUser }) => {
                     </div>
 
                     <btn  type="submit" value="Login" class="newbtn2" onClick={login}>Login</btn>
-                    <p class="social_text">Or Sign in with social platforms</p>
+                    <p class="social_text">Explore our social media platforms</p>
 
                     <div class="social_media">
-                        <a href="#" class="social_icon" ><FaFacebook  /><i class='bx bxl-facebook'></i></a>
+                        <a href="https://www.facebook.com/FPSfsd?mibextid=LQQJ4d" class="social_icon" ><FaFacebook  /><i class='bx bxl-facebook'></i></a>
 
-                        <a href="#" class="social_icon"><FaGoogle /><i class='bx bxl-google'></i></a>
+                        <a href={`mailto:${mail}`} class="social_icon"><FaGoogle /><i class='bx bxl-google'></i></a>
 
                         <a href="#" class="social_icon"><FaTwitter /><i class='bx bxl-twitter'></i></a>
 
