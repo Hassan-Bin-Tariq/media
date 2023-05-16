@@ -39,6 +39,7 @@ const Try = ({ setLoginUser }) => {
         setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     },[]);
     //asd
+    const mail= 'fps.cfd@nu.edu.pk'
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -230,7 +231,7 @@ const Try = ({ setLoginUser }) => {
                                 performance. Our team believes in versatility and skillul 
                                 execution. Results, only the best moments captured and delivered
                                 on time.</p>
-                            <a href="#" class="btn">Contact Us</a>
+                            <a href={`mailto:${mail}`} class="btn">Contact Us</a>
                         </div>
                     </div>
                 </div>
