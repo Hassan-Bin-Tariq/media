@@ -986,7 +986,7 @@ const GeneralHomepage = (user) => {
         })
     }
     function PythonForImages2(){
-            axios.post(`http://localhost:5000/UploadImagesPKL`) // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
+            axios.post(`http://localhost:5000/UploadImagesPKL`,Name) // SIGNED UP USERS KA DATA PYTHON MA BHEJ DIA FR K LIA
             .then(response => 
                 UploadToDrive(response.data)
                 //console.log(response.data)
