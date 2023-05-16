@@ -1461,7 +1461,7 @@ return (
                         <FaUserEdit className="sidebaricon"/>       Edit Profile
                     </button>
                     <button  onClick={showMeetings} class="nav__items">
-                        <FaMeetup className="sidebaricon"/>       Check Meeting
+                        <FaMeetup className="sidebaricon"/>       Check Meetings
                     </button>
                     <button class="nav__items" id ="sleek" onClick={() => history.push("/login")}>
                         <AiOutlineLogout className="sidebaricon"/>   Logout</button>
